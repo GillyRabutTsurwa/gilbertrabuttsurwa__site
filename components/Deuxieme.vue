@@ -1,11 +1,6 @@
 <template>
   <section class="slider">
-    <h4 class="slider__title">When I'm bored I
-      <span class="dot dot-one">.</span>
-      <span class="dot dot-two">.</span>
-      <span class="dot dot-three">.</span>
-    </h4>
-    <div class="slider__container">
+    <div @click="openFlexSliders" class="slider__container" ref="sliderRef">
       <div class="slide">
         <div class="content">
           <h2>Reading (Code)</h2>
@@ -63,7 +58,28 @@
 
 <script>
 export default {
-
+    data() {
+        return {
+ 
+        }
+    },
+    methods: {
+        // NOTE: Remindeer - we implicitly have access to e, quand on fait des evenments.
+        openFlexSliders(e) {
+            console.log(e);
+            console.log(this.$refs.sliderRef.children)
+            let flexSliders = [...this.$refs.sliderRef.children];
+            flexSliders.forEach((currentSlide) => {
+                currentSlide.classList.remove("open");
+            });
+            if (e.target.classList.contains("slide")) {
+                e.target.classList.toggle("open");
+            }
+        }
+    },
+    mounted() {
+        // console.log(this.parentOfSlides);
+    }
 }
 </script>
 
@@ -72,17 +88,9 @@ export default {
   width: 100%;
   height: 100%;
 
-  &__title {
-    height: 10vh;
-    font-size: 3rem;
-    text-align: center;
-
-    padding: 2rem 0;
-  }
-
   &__container {
     width: 100%;
-    height: 86vh;
+    height: 100vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -98,7 +106,7 @@ export default {
       overflow: hidden;
       -webkit-transition: all 0.5s ease-in-out;
       transition: all 0.5s ease-in-out;
-      // background-color: #1a2934;
+      //   background-color: #1a2934;
       cursor: pointer;
 
       &:nth-child(1) {

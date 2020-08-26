@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <transition name="fade" mode="out-in">
+    <transition name="appear" mode="out-in">
       <component v-bind:is="component">
       </component>
     </transition>
@@ -50,6 +50,10 @@ export default {
   letter-spacing: 1px;
 }
 
+.appear-enter-active {
+  animation: appear 1s;
+}
+
 .subtitle {
   font-weight: 300;
   font-size: 42px;
@@ -60,5 +64,11 @@ export default {
 
 .links {
   padding-top: 15px;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
 }
 </style>

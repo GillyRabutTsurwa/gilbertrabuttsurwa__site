@@ -26,23 +26,27 @@ export default {
             //     require("../assets/img/autoportrait-dessin-test.png")
             // ],
             // container: document.querySelector(".intro-n-autoportrait"),
-            observerOptions: {
-                rootMargin: "525px 0px 0px 0px"
-            },
-            myObserver: new IntersectionObserver((entries, observerFirstSection) => {
-                entries.forEach((currentEntry) => {
-                    if (currentEntry.isIntersecting) {
-                        console.log(currentEntry);
-                    }
-                })
-            }, this.observerOptions)
         }
     },
     computed: {
       
     },
     mounted() {
-        this.myObserver.observe(document.querySelector(".intro-n-autoportrait"));
+        // NOTE: Failed. Je vais y revenir.
+        // const observerOptions = {
+        //         // root: document.querySelector("#app"), 
+        //         rootMargin: "100px 0px 0px 0px",
+        //         threshold: 0
+        // };
+        // const myObserver = new IntersectionObserver((entries) => {
+        //     entries.forEach((currentEntry) => {
+        //         if (currentEntry.isIntersecting) {
+        //             console.log(currentEntry);
+        //             currentEntry.target.style.fontWeight = "bolder";
+        //         }
+        //     })
+        // }, observerOptions)
+        // myObserver.observe(document.querySelector(".intro-n-autoportrait"));
     }
 }
 </script>
@@ -56,7 +60,7 @@ export default {
   & .autoportrait {
     margin-top: -6rem;
     justify-self: center;
-    align-self: center;
+    align-self: end;
     width: 100%;
     height: 100%;
 
