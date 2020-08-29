@@ -1,0 +1,19 @@
+<template>
+  <div>
+    <h4>Weocome to the projects page</h4>
+    <Showcase />
+  </div>
+</template>
+
+<script>
+import Showcase from "../../components/Showcase";
+export default {
+  name: "Projects",
+  components: {
+    Showcase: Showcase,
+  },
+};
+</script>
+
+<style>
+</style> 

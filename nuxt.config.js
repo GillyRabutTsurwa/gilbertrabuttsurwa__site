@@ -32,6 +32,15 @@ export default {
 				rel: "stylesheet",
 				href: "https://cdn.jsdelivr.net/gh/konpa/devicon@master/devicon.min.css"
 			}
+		],
+		script: [
+			{
+				src: "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+			},
+			{
+				src: "https://kit.fontawesome.com/7a26a17053.js",
+				crossorigin: "anonymous"
+			}
 		]
 	},
 	/*

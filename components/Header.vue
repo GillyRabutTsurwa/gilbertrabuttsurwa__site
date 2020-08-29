@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <!-- <i id="devicon"></i> -->
+    <i id="devicon"></i>
     <div class="header__title">
       <div class="header__title--primary">Gilbert<span>Tsurwa</span></div>
       <!-- <button class="header__button">
@@ -10,9 +10,12 @@
         <!-- NOTE: data-words must be single quotes. IMPORTANT: -->
         <span class="text-type" data-wait="3000" data-words='["Developper", "Designer", "Creator", "Food Enthusiast"]'></span>
       </div>
-      <a href="https://gilbertrabuttsurwa-projects-showcase.netlify.com/" target="_blank" class="header__button">
+      <!-- <a href="https://gilbertrabuttsurwa-projects-showcase.netlify.com/" target="_blank" class="header__button">
         All my Projects
-      </a>
+      </a> -->
+      <nuxt-link to="/projects" class="header__button">
+        All my Projects
+      </nuxt-link>
     </div>
     <!-- SUBSECTION: gallery -->
     <div class="header__slider">
@@ -31,27 +34,59 @@
 
 <script>
 export default {
-    methods: {
-        nextSlide() {  
-	const slides = document.querySelectorAll(".header__slider--slide");
-	const current = document.querySelector(".current");
-	let nextImage = current.nextElementSibling;
- 
-	current.classList.remove("current");
-	if (nextImage) {
-		nextImage.classList.add("current");
-	}
-	else {
-		slides[0].classList.add("current");
-	}
-	setTimeout(() => current.classList.remove("current"));
-    }
+  methods: {
+    nextSlide() {
+      const slides = document.querySelectorAll(".header__slider--slide");
+      const current = document.querySelector(".current");
+      let nextImage = current.nextElementSibling;
+
+      current.classList.remove("current");
+      if (nextImage) {
+        nextImage.classList.add("current");
+      } else {
+        slides[0].classList.add("current");
+      }
+      setTimeout(() => current.classList.remove("current"));
     },
-    mounted() {
-        setInterval(this.nextSlide, 5000);
-    }
-        
-}
+    iconChange() {
+      let icon = document.querySelector("#devicon");
+
+      let iconArray = [
+        "html5-plain",
+        "css3-plain",
+        "javascript-plain",
+        "vuejs-plain",
+        "bootstrap-plain",
+        "sass-original",
+        "jquery-plain",
+        "nodejs-plain",
+        "express-original-wordmark",
+        "mongodb-plain-wordmark",
+        "git-plain",
+        "github-plain",
+        "webpack-plain",
+        "babel-plain",
+        "heroku-original-wordmark",
+        "gulp-plain",
+      ];
+
+      const oneByOne = () => {
+        iconArray.forEach((currentIcon, index) => {
+          setInterval(() => {
+            icon.setAttribute("class", `devicon-${currentIcon}`);
+          }, 3800 * (index + 1));
+        });
+      };
+      oneByOne();
+    },
+  },
+  mounted() {
+    setTimeout(() => {
+      setInterval(this.nextSlide, 5000);
+    }, 3800);
+    this.iconChange();
+  },
+};
 </script>
 
 <style lang="scss">
@@ -59,6 +94,18 @@ export default {
   height: 100vh; // on le ramene
   width: 100%;
   position: relative;
+
+  & #devicon {
+    display: block;
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+    font-size: 9.5rem;
+    z-index: 1000;
+    color: #1a2934;
+    -webkit-animation: fade 3800ms ease-in-out infinite;
+    animation: fade 3800ms ease-in-out infinite;
+  }
 
   &__title {
     position: absolute;
@@ -87,17 +134,29 @@ export default {
     }
   }
 
-  //   & #devicon {
-  //     display: block;
-  //     position: absolute;
-  //     top: 3rem;
-  //     left: 3rem;
-  //     font-size: 9.5rem;
-  //     z-index: 1000;
-  //     color: #1a2934;
-  //     -webkit-animation: fade 3800ms ease-in-out infinite;
-  //     animation: fade 3800ms ease-in-out infinite;
-  //   }
+  // NOTE: Je vais ce deplacer
+  &__button {
+    display: inline-block;
+    border: 2px solid #000;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 1.5rem 3rem;
+    margin-top: 3rem;
+    background-color: #1a2934;
+    cursor: pointer;
+
+    // &:focus {
+    // 	outline: none;
+    // }
+
+    &:hover {
+      background-color: #fff;
+      color: #1a2934;
+    }
+  }
 
   &__slider {
     height: 100%;
@@ -163,6 +222,35 @@ export default {
         background-position-y: 100%;
       }
     }
+  }
+}
+
+// Fade animation
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 }
 </style>

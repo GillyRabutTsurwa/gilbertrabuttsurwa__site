@@ -1,9 +1,15 @@
 <template>
   <div class="intro-n-autoportrait">
     <div class="intro">
-      <h2>TITLE GOES HERE</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas architecto magnam dolore autem odio labore assumenda facilis blanditiis aperiam, fuga eveniet sed nisi dolor veritatis nihil nemo possimus, necessitatibus reprehenderit?
+      <h2 class="intro__title">Introduction</h2>
+      <p class="intro__paragraph">
+        Front-end web developer, currently working for my uncles company, Aeonnova Consulting as an intern. I specialise in front-end web development. Particularly with Vanilla Javascript and the Vue framework. I am learning React and Svelte on the side. I am very interested in front-end JavaScript frameworks. I am confident and capable, but I have a lot to learn.
+      </p>
+      <p class="intro__paragraph deuxieme">
+        Whilst making front-end development my craft, I later decided to do the same with UI/UX design. I am therefore currently learning this using Adobe XD, with the keen intent on adeptly designing full interfaces for web and mobile - on top of coding them - in 6 to 8 months.
+      </p>
+      <p class="intro__paragraph deuxieme">
+        Yes, I do have a life outside coding. To find out what I do when I'm not coding or designing, checkout the slider below.
       </p>
     </div>
     <div class="autoportrait">
@@ -17,38 +23,36 @@
 
 <script>
 export default {
-    data() {
-        return {
-            myPhoto: require("../assets/img/autoportrait-croquis.png"),
-            // NOTE: WILL USE LATER WELL I FIGURE OUT
-            // myPhotos: [
-            //     require("../assets/img/autoportrait-croquis.png"),
-            //     require("../assets/img/autoportrait-dessin-test.png")
-            // ],
-            // container: document.querySelector(".intro-n-autoportrait"),
-        }
-    },
-    computed: {
-      
-    },
-    mounted() {
-        // NOTE: Failed. Je vais y revenir.
-        // const observerOptions = {
-        //         // root: document.querySelector("#app"), 
-        //         rootMargin: "100px 0px 0px 0px",
-        //         threshold: 0
-        // };
-        // const myObserver = new IntersectionObserver((entries) => {
-        //     entries.forEach((currentEntry) => {
-        //         if (currentEntry.isIntersecting) {
-        //             console.log(currentEntry);
-        //             currentEntry.target.style.fontWeight = "bolder";
-        //         }
-        //     })
-        // }, observerOptions)
-        // myObserver.observe(document.querySelector(".intro-n-autoportrait"));
-    }
-}
+  data() {
+    return {
+      myPhoto: require("../assets/img/autoportrait-croquis.png"),
+      // NOTE: WILL USE LATER WELL I FIGURE OUT
+      // myPhotos: [
+      //     require("../assets/img/autoportrait-croquis.png"),
+      //     require("../assets/img/autoportrait-dessin-test.png")
+      // ],
+      // container: document.querySelector(".intro-n-autoportrait"),
+    };
+  },
+  computed: {},
+  mounted() {
+    // NOTE: Failed. Je vais y revenir.
+    // const observerOptions = {
+    //         // root: document.querySelector("#app"),
+    //         rootMargin: "100px 0px 0px 0px",
+    //         threshold: 0
+    // };
+    // const myObserver = new IntersectionObserver((entries) => {
+    //     entries.forEach((currentEntry) => {
+    //         if (currentEntry.isIntersecting) {
+    //             console.log(currentEntry);
+    //             currentEntry.target.style.fontWeight = "bolder";
+    //         }
+    //     })
+    // }, observerOptions)
+    // myObserver.observe(document.querySelector(".intro-n-autoportrait"));
+  },
+};
 </script>
 
 <style lang="scss">
@@ -56,6 +60,23 @@ export default {
   display: grid;
   grid-template-columns: 40% 1fr;
   grid-template-rows: 1fr;
+
+  & .intro {
+    margin-top: 6rem;
+    margin-left: 2rem;
+
+    &__title {
+      font-size: 5rem;
+    }
+    &__paragraph {
+      font-size: 2.2rem;
+      line-height: 1.5;
+
+      &:not(:first-child) {
+        margin-top: 3rem;
+      }
+    }
+  }
 
   & .autoportrait {
     margin-top: -6rem;
