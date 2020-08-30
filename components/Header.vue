@@ -19,7 +19,7 @@
     </div>
     <!-- SUBSECTION: gallery -->
     <div class="header__slider">
-      <div class="header__slider--slide current"></div>
+      <!-- <div class="header__slider--slide current"></div>
       <div class="header__slider--slide"></div>
       <div class="header__slider--slide"></div>
       <div class="header__slider--slide"></div>
@@ -27,13 +27,32 @@
       <div class="header__slider--slide"></div>
       <div class="header__slider--slide"></div>
       <div class="header__slider--slide"></div>
-      <div class="header__slider--slide"></div>
+      <div class="header__slider--slide"></div> -->
+
     </div>
   </header>
 </template>
 
 <script>
 export default {
+  name: "Header",
+  data() {
+    return {
+      currentIndex: 0,
+      timer: null,
+      images: [
+        require("../assets/img/adrian.jpg"),
+        require("../assets/img/robin-spielmann-birds-flying.jpg"),
+        require("../assets/img/michael-calamas-camera-lens.jpg"),
+        require("../assets/img/brooke-lark.jpg"),
+        require("../assets/img/sarah-dorweiler-2.jpg"),
+        require("../assets/img/men-on-boat.jpg"),
+        require("../assets/img/joanna-kosinska-2.jpg"),
+        require("../assets/img/sarah-dorweiler.jpg"),
+        require("../assets/img/kate-treadway-twiga.jpg"),
+      ],
+    };
+  },
   methods: {
     nextSlide() {
       const slides = document.querySelectorAll(".header__slider--slide");
@@ -47,6 +66,9 @@ export default {
         slides[0].classList.add("current");
       }
       setTimeout(() => current.classList.remove("current"));
+    },
+    next() {
+      this.currentIndex += 1;
     },
     iconChange() {
       let icon = document.querySelector("#devicon");
@@ -177,50 +199,50 @@ export default {
       -webkit-transition: opacity 0.75s ease-in-out;
       transition: opacity 0.75s ease-in-out;
 
-      &.current {
-        opacity: 1;
-      }
+      // &.current {
+      //   opacity: 1;
+      // }
 
-      &:first-child {
-        background-image: url(../assets/img/adrian.jpg);
-      }
+      // &:first-child {
+      //   background-image: url();
+      // }
 
-      &:nth-child(2) {
-        background-image: url(../assets/img/robin-spielmann-birds-flying.jpg);
-      }
+      // &:nth-child(2) {
+      //   background-image: url(../assets/img/);
+      // }
 
-      &:nth-child(3) {
-        background-image: url(../assets/img/michael-calamas-camera-lens.jpg);
-        background-position-y: 1%;
-      }
+      // &:nth-child(3) {
+      //   background-image: url(../assets/img/);
+      //   background-position-y: 1%;
+      // }
 
-      &:nth-child(4) {
-        background-image: url(../assets/img/brooke-lark.jpg);
-      }
+      // &:nth-child(4) {
+      //   background-image: url(../assets/img/);
+      // }
 
-      &:nth-child(5) {
-        background-image: url(../assets/img/sarah-dorweiler-2.jpg);
-      }
+      // &:nth-child(5) {
+      //   background-image: url(../assets/img/);
+      // }
 
-      &:nth-child(6) {
-        background-image: url(../assets/img/men-on-boat.jpg);
-        background-position-x: 20%;
-      }
+      // &:nth-child(6) {
+      //   background-image: url(../assets/img/);
+      //   background-position-x: 20%;
+      // }
 
-      &:nth-child(7) {
-        background-image: url(../assets/img/joanna-kosinska-2.jpg);
-        background-position-y: 100%;
-      }
+      // &:nth-child(7) {
+      //   background-image: url(../assets/img/);
+      //   background-position-y: 100%;
+      // }
 
-      &:nth-child(8) {
-        background-image: url(../assets/img/sarah-dorweiler.jpg);
-        background-position-y: 1%;
-      }
+      // &:nth-child(8) {
+      //   background-image: url(../assets/img/);
+      //   background-position-y: 1%;
+      // }
 
-      &:nth-child(9) {
-        background-image: url(../assets/img/kate-treadway-twiga.jpg);
-        background-position-y: 100%;
-      }
+      // &:nth-child(9) {
+      //   background-image: url(../assets/img/);
+      //   background-position-y: 100%;
+      // }
     }
   }
 }
