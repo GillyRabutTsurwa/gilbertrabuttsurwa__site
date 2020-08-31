@@ -3,31 +3,16 @@
     <i id="devicon"></i>
     <div class="header__title">
       <div class="header__title--primary">Gilbert<span>Tsurwa</span></div>
-      <!-- <button class="header__button">
-                    All my Projects
-                </button> -->
       <div class="header__title--secondary">
-        <!-- NOTE: data-words must be single quotes. IMPORTANT: -->
         <span class="text-type" data-wait="3000" data-words='["Developper", "Designer", "Creator", "Food Enthusiast"]'></span>
       </div>
-      <!-- <a href="https://gilbertrabuttsurwa-projects-showcase.netlify.com/" target="_blank" class="header__button">
-        All my Projects
-      </a> -->
       <nuxt-link to="/projects" class="header__button">
         All my Projects
       </nuxt-link>
     </div>
     <!-- SUBSECTION: gallery -->
     <div class="header__slider">
-      <!-- <div class="header__slider--slide current"></div>
-      <div class="header__slider--slide"></div>
-      <div class="header__slider--slide"></div>
-      <div class="header__slider--slide"></div>
-      <div class="header__slider--slide"></div>
-      <div class="header__slider--slide"></div>
-      <div class="header__slider--slide"></div>
-      <div class="header__slider--slide"></div>
-      <div class="header__slider--slide"></div> -->
+      <div v-for="currentValue in [currentIndex]" v-bind:key="currentValue" v-bind:style="{backgroundImage: `url(${currentImg})`}" class="header__slider--slide" v-bind:class="{leaf: currentIndex === 7,girrafe: currentIndex === 8}"></div>
 
     </div>
   </header>
@@ -51,24 +36,20 @@ export default {
         require("../assets/img/sarah-dorweiler.jpg"),
         require("../assets/img/kate-treadway-twiga.jpg"),
       ],
+      // TESTING FOR SPECIFIC BG POSITION STYLES
+      bgPositionChanges: {},
     };
   },
   methods: {
-    nextSlide() {
-      const slides = document.querySelectorAll(".header__slider--slide");
-      const current = document.querySelector(".current");
-      let nextImage = current.nextElementSibling;
-
-      current.classList.remove("current");
-      if (nextImage) {
-        nextImage.classList.add("current");
-      } else {
-        slides[0].classList.add("current");
-      }
-      setTimeout(() => current.classList.remove("current"));
-    },
     next() {
       this.currentIndex += 1;
+      // console.log(
+      //   this.currentIndex,
+      //   Math.abs(this.currentIndex) % this.image.length
+      // );
+    },
+    startSlide() {
+      this.timer = setInterval(this.next, 4000);
     },
     iconChange() {
       let icon = document.querySelector("#devicon");
@@ -102,11 +83,17 @@ export default {
       oneByOne();
     },
   },
+  computed: {
+    currentImg() {
+      return this.images[Math.abs(this.currentIndex) % this.images.length];
+    },
+  },
   mounted() {
-    setTimeout(() => {
-      setInterval(this.nextSlide, 5000);
-    }, 3800);
-    this.iconChange();
+    // setTimeout(() => {
+    //   setInterval(this.nextSlide, 5000);
+    // }, 3800);
+    // this.iconChange();
+    this.startSlide();
   },
 };
 </script>
@@ -195,9 +182,6 @@ export default {
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      opacity: 0;
-      -webkit-transition: opacity 0.75s ease-in-out;
-      transition: opacity 0.75s ease-in-out;
 
       // &.current {
       //   opacity: 1;
@@ -245,6 +229,10 @@ export default {
       // }
     }
   }
+}
+
+.girrafe {
+  background-position-y: 100%;
 }
 
 // Fade animation
