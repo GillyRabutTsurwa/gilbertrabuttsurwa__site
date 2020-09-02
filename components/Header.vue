@@ -12,7 +12,9 @@
     </div>
     <!-- SUBSECTION: gallery -->
     <div class="header__slider">
-      <div v-for="currentValue in [currentIndex]" v-bind:key="currentValue" v-bind:style="{backgroundImage: `url(${currentImg})`}" class="header__slider--slide" v-bind:class="{leaf: currentIndex === 7,girrafe: currentIndex === 8}"></div>
+      <transition-group name="fade" tag="div">
+        <div v-for="currentValue in [currentIndex]" v-bind:key="currentValue" v-bind:style="{backgroundImage: `url(${currentImg})`}" class="header__slider--slide" v-bind:class="{kosinka: currentIndex === 6, leaf: currentIndex === 7, girrafe: currentIndex === 8}"></div>
+      </transition-group>
 
     </div>
   </header>
@@ -43,13 +45,12 @@ export default {
   methods: {
     next() {
       this.currentIndex += 1;
-      // console.log(
-      //   this.currentIndex,
-      //   Math.abs(this.currentIndex) % this.image.length
-      // );
+      if (this.currentIndex > this.images.length - 1) {
+        this.currentIndex = 0;
+      }
     },
     startSlide() {
-      this.timer = setInterval(this.next, 4000);
+      this.timer = setInterval(this.next, 6000);
     },
     iconChange() {
       let icon = document.querySelector("#devicon");
@@ -85,7 +86,8 @@ export default {
   },
   computed: {
     currentImg() {
-      return this.images[Math.abs(this.currentIndex) % this.images.length];
+      // return this.images[Math.abs(this.currentIndex) % this.images.length];
+      return this.images[this.currentIndex];
     },
   },
   mounted() {
@@ -231,36 +233,28 @@ export default {
   }
 }
 
-.girrafe {
+.leaf {
+  background-position-y: 1%;
+}
+
+.girrafe,
+.kosinka {
   background-position-y: 100%;
 }
 
-// Fade animation
-@-webkit-keyframes fade {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 3s ease-in;
+  overflow: hidden;
+  visibility: visible;
+  position: absolute;
+  width: 100%;
+  opacity: 1;
 }
-
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
+.fade-enter,
+.fade-leave-to {
+  visibility: hidden;
+  width: 100%;
+  opacity: 0;
 }
 </style>

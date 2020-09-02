@@ -64,6 +64,7 @@ export default {};
   color: rgb(238, 238, 238);
   height: 20vh;
   padding: 2rem;
+  font-size: 2.5rem;
 
   & .follow,
   & .other {
