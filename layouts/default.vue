@@ -8,8 +8,6 @@
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Kulim+Park:400,400i,600,600i,700&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
-// @import "../abstract/mixins";
 
 // this is for when he highlight text
 ::selection {
