@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h4>Weocome to the projects page</h4>
     <Showcase />
   </div>
 </template>

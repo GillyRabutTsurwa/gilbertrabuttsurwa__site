@@ -1,32 +1,35 @@
 <template>
   <div id="app">
-    <transition name="appear" mode="out-in">
+    <!-- TODO: FIX: destroy loader after coming back home from other pages. -->
+    <!-- Loader keeps stalling à cause. En tout cas, je veux pas que s'apparaisse apres la 1ere fois -->
+    <!-- <transition name="appear" mode="out-in">
       <component v-bind:is="component">
       </component>
-    </transition>
+    </transition> -->
+    <MainContent />
   </div>
 </template>
 
 <script>
-import Loader from "../components/Loader";
+// import Loader from "../components/Loader";
 import MainContent from "../components/MainContent";
 export default {
   components: {
-    Loader: Loader,
-    MainContent: MainContent
+    // Loader: Loader,
+    MainContent: MainContent,
   },
   data() {
     return {
-      component: "Loader"
+      component: "Loader",
     };
   },
   mounted() {
-    window.addEventListener("load", () => { 
+    window.addEventListener("load", () => {
       setTimeout(() => {
         this.component = "MainContent";
       }, 3000);
     });
-  }
+  },
 };
 </script>
 
