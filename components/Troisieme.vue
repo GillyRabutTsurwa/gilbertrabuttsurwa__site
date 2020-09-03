@@ -1,9 +1,12 @@
 <template>
   <section class="proficiency">
     <div class="proficiency__text">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ducimus dignissimos dolore voluptate
-      aut totam veritatis voluptatem qui magni ipsum quidem in consequuntur voluptatum omnis, nihil ab vitae.
-      Alias, voluptatibus quisquam quae ratione eum temporibus. Fugiat ipsum fuga magni. Explicabo!
+      <p>
+        I am adept in some technologies whereas I am still learning others. My strong points include: CSS/Sass, JavaScript, VueJS, Svelte and Tailwind. The ones that I am still learning and plan on being very comfortable with in the future include: React, TypeScript, Bootstrap and Webpack.
+      </p>
+      <p>
+        I have experience with all this technologies and I learn very quickly. Also, I am recently studying UI/UX design with AdobeXD, as I want to master the UI sector of the web as much as possible. Lastly, My researching and problem solving skills have helped me to get comfortable with these technologies and make some cool projects.
+      </p>
     </div>
     <div class="proficiency__chart">
       <div class="proficiency__chart--container">
@@ -88,9 +91,9 @@ export default {
   &__chart {
     &--container {
       position: relative;
-      margin: 5rem 0;
+      margin: 10rem 0;
       margin-right: -8rem; /* Genius */
-      width: 80vw;
+      width: 75vw;
 
       #myFirstChart {
         width: 100%;

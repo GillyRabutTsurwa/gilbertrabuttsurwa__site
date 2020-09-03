@@ -3,52 +3,41 @@
     <div @click="openFlexSliders" class="slider__container" ref="sliderRef">
       <div class="slide">
         <div class="content">
-          <h2>Reading (Code)</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores blanditiis expedita cumque,
-            cupiditate et esse labore? Modi id temporibus dolores ratione beatae, dignissimos doloribus
-            reprehenderit!
+          <h2 class="content__title">Reading (Code)</h2>
+          <p class="content__text">
+            As a developer, I reading and understanding code is a must. As much as this is a necessity, it has also become a leisure activity for me. I read code to freshen up on important fundamentals, learn new syntaxe, and pick up on tips to run cleaner and more readable code. Furthermore, I enjoy reading web techonology documentation to help me get familiar with what I am using or learning. I am currently reading the Sass documentation to pick up on some new things I can implement in the future.
           </p>
         </div>
       </div>
       <div class="slide">
         <div class="content">
-          <h2>Naturing</h2>
-          <p>
-            Yes, I know I made a word up. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Maiores blanditiis expedita cumque,
-            cupiditate et esse labore? Modi id temporibus dolores ratione beatae, dignissimos doloribus
-            reprehenderit!
+          <h2 class="content__title">Naturing</h2>
+          <p class="content__text">
+            Yes, I know I made a word up. I like to stroll (not hike) around in nature and take in the fresh air, preferably by the lakeside or shore - though I like to venture the woods from time to time.
           </p>
         </div>
       </div>
       <div class="slide">
         <div class="content">
-          <h2>Reading (Books) </h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores blanditiis expedita cumque,
-            cupiditate et esse labore? Modi id temporibus dolores ratione beatae, dignissimos doloribus
-            reprehenderit!
+          <h2 class="content__title">Reading (Books) </h2>
+          <p class="content__text">
+            Aside from reading code, I like general reading, as it is good for acquiring knowledge, and for mental sharpness. Also, it can be a stress reliever, if you choose the right topics. In my freetime, I like to read all sorts of things. Ranging from French textbooks, to biblical stories to WWII novels and memoirs, and everything caught in the middle.
           </p>
         </div>
       </div>
       <div class="slide">
         <div class="content">
-          <h2>Exploring New Music</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores blanditiis expedita cumque,
-            cupiditate et esse labore? Modi id temporibus dolores ratione beatae, dignissimos doloribus
-            reprehenderit!
+          <h2 class="content__title">Exploring New Music</h2>
+          <p class="content__text">
+            I like exploring new music that is under the genres of Lofi-Hiphop or Vapourwave; two of my favourties. Follow me on Spotify and Bandcamp.
           </p>
         </div>
       </div>
       <div class="slide">
         <div class="content">
-          <h2>Napping</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores blanditiis expedita cumque,
-            cupiditate et esse labore? Modi id temporibus dolores ratione beatae, dignissimos doloribus
-            reprehenderit!
+          <h2 class="content__title">Napping</h2>
+          <p class="content__text">
+            I can operate on little sleep, at night, as a result of short quality naps. This gives me a chance to keep productive whilst staying up for more hours of the day. Rest is crucial, and good rest is sweet. So I get my naps in one way or another.
           </p>
         </div>
       </div>
@@ -58,29 +47,27 @@
 
 <script>
 export default {
-    data() {
-        return {
- 
-        }
+  data() {
+    return {};
+  },
+  methods: {
+    // NOTE: Remindeer - we implicitly have access to e, quand on fait des evenments.
+    openFlexSliders(e) {
+      console.log(e);
+      console.log(this.$refs.sliderRef.children);
+      let flexSliders = [...this.$refs.sliderRef.children];
+      flexSliders.forEach((currentSlide) => {
+        currentSlide.classList.remove("open");
+      });
+      if (e.target.classList.contains("slide")) {
+        e.target.classList.toggle("open");
+      }
     },
-    methods: {
-        // NOTE: Remindeer - we implicitly have access to e, quand on fait des evenments.
-        openFlexSliders(e) {
-            console.log(e);
-            console.log(this.$refs.sliderRef.children)
-            let flexSliders = [...this.$refs.sliderRef.children];
-            flexSliders.forEach((currentSlide) => {
-                currentSlide.classList.remove("open");
-            });
-            if (e.target.classList.contains("slide")) {
-                e.target.classList.toggle("open");
-            }
-        }
-    },
-    mounted() {
-        // console.log(this.parentOfSlides);
-    }
-}
+  },
+  mounted() {
+    // console.log(this.parentOfSlides);
+  },
+};
 </script>
 
 <style lang="scss" scoped>
