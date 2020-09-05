@@ -13,7 +13,7 @@
         <div class="content">
           <h2 class="content__title">Naturing</h2>
           <p class="content__text">
-            Yes, I know I made a word up. I like to stroll (not hike) around in nature and take in the fresh air, preferably by the lakeside or shore - though I like to venture the woods from time to time.
+            Yes, I know I made a word up. I like to stroll (not hike) around in nature and take in the fresh air, preferably by the lakeside, the shore or around plains and flatlands - though I like to venture the woods from time to time.
           </p>
         </div>
       </div>
