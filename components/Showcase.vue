@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="showcase-top">
-      <nuxt-link to="/">Portfolio Website</nuxt-link>
+      <a href="https://github.com/GillyRabutTsurwa">
+        <i class="devicon-github-plain"></i>
+        <span>GitHub Repo</span>
+      </a>
       <h2 class="showcase-language-subtitle">CSS / Sass Projects</h2>
     </div>
 
