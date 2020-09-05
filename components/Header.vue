@@ -1,12 +1,12 @@
 <template>
   <header class="header">
-    <i id="devicon"></i>
+    <i v-bind:class="`devicon-${currentDevicon}`"></i>
     <div class="header__title">
       <div class="header__title--primary">Gilbert<span>Tsurwa</span></div>
       <div class="header__title--secondary">
         <span class="text-type" data-wait="3000" data-words='["Developper", "Designer", "Creator", "Food Enthusiast"]'></span>
       </div>
-      <nuxt-link to="/projects" class="header__button">
+      <nuxt-link to="/projects" target="_blank" class="header__button">
         All my Projects
       </nuxt-link>
     </div>
@@ -26,6 +26,7 @@ export default {
   data() {
     return {
       currentIndex: 0,
+      currentIndex2: 0,
       timer: null,
       images: [
         require("../assets/img/adrian.jpg"),
@@ -40,22 +41,7 @@ export default {
       ],
       // TESTING FOR SPECIFIC BG POSITION STYLES
       bgPositionChanges: {},
-    };
-  },
-  methods: {
-    next() {
-      this.currentIndex += 1;
-      if (this.currentIndex > this.images.length - 1) {
-        this.currentIndex = 0;
-      }
-    },
-    startSlide() {
-      this.timer = setInterval(this.next, 6000);
-    },
-    iconChange() {
-      let icon = document.querySelector("#devicon");
-
-      let iconArray = [
+      iconArray: [
         "html5-plain",
         "css3-plain",
         "javascript-plain",
@@ -72,16 +58,27 @@ export default {
         "babel-plain",
         "heroku-original-wordmark",
         "gulp-plain",
-      ];
-
-      const oneByOne = () => {
-        iconArray.forEach((currentIcon, index) => {
-          setInterval(() => {
-            icon.setAttribute("class", `devicon-${currentIcon}`);
-          }, 3800 * (index + 1));
-        });
-      };
-      oneByOne();
+      ],
+    };
+  },
+  methods: {
+    nextSlide() {
+      this.currentIndex += 1;
+      if (this.currentIndex > this.images.length - 1) {
+        this.currentIndex = 0;
+      }
+    },
+    nextIcon() {
+      this.currentIndex2 += 1;
+      if (this.currentIndex2 > this.iconArray.length - 1) {
+        this.currentIndex2 = 0;
+      }
+    },
+    startSlide() {
+      this.timer = setInterval(this.nextSlide, 6000);
+    },
+    startIcons() {
+      setInterval(this.nextIcon, 4000);
     },
   },
   computed: {
@@ -89,13 +86,17 @@ export default {
       // return this.images[Math.abs(this.currentIndex) % this.images.length];
       return this.images[this.currentIndex];
     },
+    currentDevicon() {
+      return this.iconArray[this.currentIndex2];
+    },
   },
   mounted() {
     // setTimeout(() => {
-    //   setInterval(this.nextSlide, 5000);
+    //   setInterval(this.nextSlideSlide, 5000);
     // }, 3800);
     // this.iconChange();
     this.startSlide();
+    this.startIcons();
   },
 };
 </script>
@@ -106,7 +107,7 @@ export default {
   width: 100%;
   position: relative;
 
-  & #devicon {
+  & i[class^="devicon"] {
     display: block;
     position: absolute;
     top: 3rem;

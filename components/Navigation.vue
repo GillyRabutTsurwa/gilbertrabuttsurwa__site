@@ -21,38 +21,22 @@
 
 <script>
 export default {
-    data() {
-        return {
-            isFadedInBtn: false,
-            isFadedInBg: false
-        }
-    },
-    methods: {
-    //     fadeNavButton() {
-    // //         const navButton = document.querySelector(".navigation__button");
-	// // const navBackground = document.querySelector(".navigation__background");
-
-	// // setTimeout(() => {
-	// // 	navButton.classList.add("fadeIn");
-	// // }, 7600);
-
-	// // setTimeout(() => {
-	// // 	navBackground.classList.add("fadeIn");
-    // // }, 8600);
-    // this.isFadedInBtn = true;
-    // this.isFadedInBg = true;
-    //     }
-     },
-    mounted() {
-        setTimeout(() => {
-             this.isFadedInBtn = true;
-        }, 7600)
-        setTimeout(() => {
-            this.isFadedInBg = true;
-        }, 8600)
-        
-    }
-}
+  data() {
+    return {
+      isFadedInBtn: false,
+      isFadedInBg: false,
+    };
+  },
+  methods: {},
+  mounted() {
+    setTimeout(() => {
+      this.isFadedInBtn = true;
+    }, 2600);
+    setTimeout(() => {
+      this.isFadedInBg = true;
+    }, 3600);
+  },
+};
 </script>
 
 <style lang="scss">

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="showcase-top">
-      <nuxt-link to="/">&larr; Home</nuxt-link>
+      <nuxt-link to="/">Portfolio Website</nuxt-link>
       <h2 class="showcase-language-subtitle">CSS / Sass Projects</h2>
     </div>
 

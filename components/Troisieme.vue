@@ -92,8 +92,8 @@ export default {
     &--container {
       position: relative;
       margin: 10rem 0;
-      margin-right: -8rem; /* Genius */
-      width: 75vw;
+      // margin-right: -8rem;
+      width: 100%;
 
       #myFirstChart {
         width: 100%;

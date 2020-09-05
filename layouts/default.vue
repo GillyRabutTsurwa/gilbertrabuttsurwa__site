@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navigation />
     <Nuxt />
   </div>
 </template>
@@ -29,6 +28,7 @@
 html,
 body {
   height: 100vh; // needed for scrolling... I think. testing needed
+  overflow-x: hidden;
 }
 
 html {
@@ -61,6 +61,10 @@ body {
   // keep background-color for now et continuer a tester
   background-color: #1a2934;
   color: rgb(255, 255, 255);
+
+  & > * {
+    width: 100%;
+  }
 }
 
 .loader {
@@ -109,6 +113,7 @@ body {
   transition: opacity 2s ease-in;
 
   & > * {
+    width: 100%;
     // height: 100vh;
     // not sure if i want scroll snap on or not. je vais decider
     // -ms-scroll-snap-align: center;

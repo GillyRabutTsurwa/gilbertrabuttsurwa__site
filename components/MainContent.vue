@@ -1,5 +1,6 @@
 <template>
   <div class="maincontent">
+    <Navigation />
     <Tete />
     <Premiere />
     <Deuxieme />
@@ -11,6 +12,7 @@
 </template>
 
 <script>
+import Navigation from "./Navigation";
 import Header from "./Header";
 import Premiere from "./Premiere";
 import Deuxieme from "./Deuxieme";
@@ -21,6 +23,7 @@ import Footer from "./Footer";
 
 export default {
   components: {
+    Navigation: Navigation,
     Tete: Header,
     Premiere: Premiere,
     Deuxieme: Deuxieme,
