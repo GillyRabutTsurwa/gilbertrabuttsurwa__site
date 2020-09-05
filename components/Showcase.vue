@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="showcase-top">
-      <a href="https://github.com/GillyRabutTsurwa">
+      <a href="https://github.com/GillyRabutTsurwa" target="_blank">
         <i class="devicon-github-plain"></i>
         <span>GitHub Repo</span>
       </a>
@@ -33,6 +33,11 @@ export default {
   name: "Showcase",
   components: {
     Thumbnail: Thumbnail,
+  },
+  head() {
+    return {
+      title: "Gil's Projects",
+    };
   },
   data() {
     return {

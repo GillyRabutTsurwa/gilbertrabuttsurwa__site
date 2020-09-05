@@ -22,6 +22,17 @@ export default {
       component: "Loader",
     };
   },
+  // NOTE: Utiliser le pouvoir de Nuxt avec SEO
+  head() {
+    let currentTitle = "";
+    this.component === "Loader"
+      ? (currentTitle = "Loading...")
+      : (currentTitle = "Portfolio Website");
+
+    return {
+      title: currentTitle,
+    };
+  },
   mounted() {
     window.addEventListener("load", () => {
       setTimeout(() => {

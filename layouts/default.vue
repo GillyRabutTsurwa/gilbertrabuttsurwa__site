@@ -32,7 +32,7 @@ body {
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 62.5%; //1rem = 10px; 10px/16px = 62.5%;
 
   // @include responsive(tablet-landscape) {
   //   font-size: 56.25%; // 1rem = 9px; 9px/16px = 56.25%;
@@ -41,11 +41,6 @@ html {
   // @include responsive(tablet-portrait) {
   //   font-size: 50%; // 1rem = 8px; 8px/16px = 50%;
   // }
-
-  // // Don't need this
-  // // @include responsive(phone) {
-  // //     font-size: 30%;
-  // // }
 
   // @include responsive(big-desktop) {
   //   font-size: 80%; // 1 rem = 12px; 12px/16px = 75%
