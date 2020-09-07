@@ -1,5 +1,5 @@
 <template>
-  <section class="slider">
+  <section id="slider" class="slider">
     <div @click="openFlexSliders" class="slider__container" ref="sliderRef">
       <div class="slide">
         <div class="content">
@@ -71,6 +71,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// #slider {
+//   overflow-y: scroll;
+//   scroll-behavior: smooth;
+//   scroll-snap-type: y mandatory;
+// }
+
 .slider {
   width: 100%;
   height: 100%;

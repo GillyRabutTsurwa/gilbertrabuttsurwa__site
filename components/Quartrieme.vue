@@ -149,7 +149,7 @@
           </li>
 
           <li class="skills__list--item">
-            Baba Jokes App
+            Dad Jokes App
             <a href="https://gilberttsurwa-baba-jokes.netlify.app/" target="__blank">
               <i class="devicon-devicon-plain"></i>
             </a>

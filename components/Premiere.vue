@@ -3,13 +3,16 @@
     <div class="intro">
       <h2 class="intro__title">Introduction</h2>
       <p class="intro__paragraph">
-        Front-end web developer, currently working for my uncles company, Aeonnova Consulting as an intern. I specialise in front-end web development. Particularly with Vanilla Javascript and the Vue framework. I am learning React and Svelte on the side. I am very interested in front-end JavaScript frameworks. I am confident and capable, but I have a lot to learn.
+        Currently a front-end web developer intern at, <a href="https://www.aeonnova.com/" target="_blank" class="link__aeonnova">Aeonnova Consulting</a>. I specialise in front-end web development. Particularly with Vanilla Javascript and the Vue framework. I am learning React and Svelte on the side. I am very interested in front-end JavaScript frameworks. I am confident and capable, but I have a lot to learn.
       </p>
       <p class="intro__paragraph deuxieme">
-        Whilst making front-end development my craft, I later decided to do the same with UI/UX design. I am therefore currently learning this using Adobe XD, with the keen intent on adeptly designing full interfaces for web and mobile - on top of coding them - in 6 to 8 months.
+        Whilst making front-end development my craft, I later decided to do the same with UI/UX design. I am therefore currently learning this using Adobe XD, with the keen intent on adeptly designing full interfaces for all devices.
       </p>
       <p class="intro__paragraph deuxieme">
         Yes, I do have a life outside coding. To find out what I do when I'm not coding or designing, checkout the slider below.
+      </p>
+      <p class="arrow">
+        <a href="#slider">&darr;</a>
       </p>
     </div>
     <div class="autoportrait">
@@ -63,7 +66,7 @@ export default {
 
   & .intro {
     margin-top: 6rem;
-    margin-left: 2rem;
+    margin-left: 4rem;
 
     &__title {
       font-size: 5rem;
@@ -97,6 +100,34 @@ export default {
         rgba(255, 255, 255, 1) 90%,
         rgba(255, 255, 255, 1) 100%
       );
+    }
+  }
+}
+
+.link__aeonnova {
+  &:link,
+  &:visited {
+    text-decoration: none;
+    font-weight: bold;
+    color: currentColor;
+    font-style: normal;
+  }
+
+  &:hover,
+  &:active {
+    font-style: italic;
+  }
+}
+.arrow {
+  font-size: 5rem;
+  text-align: center;
+  margin: 1.5rem;
+
+  a {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: currentColor;
     }
   }
 }

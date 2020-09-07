@@ -2,10 +2,10 @@
   <section class="proficiency">
     <div class="proficiency__text">
       <p>
-        I am adept in some technologies whereas I am still learning others. My strong points include: CSS/Sass, JavaScript, VueJS, Svelte and Tailwind. The ones that I am still learning and plan on being very comfortable with in the future include: React, TypeScript, Bootstrap and Webpack.
+        I am adept in some technologies whereas I am still learning others. My strong points include: <span class="lang-in-bold">CSS/Sass</span>, <span class="lang-in-bold">JavaScript</span>, <span class="lang-in-bold">VueJS</span>, <span class="lang-in-bold">Svelte</span>, and <span class="lang-in-bold">Tailwind</span>. I am also becoming increasingly skilled with: <span class="lang-in-bold">React</span>, <span class="lang-in-bold">TypeScript</span>, <span class="lang-in-bold">Bootstrap</span> and <span class="lang-in-bold">Webpack</span>.
       </p>
       <p>
-        I have experience with all this technologies and I learn very quickly. Also, I am recently studying UI/UX design with AdobeXD, as I want to master the UI sector of the web as much as possible. Lastly, My researching and problem solving skills have helped me to get comfortable with these technologies and make some cool projects.
+        I have experience with all this technologies and I learn very quickly. Also, I am recently studying <span class="lang-in-bold">UI/UX design</span> with AdobeXD, as I want to master the UI sector of the web as much as possible. Lastly, My researching and problem solving skills have helped me to get comfortable with these technologies and make some cool projects.
       </p>
     </div>
     <div class="proficiency__chart">
@@ -43,8 +43,8 @@ export default {
         ],
         datasets: [
           {
-            label: "Comfort Levels",
-            data: [84, 73, 49, 67, 45, 58, 68, 42, 60, 46],
+            label: "Skill Levels",
+            data: [84, 77, 49, 67, 45, 58, 68, 42, 60, 46],
             backgroundColor: "rgba(26, 41, 52, 0.5)",
           },
         ],
@@ -79,12 +79,13 @@ export default {
 <style lang="scss">
 .proficiency {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  // grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 35% 1fr;
 
   &__text {
     font-size: 2rem;
     margin-top: 5rem;
-    margin-left: 2rem;
+    margin-left: 4rem;
     line-height: 2;
   }
 
@@ -101,5 +102,9 @@ export default {
       }
     }
   }
+}
+
+.lang-in-bold {
+  font-weight: bolder;
 }
 </style>
