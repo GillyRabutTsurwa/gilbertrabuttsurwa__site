@@ -51,7 +51,7 @@ export default {
 	/*
   ** Global CSS
   */
-	css: [ "@/assets/sass/_mixins.scss" ],
+	css: [ "@/assets/sass/main.scss" ],
 	/*
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
@@ -71,13 +71,23 @@ export default {
   */
 	modules: [
 		// Doc: https://axios.nuxtjs.org/usage
-		"@nuxtjs/axios"
+		"@nuxtjs/axios",
+		//NEW:IMPORTANT: to make our sass variables and mixins utilisable sur nos components et pas seulement sur notre fichier sass principale.
+		"@nuxtjs/style-resources"
 	],
 	/*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
 	axios: {},
+	//NEW: using style resources
+	/*
+  ** Axios module configuration
+  ** See https://axios.nuxtjs.org/options
+  */
+	styleResources: {
+		scss: [ "assets/sass/_variables.scss", "assets/sass/_mixins.scss" ]
+	},
 	/*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/

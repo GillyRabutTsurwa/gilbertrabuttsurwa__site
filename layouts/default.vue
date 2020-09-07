@@ -34,17 +34,17 @@ body {
 html {
   font-size: 62.5%; //1rem = 10px; 10px/16px = 62.5%;
 
-  // @include responsive(tablet-landscape) {
-  //   font-size: 56.25%; // 1rem = 9px; 9px/16px = 56.25%;
-  // }
+  @include responsive(tablet-landscape) {
+    font-size: 56.25%; // 1rem = 9px; 9px/16px = 56.25%;
+  }
 
-  // @include responsive(tablet-portrait) {
-  //   font-size: 50%; // 1rem = 8px; 8px/16px = 50%;
-  // }
+  @include responsive(tablet-portrait) {
+    font-size: 50%; // 1rem = 8px; 8px/16px = 50%;
+  }
 
-  // @include responsive(big-desktop) {
-  //   font-size: 80%; // 1 rem = 12px; 12px/16px = 75%
-  // }
+  @include responsive(big-desktop) {
+    font-size: 80%; // 1 rem = 12px; 12px/16px = 75%
+  }
 }
 
 body {
@@ -54,7 +54,8 @@ body {
   font-family: "Kulim Park", Arial, Helvetica, sans-serif;
   position: relative; // TESTING: TEMPORARY
   // keep background-color for now et continuer a tester
-  background-color: #1a2934;
+  // background-color: #1a2934;
+  background-color: $steelblue;
   color: rgb(255, 255, 255);
 
   & > * {
