@@ -185,9 +185,18 @@ export default {};
   grid-template-rows: min-content repeat(2, 1fr);
   height: 100vh;
 
+  background-color: $default-grey;
+
   gap: 4rem;
   padding-top: 6rem;
   color: rgb(238, 238, 238);
+
+  @include responsive(tablet-portrait) {
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content repeat(3, 1fr);
+    row-gap: 4rem;
+    column-gap: 0;
+  }
 
   &__main-title {
     grid-column: 1 / -1;
@@ -229,6 +238,11 @@ export default {};
     &.lang-Vue {
       grid-column: 2 / 3;
       grid-row: 2 / -1;
+
+      @include responsive(tablet-portrait) {
+        grid-column: 1 / -1;
+        grid-row: 4 / -1;
+      }
     }
     // ===============================================================
 

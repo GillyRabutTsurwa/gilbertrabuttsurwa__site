@@ -81,12 +81,23 @@ export default {
   display: grid;
   // grid-template-columns: repeat(2, 1fr);
   grid-template-columns: 35% 1fr;
+  background-color: $default-grey;
+
+  @include responsive(tablet-portrait) {
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr;
+  }
 
   &__text {
     font-size: 2rem;
     margin-top: 5rem;
     margin-left: 4rem;
     line-height: 2;
+
+    @include responsive(tablet-portrait) {
+      margin: 2.5rem 0 0 2.5rem;
+      font-size: 3rem;
+    }
   }
 
   &__chart {

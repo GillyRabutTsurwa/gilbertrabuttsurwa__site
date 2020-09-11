@@ -89,6 +89,10 @@ export default {
     display: flex;
     border: 2px solid rgb(238, 238, 238);
 
+    @include responsive(tablet-portrait) {
+      flex-direction: column;
+    }
+
     .slide {
       position: relative;
       height: 100%;

@@ -48,15 +48,16 @@ html {
 }
 
 body {
-  // TESTING:
-  // background-image: -webkit-gradient(linear, left top, right bottom, from(#1a2934), to(#1a2934));
-  // background-image: linear-gradient(to right bottom, #1a2934, #1a2934);
   font-family: "Kulim Park", Arial, Helvetica, sans-serif;
   position: relative; // TESTING: TEMPORARY
-  // keep background-color for now et continuer a tester
   // background-color: #1a2934;
   background-color: $steelblue;
   color: rgb(255, 255, 255);
+
+  //TESTING:
+  @include responsive(tablet-portrait) {
+    // background-color: crimson;
+  }
 
   & > * {
     width: 100%;
@@ -64,6 +65,7 @@ body {
 }
 
 .loader {
+  position: relative;
   height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -74,7 +76,6 @@ body {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  position: relative;
   z-index: 5000; // To hide the nav button when load page is running//NOTE: REMEMBER. NEED TO SET A POSITION
   -webkit-transition: opacity 2s ease-in;
   -webkit-transition: opacity 2s ease-in;
@@ -89,32 +90,17 @@ body {
 }
 
 .maincontent {
-  // Don't need this anymore
-  // opacity: 0;
-  // display: none;
   position: relative;
   z-index: 500;
   background-color: rgb(238, 238, 238);
   color: #1a2934;
 
   // TESTING:
+  width: 100%;
   height: 100vh;
-  overflow-y: scroll;
-  // -ms-scroll-snap-type: y mandatory;
-  // scroll-snap-type: y mandatory;
-  // -ms-scroll-snap-points-y: repeat(100vh);
-  // scroll-snap-points-y: repeat(100vh);
   -webkit-transition: opacity 0.2s ease-in;
   -webkit-transition: opacity 2s ease-in;
   transition: opacity 2s ease-in;
-
-  & > * {
-    width: 100%;
-    // height: 100vh;
-    // not sure if i want scroll snap on or not. je vais decider
-    // -ms-scroll-snap-align: center;
-    // scroll-snap-align: center;
-  }
 }
 
 // this is the flex slider. move me and everything below me
@@ -151,64 +137,64 @@ body {
       // background-color: #1a2934;
       cursor: pointer;
 
-      &:nth-child(1) {
-        background-image: url(../assets/img/pankaj-patel-SXihyA4oEJs-unsplash.jpg);
-        background-size: cover;
-        background-position: top center;
-      }
+      // &:nth-child(1) {
+      //   background-image: url(../assets/img/pankaj-patel-SXihyA4oEJs-unsplash.jpg);
+      //   background-size: cover;
+      //   background-position: top center;
+      // }
 
-      &:nth-child(2) {
-        background-image: url(../assets/img/annie-spratt-KCQz_b2Hgi8-unsplash.jpg);
-        background-position: center center;
-      }
+      // &:nth-child(2) {
+      //   background-image: url(../assets/img/annie-spratt-KCQz_b2Hgi8-unsplash.jpg);
+      //   background-position: center center;
+      // }
 
-      &:nth-child(3) {
-        background-image: url(../assets/img/annie-spratt--9vMBjrU-RA-unsplash.jpg);
-        background-position: top center;
-      }
-      &:nth-child(4) {
-        background-image: url(../assets/img/brett-jordan-IjKEHs3JtK4-unsplash.jpg);
-        background-size: cover;
-        background-position: center center;
-      }
-      &:nth-child(5) {
-        background-image: url(../assets/img/julian-hochgesang--Wd8gStxy3s-unsplash.jpg);
-        background-size: cover;
-        background-position: top center;
-      }
+      // &:nth-child(3) {
+      //   background-image: url(../assets/img/annie-spratt--9vMBjrU-RA-unsplash.jpg);
+      //   background-position: top center;
+      // }
+      // &:nth-child(4) {
+      //   background-image: url(../assets/img/brett-jordan-IjKEHs3JtK4-unsplash.jpg);
+      //   background-size: cover;
+      //   background-position: center center;
+      // }
+      // &:nth-child(5) {
+      //   background-image: url(../assets/img/julian-hochgesang--Wd8gStxy3s-unsplash.jpg);
+      //   background-size: cover;
+      //   background-position: top center;
+      // }
 
       // &:hover, used to be this.
-      &.open {
-        -webkit-box-flex: 5;
-        -ms-flex-positive: 5;
-        flex-grow: 5;
+      // &.open {
+      //   -webkit-box-flex: 5;
+      //   -ms-flex-positive: 5;
+      //   flex-grow: 5;
 
-        & .content {
-          visibility: visible;
-          opacity: 1;
-          -webkit-transition: 0.5s;
-          transition: 0.5s;
-          -webkit-transition-delay: 0.5s;
-          transition-delay: 0.5s;
-          -webkit-transform: translateY(0);
-          transform: translateY(0);
-        }
-      }
+      //   & .content {
+      //     visibility: visible;
+      //     opacity: 1;
+      //     -webkit-transition: 0.5s;
+      //     transition: 0.5s;
+      //     -webkit-transition-delay: 0.5s;
+      //     transition-delay: 0.5s;
+      //     -webkit-transform: translateY(0);
+      //     transform: translateY(0);
+      //   }
+      // }
 
-      .content {
-        position: absolute;
-        bottom: 0;
-        margin: 40px;
-        padding: 30px;
-        background-color: #000;
-        color: #fff;
-        visibility: hidden;
-        opacity: 0;
-        -webkit-transform: translateY(100px);
-        transform: translateY(100px);
-        -webkit-transition: 0s;
-        transition: 0s;
-      }
+      // .content {
+      //   position: absolute;
+      //   bottom: 0;
+      //   margin: 40px;
+      //   padding: 30px;
+      //   background-color: #000;
+      //   color: #fff;
+      //   visibility: hidden;
+      //   opacity: 0;
+      //   -webkit-transform: translateY(100px);
+      //   transform: translateY(100px);
+      //   -webkit-transition: 0s;
+      //   transition: 0s;
+      // }
     }
   }
 }

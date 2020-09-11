@@ -60,6 +60,7 @@ export default {};
 <style lang="scss">
 .credentials {
   padding-top: 6rem;
+  background-color: rgb(238, 238, 238);
 
   &__content {
     display: -webkit-box;

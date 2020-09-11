@@ -63,6 +63,11 @@ export default {
   display: grid;
   grid-template-columns: 40% 1fr;
   grid-template-rows: 1fr;
+  background-color: rgb(238, 238, 238);
+
+  @include responsive(tablet-portrait) {
+    background-color: pink;
+  }
 
   & .intro {
     margin-top: 6rem;
