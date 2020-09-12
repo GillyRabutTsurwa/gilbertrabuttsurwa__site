@@ -66,7 +66,8 @@ export default {
   background-color: rgb(238, 238, 238);
 
   @include responsive(tablet-portrait) {
-    background-color: pink;
+    // background-color: pink;
+    grid-template-columns: 20% 1fr; //TESTING;
   }
 
   & .intro {
