@@ -18,3 +18,5 @@
   beaucoup à faire et beaucoup à documenter. Ca ira bien.
 
   OK ALSO I WILL START CODING IN THE MORNING STARTING TOMORROW. SERIOUS TINGS.
+
+  Big TODO: intersection observer with Vue
