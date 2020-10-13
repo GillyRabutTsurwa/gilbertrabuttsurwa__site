@@ -72,7 +72,7 @@ export default {
 	modules: [
 		// Doc: https://axios.nuxtjs.org/usage
 		"@nuxtjs/axios",
-		//NEW:IMPORTANT: to make our sass variables and mixins utilisable sur nos components et pas seulement sur notre fichier sass principale.
+		//NEW:IMPORTANT: pour faire nos sass variables et mixins utilisables sur touts nos components et pas seulement sur notre fichier sass principale.
 		"@nuxtjs/style-resources"
 	],
 	/*

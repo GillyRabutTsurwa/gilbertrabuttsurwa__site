@@ -146,7 +146,7 @@ $default-box-shadow: 0 1rem 2rem rgba($colour-noir, 0.15);
     opacity: 0;
     width: 0;
 
-    // NOTE: We are animating opacity and NOT
+    // NOTE: We are animating opacity and NOT width
     -webkit-transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 

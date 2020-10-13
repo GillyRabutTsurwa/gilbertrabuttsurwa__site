@@ -174,7 +174,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Quartrieme",
+};
 </script>
 
 <style lang="scss">

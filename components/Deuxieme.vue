@@ -47,6 +47,7 @@
 
 <script>
 export default {
+  name: "Deuxieme",
   data() {
     return {};
   },

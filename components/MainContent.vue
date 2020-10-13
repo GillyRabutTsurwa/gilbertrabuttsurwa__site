@@ -2,11 +2,11 @@
   <div class="maincontent">
     <Navigation />
     <Tete />
-    <Premiere />
-    <Deuxieme />
-    <Troisieme />
-    <Quartrieme />
-    <Cinquieme />
+    <Premiere class="observable" />
+    <Deuxieme class="observable" />
+    <Troisieme class="observable" />
+    <Quartrieme class="observable" />
+    <Cinquieme class="observable" />
     <Pied />
   </div>
 </template>
@@ -22,6 +22,7 @@ import Cinquieme from "./Cinquieme";
 import Footer from "./Footer";
 
 export default {
+  name: "MainContent",
   components: {
     Navigation: Navigation,
     Tete: Header,
@@ -32,8 +33,54 @@ export default {
     Cinquieme: Cinquieme,
     Pied: Footer,
   },
+  data() {
+    return {
+      observer: null,
+    };
+  },
+  created() {
+    console.log(this);
+    this.observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((currentEntry) => {
+          console.log(currentEntry);
+          if (currentEntry.isIntersecting) {
+            currentEntry.target.classList.add("observer-appear");
+          }
+        });
+      },
+      {
+        root: this.$el,
+        threshold: 0.3,
+      }
+    );
+  },
+  mounted() {
+    console.dir(this.$el);
+    const sectionsOnly = Array.from(this.$el.children).filter(
+      (currentElement) => {
+        return currentElement.tagName === "SECTION";
+      }
+    );
+    sectionsOnly.forEach((current) => {
+      this.observer.observe(current);
+    });
+  },
 };
 </script>
 
 <style>
+/* TESTING */
+.maincontent {
+  height: 100%;
+}
+
+.observable {
+  opacity: 0;
+  transition: opacity 0.75s ease-in;
+}
+
+.observer-appear {
+  opacity: 1;
+}
 </style>

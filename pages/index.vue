@@ -13,6 +13,7 @@
 import Loader from "../components/Loader";
 import MainContent from "../components/MainContent";
 export default {
+  name: "Main",
   components: {
     Loader: Loader,
     MainContent: MainContent,
@@ -44,6 +45,10 @@ export default {
 </script>
 
 <style>
+#app {
+  height: 100%;
+}
+
 .container {
   margin: 0 auto;
   min-height: 100vh;

@@ -54,7 +54,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Cinquieme",
+};
 </script>
 
 <style lang="scss">

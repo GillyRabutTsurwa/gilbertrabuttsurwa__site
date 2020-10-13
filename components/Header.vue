@@ -159,6 +159,7 @@ export default {
     margin-top: 3rem;
     background-color: #1a2934;
     cursor: pointer;
+    z-index: 10000;
 
     // &:focus {
     // 	outline: none;

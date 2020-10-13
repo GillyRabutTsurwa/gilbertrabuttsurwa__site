@@ -1,5 +1,5 @@
 <template>
-  <div class="intro-n-autoportrait">
+  <section class="intro-n-autoportrait">
     <div class="intro">
       <h2 class="intro__title">Introduction</h2>
       <p class="intro__paragraph">
@@ -21,11 +21,12 @@
     <div>
 
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
+  name: "Premiere",
   data() {
     return {
       myPhoto: require("../assets/img/autoportrait-croquis.png"),
@@ -38,23 +39,7 @@ export default {
     };
   },
   computed: {},
-  mounted() {
-    // NOTE: Failed. Je vais y revenir.
-    // const observerOptions = {
-    //         // root: document.querySelector("#app"),
-    //         rootMargin: "100px 0px 0px 0px",
-    //         threshold: 0
-    // };
-    // const myObserver = new IntersectionObserver((entries) => {
-    //     entries.forEach((currentEntry) => {
-    //         if (currentEntry.isIntersecting) {
-    //             console.log(currentEntry);
-    //             currentEntry.target.style.fontWeight = "bolder";
-    //         }
-    //     })
-    // }, observerOptions)
-    // myObserver.observe(document.querySelector(".intro-n-autoportrait"));
-  },
+  mounted() {},
 };
 </script>
 
@@ -64,6 +49,9 @@ export default {
   grid-template-columns: 40% 1fr;
   grid-template-rows: 1fr;
   background-color: rgb(238, 238, 238);
+  //TESTING:
+  // opacity: 0;
+  // transition: opacity 0.75s ease-in;
 
   @include responsive(tablet-portrait) {
     // background-color: pink;
