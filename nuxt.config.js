@@ -19,6 +19,11 @@ export default {
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
+        hid: "SEO TEST",
+        name: "SEO TEST",
+        content: "Testing this SEO ting"
+      },
+      {
         hid: "description",
         name: "description",
         content: process.env.npm_package_description || ""
