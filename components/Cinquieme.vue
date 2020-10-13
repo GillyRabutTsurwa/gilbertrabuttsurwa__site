@@ -32,7 +32,7 @@
       </div>
 
       <div class="credentials__right">
-        <h3 class="credentials__title">
+        <h3 class="credentials__right--title">
           Currently Learning
           <span class="dot dot-one">.</span>
           <span class="dot dot-two">.</span>
@@ -40,12 +40,12 @@
         </h3>
         <ul class="credentials__list learning">
           <li class="credentials__list--item">
-            <i class="devicon-react-plain"></i>
-            React
-          </li>
-          <li class="credentials__list--item">
             <i class="devicon-typescript-plain"></i>
             TypeScript
+          </li>
+          <li class="credentials__list--item">
+            <i class="devicon-react-plain"></i>
+            React
           </li>
         </ul>
       </div>
@@ -78,11 +78,17 @@ export default {
     margin-bottom: 3rem;
   }
 
+  &__left--title,
+  &__right--title {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
   &__left {
-    &--title {
-      font-size: 2rem;
-      margin-bottom: 2.5rem;
-    }
+    // &--title {
+    //   font-size: 2rem;
+    //   margin-bottom: 2.5rem;
+    // }
   }
   &__list {
     list-style-type: none;
@@ -95,6 +101,19 @@ export default {
     &.courses {
       list-style-type: disc;
     }
+  }
+}
+.dot {
+  animation: ellipsisFade 1.2s ease infinite;
+
+  &-one {
+    animation-delay: 0.1s;
+  }
+  &-two {
+    animation-delay: 0.2s;
+  }
+  &-three {
+  animation-delay: 0.3s;
   }
 }
 </style>

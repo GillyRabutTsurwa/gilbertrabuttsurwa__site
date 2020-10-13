@@ -32,6 +32,12 @@ export default {
 
     return {
       title: currentTitle,
+      meta: [
+        {
+          name: "My Portfolio site",
+          content: "This is the main page to my website portfolio" 
+        }
+      ]
     };
   },
   mounted() {

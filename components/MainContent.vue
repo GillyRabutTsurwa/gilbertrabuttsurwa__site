@@ -56,12 +56,12 @@ export default {
     );
   },
   mounted() {
-    console.dir(this.$el);
+    console.dir(this.$el); // nous donne la structure HTML de cette Vue composant. On peut acceder aux enfants
     const sectionsOnly = Array.from(this.$el.children).filter(
       (currentElement) => {
         return currentElement.tagName === "SECTION";
       }
-    );
+    ); 
     sectionsOnly.forEach((current) => {
       this.observer.observe(current);
     });

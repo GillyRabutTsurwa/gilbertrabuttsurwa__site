@@ -232,7 +232,7 @@ export default {
       //   background-position-y: 100%;
       // }
     }
-  }
+  } 
 }
 
 .leaf {
