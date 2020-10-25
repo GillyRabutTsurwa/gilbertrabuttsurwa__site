@@ -24,22 +24,22 @@ export default {
     };
   },
   // NOTE: Utiliser le pouvoir de Nuxt avec SEO
-  head() {
-    let currentTitle = "";
-    this.component === "Loader"
-      ? (currentTitle = "Loading...")
-      : (currentTitle = "Portfolio Website");
+  // head() {
+  //   let currentTitle = "";
+  //   this.component === "Loader"
+  //     ? (currentTitle = "Loading...")
+  //     : (currentTitle = "Gil's Portfolio Website");
 
-    return {
-      title: currentTitle,
-      meta: [
-        {
-          name: "My Portfolio site",
-          content: "This is the main page to my website portfolio" 
-        }
-      ]
-    };
-  },
+  //   return {
+  //     title: currentTitle,
+  //     meta: [
+  //       {
+  //         name: "My Portfolio site",
+  //         content: "This is the main page to my website portfolio"
+  //       }
+  //     ]
+  //   };
+  // },
   mounted() {
     window.addEventListener("load", () => {
       setTimeout(() => {
