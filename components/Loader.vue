@@ -1,6 +1,5 @@
 <template>
   <div class="loader">
-    <!-- <i v-bind:class="`devicon-${randomIconIndex}`"></i> -->
     <i v-bind:class="`devicon-${randomIconIndex}`"></i>
   </div>
 </template> 
@@ -30,11 +29,6 @@ export default {
       ],
     };
   },
-  // computed: {
-  //   randomIconIndex: function () {
-  //     return this.iconArray[Math.floor(Math.random() * this.iconArray.length)];
-  //   },
-  // },
   methods: {
     returnRandomIndex() {
       this.randomIconIndex = this.iconArray[

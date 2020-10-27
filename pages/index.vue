@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    <!-- TODO: FIX: destroy loader after coming back home from other pages. -->
-    <!-- Loader keeps stalling à cause. En tout cas, je veux pas que s'apparaisse apres la 1ere fois -->
     <transition name="appear" mode="out-in">
       <component v-bind:is="component">
       </component>
