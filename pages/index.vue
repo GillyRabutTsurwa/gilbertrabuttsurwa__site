@@ -39,6 +39,8 @@ export default {
   //   };
   // },
   mounted() {
+    const imgs = document.querySelectorAll("img");
+    console.log(imgs);
     window.addEventListener("load", () => {
       setTimeout(() => {
         this.component = "MainContent";

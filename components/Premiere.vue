@@ -3,10 +3,10 @@
     <div class="intro">
       <h2 class="intro__title">Introduction</h2>
       <p class="intro__paragraph">
-        Currently a front-end web developer intern at, <a href="https://www.aeonnova.com/" target="_blank" class="link__aeonnova">Aeonnova Consulting</a>. I specialise in front-end web development. Particularly with Vanilla Javascript and the Vue framework. I am learning React and Svelte on the side. I am very interested in front-end JavaScript frameworks. I am confident and capable, but I have a lot to learn.
+        Currently a front-end web developer intern at, <a href="https://www.aeonnova.com/" target="_blank" class="link__aeonnova">Aeonnova Consulting</a>. I specialise in front-end web development, particularly with Vanilla Javascript and the Vue framework. Additionally, I am learning React and Svelte as it is important and advantageous to be comfortable with different libraries, frameworks, languages etc. I am fast learner, attentive, and harbour a good set of researching skills that help me quickly pick up new technologies.
       </p>
       <p class="intro__paragraph deuxieme">
-        Whilst making front-end development my craft, I later decided to do the same with UI/UX design. I am therefore currently learning this using Adobe XD, with the keen intent on adeptly designing full interfaces for all devices.
+        Whilst making front-end development my craft, I am also extensively learning UI/UX design. I am expanding my knowledge and expertise of this using Adobe XD, with the keen intent on designing full website and web application interfaces for all types of devices, with ease.
       </p>
       <p class="intro__paragraph deuxieme">
         Yes, I do have a life outside coding. To find out what I do when I'm not coding or designing, checkout the slider below.

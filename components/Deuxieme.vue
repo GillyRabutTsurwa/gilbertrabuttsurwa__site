@@ -67,6 +67,11 @@ export default {
   },
   mounted() {
     // console.log(this.parentOfSlides);
+    const slides = document.querySelectorAll(".slide");
+    console.log(slides);
+    slides.forEach((currentSlide) => {
+      console.log(currentSlide.style.backgroundImage);
+    });
   },
 };
 </script>
