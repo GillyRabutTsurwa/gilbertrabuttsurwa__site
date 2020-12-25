@@ -20,14 +20,10 @@ export default {
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
-        hid: "SEO TEST",
-        name: "SEO TEST",
-        content: "Testing this SEO ting"
-      },
-      {
         hid: "description",
         name: "description",
-        content: process.env.npm_package_description || ""
+        content:
+          "Welcome to my portfolio website. In here you can learn more about me and take a look at the projects I have done. I am Front-End Developer and Javascript is my bread and butter. Explore my site and reach out to me if needed."
       }
     ],
     link: [
