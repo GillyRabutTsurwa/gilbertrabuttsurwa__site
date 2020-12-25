@@ -16,7 +16,11 @@
       </p>
     </div>
     <div class="autoportrait">
-      <img v-bind:src="myPhoto" alt="Croquis de moi">
+      <transition-group name="fade" tag="div">
+        <div v-for="currentValue in [currentIndex]" v-bind:key="currentValue" class="autoportrait-img">
+          <img v-bind:src="currentPhoto" alt="Croquis de moi">
+        </div>
+      </transition-group>
     </div>
     <div>
 
@@ -29,17 +33,33 @@ export default {
   name: "Premiere",
   data() {
     return {
-      myPhoto: require("../assets/img/autoportrait-croquis.png"),
-      // NOTE: WILL USE LATER WELL I FIGURE OUT
-      // myPhotos: [
-      //     require("../assets/img/autoportrait-croquis.png"),
-      //     require("../assets/img/autoportrait-dessin-test.png")
-      // ],
-      // container: document.querySelector(".intro-n-autoportrait"),
+      myPhotos: [
+        require("../assets/img/autoportrait-croquis.png"),
+        require("../assets/img/autoportrait-croquis-2.png"),
+        // require("../assets/img/autoportrait-dessin-test.png")
+      ],
+      currentIndex: 0,
     };
   },
-  computed: {},
-  mounted() {},
+  methods: {
+    switchPhotos() {
+      this.currentIndex += 1;
+      if (this.currentIndex > this.myPhotos.length - 1) {
+        this.currentIndex = 0;
+      }
+    },
+    startPhotoSlide() {
+      setInterval(this.switchPhotos, 7000);
+    },
+  },
+  computed: {
+    currentPhoto() {
+      return this.myPhotos[this.currentIndex];
+    },
+  },
+  mounted() {
+    this.startPhotoSlide();
+  },
 };
 </script>
 
@@ -82,18 +102,22 @@ export default {
     width: 100%;
     height: 100%;
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; // makes it look nicer
-      //   background-color: pink;
-      background-image: linear-gradient(
-        to bottom,
-        transparent 0%,
-        transparent 90%,
-        rgba(255, 255, 255, 1) 90%,
-        rgba(255, 255, 255, 1) 100%
-      );
+    &-img {
+      width: 77rem;
+      height: 92rem;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; // makes it look nicer
+        //   background-color: pink;
+        background-image: linear-gradient(
+          to bottom,
+          transparent 0%,
+          transparent 90%,
+          rgba(255, 255, 255, 1) 90%,
+          rgba(255, 255, 255, 1) 100%
+        );
+      }
     }
   }
 }
@@ -124,5 +148,22 @@ export default {
       color: currentColor;
     }
   }
+}
+
+// NOTE: Same transition used in header. I will refactor this later as I am duplicating code
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 1.5s ease-in;
+  overflow: hidden;
+  visibility: visible;
+  position: absolute;
+  width: 100%;
+  opacity: 1;
+}
+.fade-enter,
+.fade-leave-to {
+  visibility: hidden;
+  width: 100%;
+  opacity: 0;
 }
 </style>
