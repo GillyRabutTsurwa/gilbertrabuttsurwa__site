@@ -108,8 +108,9 @@ export default {
       width: 100%;
 
       #myFirstChart {
-        width: 100%;
-        height: 100%;
+        display: block;
+        width: 92rem;
+        height: 47rem;
       }
     }
   }

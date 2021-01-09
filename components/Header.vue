@@ -2,7 +2,7 @@
   <header class="header">
     <i v-bind:class="`devicon-${currentDevicon}`"></i>
     <div class="header__title">
-      <div class="header__title--primary">Gilbert<span>Tsurwa</span></div>
+      <h1 v-bind:class="{lighten: currentIndex === 1}" class="header__title--primary">Gilbert<span>Tsurwa</span></h1>
       <div class="header__title--secondary">
         <span class="text-type" data-wait="3000" data-words='["Developper", "Designer", "Creator", "Food Enthusiast"]'></span>
       </div>
@@ -13,9 +13,8 @@
     <!-- SUBSECTION: gallery -->
     <div class="header__slider">
       <transition-group name="fade" tag="div">
-        <div v-for="currentValue in [currentIndex]" v-bind:key="currentValue" v-bind:style="{backgroundImage: `url(${currentImg})`}" class="header__slider--slide" v-bind:class="{kosinka: currentIndex === 6, leaf: currentIndex === 7, girrafe: currentIndex === 8}"></div>
+        <div v-for="currentValue in [currentIndex]" v-bind:key="currentValue" v-bind:style="{backgroundImage: `url(${currentImg})`}" class="header__slider--slide" v-bind:class="{bgPositionChanges}"></div>
       </transition-group>
-
     </div>
   </header>
 </template>
@@ -30,6 +29,7 @@ export default {
       timer: null,
       images: [
         require("../assets/img/adrian.jpg"),
+        require("../assets/img/denisa-at-lutsen.jpg"),
         require("../assets/img/robin-spielmann-birds-flying.jpg"),
         require("../assets/img/michael-calamas-camera-lens.jpg"),
         require("../assets/img/brooke-lark.jpg"),
@@ -39,8 +39,6 @@ export default {
         require("../assets/img/sarah-dorweiler.jpg"),
         require("../assets/img/kate-treadway-twiga.jpg"),
       ],
-      // TESTING FOR SPECIFIC BG POSITION STYLES
-      bgPositionChanges: {},
       iconArray: [
         "html5-plain",
         "css3-plain",
@@ -88,6 +86,15 @@ export default {
     },
     currentDevicon() {
       return this.iconArray[this.currentIndex2];
+    },
+    // NEWTESTING:
+    // PASS: Great way to bind classes. Much better than using the data property. Computed is coo
+    bgPositionChanges() {
+      return {
+        kosinka: this.currentIndex === 6,
+        leaf: this.currentIndex === 7,
+        giraffe: this.currentIndex === 8,
+      };
     },
   },
   mounted() {
@@ -242,6 +249,12 @@ export default {
 .girrafe,
 .kosinka {
   background-position-y: 100%;
+}
+
+.lighten {
+  // color: #fff;
+  text-shadow: 0 0 5px whitesmoke, 0 0 5px whitesmoke, 0 0 5px whitesmoke,
+    0 0 5px whitesmoke;
 }
 
 .fade-enter-active,

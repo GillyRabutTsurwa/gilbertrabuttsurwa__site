@@ -186,6 +186,7 @@ export default {
   grid-template-rows: -webkit-min-content repeat(2, 1fr);
   grid-template-rows: min-content repeat(2, 1fr);
   height: 100vh;
+  margin: 0 3rem;
 
   background-color: $default-grey;
 
