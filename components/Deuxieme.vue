@@ -113,27 +113,27 @@ export default {
       cursor: pointer;
 
       &:nth-child(1) {
-        background-image: url(../assets/img/pankaj-patel-SXihyA4oEJs-unsplash.jpg);
+        background-image: url(../assets/img/about-slider/pankaj-patel-SXihyA4oEJs-unsplash.jpg);
         background-size: cover;
         background-position: top center;
       }
 
       &:nth-child(2) {
-        background-image: url(../assets/img/annie-spratt-KCQz_b2Hgi8-unsplash.jpg);
+        background-image: url(../assets/img/about-slider/annie-spratt-KCQz_b2Hgi8-unsplash.jpg);
         background-position: center center;
       }
 
       &:nth-child(3) {
-        background-image: url(../assets/img/annie-spratt--9vMBjrU-RA-unsplash.jpg);
+        background-image: url(../assets/img/about-slider/annie-spratt--9vMBjrU-RA-unsplash.jpg);
         background-position: top center;
       }
       &:nth-child(4) {
-        background-image: url(../assets/img/brett-jordan-IjKEHs3JtK4-unsplash.jpg);
+        background-image: url(../assets/img/about-slider/brett-jordan-IjKEHs3JtK4-unsplash.jpg);
         background-size: cover;
         background-position: center center;
       }
       &:nth-child(5) {
-        background-image: url(../assets/img/julian-hochgesang--Wd8gStxy3s-unsplash.jpg);
+        background-image: url(../assets/img/about-slider/julian-hochgesang--Wd8gStxy3s-unsplash.jpg);
         background-size: cover;
         background-position: top center;
       }

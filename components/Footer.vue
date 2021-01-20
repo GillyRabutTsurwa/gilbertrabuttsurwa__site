@@ -50,7 +50,7 @@
         </li>
       </ul>
     </div>
-    <h6 class="website-version">v2 - July 2020</h6>
+    <h6 class="website-version">v3 - December 2020</h6>
   </footer>
 </template>
 

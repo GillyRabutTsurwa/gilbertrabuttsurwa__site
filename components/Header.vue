@@ -2,7 +2,7 @@
   <header class="header">
     <i v-bind:class="`devicon-${currentDevicon}`"></i>
     <div class="header__title">
-      <h1 v-bind:class="{lighten: currentIndex === 1}" class="header__title--primary">Gilbert<span>Tsurwa</span></h1>
+      <h1 v-bind:class="{'invisible-title': kenyaFlagImg}" class="header__title--primary">Gilbert<span>Tsurwa</span></h1>
       <div class="header__title--secondary">
         <span class="text-type" data-wait="3000" data-words='["Developper", "Designer", "Creator", "Food Enthusiast"]'></span>
       </div>
@@ -13,7 +13,7 @@
     <!-- SUBSECTION: gallery -->
     <div class="header__slider">
       <transition-group name="fade" tag="div">
-        <div v-for="currentValue in [currentIndex]" v-bind:key="currentValue" v-bind:style="{backgroundImage: `url(${currentImg})`}" class="header__slider--slide" v-bind:class="{bgPositionChanges}"></div>
+        <div v-for="currentValue in [currentIndex]" v-bind:key="currentValue" v-bind:style="{backgroundImage: `url(${currentImg})`}" class="header__slider--slide" v-bind:class="bgPositionChanges"></div>
       </transition-group>
     </div>
   </header>
@@ -28,16 +28,16 @@ export default {
       currentIndex2: 0,
       timer: null,
       images: [
-        require("../assets/img/adrian.jpg"),
-        require("../assets/img/denisa-at-lutsen.jpg"),
-        require("../assets/img/robin-spielmann-birds-flying.jpg"),
-        require("../assets/img/michael-calamas-camera-lens.jpg"),
-        require("../assets/img/brooke-lark.jpg"),
-        require("../assets/img/sarah-dorweiler-2.jpg"),
-        require("../assets/img/men-on-boat.jpg"),
-        require("../assets/img/joanna-kosinska-2.jpg"),
-        require("../assets/img/sarah-dorweiler.jpg"),
-        require("../assets/img/kate-treadway-twiga.jpg"),
+        require("~/assets/img/header/adrian.jpg"),
+        require("~/assets/img/header/robin-spielmann-birds-flying.jpg"),
+        require("~/assets/img/header/kenya-flag.jpg"),
+        require("~/assets/img/header/michael-calamas-camera-lens.jpg"),
+        require("~/assets/img/header/sarah-dorweiler-2.jpg"),
+        require("~/assets/img/header/men-on-boat.jpg"),
+        require("~/assets/img/header/glen-carrie-birds-chilling.jpg"),
+        require("~/assets/img/header/joanna-kosinska-vikombe.jpg"),
+        require("~/assets/img/header/sarah-dorweiler-leaf.jpg"),
+        require("~/assets/img/header/kate-treadway-twiga.jpg"),
       ],
       iconArray: [
         "html5-plain",
@@ -91,10 +91,32 @@ export default {
     // PASS: Great way to bind classes. Much better than using the data property. Computed is coo
     bgPositionChanges() {
       return {
-        kosinka: this.currentIndex === 6,
-        leaf: this.currentIndex === 7,
-        giraffe: this.currentIndex === 8,
+        "birds-chilling":
+          this.currentIndex ===
+          this.images.findIndex((currentURL) =>
+            currentURL.includes("birds-chilling")
+          ),
+        // kosinka: this.currentIndex === 6,
+        vikombe:
+          this.currentIndex ===
+          this.images.findIndex((currentURL) => currentURL.includes("vikombe")),
+        //leaf: this.currentIndex === 7,
+        leaf:
+          this.currentIndex ===
+          this.images.findIndex((currentURL) => currentURL.includes("leaf")),
+        //giraffe: this.currentIndex === 8,
+        twiga:
+          this.currentIndex ===
+          this.images.findIndex((currentURL) => currentURL.includes("twiga")),
       };
+    },
+    kenyaFlagImg() {
+      // // un peu confusant. si l'index n'egale pas l'image avec le drapeu kenyain, afficher notre titre principale (consulter ligne 5). pour example, disons l'indice de l'image est 4, est notre indice actuel est 2. 2 !== 4 est true, donc notre titre va s'afficher. mais si notre indice est 4: 4 !== 4 est false et notre titre va se cacher.
+      // dans le cas que le commentaire dessus est pertinant (relevant), le voila, mais il à cause des changements dans mon code, il s'applique plus.
+      return (
+        this.currentIndex ===
+        this.images.findIndex((currentURL) => currentURL.includes("kenya"))
+      );
     },
   },
   mounted() {
@@ -193,68 +215,32 @@ export default {
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-
-      // &.current {
-      //   opacity: 1;
-      // }
-
-      // &:first-child {
-      //   background-image: url();
-      // }
-
-      // &:nth-child(2) {
-      //   background-image: url(../assets/img/);
-      // }
-
-      // &:nth-child(3) {
-      //   background-image: url(../assets/img/);
-      //   background-position-y: 1%;
-      // }
-
-      // &:nth-child(4) {
-      //   background-image: url(../assets/img/);
-      // }
-
-      // &:nth-child(5) {
-      //   background-image: url(../assets/img/);
-      // }
-
-      // &:nth-child(6) {
-      //   background-image: url(../assets/img/);
-      //   background-position-x: 20%;
-      // }
-
-      // &:nth-child(7) {
-      //   background-image: url(../assets/img/);
-      //   background-position-y: 100%;
-      // }
-
-      // &:nth-child(8) {
-      //   background-image: url(../assets/img/);
-      //   background-position-y: 1%;
-      // }
-
-      // &:nth-child(9) {
-      //   background-image: url(../assets/img/);
-      //   background-position-y: 100%;
-      // }
     }
   }
+}
+
+.invisible-title {
+  visibility: hidden;
+}
+
+.birds-chilling {
+  background-position-y: 20rem;
 }
 
 .leaf {
   background-position-y: 1%;
 }
 
-.girrafe,
-.kosinka {
+.vikombe {
   background-position-y: 100%;
 }
 
-.lighten {
-  // color: #fff;
-  text-shadow: 0 0 5px whitesmoke, 0 0 5px whitesmoke, 0 0 5px whitesmoke,
-    0 0 5px whitesmoke;
+.twiga {
+  background-position-y: 95%;
+}
+
+.kenyanFlag {
+  background-position-x: 0;
 }
 
 .fade-enter-active,

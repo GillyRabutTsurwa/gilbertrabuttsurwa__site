@@ -1,4 +1,4 @@
-<template>
+project-thumbnails/<template>
   <div>
     <div class="showcase-top">
       <a href="https://github.com/GillyRabutTsurwa" target="_blank">
@@ -43,45 +43,45 @@ export default {
     return {
       thumbnailCSS: [
         {
-          img: require("../assets/img/nu-renaissance-thumbnail-min.png"),
+          img: require("../assets/img/project-thumbnails/nu-renaissance-thumbnail-min.png"),
           siteLink: " https://gilberttsurwa-nurenaissance.netlify.app",
           githubLink:
             "https://github.com/GillyRabutTsurwa/gilberttsurwa-nu-renaissance-website",
         },
         {
-          img: require("../assets/img/omnifood-thumbnail-min.png"),
+          img: require("../assets/img/project-thumbnails/omnifood-thumbnail-min.png"),
           siteLink: "https://omnifood-gilberttsurwa-jonas.netlify.com/",
           githubLink:
             "https://github.com/GillyRabutTsurwa/omnifood-gilberttsurwa-jonas",
         },
         {
-          img: require("../assets/img/natours-thumbnail-min.png"),
+          img: require("../assets/img/project-thumbnails/natours-thumbnail-min.png"),
           siteLink: "https://natours-gilberttsurwa-jonas.netlify.com",
           githubLink: "https://github.com/GillyRabutTsurwa/natours-jonas",
         },
         {
-          img: require("../assets/img/trillo-thumbnail-min.png"),
+          img: require("../assets/img/project-thumbnails/trillo-thumbnail-min.png"),
           siteLink: "https://trillo-gilberttsurwa-jonas.netlify.com/",
           githubLink: "https://github.com/GillyRabutTsurwa/trillo-jonas",
         },
         {
-          img: require("../assets/img/nexter-thumbnail-min.png"),
+          img: require("../assets/img/project-thumbnails/nexter-thumbnail-min.png"),
           siteLink: "https://nexter-gilberttsurwa-jonas.netlify.app",
           githubLink: "https://github.com/GillyRabutTsurwa/nexter-jonas",
         },
         {
-          img: require("../assets/img/candy-museum-thumbnail-min.png"),
+          img: require("../assets/img/project-thumbnails/candy-museum-thumbnail-min.png"),
           siteLink: "https://candymuseum-gilberttsurwa-colt.netlify.app",
           githubLink: "https://github.com/GillyRabutTsurwa/candymuseum-colt",
         },
         {
-          img: require("../assets/img/phono-thumbnail-min.png"),
+          img: require("../assets/img/project-thumbnails/phono-thumbnail-min.png"),
           siteLink: "https://first-deployed-website.netlify.com",
           githubLink:
             "https://github.com/GillyRabutTsurwa/phono-headphones-website",
         },
         {
-          img: require("../assets/img/grandma-sweets-thumbnail-min.png"),
+          img: require("../assets/img/project-thumbnails/grandma-sweets-thumbnail-min.png"),
           siteLink:
             "https://grandmassweets-gilberttsurwa-codeaddict.netlify.com",
           githubLink:
@@ -91,43 +91,43 @@ export default {
       // =====================================
       thumbnailJavascript: [
         {
-          img: require("../assets/img/colourgame-app-thumbnail-min.png"),
+          img: require("../assets/img/project-thumbnails/colourgame-app-thumbnail-min.png"),
           siteLink: "https://colourgame-gilberttsurwa-colt.netlify.com",
           githubLink: "https://github.com/GillyRabutTsurwa/colourgame-app-colt",
         },
         {
-          img: require("../assets/img/forkify-app-thumbnail-min.png"),
+          img: require("../assets/img/project-thumbnails/forkify-app-thumbnail-min.png"),
           siteLink: "https://gilberttsurwaforkifyproject.netlify.app/",
           githubLink: "https://github.com/GillyRabutTsurwa/forkify-app-jonas",
         },
         {
-          img: require("../assets/img/piggame-thumbnail-min.png"),
+          img: require("../assets/img/project-thumbnails/piggame-thumbnail-min.png"),
           siteLink: "https://piggame-gilberttsurwa-jonas.netlify.com/",
           githubLink: "https://github.com/GillyRabutTsurwa/piggame-app-jonas",
         },
         {
-          img: require("../assets/img/tasklist-app-thumbnail-min.png"),
+          img: require("../assets/img/project-thumbnails/tasklist-app-thumbnail-min.png"),
           siteLink: "https://tasklist-gilberttsurwa-brad.netlify.com",
           githubLink: "https://github.com/GillyRabutTsurwa/tasklist-app-brad",
         },
         {
-          img: require("../assets/img/astrotime-thumbnail-min.png"),
+          img: require("../assets/img/project-thumbnails/astrotime-thumbnail-min.png"),
           siteLink: "https://astroclock-gilbertrabuttsurwa.netlify.com/",
           githubLink: "https://github.com/GillyRabutTsurwa/astroboy-clock",
         },
         {
-          img: require("../assets/img/password-generator-app-thumbnail-min.png"),
+          img: require("../assets/img/project-thumbnails/password-generator-app-thumbnail-min.png"),
           siteLink: "https://passwordgenerator-gilberttsurwa-brad.netlify.com",
           githubLink:
             "https://github.com/GillyRabutTsurwa/password-generator-brad",
         },
         {
-          img: require("../assets/img/budgety-app-thumbnail-min.png"),
+          img: require("../assets/img/project-thumbnails/budgety-app-thumbnail-min.png"),
           siteLink: "https://budgety-gilberttsurwa-jonas.netlify.com",
           githubLink: "https://github.com/GillyRabutTsurwa/budgety-app-jonas",
         },
         {
-          img: require("../assets/img/booklist-app-thumbnail-min.png"),
+          img: require("../assets/img/project-thumbnails/booklist-app-thumbnail-min.png"),
           siteLink: "https://booklist-gilberttsurwa-brad.netlify.com",
           githubLink:
             "https://github.com/GillyRabutTsurwa/booklist-gilberttsurwa-brad",
@@ -136,18 +136,18 @@ export default {
       // =====================================
       thumbnailVue: [
         {
-          img: require("../assets/img/vue-quote-app-thumbnail.png"),
+          img: require("../assets/img/project-thumbnails/vue-quote-app-thumbnail.png"),
           siteLink: "https://gilberttsurwa-vue-quoteapp.herokuapp.com/",
           githubLink:
             "https://github.com/GillyRabutTsurwa/vue-quote-application",
         },
         {
-          img: require("../assets/img/vue-music-app-thumbnail.png"),
+          img: require("../assets/img/project-thumbnails/vue-music-app-thumbnail.png"),
           siteLink: "https://gilberttsurwa-vue-music-player.netlify.app/",
           githubLink: "https://github.com/GillyRabutTsurwa/vue-music-app",
         },
         {
-          img: require("../assets/img/baba-jokes-app-thumbnail.png"),
+          img: require("../assets/img/project-thumbnails/baba-jokes-app-thumbnail.png"),
           siteLink: "https://gilberttsurwa-baba-jokes.netlify.app/",
           githubLink:
             "https://github.com/GillyRabutTsurwa/nuxt-with-brad-traversy",
