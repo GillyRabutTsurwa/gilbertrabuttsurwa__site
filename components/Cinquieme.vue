@@ -47,6 +47,14 @@
             <i class="devicon-react-plain"></i>
             React
           </li>
+          <li class="credentials__list--item">
+            <i class="devicon-wordpress-plain"></i>
+            Wordpress
+          </li>
+          <li class="credentials__list--item">
+            <i class="devicon-php-plain"></i>
+            PHP
+          </li>
         </ul>
       </div>
     </div>
@@ -113,7 +121,7 @@ export default {
     animation-delay: 0.2s;
   }
   &-three {
-  animation-delay: 0.3s;
+    animation-delay: 0.3s;
   }
 }
 </style>
