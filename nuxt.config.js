@@ -13,6 +13,10 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
+    // this is how to add lang attribute to nuxt. same as <html lang="en">...</html>
+    htmlAttrs: {
+      lang: "en"
+    },
     // title: process.env.npm_package_name || "",
     title: "Gil's Portfolio Website",
     meta: [
