@@ -124,4 +124,4 @@ export default {
     animation-delay: 0.3s;
   }
 }
-</style>
+</style> 

@@ -12,7 +12,7 @@
         <li class="navigation__nav--list-item"><a href="./docs/GilbertRabutTsurwa-Résumé.docx" class="navigation__nav--list-link">Résumé</a></li>
         <li class="navigation__nav--list-item"><a href="mailto:tsurwagilbert@gmail.com" class="navigation__nav--list-link">E-mail Me</a>
         </li>
-        <li class="navigation__nav--list-item"><a href="https://dev.to/gillyrabuttsurwa" class="navigation__nav--list-link" target="__blank">My Blog Page</a>
+        <li class="navigation__nav--list-item"><a href="https://dev.to/gillyrabuttsurwa" class="navigation__nav--list-link" target="__blank">My Blog (Coming Soon)</a>
         </li>
       </ul>
     </nav>
@@ -163,6 +163,10 @@ $default-box-shadow: 0 1rem 2rem rgba($colour-noir, 0.15);
       }
 
       &-link {
+        // FAIL: not working. why can't i target last button only
+        &::last-child {
+          background-color: pink;
+        }
         &:link,
         &:visited {
           display: inline-block;

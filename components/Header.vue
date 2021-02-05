@@ -163,6 +163,9 @@ export default {
       font-weight: 600;
       text-transform: uppercase;
       padding-bottom: 2rem;
+      //TESTING
+      opacity: 1;
+      transition: all 2.5s ease;
 
       span {
         display: block;
@@ -221,6 +224,7 @@ export default {
 
 .invisible-title {
   visibility: hidden;
+  opacity: 0;
 }
 
 .birds-chilling {
@@ -257,5 +261,16 @@ export default {
   visibility: hidden;
   width: 100%;
   opacity: 0;
+}
+
+// header animation
+@keyframes fade-title {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 </style>
