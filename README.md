@@ -42,3 +42,6 @@
 - The site is still not yet fully responsive.
 - The slider re-positions itself automatically in a very buggy manner upon clicking on a slide section.
 - I want the Loader component to stay active until all the images in the site are loaded. I looked into this already but I will need a full day or two just to focus on this.
+
+### WorkFlow
+- As of 17 January 2021, I have incorporated git-flow into my project. This is a **significant** change to my workflow. There are no other changes to report as of now.
