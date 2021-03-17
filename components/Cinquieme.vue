@@ -48,8 +48,12 @@
             React
           </li>
           <li class="credentials__list--item">
+            <i class="devicon-linux-plain"></i>
+            Linux
+          </li>
+          <li class="credentials__list--item">
             <i class="devicon-wordpress-plain"></i>
-            Wordpress
+            WordPress
           </li>
           <li class="credentials__list--item">
             <i class="devicon-php-plain"></i>
