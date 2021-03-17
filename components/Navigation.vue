@@ -12,7 +12,8 @@
         <li class="navigation__nav--list-item"><a href="./docs/GilbertRabutTsurwa-Résumé.docx" class="navigation__nav--list-link">Résumé</a></li>
         <li class="navigation__nav--list-item"><a href="mailto:tsurwagilbert@gmail.com" class="navigation__nav--list-link">E-mail Me</a>
         </li>
-        <li class="navigation__nav--list-item"><a href="https://dev.to/gillyrabuttsurwa" class="navigation__nav--list-link" target="__blank">My Blog (Coming Soon)</a>
+        <!-- Je vais changer ce lien dessous après avoir construit mon blog -->
+        <li class="navigation__nav--list-item"><a href="#" class="navigation__nav--list-link">My Blog (Coming Soon)</a>
         </li>
       </ul>
     </nav>
@@ -160,6 +161,12 @@ $default-box-shadow: 0 1rem 2rem rgba($colour-noir, 0.15);
 
       &-item {
         margin: 1.5rem;
+
+        &:last-child {
+          a {
+            cursor: not-allowed;
+          }
+        }
       }
 
       &-link {
