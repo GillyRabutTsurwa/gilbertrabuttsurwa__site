@@ -1,3 +1,7 @@
 - This is the first version of the site in my project history. The very first one couldn't be fully recovered
 - The documentation will not as be as detailed in this one, but it will be in the next one
 - In the next one, I am using Nuxt
+- That being said, the workflow for this project is very nice and intricate. I am using:
+  - Gulp as my task runner
+  - Sass for my CSS compiler
+  - Netlify for my deploying agent
