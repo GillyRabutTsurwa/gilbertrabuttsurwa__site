@@ -1,0 +1,41 @@
+{
+  "Cinquieme": {
+    "description": "Auto imported from components/Cinquieme.vue"
+  },
+  "Deuxieme": {
+    "description": "Auto imported from components/Deuxieme.vue"
+  },
+  "Footer": {
+    "description": "Auto imported from components/Footer.vue"
+  },
+  "Header": {
+    "description": "Auto imported from components/Header.vue"
+  },
+  "Loader": {
+    "description": "Auto imported from components/Loader.vue"
+  },
+  "Logo": {
+    "description": "Auto imported from components/Logo.vue"
+  },
+  "MainContent": {
+    "description": "Auto imported from components/MainContent.vue"
+  },
+  "Navigation": {
+    "description": "Auto imported from components/Navigation.vue"
+  },
+  "Premiere": {
+    "description": "Auto imported from components/Premiere.vue"
+  },
+  "Quartrieme": {
+    "description": "Auto imported from components/Quartrieme.vue"
+  },
+  "Showcase": {
+    "description": "Auto imported from components/Showcase.vue"
+  },
+  "Thumbnail": {
+    "description": "Auto imported from components/Thumbnail.vue"
+  },
+  "Troisieme": {
+    "description": "Auto imported from components/Troisieme.vue"
+  }
+}
