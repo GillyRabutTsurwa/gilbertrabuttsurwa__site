@@ -1,1 +1,0 @@
-Learnt on updating state by making a copy of the state. This is especially the case with nested arrays and objects
