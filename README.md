@@ -1,3 +1,3 @@
-COING SOON
-
-NOTES. For resizing photos, a good way is to make the width 2 - 2.5 larger than what it is on it's container or its display on the webpage if it doesnt have a container (for larger resolution screens), and the height will take care of itself. AFter that, use image compressor and it will make the site MUCH faster
+- This is the first version of the site in my project history. The very first one couldn't be fully recovered
+- The documentation will not as be as detailed in this one, but it will be in the next one
+- In the next one, I am using Nuxt
