@@ -3,14 +3,12 @@
     "name": "Projects",
     "path": "/Projects",
     "component": "/home/rabuttsurwa/Documents/Web Development/Projects/Portfolio/portfolio-site/pages/Projects/index.vue",
-    "chunkName": "pages/Projects/index",
-    "_name": "_7da51228"
+    "chunkName": "pages/Projects/index"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/home/rabuttsurwa/Documents/Web Development/Projects/Portfolio/portfolio-site/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_06c13cd3"
+    "chunkName": "pages/index"
   }
 ]
