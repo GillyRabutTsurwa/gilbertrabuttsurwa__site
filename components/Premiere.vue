@@ -33,11 +33,7 @@ export default {
   name: "Premiere",
   data() {
     return {
-      myPhotos: [
-        require("../assets/img/autoportrait-croquis.png"),
-        require("../assets/img/autoportrait-croquis-2.png"),
-        // require("../assets/img/autoportrait-dessin-test.png")
-      ],
+      myPhotos: [require("../assets/img/autoportrait-croquis.png"), require("../assets/img/autoportrait-croquis-2.png")],
       currentIndex: 0,
     };
   },
@@ -116,7 +112,10 @@ export default {
   }
 }
 
-.link__aeonnova {
+.link__shenandoah {
+  position: relative;
+  display: inline-block;
+
   &:link,
   &:visited {
     text-decoration: none;
@@ -125,10 +124,37 @@ export default {
     font-style: normal;
   }
 
+  &::before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    border-bottom: 3px solid currentColor;
+    transform: scaleX(0);
+    transition: transform 0.25s ease-in-out;
+
+    transform-origin: 0% 50%;
+  }
+
   &:hover,
   &:active {
-    font-style: italic;
+    // font-style: italic; for now
+    &:before {
+      transform: scaleX(1);
+    }
   }
+
+  // &::before {
+  //   // NOTE: Underline effecc
+  //   content: "";
+  //   position: absolute;
+  //   display: block;
+  //   border-bottom: 3px solid slateblue;
+  //   transform: scaleX(0);
+  //   transition: transform 0.25s ease-in-out;
+  //   transform-origin: 0% 50%;
+  // }
 }
 .arrow {
   font-size: 5rem;

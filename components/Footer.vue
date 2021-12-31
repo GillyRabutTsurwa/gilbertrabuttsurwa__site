@@ -50,7 +50,7 @@
         </li>
       </ul>
     </div>
-    <h6 class="website-version">v3 - December 2020</h6>
+    <h6 class="website-version">v1 - August 2020</h6>
   </footer>
 </template>
 
@@ -94,9 +94,7 @@ export default {};
           }
           &:hover,
           &:active {
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.651),
-              0 0 10px rgba(255, 255, 255, 0.555),
-              2px 2px 2px rgba(206, 89, 55, 0);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.651), 0 0 10px rgba(255, 255, 255, 0.555), 2px 2px 2px rgba(206, 89, 55, 0);
           }
         }
       }
