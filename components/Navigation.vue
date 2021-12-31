@@ -10,9 +10,9 @@
         <li class="navigation__nav--list-item"><a href="https://github.com/GillyRabutTsurwa" target="__blank" class="navigation__nav--list-link">Github Profile</a>
         </li>
         <li class="navigation__nav--list-item"><a href="./docs/GilbertRabutTsurwa-Résumé.docx" class="navigation__nav--list-link">Résumé</a></li>
-        <li class="navigation__nav--list-item"><a href="mailto:tsurwagilbert@gmail.com" class="navigation__nav--list-link">E-mail Me</a>
+        <li class="navigation__nav--list-item"><a href="https://gilbertrabuttsurwa.blog" class="navigation__nav--list-link" target="__blank">My Blog Site</a>
         </li>
-        <li class="navigation__nav--list-item"><a href="https://dev.to/gillyrabuttsurwa" class="navigation__nav--list-link" target="__blank">My Blog (Coming Soon)</a>
+        <li class="navigation__nav--list-item"><a href="mailto:tsurwagilbert@gmail.com" class="navigation__nav--list-link">E-mail Me</a>
         </li>
       </ul>
     </nav>
@@ -112,20 +112,13 @@ $default-box-shadow: 0 1rem 2rem rgba($colour-noir, 0.15);
     position: fixed;
     top: 3.5rem;
     right: 3.5rem;
-    background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      right top,
-      from(#1a2934),
-      to(#1a2934de)
-    );
+    background-image: -webkit-gradient(linear, left bottom, right top, from(#1a2934), to(#1a2934de));
     background-image: linear-gradient(to top right, #1a2934, #1a2934de);
     z-index: 1000; // NOTE: BE ON TOP OF MAIN CONTENT
     -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
     transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
     transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
-    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1),
-      -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1), -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
 
     opacity: 0;
     visibility: hidden;
@@ -177,12 +170,7 @@ $default-box-shadow: 0 1rem 2rem rgba($colour-noir, 0.15);
           text-decoration: none;
           text-transform: uppercase;
           // NOTE: THIS BACKGROUND THING IS SUPER COOL
-          background-image: linear-gradient(
-            120deg,
-            transparent 0%,
-            transparent 50%,
-            $colour-blanc 50%
-          );
+          background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $colour-blanc 50%);
           background-size: 220%;
           -webkit-transition: all 0.4s;
           transition: all 0.4s;

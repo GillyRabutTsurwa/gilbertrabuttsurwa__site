@@ -3,7 +3,7 @@
     <div class="intro">
       <h2 class="intro__title">Introduction</h2>
       <p class="intro__paragraph">
-        Currently a front-end web developer intern at, <a href="https://www.aeonnova.com/" target="_blank" class="link__aeonnova">Aeonnova Consulting</a>. I specialise in front-end web development, particularly with Vanilla Javascript and the Vue framework. Additionally, I am learning React and Svelte as it is important and advantageous to be comfortable with different libraries, frameworks, languages etc. I am fast learner, attentive, and harbour a good set of researching skills that help me quickly pick up new technologies.
+        Currently a front-end web developer intern at, <a href="https://.su.edu/" target="_blank" class="link__aeonnova">Shenandoah University</a>. I specialise in front-end web development, particularly with Vanilla Javascript and the Vue framework. Additionally, I am learning React and Svelte as it is important and advantageous to be comfortable with different libraries, frameworks, languages etc. I am fast learner, attentive, and harbour a good set of researching skills that help me quickly pick up new technologies.
       </p>
       <p class="intro__paragraph deuxieme">
         Whilst making front-end development my craft, I am also extensively learning UI/UX design. I am expanding my knowledge and expertise of this using Adobe XD, with the keen intent on designing full website and web application interfaces for all types of devices, with ease.
@@ -110,13 +110,7 @@ export default {
         height: 100%;
         object-fit: cover; // makes it look nicer
         //   background-color: pink;
-        background-image: linear-gradient(
-          to bottom,
-          transparent 0%,
-          transparent 90%,
-          rgba(255, 255, 255, 1) 90%,
-          rgba(255, 255, 255, 1) 100%
-        );
+        background-image: linear-gradient(to bottom, transparent 0%, transparent 90%, rgba(255, 255, 255, 1) 90%, rgba(255, 255, 255, 1) 100%);
       }
     }
   }

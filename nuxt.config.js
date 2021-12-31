@@ -1,3 +1,9 @@
+import Sass from "sass";
+
+const customSass = {
+  implementation: Sass
+};
+
 export default {
   /*
    ** Nuxt rendering mode
@@ -62,7 +68,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [],
+  plugins: [{ src: "~/plugins/vue-gtag" }],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -91,18 +97,26 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
+  // TESTING remove
   styleResources: {
     scss: [
       "assets/sass/_variables.scss",
       "assets/sass/_mixins.scss",
       "assets/sass/_animations.scss"
-    ]
+    ],
+    // IMPORTANTNOTE: Voila this resurrected my application. also I am using dart sass and not node sass
+    // i'm using nuxtjs/style-resources, mais j'ajoute cette ligne important qui a resuscité mon appli
+    // grace a ce lien https://github.com/nuxt-community/style-resources-module (parmi d'autres) je pouvais trouver la solution
+    hoistUseStatements: true
   },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {
-    extractCSS: true
+    extractCSS: true,
+    loaders: {
+      scss: customSass
+    }
   }
 };
