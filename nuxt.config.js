@@ -1,7 +1,7 @@
 import Sass from "sass";
 
 const customSass = {
-  implementation: Sass
+  implementation: Sass,
 };
 
 export default {
@@ -21,7 +21,7 @@ export default {
   head: {
     // this is how to add lang attribute to nuxt. same as <html lang="en">...</html>
     htmlAttrs: {
-      lang: "en"
+      lang: "en",
     },
     // title: process.env.npm_package_name || "",
     title: "Gil's Portfolio Website",
@@ -32,8 +32,8 @@ export default {
         hid: "description",
         name: "description",
         content:
-          "Welcome to my portfolio website. In here you can learn more about me and take a look at the projects I have done. I am Front-End Developer and Javascript is my bread and butter. Explore my site and reach out to me if needed."
-      }
+          "Welcome to my portfolio website. In here you can learn more about me and take a look at the projects I have done. I am Front-End Developer and Javascript is my bread and butter. Explore my site and reach out to me if needed.",
+      },
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
@@ -41,24 +41,22 @@ export default {
       // got the how-to here: https://nuxtjs.org/faq/external-resources
       {
         rel: "stylesheet",
-        href: "https://cdn.jsdelivr.net/gh/konpa/devicon@master/devicon.min.css"
+        href: "https://cdn.jsdelivr.net/gh/konpa/devicon@master/devicon.min.css",
       },
       {
         rel: "stylesheet",
-        href:
-          "https://fonts.googleapis.com/css2?family=Kulim+Park:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
-      }
+        href: "https://fonts.googleapis.com/css2?family=Kulim+Park:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap",
+      },
     ],
     script: [
       {
-        src:
-          "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+        src: "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js",
       },
       {
         src: "https://kit.fontawesome.com/7a26a17053.js",
-        crossorigin: "anonymous"
-      }
-    ]
+        crossorigin: "anonymous",
+      },
+    ],
   },
   /*
    ** Global CSS
@@ -85,7 +83,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
     //NEW:IMPORTANT: pour faire nos sass variables et mixins utilisables sur touts nos components et pas seulement sur notre fichier sass principale.
-    "@nuxtjs/style-resources"
+    "@nuxtjs/style-resources",
   ],
   /*
    ** Axios module configuration
@@ -99,15 +97,11 @@ export default {
    */
   // TESTING remove
   styleResources: {
-    scss: [
-      "assets/sass/_variables.scss",
-      "assets/sass/_mixins.scss",
-      "assets/sass/_animations.scss"
-    ],
+    scss: ["assets/sass/_variables.scss", "assets/sass/_mixins.scss", "assets/sass/_animations.scss"],
     // IMPORTANTNOTE: Voila this resurrected my application. also I am using dart sass and not node sass
-    // i'm using nuxtjs/style-resources, mais j'ajoute cette ligne important qui a resuscité mon appli
+    // i'm using nuxtjs/style-resources (que j'avais déjà installé), mais j'ajoute cette ligne important qui a resuscité mon appli
     // grace a ce lien https://github.com/nuxt-community/style-resources-module (parmi d'autres) je pouvais trouver la solution
-    hoistUseStatements: true
+    hoistUseStatements: true,
   },
   /*
    ** Build configuration
@@ -116,7 +110,7 @@ export default {
   build: {
     extractCSS: true,
     loaders: {
-      scss: customSass
-    }
-  }
+      scss: customSass,
+    },
+  },
 };
