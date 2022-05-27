@@ -1,6 +1,6 @@
 <template>
   <section id="slider" class="slider">
-    <div @click="openFlexSliders" class="slider__container" ref="sliderRef">
+    <div class="slider__container" ref="sliderRef">
       <div class="slide">
         <div class="content">
           <h2 class="content__title">Reading (Code)</h2>
@@ -52,17 +52,26 @@ export default {
     return {};
   },
   methods: {
+    closeAllSliders(sliders) {
+      sliders.forEach((currentSlider) => {
+        currentSlider.classList.remove("open");
+      });
+    },
     // NOTE: Remindeer - we implicitly have access to e, quand on fait des evenments.
-    openFlexSliders(e) {
-      console.log(e);
+    openFlexSliders() {
+      console.log();
       console.log(this.$refs.sliderRef.children);
       let flexSliders = [...this.$refs.sliderRef.children];
       flexSliders.forEach((currentSlide) => {
-        currentSlide.classList.remove("open");
+        currentSlide.addEventListener("click", () => {
+          this.closeAllSliders(flexSliders);
+          currentSlide.classList.add("open");
+        });
+        // currentSlide.classList.remove("open");
       });
-      if (e.target.classList.contains("slide")) {
-        e.target.classList.toggle("open");
-      }
+      // if (e.target.classList.contains("slide")) {
+      //   e.target.classList.toggle("open");
+      // }
     },
   },
   mounted() {
@@ -72,6 +81,7 @@ export default {
     slides.forEach((currentSlide) => {
       console.log(currentSlide.style.backgroundImage);
     });
+    this.openFlexSliders();
   },
 };
 </script>
@@ -113,27 +123,27 @@ export default {
       cursor: pointer;
 
       &:nth-child(1) {
-        background-image: url(../assets/img/about-slider/pankaj-patel-SXihyA4oEJs-unsplash.jpg);
+        background-image: url(../../assets/img/about-slider/pankaj-patel-SXihyA4oEJs-unsplash.jpg);
         background-size: cover;
         background-position: top center;
       }
 
       &:nth-child(2) {
-        background-image: url(../assets/img/about-slider/annie-spratt-KCQz_b2Hgi8-unsplash.jpg);
+        background-image: url(../../assets/img/about-slider/annie-spratt-KCQz_b2Hgi8-unsplash.jpg);
         background-position: center center;
       }
 
       &:nth-child(3) {
-        background-image: url(../assets/img/about-slider/annie-spratt--9vMBjrU-RA-unsplash.jpg);
+        background-image: url(../../assets/img/about-slider/annie-spratt--9vMBjrU-RA-unsplash.jpg);
         background-position: top center;
       }
       &:nth-child(4) {
-        background-image: url(../assets/img/about-slider/brett-jordan-IjKEHs3JtK4-unsplash.jpg);
+        background-image: url(../../assets/img/about-slider/brett-jordan-IjKEHs3JtK4-unsplash.jpg);
         background-size: cover;
         background-position: center center;
       }
       &:nth-child(5) {
-        background-image: url(../assets/img/about-slider/julian-hochgesang--Wd8gStxy3s-unsplash.jpg);
+        background-image: url(../../assets/img/about-slider/julian-hochgesang--Wd8gStxy3s-unsplash.jpg);
         background-size: cover;
         background-position: top center;
       }

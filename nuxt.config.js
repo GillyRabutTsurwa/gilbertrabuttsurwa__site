@@ -127,7 +127,7 @@ export default {
    */
   // TESTING remove
   styleResources: {
-    scss: ["assets/sass/_variables.scss", "assets/sass/_mixins.scss", "assets/sass/_animations.scss"],
+    scss: ["assets/sass/_variables.scss", "assets/sass/_mixins.scss", "assets/sass/_extend.scss", "assets/sass/_animations.scss"],
     // IMPORTANTNOTE: Voila this resurrected my application. also I am using dart sass and not node sass
     // i'm using nuxtjs/style-resources (que j'avais déjà installé), mais j'ajoute cette ligne important qui a resuscité mon appli
     // grace a ce lien https://github.com/nuxt-community/style-resources-module (parmi d'autres) je pouvais trouver la solution

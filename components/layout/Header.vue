@@ -2,7 +2,7 @@
   <header class="header">
     <i v-bind:class="`devicon-${currentDevicon}`"></i>
     <div class="header__title">
-      <h1 v-bind:class="{'invisible-title': kenyaFlagImg}" class="header__title--primary">Gilbert<span>Tsurwa</span></h1>
+      <h1 v-bind:class="{'invisible-title': kenyaFlagImg}" class="header__title--primary">Gilbert<span>Rabut</span><span>Tsurwa</span></h1>
       <div class="header__title--secondary">
         <span class="text-type" data-wait="3000" data-words='["Developper", "Designer", "Creator", "Food Enthusiast"]'></span>
       </div>
@@ -91,32 +91,19 @@ export default {
     // PASS: Great way to bind classes. Much better than using the data property. Computed is coo
     bgPositionChanges() {
       return {
-        "birds-chilling":
-          this.currentIndex ===
-          this.images.findIndex((currentURL) =>
-            currentURL.includes("birds-chilling")
-          ),
+        "birds-chilling": this.currentIndex === this.images.findIndex((currentURL) => currentURL.includes("birds-chilling")),
         // kosinka: this.currentIndex === 6,
-        vikombe:
-          this.currentIndex ===
-          this.images.findIndex((currentURL) => currentURL.includes("vikombe")),
+        vikombe: this.currentIndex === this.images.findIndex((currentURL) => currentURL.includes("vikombe")),
         //leaf: this.currentIndex === 7,
-        leaf:
-          this.currentIndex ===
-          this.images.findIndex((currentURL) => currentURL.includes("leaf")),
+        leaf: this.currentIndex === this.images.findIndex((currentURL) => currentURL.includes("leaf")),
         //giraffe: this.currentIndex === 8,
-        twiga:
-          this.currentIndex ===
-          this.images.findIndex((currentURL) => currentURL.includes("twiga")),
+        twiga: this.currentIndex === this.images.findIndex((currentURL) => currentURL.includes("twiga")),
       };
     },
     kenyaFlagImg() {
       // // un peu confusant. si l'index n'egale pas l'image avec le drapeu kenyain, afficher notre titre principale (consulter ligne 5). pour example, disons l'indice de l'image est 4, est notre indice actuel est 2. 2 !== 4 est true, donc notre titre va s'afficher. mais si notre indice est 4: 4 !== 4 est false et notre titre va se cacher.
       // dans le cas que le commentaire dessus est pertinant (relevant), le voila, mais il à cause des changements dans mon code, il s'applique plus.
-      return (
-        this.currentIndex ===
-        this.images.findIndex((currentURL) => currentURL.includes("kenya"))
-      );
+      return this.currentIndex === this.images.findIndex((currentURL) => currentURL.includes("kenya"));
     },
   },
   mounted() {
@@ -153,13 +140,13 @@ export default {
     top: 11%;
     right: 5%;
     display: inline-block;
-    text-align: right;
+    text-align: center;
     padding-right: 7rem;
     margin-bottom: 7rem;
     z-index: 1000;
 
     &--primary {
-      font-size: 13rem;
+      font-size: 10.5rem;
       font-weight: 600;
       text-transform: uppercase;
       padding-bottom: 2rem;

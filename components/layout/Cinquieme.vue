@@ -40,24 +40,24 @@
         </h3>
         <ul class="credentials__list learning">
           <li class="credentials__list--item">
-            <i class="devicon-typescript-plain"></i>
-            TypeScript
+            <i class="devicon-nodejs-plain"></i>
+            Node
           </li>
           <li class="credentials__list--item">
-            <i class="devicon-react-plain"></i>
+            <i class="devicon-react-plain react-logo"></i>
             React
           </li>
           <li class="credentials__list--item">
             <i class="devicon-nuxtjs-plain"></i>
-            Nuxt
+            Nuxt 3
           </li>
           <li class="credentials__list--item">
             <i class="devicon-svelte-plain"></i>
             SvelteKit
           </li>
           <li class="credentials__list--item">
-            <i class="devicon-linux-plain"></i>
-            Linux
+            <i class="devicon-typescript-plain"></i>
+            TypeScript
           </li>
           <li class="credentials__list--item">
             <i class="devicon-wordpress-plain"></i>
@@ -116,6 +116,14 @@ export default {
 
     &--item {
       margin-bottom: 5rem;
+
+      .react-logo {
+        // animation-name: spin;
+        // animation-duration: 7s;
+        // animation-iteration-count: infinite;
+        // animation-timing-function: linear;
+        animation: spin 1.2s ease infinite;
+      }
     }
 
     &.courses {
@@ -124,7 +132,7 @@ export default {
   }
 }
 .dot {
-  animation: ellipsisFade 1.2s ease infinite;
+  animation: ellipsisFade 10s ease infinite;
 
   &-one {
     animation-delay: 0.1s;

@@ -1,10 +1,12 @@
 <template>
-  <section class="skills">
-    <h2 class="skills__main-title">Select Projects</h2>
+  <div class="front-end-container">
     <div class="skills__language lang-CSS">
       <div class="skills__language--x">
-        <i class="devicon-css3-plain"></i>
-        <h5 class="skills__language-title">CSS Projects</h5>
+        <div style="display:flex">
+          <i class="devicon-css3-plain"></i>
+          <i class="devicon-sass-plain"></i>
+        </div>
+        <h5 class="skills__language-title">CSS/Sass Projects</h5>
       </div>
       <div class="skills__language--y">
         <ul class="skills__list">
@@ -133,8 +135,11 @@
 
     <div class="skills__language lang-Vue">
       <div class="skills__language--x">
-        <i class="devicon-vuejs-plain"></i>
-        <h5 class="skills__language-title">Vue Projects</h5>
+        <div style="display:flex">
+          <i class="devicon-vuejs-plain"></i>
+          <i class="devicon-nuxtjs-plain"></i>
+        </div>
+        <h5 class="skills__language-title">Vue/Nuxt Projects</h5>
       </div>
       <div class="skills__language--y">
         <ul class="skills__list">
@@ -170,147 +175,64 @@
         </ul>
       </div>
     </div>
-  </section>
+
+    <div class="skills__language lang-Svelte">
+      <div class="skills__language--x">
+        <i class="devicon-svelte-plain"></i>
+        <h5 class="skills__language-title">Svelte/SvelteKit Projects</h5>
+      </div>
+      <div class="skills__language--y">
+        <ul class="skills__list">
+          <h4 style="font-size: 6rem">Coming Soon</h4>
+          <!-- use this template when i have projects -->
+          <!-- <li class="skills__list--item">
+            Music Playlist App
+            <a href="https://gilberttsurwa-vue-music-player.netlify.app" target="__blank">
+              <i class="devicon-devicon-plain"></i>
+            </a>
+            <a href="https://github.com/GillyRabutTsurwa/vue-music-app" target="__blank">
+              <i class="devicon-github-plain"></i>
+            </a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
 </template>
 
 <script>
-export default {
-  name: "Quartrieme",
-};
+export default {};
 </script>
 
-<style lang="scss">
-.skills {
+<style lang="scss" scoped>
+.front-end-container {
+  grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: -webkit-min-content repeat(2, 1fr);
-  grid-template-rows: min-content repeat(2, 1fr);
-  height: 100vh;
-  margin: 0 3rem;
-
-  background-color: $default-grey;
-
   gap: 4rem;
-  padding-top: 6rem;
-  color: rgb(238, 238, 238);
-
-  @include responsive(tablet-portrait) {
-    grid-template-columns: 1fr;
-    grid-template-rows: min-content repeat(3, 1fr);
-    row-gap: 4rem;
-    column-gap: 0;
-  }
-
-  &__main-title {
-    grid-column: 1 / -1;
-    justify-self: center;
-    font-size: 3rem;
-    color: #1a2934;
-  }
-  &__language {
-    position: relative;
-    // TESTING;
-    width: 100%;
-    height: 100%;
-
-    &-title {
-      font-size: 1.7rem;
-    }
-
-    &:hover &--x {
-      -webkit-filter: blur(1.2rem);
-      filter: blur(1.2rem);
-    }
-
-    &:hover &--y {
-      opacity: 1;
-    }
-
-    // these are not children (although they are nested)
-    // theyre simply here to target the lang-*** class to place the grid items in the grid container
-    &.lang-CSS {
-      grid-column: 1 / 2;
-      grid-row: 2 / 3;
-    }
-
-    &.lang-JS {
-      grid-column: 1 / 2;
-      grid-row: 3 / 4;
-    }
-
-    &.lang-Vue {
-      grid-column: 2 / 3;
-      grid-row: 2 / -1;
-
-      @include responsive(tablet-portrait) {
-        grid-column: 1 / -1;
-        grid-row: 4 / -1;
-      }
-    }
-    // ===============================================================
-
-    &--x,
-    &--y {
-      // ? QUESTION: ARE THESE NEEDED?
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      // ? ==============================
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-
-      -webkit-transition: all 0.5s ease;
-      transition: all 0.5s ease;
-    }
-
-    &--x {
-      background-color: #1a2934;
-      & i {
-        font-size: 9rem;
-      }
-    }
-    &--y {
-      opacity: 0;
-      z-index: 1000;
-    }
-  }
+  grid-template-rows: repeat(2, 1fr);
 }
 
-//
-.skills__list {
-  list-style: none;
-  text-align: center;
+.skills__language {
+  &.lang-CSS {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
 
-  &--item {
-    font-size: 3rem;
+  &.lang-JS {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
 
-    a {
-      &:link,
-      &:visited {
-        color: rgb(238, 238, 238);
-        -webkit-text-decoration: none;
-        text-decoration: none;
-      }
-      &:hover,
-      &:active {
-        color: #fff;
-        text-shadow: 0 0 5px #fff, 0 0 10px #fff,
-          2px 2px 2px rgba(206, 89, 55, 0);
-      }
-    }
+  &.lang-Vue {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
+
+  &.lang-Svelte {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
   }
 }
 </style>

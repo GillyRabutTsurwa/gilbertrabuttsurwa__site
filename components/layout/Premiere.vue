@@ -3,10 +3,11 @@
     <div class="intro">
       <h2 class="intro__title">Introduction</h2>
       <p class="intro__paragraph">
-        Currently a front-end web developer intern at, <a href="https://.su.edu/" target="_blank" class="link__aeonnova">Shenandoah University</a>. I specialise in front-end web development, particularly with Vanilla Javascript and the Vue framework. Additionally, I am learning React and Svelte as it is important and advantageous to be comfortable with different libraries, frameworks, languages etc. I am fast learner, attentive, and harbour a good set of researching skills that help me quickly pick up new technologies.
+        Currently a web developer at, <a href="https://su.edu/" target="_blank" rel="noopener noreferrer" class="link__job">Shenandoah University</a>. I specialise in front-end web development, particularly with Vanilla Javascript and the Vue framework. Additionally, I am learning React
+        and SvelteKit as it is important and advantageous to be comfortable with different libraries, frameworks, languages etc. I am steady learner, attentive, and harbour a good set of researching skills that help me quickly pick up new technologies.
       </p>
       <p class="intro__paragraph deuxieme">
-        Whilst making front-end development my craft, I am also extensively learning UI/UX design. I am expanding my knowledge and expertise of this using Adobe XD, with the keen intent on designing full website and web application interfaces for all types of devices, with ease.
+        Whilst making front-end development my craft, I am also extensively about back-end development. Particularly, I'm diving into NodeJS, MongoDB and the Express framework. Although I have a background using all three, I am learning them more intently with the aim of comfortably using them to make full stack applications and become a full-stack developer.
       </p>
       <p class="intro__paragraph deuxieme">
         Yes, I do have a life outside coding. To find out what I do when I'm not coding or designing, checkout the slider below.
@@ -33,7 +34,11 @@ export default {
   name: "Premiere",
   data() {
     return {
-      myPhotos: [require("../assets/img/autoportrait-croquis.png"), require("../assets/img/autoportrait-croquis-2.png")],
+      myPhotos: [
+        require("~/assets/img/autoportrait-croquis.png"),
+        require("~/assets/img/autoportrait-croquis-2.png"),
+        require("~/assets/img/moi-high-top.png"),
+      ],
       currentIndex: 0,
     };
   },
@@ -112,7 +117,7 @@ export default {
   }
 }
 
-.link__shenandoah {
+.link__job {
   position: relative;
   display: inline-block;
 
@@ -120,7 +125,10 @@ export default {
   &:visited {
     text-decoration: none;
     font-weight: bold;
-    color: currentColor;
+    color: transparent;
+    background-image: linear-gradient(to right, #002e62, #980630);
+    -webkit-background-clip: text;
+    background-clip: text;
     font-style: normal;
   }
 
