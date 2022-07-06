@@ -115,7 +115,7 @@ export default {
   }
 }
 .dot {
-  animation: ellipsisFade 10s ease infinite;
+  animation: ellipsisFade 1.5s ease infinite;
 
   &-one {
     animation-delay: 0.1s;
