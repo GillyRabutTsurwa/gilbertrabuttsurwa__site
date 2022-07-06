@@ -3,10 +3,11 @@
     <div class="skills__language lang-CSS">
       <div class="skills__language--x">
         <div style="display:flex">
-          <i class="devicon-css3-plain"></i>
-          <i class="devicon-sass-plain"></i>
+          <i class="devicon-css3-plain" style="margin-right: 3rem"></i>
+          <i class="devicon-sass-plain" style="margin-right: 3rem"></i>
+          <i class="devicon-javascript-plain" style="margin-right: 3rem"></i>
         </div>
-        <h5 class="skills__language-title">CSS/Sass Projects</h5>
+        <h5 class="skills__language-title">Vanilla Projects</h5>
       </div>
       <div class="skills__language--y">
         <ul class="skills__list">
@@ -41,11 +42,11 @@
           </li>
 
           <li class="skills__list--item">
-            Trillo
-            <a href="https://trillo-gilberttsurwa-jonas.netlify.com" target="__blank" class="">
+            Forkify
+            <a href="https://gilberttsurwaforkifyproject.netlify.app/" target="__blank" class="">
               <i class="devicon-devicon-plain"></i>
             </a>
-            <a href="https://github.com/GillyRabutTsurwa/trillo-jonas" target="__blank" class="">
+            <a href="https://github.com/GillyRabutTsurwa/forkify-app-jonas" target="__blank" class="">
               <i class="devicon-github-plain"></i>
             </a>
           </li>
@@ -61,46 +62,6 @@
           </li>
 
           <li class="skills__list--item">
-            Grandma's Sweets
-            <a href="https://grandmassweets-gilberttsurwa-codeaddict.netlify.com" target="__blank" class="">
-              <i class="devicon-devicon-plain"></i>
-            </a>
-            <a href="https://github.com/GillyRabutTsurwa/grandma-sweets-codeaddict" target="__blank" class="">
-              <i class="devicon-github-plain"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="skills__language lang-JS">
-      <div class="skills__language--x">
-        <i class="devicon-javascript-plain"></i>
-        <h5 class="skills__language-title">JavaScript Projects</h5>
-      </div>
-      <div class="skills__language--y">
-        <ul class="skills__list">
-          <li class="skills__list--item">
-            Roll-Dice Game
-            <a href="https://piggame-gilberttsurwa-jonas.netlify.app/" target="__blank" class="">
-              <i class="devicon-devicon-plain"></i>
-            </a>
-            <a href="https://github.com/GillyRabutTsurwa/piggame-app-jonas" target="__blank" class="">
-              <i class="devicon-github-plain"></i>
-            </a>
-          </li>
-
-          <li class="skills__list--item">
-            Forkify
-            <a href="https://gilberttsurwaforkifyproject.netlify.app/" target="__blank" class="">
-              <i class="devicon-devicon-plain"></i>
-            </a>
-            <a href="https://github.com/GillyRabutTsurwa/forkify-app-jonas" target="__blank" class="">
-              <i class="devicon-github-plain"></i>
-            </a>
-          </li>
-
-          <li class="skills__list--item">
             Colour Game
             <a href="https://colourgame-gilberttsurwa-colt.netlify.app" target="__blank" class="">
               <i class="devicon-devicon-plain"></i>
@@ -109,26 +70,28 @@
               <i class="devicon-github-plain"></i>
             </a>
           </li>
+        </ul>
+      </div>
+    </div>
 
-          <li class="skills__list--item">
-            Booklist App
-            <a href="https://booklist-gilberttsurwa-brad.netlify.app/" target="__blank" class="">
+    <div class="skills__language lang-React">
+      <div class="skills__language--x">
+        <i class="devicon-react-plain"></i>
+        <h5 class="skills__language-title">React Projects</h5>
+      </div>
+      <div class="skills__language--y">
+        <ul class="skills__list">
+          <!-- <li class="skills__list--item">
+            Roll-Dice Game
+            <a href="https://piggame-gilberttsurwa-jonas.netlify.app/" target="__blank" class="">
               <i class="devicon-devicon-plain"></i>
             </a>
-            <a href="https://github.com/GillyRabutTsurwa/booklist-gilberttsurwa-brad" target="__blank" class="">
+            <a href="https://github.com/GillyRabutTsurwa/piggame-app-jonas" target="__blank" class="">
               <i class="devicon-github-plain"></i>
             </a>
-          </li>
+          </li> -->
+          <h4 style="font-size: 6rem">Coming Soon</h4>
 
-          <li class="skills__list--item">
-            Task List App
-            <a href="https://tasklist-gilberttsurwa-brad.netlify.com/" target="__blank" class="">
-              <i class="devicon-devicon-plain"></i>
-            </a>
-            <a href="https://github.com/GillyRabutTsurwa/tasklist-app-brad" target="__blank" class="">
-              <i class="devicon-github-plain"></i>
-            </a>
-          </li>
         </ul>
       </div>
     </div>
@@ -144,7 +107,7 @@
       <div class="skills__language--y">
         <ul class="skills__list">
           <li class="skills__list--item">
-            Music Playlist App
+            Mini Music Playlist
             <a href="https://gilberttsurwa-vue-music-player.netlify.app" target="__blank">
               <i class="devicon-devicon-plain"></i>
             </a>
@@ -164,11 +127,11 @@
           </li>
 
           <li class="skills__list--item">
-            Quote Saver App
-            <a href="https://gilberttsurwa-vue-quoteapp.herokuapp.com/" target="__blank">
+            My Blog
+            <a href="https://gilbertrabuttsurwa.blog/" target="__blank">
               <i class="devicon-devicon-plain"></i>
             </a>
-            <a href="https://github.com/GillyRabutTsurwa/vue-quote-application" target="__blank">
+            <a href="https://github.com/GillyRabutTsurwa/nuxt-content-blog-app/" target="__blank">
               <i class="devicon-github-plain"></i>
             </a>
           </li>
@@ -183,17 +146,17 @@
       </div>
       <div class="skills__language--y">
         <ul class="skills__list">
-          <h4 style="font-size: 6rem">Coming Soon</h4>
+          <!-- <h4 style="font-size: 6rem">Coming Soon</h4> -->
           <!-- use this template when i have projects -->
-          <!-- <li class="skills__list--item">
-            Music Playlist App
-            <a href="https://gilberttsurwa-vue-music-player.netlify.app" target="__blank">
+          <li class="skills__list--item">
+            Arch Studio Website
+            <a href="https://gilberttsurwa-arch-studio.vercel.app/" target="__blank">
               <i class="devicon-devicon-plain"></i>
             </a>
-            <a href="https://github.com/GillyRabutTsurwa/vue-music-app" target="__blank">
+            <a href="https://github.com/GillyRabutTsurwa/arch-studio-website" target="__blank">
               <i class="devicon-github-plain"></i>
             </a>
-          </li> -->
+          </li>
         </ul>
       </div>
     </div>
@@ -220,7 +183,7 @@ export default {};
     grid-row: 1 / 2;
   }
 
-  &.lang-JS {
+  &.lang-React {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
   }

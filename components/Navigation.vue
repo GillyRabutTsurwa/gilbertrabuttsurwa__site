@@ -9,7 +9,7 @@
       <ul class="navigation__nav--list">
         <li class="navigation__nav--list-item"><a href="https://github.com/GillyRabutTsurwa" target="__blank" class="navigation__nav--list-link">Github Profile</a>
         </li>
-        <li class="navigation__nav--list-item"><a href="./docs/GilbertRabutTsurwa-Résumé.docx" class="navigation__nav--list-link">Résumé</a></li>
+        <li class="navigation__nav--list-item"><a href="../static/Résumé 2022.pdf" download="gt-resume" class="navigation__nav--list-link">Résumé</a></li>
         <li class="navigation__nav--list-item"><a href="https://gilbertrabuttsurwa.blog" class="navigation__nav--list-link" target="__blank">My Blog Site</a>
         </li>
         <li class="navigation__nav--list-item"><a href="mailto:tsurwagilbert@gmail.com" class="navigation__nav--list-link">E-mail Me</a>
@@ -25,6 +25,8 @@ export default {
     return {
       isFadedInBtn: false,
       isFadedInBg: false,
+      // NEW: for accessing résumé in static folder
+      publicPath: process.env.BASE_URL,
     };
   },
   methods: {},

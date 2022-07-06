@@ -68,6 +68,7 @@ export default {
 .intro-n-autoportrait {
   display: grid;
   grid-template-columns: 40% 1fr;
+  column-gap: 13rem;
   grid-template-rows: 1fr;
   background-color: rgb(238, 238, 238);
   //TESTING:

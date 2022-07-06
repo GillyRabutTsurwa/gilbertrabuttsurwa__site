@@ -1,5 +1,6 @@
 <template>
   <section class="proficiency">
+    <h2 class="proficiency__title">Skills</h2>
     <div class="proficiency__text">
       <p>
         I am adept in some technologies whereas I am still learning others. My strong points include: <span class="lang-in-bold"><span class="css">CSS</span>/<span class="sass">Sass</span></span>, <span class="lang-in-bold javascript">JavaScript</span>, <span class="lang-in-bold vue">VueJS</span>, and <span class="lang-in-bold svelte">Svelte</span>. I am also gradually improving my skills with: <span class="lang-in-bold react">React</span>, <span class="lang-in-bold typescript">TypeScript</span>, and <span class="lang-in-bold webpack">Webpack</span>.
@@ -74,6 +75,7 @@ export default {
   display: grid;
   // grid-template-columns: repeat(2, 1fr);
   grid-template-columns: 35% 1fr;
+  grid-template-rows: min-content 1fr;
   background-color: $default-grey;
 
   @include responsive(tablet-portrait) {
@@ -81,11 +83,20 @@ export default {
     grid-template-rows: min-content 1fr;
   }
 
+  &__title {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    text-align: center;
+    font-size: 5rem;
+  }
+
   &__text {
     font-size: 2rem;
     margin-top: 12rem;
     margin-left: 4rem;
     line-height: 2;
+    grid-column: 1 / 2;
+    grid-row: 2 / -1;
 
     @include responsive(tablet-portrait) {
       margin: 2.5rem 0 0 2.5rem;
@@ -99,6 +110,8 @@ export default {
       margin: 10rem 0;
       // margin-right: -8rem;
       width: 100%;
+      grid-column: 2 / -1;
+      grid-row: 2 / -1;
 
       #myFirstChart {
         display: block;

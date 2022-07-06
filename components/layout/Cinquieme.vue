@@ -40,32 +40,17 @@
         </h3>
         <ul class="credentials__list learning">
           <li class="credentials__list--item">
-            <i class="devicon-nodejs-plain"></i>
-            Node
-          </li>
-          <li class="credentials__list--item">
             <i class="devicon-react-plain react-logo"></i>
             React
-          </li>
-          <li class="credentials__list--item">
-            <i class="devicon-nuxtjs-plain"></i>
-            Nuxt 3
-          </li>
-          <li class="credentials__list--item">
-            <i class="devicon-svelte-plain"></i>
-            SvelteKit
           </li>
           <li class="credentials__list--item">
             <i class="devicon-typescript-plain"></i>
             TypeScript
           </li>
+
           <li class="credentials__list--item">
-            <i class="devicon-wordpress-plain"></i>
-            WordPress
-          </li>
-          <li class="credentials__list--item">
-            <i class="devicon-php-plain"></i>
-            PHP
+            <i class="devicon-nodejs-plain"></i>
+            Node
           </li>
         </ul>
       </div>
@@ -117,12 +102,10 @@ export default {
     &--item {
       margin-bottom: 5rem;
 
-      .react-logo {
-        // animation-name: spin;
-        // animation-duration: 7s;
-        // animation-iteration-count: infinite;
-        // animation-timing-function: linear;
-        animation: spin 1.2s ease infinite;
+      @media (prefers-reduced-motion: no-preference) {
+        .react-logo {
+          animation: spin infinite 20s linear;
+        }
       }
     }
 
