@@ -34,6 +34,36 @@ export default {
         content:
           "Welcome to my portfolio website. In here you can learn more about me and take a look at the projects I have done. I am Front-End Developer and Javascript is my bread and butter. Explore my site and reach out to me if needed.",
       },
+      // NEW: attempt to add featured image on LinkedIn
+      // thanks to this link: https://medium.com/@jamesyhiggs/how-to-add-thumbnail-images-to-the-featured-section-of-your-linkedin-profile-for-web-apps-sites-917346235932
+      {
+        name: "description",
+        content: "Gilbert's Portfolio Site",
+      },
+      {
+        name: "title",
+        property: "og:title",
+        content: "Gilbert's Portfolio Site Powered by Nuxt",
+      },
+      {
+        property: "og:type",
+        content: "Gilbert's Nuxt Portfolio Site",
+      },
+      {
+        name: "image",
+        property: "og:image",
+        content: "https://live.staticflickr.com/65535/52082955614_584fb3b7b1_k.jpg",
+      },
+      {
+        name: "description",
+        property: "og:description",
+        content: "Gilbert's Portfolio Site",
+      },
+      {
+        name: "author",
+        content: "Gilbert Rabut Tsurwa",
+      },
+      // =======================================
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
@@ -97,7 +127,7 @@ export default {
    */
   // TESTING remove
   styleResources: {
-    scss: ["assets/sass/_variables.scss", "assets/sass/_mixins.scss", "assets/sass/_animations.scss"],
+    scss: ["assets/sass/_variables.scss", "assets/sass/_mixins.scss", "assets/sass/_extend.scss", "assets/sass/_animations.scss"],
     // IMPORTANTNOTE: Voila this resurrected my application. also I am using dart sass and not node sass
     // i'm using nuxtjs/style-resources (que j'avais déjà installé), mais j'ajoute cette ligne important qui a resuscité mon appli
     // grace a ce lien https://github.com/nuxt-community/style-resources-module (parmi d'autres) je pouvais trouver la solution

@@ -13,13 +13,13 @@
 
 <script>
 import Navigation from "./Navigation";
-import Header from "./Header";
-import Premiere from "./Premiere";
-import Deuxieme from "./Deuxieme";
-import Troisieme from "./Troisieme";
-import Quartrieme from "./Quartrieme";
-import Cinquieme from "./Cinquieme";
-import Footer from "./Footer";
+import Header from "./layout/Header";
+import Premiere from "./layout/Premiere";
+import Deuxieme from "./layout/Deuxieme";
+import Troisieme from "./layout/Troisieme";
+import Quartrieme from "./layout/Quartrieme";
+import Cinquieme from "./layout/Cinquieme";
+import Footer from "./layout/Footer";
 
 export default {
   name: "MainContent",
@@ -57,11 +57,9 @@ export default {
   },
   mounted() {
     console.dir(this.$el); // nous donne la structure HTML de cette Vue composant. On peut acceder aux enfants
-    const sectionsOnly = Array.from(this.$el.children).filter(
-      (currentElement) => {
-        return currentElement.tagName === "SECTION";
-      }
-    ); 
+    const sectionsOnly = Array.from(this.$el.children).filter((currentElement) => {
+      return currentElement.tagName === "SECTION";
+    });
     sectionsOnly.forEach((current) => {
       this.observer.observe(current);
     });

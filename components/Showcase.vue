@@ -18,10 +18,16 @@ project-thumbnails/<template>
       <Thumbnail v-for="(currentThumbnail, index) in thumbnailJavascript" v-bind:key="index" v-bind:thumbnailObj="currentThumbnail" />
     </div>
 
-    <h2 class="showcase-language-subtitle">VueJS Projects</h2>
+    <h2 class="showcase-language-subtitle">Vue / Nuxt Projects</h2>
 
     <div class="showcase-container">
       <Thumbnail v-for="(currentThumbnail, index) in thumbnailVue" v-bind:key="index" v-bind:thumbnailObj="currentThumbnail" />
+    </div>
+
+    <h2 class="showcase-language-subtitle">Svelte / SvelteKit Projects</h2>
+
+    <div class="showcase-container">
+      <Thumbnail v-for="(currentThumbnail, index) in thumbnailSvelte" v-bind:key="index" v-bind:thumbnailObj="currentThumbnail" />
     </div>
 
   </div>
@@ -45,14 +51,12 @@ export default {
         {
           img: require("../assets/img/project-thumbnails/nu-renaissance-thumbnail-min.png"),
           siteLink: " https://gilberttsurwa-nurenaissance.netlify.app",
-          githubLink:
-            "https://github.com/GillyRabutTsurwa/gilberttsurwa-nu-renaissance-website",
+          githubLink: "https://github.com/GillyRabutTsurwa/gilberttsurwa-nu-renaissance-website",
         },
         {
           img: require("../assets/img/project-thumbnails/omnifood-thumbnail-min.png"),
           siteLink: "https://omnifood-gilberttsurwa-jonas.netlify.com/",
-          githubLink:
-            "https://github.com/GillyRabutTsurwa/omnifood-gilberttsurwa-jonas",
+          githubLink: "https://github.com/GillyRabutTsurwa/omnifood-gilberttsurwa-jonas",
         },
         {
           img: require("../assets/img/project-thumbnails/natours-thumbnail-min.png"),
@@ -77,15 +81,12 @@ export default {
         {
           img: require("../assets/img/project-thumbnails/phono-thumbnail-min.png"),
           siteLink: "https://first-deployed-website.netlify.com",
-          githubLink:
-            "https://github.com/GillyRabutTsurwa/phono-headphones-website",
+          githubLink: "https://github.com/GillyRabutTsurwa/phono-headphones-website",
         },
         {
           img: require("../assets/img/project-thumbnails/grandma-sweets-thumbnail-min.png"),
-          siteLink:
-            "https://grandmassweets-gilberttsurwa-codeaddict.netlify.com",
-          githubLink:
-            "https://github.com/GillyRabutTsurwa/grandma-sweets-codeaddict",
+          siteLink: "https://grandmassweets-gilberttsurwa-codeaddict.netlify.com",
+          githubLink: "https://github.com/GillyRabutTsurwa/grandma-sweets-codeaddict",
         },
       ],
       // =====================================
@@ -118,8 +119,7 @@ export default {
         {
           img: require("../assets/img/project-thumbnails/password-generator-app-thumbnail-min.png"),
           siteLink: "https://passwordgenerator-gilberttsurwa-brad.netlify.com",
-          githubLink:
-            "https://github.com/GillyRabutTsurwa/password-generator-brad",
+          githubLink: "https://github.com/GillyRabutTsurwa/password-generator-brad",
         },
         {
           img: require("../assets/img/project-thumbnails/budgety-app-thumbnail-min.png"),
@@ -129,8 +129,7 @@ export default {
         {
           img: require("../assets/img/project-thumbnails/booklist-app-thumbnail-min.png"),
           siteLink: "https://booklist-gilberttsurwa-brad.netlify.com",
-          githubLink:
-            "https://github.com/GillyRabutTsurwa/booklist-gilberttsurwa-brad",
+          githubLink: "https://github.com/GillyRabutTsurwa/booklist-gilberttsurwa-brad",
         },
       ],
       // =====================================
@@ -138,8 +137,7 @@ export default {
         {
           img: require("../assets/img/project-thumbnails/vue-quote-app-thumbnail.png"),
           siteLink: "https://gilberttsurwa-vue-quoteapp.herokuapp.com/",
-          githubLink:
-            "https://github.com/GillyRabutTsurwa/vue-quote-application",
+          githubLink: "https://github.com/GillyRabutTsurwa/vue-quote-application",
         },
         {
           img: require("../assets/img/project-thumbnails/vue-music-app-thumbnail.png"),
@@ -149,8 +147,19 @@ export default {
         {
           img: require("../assets/img/project-thumbnails/baba-jokes-app-thumbnail.png"),
           siteLink: "https://gilberttsurwa-baba-jokes.netlify.app/",
-          githubLink:
-            "https://github.com/GillyRabutTsurwa/nuxt-with-brad-traversy",
+          githubLink: "https://github.com/GillyRabutTsurwa/nuxt-with-brad-traversy",
+        },
+        {
+          img: require("../assets/img/project-thumbnails/blog-app-thumbnail.png"),
+          siteLink: "https://gilbertrabuttsurwa.tech",
+          githubLink: "https://github.com/GillyRabutTsurwa/my-website",
+        },
+      ],
+      thumbnailSvelte: [
+        {
+          img: require("../assets/img/project-thumbnails/arch-studio-thumbnail.png"),
+          siteLink: "https://gilberttsurwa-arch-studio.vercel.app/",
+          githubLink: "https://github.com/GillyRabutTsurwa/arch-studio-website",
         },
       ],
     };
