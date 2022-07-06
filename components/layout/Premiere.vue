@@ -7,7 +7,7 @@
         and SvelteKit as it is important and advantageous to be comfortable with different libraries, frameworks, languages etc. I am steady learner, attentive, and harbour a good set of researching skills that help me quickly pick up new technologies.
       </p>
       <p class="intro__paragraph deuxieme">
-        Whilst making front-end development my craft, I am also extensively about back-end development. Particularly, I'm diving into NodeJS, MongoDB and the Express framework. Although I have a background using all three, I am learning them more intently with the aim of comfortably using them to make full stack applications and become a full-stack developer.
+        Although making front-end development is my specialisation, I am also starting to delve into back-end development. particularly: NodeJS, MongoDB and the Express framework. Although I have a bit of experience using all three, I am learning them more intently with the aim of comfortably using them to make some full stack applications.
       </p>
       <p class="intro__paragraph deuxieme">
         Yes, I do have a life outside coding. To find out what I do when I'm not coding or designing, checkout the slider below.
@@ -169,6 +169,7 @@ export default {
   font-size: 5rem;
   text-align: center;
   margin: 1.5rem;
+  transform: rotate(-50deg);
 
   a {
     &:link,
