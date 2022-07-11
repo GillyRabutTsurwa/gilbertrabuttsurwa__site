@@ -27,7 +27,8 @@ export default {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   // grid-template-rows: repeat(2, min-content) repeat(2, 55vh);
-  grid-template-rows: repeat(2, min-content) 80vh;
+  // grid-template-rows: repeat(2, min-content) 80vh;
+  grid-template-rows: repeat(2, min-content) 1fr;
 
   // height: 100vh;
   min-height: 100vh;

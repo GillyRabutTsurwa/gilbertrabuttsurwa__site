@@ -1,4 +1,4 @@
-project-thumbnails/<template>
+<template>
   <div>
     <div class="showcase-top">
       <a href="https://github.com/GillyRabutTsurwa" target="_blank">
@@ -135,9 +135,9 @@ export default {
       // =====================================
       thumbnailVue: [
         {
-          img: require("../assets/img/project-thumbnails/vue-quote-app-thumbnail.png"),
-          siteLink: "https://gilberttsurwa-vue-quoteapp.herokuapp.com/",
-          githubLink: "https://github.com/GillyRabutTsurwa/vue-quote-application",
+          img: require("../assets/img/project-thumbnails/pokedex-pikachu.png"),
+          siteLink: "https://gilberttsurwa-pokedex-legacy.netlify.app/",
+          githubLink: "https://github.com/GillyRabutTsurwa/pokedex-legacy",
         },
         {
           img: require("../assets/img/project-thumbnails/vue-music-app-thumbnail.png"),

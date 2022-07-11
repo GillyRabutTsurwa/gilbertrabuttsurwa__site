@@ -135,6 +135,16 @@
               <i class="devicon-github-plain"></i>
             </a>
           </li>
+
+          <li class="skills__list--item">
+            Pokedex
+            <a href="https://gilberttsurwa-pokedex-legacy.netlify.app/" target="__blank">
+              <i class="devicon-devicon-plain"></i>
+            </a>
+            <a href="https://github.com/GillyRabutTsurwa/nuxt-content-blog-app/" target="__blank">
+              <i class="devicon-github-plain"></i>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -174,7 +184,7 @@ export default {};
   grid-column: 1 / -1;
   display: grid;
   gap: 4rem;
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 50rem);
 }
 
 .skills__language {
