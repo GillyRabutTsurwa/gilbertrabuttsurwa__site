@@ -24,10 +24,16 @@
       <Thumbnail v-for="(currentThumbnail, index) in thumbnailVue" v-bind:key="index" v-bind:thumbnailObj="currentThumbnail" />
     </div>
 
-    <h2 class="showcase-language-subtitle">Svelte / SvelteKit Projects</h2>
+    <h2 class="showcase-language-subtitle">Svelte(Kit) Projects</h2>
 
     <div class="showcase-container">
       <Thumbnail v-for="(currentThumbnail, index) in thumbnailSvelte" v-bind:key="index" v-bind:thumbnailObj="currentThumbnail" />
+    </div>
+
+    <h2 class="showcase-language-subtitle">React</h2>
+
+    <div class="showcase-container">
+      <Thumbnail v-for="(currentThumbnail, index) in thumbnailReact" v-bind:key="index" v-bind:thumbnailObj="currentThumbnail" />
     </div>
 
   </div>
@@ -155,11 +161,20 @@ export default {
           githubLink: "https://github.com/GillyRabutTsurwa/my-website",
         },
       ],
+      // =====================================
       thumbnailSvelte: [
         {
           img: require("../assets/img/project-thumbnails/arch-studio-thumbnail.png"),
           siteLink: "https://gilberttsurwa-arch-studio.vercel.app/",
           githubLink: "https://github.com/GillyRabutTsurwa/arch-studio-website",
+        },
+      ],
+      // =====================================
+      thumbnailReact: [
+        {
+          img: require("../assets/img/project-thumbnails/dadjokes-react-thumbnail.png"),
+          siteLink: "https://gilberttsurwa-dadjokes-react.netlify.app/",
+          githubLink: "https://github.com/GillyRabutTsurwa/dadjokes-app-react",
         },
       ],
     };
@@ -195,9 +210,11 @@ export default {
 
 .showcase-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+  // grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(32rem, 70rem)); /* will stick with this one for now. looks great */
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  justify-content: space-evenly;
 }
 </style>

@@ -44,6 +44,10 @@
             React
           </li>
           <li class="credentials__list--item">
+            <i class="devicon-nextjs-plain"></i>
+            Next
+          </li>
+          <li class="credentials__list--item">
             <i class="devicon-typescript-plain"></i>
             TypeScript
           </li>
