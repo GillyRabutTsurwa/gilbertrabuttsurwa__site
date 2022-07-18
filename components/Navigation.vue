@@ -157,12 +157,6 @@ $default-box-shadow: 0 1rem 2rem rgba($colour-noir, 0.15);
 
       &-item {
         margin: 1.5rem;
-
-        &:last-child {
-          a {
-            cursor: not-allowed;
-          }
-        }
       }
 
       &-link {

@@ -81,17 +81,15 @@
       </div>
       <div class="skills__language--y">
         <ul class="skills__list">
-          <!-- <li class="skills__list--item">
-            Roll-Dice Game
+          <li class="skills__list--item">
+            <span> Dad Jokes App <sup>Beta</sup> </span>
             <a href="https://piggame-gilberttsurwa-jonas.netlify.app/" target="__blank" class="">
               <i class="devicon-devicon-plain"></i>
             </a>
             <a href="https://github.com/GillyRabutTsurwa/piggame-app-jonas" target="__blank" class="">
               <i class="devicon-github-plain"></i>
             </a>
-          </li> -->
-          <h4 style="font-size: 6rem">Coming Soon</h4>
-
+          </li>
         </ul>
       </div>
     </div>
@@ -187,25 +185,118 @@ export default {};
   grid-template-rows: repeat(2, 50rem);
 }
 
-.skills__language {
-  &.lang-CSS {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
+.skills {
+  &__language {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    &-title {
+      font-size: 1.7rem;
+    }
+
+    &:hover &--x {
+      -webkit-filter: blur(1.2rem);
+      filter: blur(1.2rem);
+    }
+
+    &:hover &--y {
+      opacity: 1;
+    }
+
+    &--x,
+    &--y {
+      // ? QUESTION: ARE THESE NEEDED?
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      // ? ==============================
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+
+      -webkit-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+    }
+
+    &--x {
+      background-color: #1a2934;
+      & i {
+        font-size: 9rem;
+      }
+    }
+    &--y {
+      opacity: 0;
+      z-index: 1000;
+    }
+
+    &.lang-CSS {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+
+    &.lang-React {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+
+    &.lang-Vue {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+    }
+
+    &.lang-Svelte {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
   }
 
-  &.lang-React {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-  }
+  &__list {
+    list-style: none;
+    text-align: center;
 
-  &.lang-Vue {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-  }
+    &--item {
+      font-size: 3rem;
 
-  &.lang-Svelte {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
+      span {
+        position: relative; /* for beta sup element* */
+        margin-right: 2rem;
+
+        sup {
+          position: absolute;
+          right: -0.75rem;
+          bottom: 2rem;
+          font-size: 1rem;
+          font-weight: bold;
+        }
+      }
+
+      a {
+        &:link,
+        &:visited {
+          color: rgb(238, 238, 238);
+          -webkit-text-decoration: none;
+          text-decoration: none;
+        }
+        &:hover,
+        &:active {
+          color: #fff;
+          text-shadow: 0 0 5px #fff, 0 0 10px #fff, 2px 2px 2px rgba(206, 89, 55, 0);
+        }
+      }
+    }
   }
 }
 </style>
