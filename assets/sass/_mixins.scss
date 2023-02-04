@@ -48,3 +48,10 @@
     // 1800px (our desired px definition) / 16 (the number of px in 1 em)
   }
 }
+
+@mixin centre-absolute-elements {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

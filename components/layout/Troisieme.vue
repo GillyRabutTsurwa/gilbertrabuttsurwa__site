@@ -127,52 +127,52 @@ export default {
 
   .css {
     @extend %text-gradient;
-    background-image: linear-gradient(#3c99dc, #66d3fa);
+    background-image: linear-gradient($colour-gradient-css);
   }
 
   .sass {
     @extend %text-gradient;
-    background-image: linear-gradient(#cd6799, #e293b9);
+    background-image: linear-gradient($colour-gradient-sass);
   }
 
   &.javascript {
     @extend %text-gradient;
-    background-image: linear-gradient(to bottom right, #f0db4f 25%, #323330);
+    background-image: linear-gradient($colour-gradient-javascript);
   }
 
   &.vue {
     @extend %text-gradient;
-    background-image: linear-gradient(315deg, #42d392 25%, #647eff);
+    background-image: linear-gradient($colour-gradient-vue);
   }
 
   &.svelte {
     @extend %text-gradient;
-    background-image: linear-gradient(to top right, #ff3e00 25%, #e3e7f7);
+    background-image: linear-gradient($colour-gradient-svelte);
   }
 
   &.tailwind {
     @extend %text-gradient;
-    background-image: linear-gradient(315deg, #42d392 25%, #647eff);
+    background-image: linear-gradient($colour-gradient-tailwind);
   }
 
   &.react {
     @extend %text-gradient;
-    background-image: linear-gradient(to top left, #61dbfb, #333);
+    background-image: linear-gradient($colour-gradient-react);
   }
 
   &.typescript {
     @extend %text-gradient;
-    background-image: linear-gradient(to top right, #235a97 25%, #e3e7f7);
+    background-image: linear-gradient($colour-gradient-typescript);
   }
 
   &.bootstrap {
     @extend %text-gradient;
-    background-image: linear-gradient(315deg, #3806ad 25%, #553c7b);
+    background-image: linear-gradient($colour-gradient-bootstrap);
   }
 
   &.webpack {
     @extend %text-gradient;
-    background-image: linear-gradient(315deg, #1d78c1 25%, #465e69);
+    background-image: linear-gradient($colour-gradient-webpack);
   }
 }
 </style>

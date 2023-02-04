@@ -1,6 +1,6 @@
 <template>
   <div class="back-end-container">
-    <h4 style="color: #1a2934; font-size: 8rem">Projects Coming in the Autumn</h4>
+    <h4>Projects Coming in the Autumn</h4>
   </div>
 </template>
 
@@ -9,6 +9,10 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+h4 {
+  font-size: 8rem;
+  color: $steelblue;
+}
 .back-end-container {
   grid-column: 1 / -1;
   display: grid;

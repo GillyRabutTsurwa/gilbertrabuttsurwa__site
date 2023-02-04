@@ -193,7 +193,7 @@ export default {
   & a {
     margin-right: auto;
     text-decoration: none;
-    color: #1a2934;
+    color: $steelblue;
     background-color: #fff;
     padding: 1rem 2.1rem;
   }

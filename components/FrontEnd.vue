@@ -139,7 +139,17 @@
             <a href="https://gilberttsurwa-pokedex-legacy.netlify.app/" target="__blank">
               <i class="devicon-devicon-plain"></i>
             </a>
-            <a href="https://github.com/GillyRabutTsurwa/nuxt-content-blog-app/" target="__blank">
+            <a href="https://github.com/GillyRabutTsurwa/pokedex-legacy/" target="__blank">
+              <i class="devicon-github-plain"></i>
+            </a>
+          </li>
+
+          <li class="skills__list--item">
+            <span> CryptoDex <sup>Beta</sup> </span>
+            <a href="https://gilberttsurwa-cryptodex.netlify.app/" target="__blank">
+              <i class="devicon-devicon-plain"></i>
+            </a>
+            <a href="https://github.com/GillyRabutTsurwa/crypto-tracker-app/" target="__blank">
               <i class="devicon-github-plain"></i>
             </a>
           </li>
@@ -232,7 +242,7 @@ export default {};
     }
 
     &--x {
-      background-color: #1a2934;
+      background-color: $steelblue;
       & i {
         font-size: 9rem;
       }

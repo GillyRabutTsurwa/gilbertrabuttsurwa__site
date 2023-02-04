@@ -130,7 +130,7 @@ export default {
     left: 3rem;
     font-size: 9.5rem;
     z-index: 1000;
-    color: #1a2934;
+    color: $steelblue;
     -webkit-animation: fade 3800ms ease-in-out infinite;
     animation: fade 3800ms ease-in-out infinite;
   }
@@ -176,7 +176,7 @@ export default {
     color: #fff;
     padding: 1.5rem 3rem;
     margin-top: 3rem;
-    background-color: #1a2934;
+    background-color: $steelblue;
     cursor: pointer;
     z-index: 10000;
 
@@ -186,7 +186,7 @@ export default {
 
     &:hover {
       background-color: #fff;
-      color: #1a2934;
+      color: $steelblue;
     }
   }
 

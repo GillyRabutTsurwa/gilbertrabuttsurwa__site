@@ -76,7 +76,7 @@ export default {
   // transition: opacity 0.75s ease-in;
 
   @include responsive(tablet-portrait) {
-    // background-color: pink;
+    background-color: pink;
     grid-template-columns: 20% 1fr; //TESTING;
   }
 
@@ -127,7 +127,7 @@ export default {
     text-decoration: none;
     font-weight: bold;
     color: transparent;
-    background-image: linear-gradient(to right, #002e62, #980630);
+    background-image: linear-gradient($colour-gradient-shenandoah-uni);
     -webkit-background-clip: text;
     background-clip: text;
     font-style: normal;
