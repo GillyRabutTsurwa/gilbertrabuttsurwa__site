@@ -44,34 +44,6 @@ export default {
 </script>
 
 <style lang="scss">
-$colour-primaire: #55c57a;
-$colour-primaire-light: #7ed56f;
-$colour-primaire-dark: #28b485;
-
-$colour-secondaire-light: #ffb900;
-$colour-secondaire-dark: #ff7730;
-
-$colour-tertiare-light: #2998ff;
-$colour-tertiare-dark: #5643fa;
-
-$colour-gris-sombre: #777;
-$colour-gris-leger: #f7f7f7;
-$colour-gris-supersombre: #333;
-
-$colour-blanc: #fff;
-$colour-noir: #000;
-
-// BOX SHADOW
-$default-box-shadow: 0 1rem 2rem rgba($colour-noir, 0.15);
-
-@mixin centre-absolute-elements {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
 .navigation {
   &__checkbox {
     // HIDE THE ACTUAL CHECKBOX
@@ -116,8 +88,8 @@ $default-box-shadow: 0 1rem 2rem rgba($colour-noir, 0.15);
     position: fixed;
     top: 3.5rem;
     right: 3.5rem;
-    background-image: -webkit-gradient(linear, left bottom, right top, from(#1a2934), to(#1a2934de));
-    background-image: linear-gradient(to top right, #1a2934, #1a2934de);
+    background-image: -webkit-gradient(linear, left bottom, right top, from($steelblue), to(#1a2934de));
+    background-image: linear-gradient(to top right, $steelblue, #1a2934de);
     z-index: 1000; // NOTE: BE ON TOP OF MAIN CONTENT
     -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
     transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
@@ -183,7 +155,7 @@ $default-box-shadow: 0 1rem 2rem rgba($colour-noir, 0.15);
         &:hover,
         &:active {
           background-position: 100%;
-          color: #1a2934;
+          color: $steelblue;
           -webkit-transform: translateX(1rem);
           transform: translateX(1rem);
         }

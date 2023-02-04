@@ -60,8 +60,8 @@ export default {};
 
 <style lang="scss">
 .footer {
-  background-color: #1a2934;
-  color: rgb(238, 238, 238);
+  background-color: $steelblue;
+  color: $default-grey;
   height: 20vh;
   padding: 2rem;
   font-size: 2.5rem;

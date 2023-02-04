@@ -51,7 +51,7 @@ export default {
     grid-column: 1 / -1;
     justify-self: center;
     font-size: 3rem;
-    color: #1a2934;
+    color: $steelblue;
   }
 
   &__buttons {
