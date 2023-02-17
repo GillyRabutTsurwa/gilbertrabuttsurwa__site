@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import { browser } from "$app/environment";
   import L from "leaflet";
   import "leaflet/dist/leaflet.css";
   import imgURL from "$lib/images/marker-icon.png";
@@ -71,7 +72,9 @@
   };
 
   onMount(() => {
-    createMap();
+    if (browser) {
+      createMap();
+    }
   });
 </script>
 
