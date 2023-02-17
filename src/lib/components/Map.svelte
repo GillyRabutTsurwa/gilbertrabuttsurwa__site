@@ -1,15 +1,16 @@
 <script>
   import { onMount } from "svelte";
   import { browser } from "$app/environment";
-  import L from "leaflet";
+  //   import L from "leaflet";
   import "leaflet/dist/leaflet.css";
   import imgURL from "$lib/images/marker-icon.png";
   let map;
 
-  const createMap = () => {
+  //   console.log(L);
+  const createMap = (mapObject) => {
     // TESTING solution for icon not showing in prod
     //NOTE: if it works, i got solution here: https://stackoverflow.com/questions/60174040/marker-icon-isnt-showing-in-leaflet
-    const myIcon = L.icon({
+    const myIcon = mapObject.icon({
       iconUrl: imgURL,
     });
 
@@ -34,7 +35,7 @@
     const zoomLevel = 7;
 
     // NOTE: it seems this is the entry point of rendering the map
-    map = L.map("mapContainer").setView(mapStartingPoint, zoomLevel); // ("map") signifie un element dans notre HTML ayant le ID de "map"
+    map = mapObject.map("mapContainer").setView(mapStartingPoint, zoomLevel); // ("map") signifie un element dans notre HTML ayant le ID de "map"
     // NEW: testing, disable zoom/scroll on render (by default)
     map.scrollWheelZoom.disable();
 
@@ -58,22 +59,37 @@
      * tile layers affecct the appearance of the map
      * apparently there's all sorts and are customisable by simply changing the url (1st parametre of the tileLayer())
      */
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    }).addTo(map);
+    mapObject
+      .tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      })
+      .addTo(map);
 
     // NEW: rendering multiple markers on multiple coordinates
     // https://stackoverflow.com/questions/42968243/how-to-add-multiple-markers-in-leaflet-js
     // simply put the code that generates the marker in a for loop and adjust the values
 
     for (let i = 0; i < markerLocations.length; i++) {
-      L.marker([markerLocations[i][1], markerLocations[i][2]], { icon: myIcon }).addTo(map).bindPopup(markerLocations[i][0]).openPopup();
+      mapObject.marker([markerLocations[i][1], markerLocations[i][2]], { icon: myIcon }).addTo(map).bindPopup(markerLocations[i][0]).openPopup();
     }
   };
 
   onMount(() => {
+    /**
+     * NOTE: if i solved the window not defined, ce sera grace a ces deux liens:
+     * https://stackoverflow.com/questions/36367532/how-can-i-conditionally-import-an-es6-module
+     * https://2ality.com/2017/01/import-operator.html
+     * and this one too
+     * https://stackoverflow.com/questions/74220206/sveltekit-readable-store-initialize-on-client-side-only
+     */
+    // if we are in the browser environment
     if (browser) {
-      createMap();
+      // import the leaflet library
+      import("leaflet").then((L) => {
+        console.log(L);
+        // then use the library object in the function that is responsible for rendering the map. this should work
+        createMap(L);
+      });
     }
   });
 </script>
