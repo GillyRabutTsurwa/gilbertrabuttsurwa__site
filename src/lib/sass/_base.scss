@@ -1,0 +1,39 @@
+@import "./variables";
+// @import url("https://fonts.googleapis.com/css?family=Kulim+Park:400,400i,600,600i,700&display=swap");
+
+::-moz-selection {
+  background: rgb(238, 238, 238);
+  color: $steelblue;
+}
+::selection {
+  background: rgb(238, 238, 238);
+  color: $steelblue;
+}
+* {
+  &,
+  &::before,
+  &::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+html,
+body {
+  height: 100vh; // needed for scrolling... I think. testing needed
+  overflow-x: hidden;
+}
+html {
+  font-size: 62.5%; //1rem = 10px; 10px/16px = 62.5%;
+}
+
+body {
+  font-family: "Kulim Park", Arial, Helvetica, sans-serif !important;
+  position: relative; // TESTING: TEMPORARY
+  background-color: #eeeeee;
+  color: $steelblue;
+  //TESTING:
+  & > * {
+    width: 100%;
+  }
+}

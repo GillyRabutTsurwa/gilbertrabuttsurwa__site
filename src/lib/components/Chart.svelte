@@ -1,0 +1,90 @@
+<script>
+  import Chart from "chart.js";
+  import { onMount } from "svelte";
+
+  // @ts-ignore
+  let chartCanvas;
+  let chart;
+
+  const renderChart = () => {
+    // @ts-ignore
+    chart = chartCanvas.getContext("2d");
+
+    // NEW: there's acutally no error here so the line below gets rid of the red lines. try toggling it. so cool.
+    //NOTE: i tried it here first before applying it to the ones above cause this one had more lines showing below it
+    // @ts-ignore
+    let myChart = new Chart(chart, {
+      type: "radar",
+      data: {
+        labels: ["CSS/Sass", "Javascript", "Typescript", "Vue", "React", "Svelte", "Tailwind", "Bootstrap", "Gulp", "Webpack"],
+        datasets: [
+          {
+            label: "Skill Levels",
+            data: [84, 77, 49, 75, 45, 68, 60, 42, 60, 46],
+            backgroundColor: "rgba(26, 41, 52, 0.5)",
+          },
+        ],
+        borderColor: "red",
+      },
+      options: {
+        scale: {
+          ticks: {
+            display: true,
+            // Voila. I've found at how to get rid of that square background of the numbers. It's the backdropColor property under ticks, under options and you assign it a colour. I just did it to transparent
+            //TODO: Make sure to add this in your chartjs learning repo.
+            // * So glad I found it
+            backdropColor: "transparent",
+            fontColor: "rgba(26,41,52,0.6)",
+            beginAtZero: true,
+            max: 100,
+          },
+          pointLabels: {
+            fontSize: 14, // fontSize is ok
+            // don't know if i like it with or without
+            //fontColor: "#1a2934", // fontColor is accessible
+            fontFamily: "'Jost', 'sans-serif'",
+          },
+        },
+      },
+    });
+  };
+
+  onMount(() => {
+    renderChart();
+  });
+</script>
+
+<div class="proficiency__chart">
+  <div class="proficiency__chart--container">
+    <canvas bind:this={chartCanvas} id="myFirstChart" />
+  </div>
+</div>
+
+<style lang="scss">
+  .proficiency {
+    &__chart {
+      width: 80rem;
+      //   height: 50rem;
+      justify-self: center;
+
+      &--container {
+        position: relative;
+        margin: 10rem 0;
+        // margin-right: -8rem;
+        width: 100%;
+        grid-column: 1 / 2;
+        grid-row: 2 / -1;
+        //TESTING:
+        height: 100%;
+
+        #myFirstChart {
+          display: block;
+          width: 92rem;
+          height: 47rem;
+          height: 40%;
+          height: 100%;
+        }
+      }
+    }
+  }
+</style>

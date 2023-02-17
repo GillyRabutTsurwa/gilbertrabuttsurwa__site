@@ -1,4 +1,7 @@
 node_modules
-.nuxt
+.svelte-kit
 netlify.toml
 package-lock.json
+.vscode
+build
+jsconfig.json

@@ -1,5 +1,6 @@
-@use "animations";
-@use "mixins";
-@use "extend";
-@use "variables";
-// Tant mieux, on peut utlilser le directive "use" car sass va se debarasser de "import" à l'avenir.
+// IMPORTANTNOTE: @use does not work for global sass using svelte-preprocess. import works fine
+@import "animations";
+@import "base";
+@import "mixins";
+@import "extend";
+@import "variables";
