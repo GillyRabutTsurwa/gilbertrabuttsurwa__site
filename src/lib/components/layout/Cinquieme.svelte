@@ -1,8 +1,11 @@
 <script>
   import Map from "$lib/components/Map.svelte";
 
+  /**
+   * @type {string}
+   */
   let status;
-  const test = (e) => {
+  const test = (/** @type {{ detail: { status: any; }; }} */ e) => {
     console.log(e.detail.status);
     status = e.detail.status ? "Enabled" : "Disabled";
   };

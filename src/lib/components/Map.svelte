@@ -11,7 +11,12 @@
   //dispatcher variable
   let isScrollable;
 
-  const createMap = (mapObject) => {
+  const createMap = (
+    /** @type {{ default?: any; Bounds?: any; Browser?: any; CRS?: any; Canvas?: any; Circle?: any; CircleMarker?: any; Class?: any; Control?: any; DivIcon?: any; DivOverlay?: any; DomEvent?: any; DomUtil?: any; Draggable?: any; Evented?: any; FeatureGroup?: any; GeoJSON?: any; GridLayer?: any; Handler?: any; Icon?: any; ImageOverlay?: any; LatLng?: any; LatLngBounds?: any; Layer?: any; LayerGroup?: any; LineUtil?: any; Map?: any; Marker?: any; Mixin?: any; Path?: any; Point?: any; PolyUtil?: any; Polygon?: any; Polyline?: any; Popup?: any; PosAnimation?: any; Projection?: any; Rectangle?: any; Renderer?: any; SVG?: any; SVGOverlay?: any; TileLayer?: any; Tooltip?: any; Transformation?: any; Util?: any; VideoOverlay?: any; bind?: any; bounds?: any; canvas?: any; circle?: any; circleMarker?: any; control?: any; divIcon?: any; extend?: any; featureGroup?: any; geoJSON?: any; geoJson?: any; gridLayer?: any; icon: any; imageOverlay?: any; latLng?: any; latLngBounds?: any; layerGroup?: any; map: any; marker: any; point?: any; polygon?: any; polyline?: any; popup?: any; rectangle?: any; setOptions?: any; stamp?: any; svg?: any; svgOverlay?: any; tileLayer: any; tooltip?: any; transformation?: any; version?: any; videoOverlay?: any; noConflict?: () => any; }} */ mapObject
+  ) => {
+    /**
+     * @type {{ scrollWheelZoom: { disable: () => void; enabled: () => any; enable: () => void; }; on: (arg0: string, arg1: () => void) => void; flyTo: (arg0: (string | number)[], arg1: number) => void; }}
+     */
     let map;
     // TESTING solution for icon not showing in prod
     //NOTE: if it works, i got solution here: https://stackoverflow.com/questions/60174040/marker-icon-isnt-showing-in-leaflet
