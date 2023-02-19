@@ -1,13 +1,18 @@
 <script>
   import { onMount } from "svelte";
   import { browser } from "$app/environment";
-  //   import L from "leaflet";
   import "leaflet/dist/leaflet.css";
   import imgURL from "$lib/images/marker-icon.png";
-  let map;
+  import { createEventDispatcher } from "svelte";
 
-  //   console.log(L);
+  const dispatch = createEventDispatcher();
+
+  //   NEW: dispatcher to change banner text
+  //dispatcher variable
+  let isScrollable;
+
   const createMap = (mapObject) => {
+    let map;
     // TESTING solution for icon not showing in prod
     //NOTE: if it works, i got solution here: https://stackoverflow.com/questions/60174040/marker-icon-isnt-showing-in-leaflet
     const myIcon = mapObject.icon({
@@ -38,14 +43,21 @@
     map = mapObject.map("mapContainer").setView(mapStartingPoint, zoomLevel); // ("map") signifie un element dans notre HTML ayant le ID de "map"
     // NEW: testing, disable zoom/scroll on render (by default)
     map.scrollWheelZoom.disable();
+    isScrollable = false;
 
     //NEW: testing: toggle zoom functionality on map when it's clicked upon
     map.on("click", function () {
       if (map.scrollWheelZoom.enabled()) {
         map.scrollWheelZoom.disable();
+        isScrollable = false;
       } else {
         map.scrollWheelZoom.enable();
+        isScrollable = true;
       }
+      // send dispatcher to parent
+      dispatch("scrollStatus", {
+        status: isScrollable,
+      });
     });
 
     setInterval(() => {
@@ -100,6 +112,7 @@
   #mapContainer {
     width: 100%;
     height: 75vh;
+    cursor: crosshair;
   }
 
   .leaflet-popup-content-wrapper,

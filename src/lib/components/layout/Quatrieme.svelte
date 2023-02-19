@@ -1,8 +1,13 @@
+<script>
+  import LearningList from "$lib/components/LearningList.svelte";
+</script>
+
 <section class="credentials">
   <h2 class="credentials__main-title">Credentials</h2>
   <div class="credentials__content">
     <div class="credentials__left">
       <h3 class="credentials__left--title">Certifications</h3>
+
       <ul class="credentials__list courses">
         <li class="credentials__list--item">
           <p><strong>Course:</strong> Web Development Bootcamp</p>
@@ -37,25 +42,34 @@
         <span class="dot dot-two">.</span>
         <span class="dot dot-three">.</span>
       </h3>
-      <ul class="credentials__list learning">
+      <LearningList />
+      <!-- NOTE: moved markup to LearningList.svelte -->
+      <!-- <ul class="credentials__list learning">
+        <li class="credentials__list--item">
+          <i class="devicon-mongodb-plain" />
+          Mongo DB
+        </li>
+        <li class="credentials__list--item">
+          <i class="devicon-express-original" />
+          Express
+        </li>
         <li class="credentials__list--item">
           <i class="devicon-react-plain react-logo" />
           React
         </li>
         <li class="credentials__list--item">
-          <i class="devicon-nextjs-plain" />
-          Next
+          <i class="devicon-nodejs-plain" />
+          Node
         </li>
         <li class="credentials__list--item">
           <i class="devicon-typescript-plain" />
           TypeScript
         </li>
-
         <li class="credentials__list--item">
-          <i class="devicon-nodejs-plain" />
-          Node
+          <i class="devicon-bash-plain" />
+          Bash Scripts
         </li>
-      </ul>
+      </ul> -->
     </div>
   </div>
 </section>
@@ -96,18 +110,13 @@
       //   margin-bottom: 2.5rem;
       // }
     }
+    // NOTE: moved code below to LearningList.svelte
     &__list {
       list-style-type: none;
       font-size: 2.5rem;
 
       &--item {
         margin-bottom: 5rem;
-
-        @media (prefers-reduced-motion: no-preference) {
-          .react-logo {
-            animation: spin infinite 20s linear;
-          }
-        }
       }
 
       &.courses {
