@@ -19,6 +19,7 @@
 <Map on:scrollStatus={test} />
 
 <style lang="scss">
+  @use "../../sass/variables";
   h2 {
     text-align: center;
     font-size: 3rem;
@@ -36,7 +37,7 @@
     color: #fff;
     padding: 1.5rem 3rem;
     margin: 2rem auto;
-    background-color: $steelblue;
+    background-color: variables.$steelblue;
     cursor: not-allowed;
     opacity: 1;
     transition: opacity 0.5s ease-in;

@@ -14,20 +14,27 @@
     </p>
     <p>
       I also have adequate experience using css frameworks, such as <span class="lang-in-bold bootstrap">Bootstrap</span> and
-      <span class="lang-in-bold tailwind">Tailwind</span> (which is my preferred one). I also have adept skills with GulpJS and Git/GitHub for front-end
+      <span class="lang-in-bold tailwind">Tailwind</span> (which is my preferred one). I also have adept skills with GulpJS and Git for front-end
       workflow and version control respectively, which, along with all the other technologies I've learnt, have given me the skills to make cool projects
+    </p>
+    <p>
+      Although I am proficient in the front end, I also have some experience with back end development, particularly upon using Express, NodeJS and MongoDB to mainly make small to medium sized full stack applications. 
     </p>
   </div>
   <Chart />
 </section>
 
 <style lang="scss">
+  @use "../../sass/variables";
+  @use "../../sass/extend";
   .proficiency {
     display: grid;
     // grid-template-columns: repeat(2, 1fr);
     grid-template-columns: 55% 1fr;
     grid-template-rows: min-content 1fr;
-    background-color: $default-grey;
+    background-color: variables.$default-grey;
+    margin-top: 6rem;
+
 
     &__title {
       grid-column: 1 / -1;
@@ -36,9 +43,10 @@
       font-size: 5rem;
     }
     &__text {
-      font-size: 2rem;
+      font-size: 2.25rem;
       margin-top: 12rem;
       margin-left: 4rem;
+      margin-right: 4rem;
       line-height: 2;
       grid-column: 2 / -1;
       grid-row: 2 / -1;

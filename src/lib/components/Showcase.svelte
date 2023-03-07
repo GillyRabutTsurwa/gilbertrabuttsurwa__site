@@ -53,12 +53,12 @@
 </div>
 
 <style lang="scss">
-  // NEW
+  @use "../sass/variables";
   .showcase {
     width: 100%;
     height: 100%;
-    background-color: $steelblue;
-    color: $default-grey;
+    background-color: variables.$steelblue;
+    color: variables.$default-grey;
     padding: 0 3rem;
 
     &-top {

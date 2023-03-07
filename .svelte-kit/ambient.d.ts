@@ -72,6 +72,7 @@ declare module '$env/static/private' {
 	export const npm_config_prefix: string;
 	export const DEFAULTS_PATH: string;
 	export const XDG_SESSION_CLASS: string;
+	export const USER_ZDOTDIR: string;
 	export const USERNAME: string;
 	export const TERM: string;
 	export const npm_config_cache: string;
@@ -201,6 +202,7 @@ declare module '$env/dynamic/private' {
 		npm_config_prefix: string;
 		DEFAULTS_PATH: string;
 		XDG_SESSION_CLASS: string;
+		USER_ZDOTDIR: string;
 		USERNAME: string;
 		TERM: string;
 		npm_config_cache: string;

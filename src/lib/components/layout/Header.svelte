@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import Devicon from "$lib/components/shared/Devicon.svelte";
   import imageOne from "$lib/images/header/adrian.jpg";
 
   let currentIndex = 0;
@@ -49,6 +50,7 @@
 
 <header class="header">
   <i class={`devicon-${currentDevicon}`} />
+  <!-- <Devicon class="header__devicon"/> -->
   <div class="header__title">
     <h1 class:selected={currentIndexTwo === 7} class="header__title--primary">Gilbert<span>Rabut</span><span>Tsurwa</span></h1>
     <div class="header__title--secondary">
@@ -63,10 +65,18 @@
 </header>
 
 <style lang="scss">
+  @use "../../sass/variables";
+
   .header {
     height: 100vh; // on le ramene
     width: 100%;
     position: relative;
+
+    // &__devicon {
+    //     position: absolute;
+    //     top: 3rem;
+    //     left: 3rem;
+    //   }
     & i[class^="devicon"] {
       display: block;
       position: absolute;
@@ -74,9 +84,11 @@
       left: 3rem;
       font-size: 9.5rem;
       z-index: 1000;
-      color: $steelblue;
+      color: variables.$steelblue;
       -webkit-animation: fade 3800ms ease-in-out infinite;
       animation: fade 3800ms ease-in-out infinite;
+
+      
     }
     &__title {
       position: absolute;
@@ -87,7 +99,7 @@
       padding-right: 7rem;
       margin-bottom: 7rem;
       z-index: 1000;
-      color: $steelblue;
+      color: variables.$steelblue;
 
       &--primary {
         font-size: 10.5rem;
@@ -117,7 +129,7 @@
       color: #fff;
       padding: 1.5rem 3rem;
       margin-top: 3rem;
-      background-color: $steelblue;
+      background-color: variables.$steelblue;
       cursor: pointer;
       z-index: 10000;
       // &:focus {
@@ -125,7 +137,7 @@
       // }
       &:hover {
         background-color: #fff;
-        color: $steelblue;
+        color: variables.$steelblue;
       }
     }
     &__slider {

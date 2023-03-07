@@ -9,7 +9,6 @@
   import Pied from "./layout/Footer.svelte";
 </script>
 
-<div class="maincontent">
   <Navigation />
   <Tete />
   <Premier />
@@ -18,7 +17,6 @@
   <Quatrieme />
   <Cinquieme />
   <Pied />
-</div>
 
 <style lang="scss">
   /* TESTING */

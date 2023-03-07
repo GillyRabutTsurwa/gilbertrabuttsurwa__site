@@ -23,6 +23,8 @@
 </section>
 
 <style lang="scss">
+  @use "../../sass/variables";
+  @use "../../sass/mixins";
   .skills {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -32,11 +34,11 @@
     // height: 100vh;
     min-height: 100vh;
     margin: 0 3rem;
-    background-color: $default-grey;
+    background-color: variables.$default-grey;
     gap: 4rem;
     padding-top: 6rem;
     color: rgb(238, 238, 238);
-    @include responsive(tablet-portrait) {
+    @include mixins.responsive(tablet-portrait) {
       grid-template-columns: 1fr;
       grid-template-rows: min-content repeat(3, 1fr);
       row-gap: 4rem;
@@ -60,4 +62,27 @@
       }
     }
   }
+
+  //@todo - refactor and move this
+  .header__button {
+      display: inline-block;
+      border: 2px solid #000;
+      border-radius: 1rem;
+      font-size: 1.5rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: #fff;
+      padding: 1.5rem 3rem;
+      margin-top: 3rem;
+      background-color: variables.$steelblue;
+      cursor: pointer;
+      z-index: 10000;
+      // &:focus {
+      // 	outline: none;
+      // }
+      &:hover {
+        background-color: #fff;
+        color: variables.$steelblue;
+      }
+    }
 </style>

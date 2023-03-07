@@ -1,6 +1,6 @@
-// IMPORTANTNOTE: @use does not work for global sass using svelte-preprocess. import works fine
-@import "animations";
-@import "base";
-@import "mixins";
-@import "extend";
-@import "variables";
+//NOTE: @use not works fine
+@use "animations";
+@use "base";
+@use "mixins";
+@use "extend";
+@use "variables";
