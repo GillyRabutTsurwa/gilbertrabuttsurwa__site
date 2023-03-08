@@ -2,6 +2,7 @@
 import adapter from "@sveltejs/adapter-netlify";
 import { vitePreprocess } from "@sveltejs/kit/vite";
 import preprocessor from "svelte-preprocess";
+import path from "path";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -10,6 +11,9 @@ const config = {
             edge: false,
             split: false,
         }),
+        alias: {
+            "@": path.resolve("./src"),
+        },
     },
     preprocess: preprocessor(vitePreprocess()),
 };
