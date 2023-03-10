@@ -23,9 +23,11 @@
     <p class="intro__paragraph">
         I am a {age} years young front-end developer from Nairobi Kenya who currently resides in the United States. I never thought nor dreamed that I
         would ever be a web developer, much less have any affinity or interest in code. But after my 1st ever computer science course in 2017, which was
-        a Java course, I never looked back (even though I never became a programmer afterwards). I shortly took a HTML course shortly after, things more
-        than less stuck well and I eventually became a web developer. In my freetime, I work on my side projects, read, play football, play video-games
-        and going on long drives to cool places, lakes, countrysides, national parks, etc.
+        a Java course, I continued on (even though I never became a programmer afterwards). I shortly took a HTML course shortly after, things more than
+        less stuck well and I eventually became a web developer. In my freetime, I work on my side projects, read, play football, play video-games and
+        go on long drives to cool places, lakes, countrysides, national parks, etc. I also have a very active
+        <a href="https://gilbertrabuttsurwa.blog" target="_blank" rel="noopener noreferrer" class="link__blog">blog</a> that I released very recently.
+        All things said, it is a privilege to do what I do, and this is a career path — though it proved to be more than that — I am glad I stumbled upon.
     </p>
     <p class="intro__paragraph">
         Currently a web developer at, <a href="https://su.edu/" target="_blank" rel="noopener noreferrer" class="link__job">Shenandoah University</a>,
@@ -64,6 +66,13 @@
         & .icon {
             align-self: center;
         }
+    }
+
+    // @todo - modify styles and move all this code dessous
+    .link__blog {
+        font-weight: bold;
+        text-decoration: none;
+        color: currentColor;
     }
     .link__job {
         position: relative;

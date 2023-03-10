@@ -3,21 +3,25 @@
     import Devicon from "$lib/components/shared/Devicon.svelte";
     import imageOne from "$lib/images/autoportrait-croquis.png";
     import imageTwo from "$lib/images/autoportrait-croquis-2.png";
-    import imageThree from "$lib/images/moi-high-top.png";
+    import imageThree from "$lib/images/autoportrait-croquis-3.png";
+    import imageFour from "$lib/images/moi-high-top.png";
     import Logo from "$lib/svg/my-logo.svg";
 
-    const myPhotos = [imageOne, imageTwo, imageThree, imageTwo];
-    let currentIndex = 0;
+    const myPhotos = [imageThree, imageOne, imageTwo];
 
     let imageContainer;
     let photoIndex = 0;
 
     onMount(() => {
         setInterval(() => {
-            if (photoIndex >= 3) photoIndex = 0;
             photoIndex++;
+            if (photoIndex >= myPhotos.length) photoIndex = 0;
         }, 15000);
     });
+
+    $: {
+        console.log(photoIndex);
+    }
 </script>
 
 <header class="header">
@@ -27,7 +31,10 @@
         <div class="header__title--secondary">
             <span class="text-type" data-wait="3000" data-words={["Developper", "Designer", "Creator", "Food Enthusiast"]} />
         </div>
-        <a href="/projects" target="_blank" class="header__button"> All my Projects </a>
+        <div class="header__buttons">
+            <a href="/projects" target="_blank" class="header__buttons--button"> All my Projects </a>
+            <a href="https://gilbertrabuttsurwa.blog" target="_blank" rel="noreferrer" class="header__buttons--button">My Blog</a>
+        </div>
     </div>
     <div class="icon" style="align-self: center;">
         <Devicon />
@@ -125,26 +132,35 @@
             }
         }
         // NOTE: Je vais ce deplacer
-        &__button {
-            display: inline-block;
-            border: 2px solid #000;
-            border-radius: 1rem;
-            font-size: 1.5rem;
-            text-decoration: none;
-            text-transform: uppercase;
-            color: #fff;
-            padding: 1.5rem 3rem;
-            margin-top: 3rem;
-            background-color: variables.$steelblue;
-            cursor: pointer;
-            z-index: 10000;
-            // &:focus {
-            // 	outline: none;
-            // }
-            &:hover {
-                background-color: #fff;
-                color: variables.$steelblue;
+        &__buttons {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            &--button {
+                display: inline-block;
+                border: 2px solid #000;
+                border-radius: 1rem;
+                font-size: 1.5rem;
+                text-decoration: none;
+                text-transform: uppercase;
+                color: #fff;
+                padding: 1.5rem 3rem;
+                margin-top: 3rem;
+                background-color: variables.$steelblue;
+                cursor: pointer;
+                z-index: 10000;
+                // &:focus {
+                // 	outline: none;
+                // }
+                &:hover {
+                    background-color: #fff;
+                    color: variables.$steelblue;
+                }
             }
+        }
+        &__button {
         }
         &__slider {
             height: 100%;
