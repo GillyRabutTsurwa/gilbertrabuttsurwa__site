@@ -1,69 +1,42 @@
 <script>
     import { onMount } from "svelte";
     import Devicon from "$lib/components/shared/Devicon.svelte";
-    import imageOne from "$lib/images/header/adrian.jpg";
+    import imageOne from "$lib/images/autoportrait-croquis.png";
+    import imageTwo from "$lib/images/autoportrait-croquis-2.png";
+    import imageThree from "$lib/images/moi-high-top.png";
     import Logo from "$lib/svg/my-logo.svg";
 
+    const myPhotos = [imageOne, imageTwo, imageThree, imageTwo];
     let currentIndex = 0;
-    let currentIndexTwo = 0;
 
-    let iconArray = [
-        "html5-plain",
-        "css3-plain",
-        "sass-original",
-        "javascript-plain",
-        "vuejs-plain",
-        "nuxtjs-plain",
-        "react-plain",
-        "bootstrap-plain",
-        "tailwindcss-plain",
-        "jquery-plain",
-        "nodejs-plain",
-        "express-original-wordmark",
-        "mongodb-plain-wordmark",
-        "git-plain",
-        "github-plain",
-        "webpack-plain",
-        "babel-plain",
-        "heroku-original-wordmark",
-        "gulp-plain",
-    ];
-
-    // $: backgroundImage: `url(${imageOne})`
-
-    const nextIcon = () => {
-        currentIndexTwo += 1;
-        if (currentIndexTwo > iconArray.length - 1) {
-            currentIndexTwo = 0;
-        }
-    };
-
-    const startIcons = () => {
-        setInterval(nextIcon, 4000);
-    };
-
-    $: currentDevicon = iconArray[currentIndexTwo];
+    let imageContainer;
+    let photoIndex = 0;
 
     onMount(() => {
-        startIcons();
+        setInterval(() => {
+            if (photoIndex >= 3) photoIndex = 0;
+            photoIndex++;
+        }, 15000);
     });
 </script>
 
 <header class="header">
     <img src={Logo} alt="my-logo" class="header__logo" />
-    <!-- <i class={`devicon-${currentDevicon}`} /> -->
-    <!-- <Devicon class="header__devicon"/> -->
     <div class="header__title">
-        <h1 class:selected={currentIndexTwo === 7} class="header__title--primary">Gilbert<span>Rabut</span><span>Tsurwa</span></h1>
+        <h1 class="header__title--primary">Gilbert<span>Rabut</span><span>Tsurwa</span></h1>
         <div class="header__title--secondary">
             <span class="text-type" data-wait="3000" data-words={["Developper", "Designer", "Creator", "Food Enthusiast"]} />
         </div>
         <a href="/projects" target="_blank" class="header__button"> All my Projects </a>
     </div>
-    <!-- SUBSECTION: gallery -->
-    <div class="header__slider">
-        <div style="background-image: url({imageOne})" class="header__slider--slide" />
+    <div class="icon" style="align-self: center;">
+        <Devicon />
     </div>
+    <figure class="autoportrait" bind:this={imageContainer}>
+        {#each myPhotos as currentPhoto, index}
+            <img src={currentPhoto} alt="Croquis de moi" class="autoportrait-img" class:opaque={index === photoIndex} />
+        {/each}
+    </figure>
 </header>
 
 <style lang="scss">
@@ -73,6 +46,48 @@
         height: 100vh; // on le ramene
         width: 100%;
         position: relative;
+        display: grid;
+        grid-template-columns: 56% min-content 1fr;
+
+        // TESTING
+        & .icon {
+            align-self: center;
+            grid-column: 2 / 3;
+            transform: translateX(-10rem); // deplacer vers le gauche juste un peu
+        }
+        & .autoportrait {
+            position: relative;
+            margin-top: 3rem;
+            justify-self: end;
+            align-self: end;
+            width: 100%;
+            height: 100%;
+            grid-column: 3 / 4;
+
+            &-img {
+                position: absolute;
+                left: 0;
+                width: 77rem;
+                height: 96rem;
+                // width: 100%;
+                // height: 100%;
+                object-fit: cover; // makes it look nicer
+                margin-left: 7.5rem;
+                background-image: linear-gradient(
+                    to bottom,
+                    transparent 0%,
+                    transparent 90%,
+                    rgba(255, 255, 255, 1) 90%,
+                    rgba(255, 255, 255, 1) 100%
+                );
+                opacity: 0;
+                transition: opacity 1s ease-in-out;
+
+                &.opaque {
+                    opacity: 1;
+                }
+            }
+        }
 
         &__logo {
             display: inline-block;
@@ -84,10 +99,8 @@
             z-index: 1000; //j'ai besoin de cette ligne
         }
         &__title {
-            position: absolute;
-            top: 11%;
-            right: 5%;
-            display: inline-block;
+            grid-column: 1 / 2;
+            place-self: center;
             text-align: center;
             padding-right: 7rem;
             margin-bottom: 7rem;
