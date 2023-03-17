@@ -1,5 +1,7 @@
 <script>
     import { onMount } from "svelte";
+    import { browser } from "$app/environment";
+    import { showElement, toggleElementOnResize } from "@/lib/store/useBreakpoint";
     import Devicon from "$lib/components/shared/Devicon.svelte";
     import imageOne from "$lib/images/autoportrait-croquis.png";
     import imageTwo from "$lib/images/autoportrait-croquis-2.png";
@@ -12,15 +14,18 @@
     let imageContainer;
     let photoIndex = 0;
 
+    if (browser) window.addEventListener("resize", () => toggleElementOnResize(1023));
+
     onMount(() => {
         setInterval(() => {
             photoIndex++;
             if (photoIndex >= myPhotos.length) photoIndex = 0;
         }, 15000);
+        if (browser) toggleElementOnResize(1023);
     });
 
     $: {
-        console.log(photoIndex);
+        console.log($showElement);
     }
 </script>
 
@@ -39,11 +44,13 @@
     <div class="icon" style="align-self: center;">
         <Devicon />
     </div>
-    <figure class="autoportrait" bind:this={imageContainer}>
-        {#each myPhotos as currentPhoto, index}
-            <img src={currentPhoto} alt="Croquis de moi" class="autoportrait-img" class:opaque={index === photoIndex} />
-        {/each}
-    </figure>
+    {#if !$showElement}
+        <figure class="autoportrait" bind:this={imageContainer}>
+            {#each myPhotos as currentPhoto, index}
+                <img src={currentPhoto} alt="Croquis de moi" class="autoportrait-img" class:opaque={index === photoIndex} />
+            {/each}
+        </figure>
+    {/if}
 </header>
 
 <style lang="scss">
