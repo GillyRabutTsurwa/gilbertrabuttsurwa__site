@@ -1,7 +1,9 @@
 node_modules
-.svelte-kit
-netlify.toml
-package-lock.json
-.vscode
-build
-jsconfig.json
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+.env
+dist
+.DS_Store

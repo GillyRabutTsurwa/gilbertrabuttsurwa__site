@@ -1,0 +1,3 @@
+{
+  "sassVariablesHelper.route": "./src/lib/sass/_variables.scss"
+}
