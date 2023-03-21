@@ -8,9 +8,15 @@ const createMap = (mapObject) => {
     let map;
     // TESTING solution for icon not showing in prod
     //NOTE: if it works, i got solution here: https://stackoverflow.com/questions/60174040/marker-icon-isnt-showing-in-leaflet
-    // const myIcon = mapObject.icon({
-    //     iconUrl: imgURL,
-    // });
+    const myIcon = mapObject.icon({
+        /**
+         * NOTE: i don't want to use the code for managing dynamic assets just to retrieve one asset,
+         * so I am actually writing the path out as the property, and it seems to work. in development anyways
+         * came to this conclusion thanks to this:
+         * https://stackoverflow.com/questions/75043116/nuxt-3-how-to-use-dynamic-variable-for-img-src
+         */
+        iconUrl: "/_nuxt/assets/images/marker-icon.png"
+    });
 
     //
     let locationIndex = 0;
@@ -36,21 +42,17 @@ const createMap = (mapObject) => {
     map = mapObject.map("mapContainer").setView(mapStartingPoint, zoomLevel); // ("map") signifie un element dans notre HTML ayant le ID de "map"
     // NEW: testing, disable zoom/scroll on render (by default)
     map.scrollWheelZoom.disable();
-    isScrollable = false;
+    // isScrollable = false;
 
     //NEW: testing: toggle zoom functionality on map when it's clicked upon
     map.on("click", function () {
         if (map.scrollWheelZoom.enabled()) {
             map.scrollWheelZoom.disable();
-            isScrollable = false;
+            // isScrollable = false;
         } else {
             map.scrollWheelZoom.enable();
-            isScrollable = true;
+            // isScrollable = true;
         }
-        // send dispatcher to parent
-        // dispatch("scrollStatus", {
-        //     status: isScrollable,
-        // });
     });
 
     setInterval(() => {
@@ -58,7 +60,7 @@ const createMap = (mapObject) => {
         map.flyTo([markerLocations[locationIndex][1], markerLocations[locationIndex][2]], 13);
     }, 30000);
 
-    // map.on("click", (event) => map.flyTo([40.622, -73.916], 13));
+    map.on("click", (event) => map.flyTo([40.622, -73.916], 13));
     /**
      * NOTE:
      * tile layers affecct the appearance of the map
@@ -74,33 +76,31 @@ const createMap = (mapObject) => {
     // https://stackoverflow.com/questions/42968243/how-to-add-multiple-markers-in-leaflet-js
     // simply put the code that generates the marker in a for loop and adjust the values
 
-    // for (let i = 0; i < markerLocations.length; i++) {
-    //     mapObject
-    //         .marker([markerLocations[i][1], markerLocations[i][2]], { icon: myIcon })
-    //         .addTo(map)
-    //         .bindPopup(markerLocations[i][0])
-    //         .openPopup();
-    // }
+    for (let i = 0; i < markerLocations.length; i++) {
+        mapObject
+            .marker([markerLocations[i][1], markerLocations[i][2]], { icon: myIcon })
+            .addTo(map)
+            .bindPopup(markerLocations[i][0])
+            .openPopup();
+    }
 };
 
-// onMounted(() => {
-/**
-* NOTE: if i solved the window not defined, ce sera grace a ces deux liens:
-* https://stackoverflow.com/questions/36367532/how-can-i-conditionally-import-an-es6-module
-* https://2ality.com/2017/01/import-operator.html
-* and this one too
-* https://stackoverflow.com/questions/74220206/sveltekit-readable-store-initialize-on-client-side-only
-*/
+onMounted(() => {
+    /**
+    * NOTE: if i solved the window not defined, ce sera grace a ces deux liens:
+    * https://stackoverflow.com/questions/36367532/how-can-i-conditionally-import-an-es6-module
+    * https://2ality.com/2017/01/import-operator.html
+    */
     // if we are in the browser environment
-    // if (process.client) {
-    //     // import the leaflet library
-    //     import("leaflet").then((L) => {
-    //         console.log(L);
-    //         // then use the library object in the function that is responsible for rendering the map. this should work
-    //         createMap(L);
-    //     });
-    // }
-// })
+    if (process.client) {
+        // import the leaflet library
+        import("leaflet").then((L) => {
+            console.log(L);
+            // then use the library object in the function that is responsible for rendering the map. this should work
+            createMap(L);
+        });
+    }
+})
 </script>
 
 <template>
