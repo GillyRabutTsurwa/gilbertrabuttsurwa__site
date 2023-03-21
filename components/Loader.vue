@@ -19,22 +19,26 @@ const iconArray = ref([
 ]);
 
 const returnRandomIndex = () => {
-  randomIconIndex.value = iconArray.value[Math.floor(Math.random() * iconArray.length)];
+  randomIconIndex.value = Math.floor(Math.random() * iconArray.value.length);
 };
 
+const randomIcon = computed(() => {
+  return iconArray.value[randomIconIndex.value]
+})
+
+returnRandomIndex();
 onMounted(() => {
-  returnRandomIndex();
-  console.log(returnRandomIndex())
+  console.log(randomIcon.value);
 })
 </script>
 
 <template>
   <div class="loader">
-    <i :class="`devicon-${randomIconIndex}`" />
+    <i :class="`devicon-${randomIcon}`" />
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .loader {
   position: relative;
   height: 100vh;
@@ -52,9 +56,9 @@ onMounted(() => {
   -webkit-transition: opacity 2s ease-in;
   transition: opacity 2s ease-in;
   background-color: #1a2934;
-  color: rgb(238, 238, 238);
 
   & i {
+    color: rgb(238, 238, 238);
     font-size: 40rem;
   }
 }

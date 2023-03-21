@@ -1,8 +1,22 @@
 <script setup>
-
+const showNavigation = ref(false);
+const navShow = computed(() => {
+    return {
+        show: showNavigation.value //PASS: i can do this inline mais je voulas faire qq'chose de different
+    }
+})
+onMounted(() => {
+    setTimeout(() => {
+        /**
+         * NOTE: delay navigation render
+         * this is so that the navigation ne s'affiche sur le composant Loader
+         */
+        showNavigation.value = true;
+    }, 2700);
+});
 </script>
 <template>
-    <div class="icon-bar">
+    <div :class="navShow" class="icon-bar">
         <a href="#" class="github"><i class="fa fa-github"></i></a>
         <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
         <a href="#" class="google"><i class="fa fa-envelope"></i></a>
@@ -22,6 +36,13 @@
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     z-index: 10000;
+    // will hide for transition
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+
+    &.show {
+        opacity: 1;
+    }
 }
 
 .icon-bar a {

@@ -33,7 +33,6 @@ const nextIcon = () => {
 const currentDevicon = computed(() => {
   return iconArray.value[currentIndex.value];
 });
-console.log(currentDevicon.value);
 
 const startIcons = () => {
   setInterval(nextIcon, 4000);
