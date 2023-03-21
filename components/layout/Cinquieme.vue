@@ -1,12 +1,15 @@
-<script>
-
+<script setup>
+const status = ref(null);
+const logChange = (emitValue) => {
+  status.value = emitValue ? "Enabled" : "Disabled";
+}
 </script>
 
 <template>
   <div>
     <h2>Gil's Favourite Spots</h2>
-    <span>Scroll Status</span>
-    <Map />
+    <span>Scroll {{ status }}</span>
+    <Map @scroll-status="logChange" />
   </div>
 </template>
 

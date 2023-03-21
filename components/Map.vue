@@ -1,8 +1,12 @@
 <script setup>
-import "leaflet/dist/leaflet.css";
+import "leaflet/dist/leaflet.css"; //NOTE: this is needed, or else the map will break
 
-//   NEW: dispatcher to change banner text
-// let isScrollable;
+const emit = defineEmits({
+    scrollStatus: null //NOTE: no validation, peut-être je le ferais +tard
+});
+const isScrollable = ref(null);
+
+
 
 const createMap = (mapObject) => {
     let map;
@@ -42,17 +46,19 @@ const createMap = (mapObject) => {
     map = mapObject.map("mapContainer").setView(mapStartingPoint, zoomLevel); // ("map") signifie un element dans notre HTML ayant le ID de "map"
     // NEW: testing, disable zoom/scroll on render (by default)
     map.scrollWheelZoom.disable();
-    // isScrollable = false;
+    isScrollable.value = false;
 
     //NEW: testing: toggle zoom functionality on map when it's clicked upon
     map.on("click", function () {
+        console.debug("Map clicked");
         if (map.scrollWheelZoom.enabled()) {
             map.scrollWheelZoom.disable();
-            // isScrollable = false;
+            isScrollable.value = false;
         } else {
             map.scrollWheelZoom.enable();
-            // isScrollable = true;
+            isScrollable.value = true;
         }
+        emit("scrollStatus", isScrollable.value);
     });
 
     setInterval(() => {
