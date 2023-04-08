@@ -47,7 +47,7 @@ onMounted(() => {
   <i :class="`devicon-${currentDevicon}`" />
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use "@/assets/sass/variables";
 
 i[class^="devicon"] {

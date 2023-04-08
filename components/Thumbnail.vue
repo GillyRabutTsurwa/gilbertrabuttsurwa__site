@@ -1,25 +1,26 @@
-<script>
-
-  // export let thumbnailObj;
+<script setup>
+const props = defineProps({
+  thumbnail: {
+    type: Object,
+    required: true
+  }
+})
 </script>
 
 <template>
-  <!-- <article class="showcase-item">
+  <article class="showcase-item">
     <div class="showcase-item-x">
-      <img src={thumbnailObj.img} class="item__img" alt="x" />
+      <img :src="thumbnail.img" class="item__img" alt="x" />
     </div>
     <div class="showcase-item-y">
-      <a href={thumbnailObj.siteLink} target="_blank" rel="noreferrer" class="card__button first"
-        >Link to Website
+      <a :href="thumbnail.siteLink" target="_blank" rel="noreferrer" class="card__button first">Link to Website
         <i class="devicon-devicon-plain" />
       </a>
-      <a href={thumbnailObj.githubLink} target="_blank" rel="noreferrer" class="card__button first"
-          >Link to Code
-          <i class="devicon-github-plain" />
-        </a>
-      </div>
-    </article> -->
-  <h5>test</h5>
+      <a :href="thumbnail.githubLink" target="_blank" rel="noreferrer" class="card__button first">Link to Code
+        <i class="devicon-github-plain" />
+      </a>
+    </div>
+  </article>
 </template>
 
 <!-- </div> -->
@@ -92,4 +93,5 @@
       border-bottom: 1px solid #fff;
     }
   }
-}</style>
+}
+</style>

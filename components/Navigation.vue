@@ -1,4 +1,5 @@
 <script setup>
+const navigation = ref(null); //NOTE: this is our template ref
 const showNavigation = ref(false);
 const navShow = computed(() => {
     return {
@@ -10,17 +11,22 @@ onMounted(() => {
         /**
          * NOTE: delay navigation render
          * this is so that the navigation ne s'affiche sur le composant Loader
+         * @todo - make navigation transparent en filant
          */
         showNavigation.value = true;
     }, 2700);
+    const header = navigation.value.parentNode.children[1].children[0];
+    console.dir(header);
 });
 </script>
 <template>
-    <div :class="navShow" class="icon-bar">
-        <a href="#" class="github"><i class="fa fa-github"></i></a>
-        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-        <a href="#" class="google"><i class="fa fa-envelope"></i></a>
-        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+    <div :class="navShow" class="icon-bar" ref="navigation">
+        <a href="https://github.com/GillyRabutTsurwa" target="_blank" rel="noreferrer noopener" class="github"><i
+                class="fa fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/gilberttsurwa" target="_blank" rel="noreferrer noopener" class="linkedin"><i
+                class="fa fa-linkedin"></i></a>
+        <a href="mailto:rabuttsurwa@outlook.com" rel="noreferrer noopener" class="google"><i class="fa fa-envelope"></i></a>
+        <a href="#" target="_blank" rel="noreferrer noopener" class="facebook"><i class="fa fa-facebook"></i></a>
         <NuxtLink to="shop" target="_blank" rel="noreferrer noopener" class="boutique"><i class="fa fa-shopping-cart"></i>
         </NuxtLink>
     </div>

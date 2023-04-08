@@ -85,7 +85,7 @@
       <div class="skills__language--y">
         <ul class="skills__list">
           <li class="skills__list--item">
-            <span> Dad Jokes App <sup>Beta</sup> </span>
+            <span> Dad Jokes App</span>
             <a href="https://piggame-gilberttsurwa-jonas.netlify.app/" target="__blank" class="">
               <i class="devicon-devicon-plain" />
             </a>
@@ -237,57 +237,58 @@
     }
 
     &--y {
-    opacity: 0;
-    z-index: 1000;
+      opacity: 0;
+      z-index: 1000;
 
-    & .skills__list {
-    list-style: none;
-    display:flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items: center;
+      & .skills__list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
-    &--item {
-      font-size: 3rem;
-      display: flex;
+        &--item {
+          font-size: 3rem;
+          display: flex;
 
-      span {
-        position: relative;
-        /* for beta sup element* */
-        margin-right: 2rem;
+          span {
+            position: relative;
+            /* for beta sup element* */
+            margin-right: 2rem;
 
-        sup {
-          position: absolute;
-          right: -0.75rem;
-          bottom: 2rem;
-          font-size: 1rem;
-          font-weight: bold;
+            sup {
+              position: absolute;
+              right: -0.75rem;
+              bottom: 2rem;
+              font-size: 1rem;
+              font-weight: bold;
+            }
+          }
+
+          a {
+
+            // font-size: 4rem;
+            &:link,
+            &:visited {
+              color: #eeeeee;
+              -webkit-text-decoration: none;
+              text-decoration: none;
+            }
+
+            &:hover,
+            &:active {
+              color: #eeeeee;
+              text-shadow: 0 0 5px #fff, 0 0 10px #fff, 2px 2px 2px rgba(206, 89, 55, 0);
+            }
+
+            i {
+              font-size: 4rem;
+              color: #eee;
+            }
+
+          }
         }
       }
-
-      a {
-        // font-size: 4rem;
-        &:link,
-        &:visited {
-          color: #eeeeee;
-          -webkit-text-decoration: none;
-          text-decoration: none;
-        }
-
-        &:hover,
-        &:active {
-          color: #eeeeee;
-          text-shadow: 0 0 5px #fff, 0 0 10px #fff, 2px 2px 2px rgba(206, 89, 55, 0);
-        }
-
-        i {
-          font-size: 4rem;
-          color: #eee;
-        }
-
-      }
-    }
-  }
     }
 
     &.lang-CSS {
@@ -312,4 +313,5 @@
   }
 
 
-}</style>
+}
+</style>
