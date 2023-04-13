@@ -11,15 +11,19 @@ console.log(assets)
         <i class="devicon-github-plain" />
         <span>GitHub Repo</span>
       </a>
-      <h2 class="showcase-language-subtitle">CSS / Sass Projects</h2>
+      <h2 style="font-size: 4rem;">Projects Showcase</h2>
+      <a href="https://gilbertrabuttsurwa.blog" target="_blank" rel="noreferrer">
+        <i class="devicon-devicon-plain" />
+        <span>Blog Site</span>
+      </a>
     </div>
 
+    <h2 class="showcase-language-subtitle">CSS / Sass Projects</h2>
     <ul class="showcase__list">
       <Thumbnail v-for="(currentCssAsset, index) in css" :key="index" :thumbnail="currentCssAsset" />
     </ul>
 
     <h2 class="showcase-language-subtitle">Javascript Projects</h2>
-
     <ul class="showcase__list">
       <Thumbnail v-for="(currentJSAsset, index) in javascript" :key="index" :thumbnail="currentJSAsset" />
     </ul>
@@ -29,15 +33,14 @@ console.log(assets)
       <Thumbnail v-for="(currentVueAsset, index) in vue" :key="index" :thumbnail="currentVueAsset" />
     </ul>
 
+    <h2 class="showcase-language-subtitle">React</h2>
+    <ul class="showcase__list">
+      <Thumbnail v-for="(currentReactAsset, index) in react" :key="index" :thumbnail="currentReactAsset" />
+    </ul>
+
     <h2 class="showcase-language-subtitle">Svelte(Kit) Projects</h2>
     <ul class="showcase__list">
       <Thumbnail v-for="(currentSvelteAsset, index) in svelte" :key="index" :thumbnail="currentSvelteAsset" />
-    </ul>
-
-    <h2 class="showcase-language-subtitle">React</h2>
-
-    <ul class="showcase__list">
-      <Thumbnail v-for="(currentReactAsset, index) in react" :key="index" :thumbnail="currentReactAsset" />
     </ul>
   </div>
 </template>
@@ -55,7 +58,7 @@ console.log(assets)
   &-top {
     padding: 6rem 3rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 8vh;
 
@@ -64,7 +67,7 @@ console.log(assets)
       &,
       &:link,
       &:visited {
-        margin-right: auto;
+        // margin-right: auto;
         text-decoration: none;
         color: #1a2934;
         background-color: #fff;
@@ -87,7 +90,7 @@ console.log(assets)
   }
 
   &-language-subtitle {
-    font-size: 2.5rem;
+    font-size: 3rem;
     // &:not(:first-child) {
     margin: 3rem 3rem 3rem 0;
     text-align: right;

@@ -1,8 +1,9 @@
 <script setup>
-
+const route = useRoute();
+const projectsPage = route.name === "projects";
 </script>
 <template>
-    <Navigation />
+    <Navigation v-if="!projectsPage" />
     <slot />
 </template>
 

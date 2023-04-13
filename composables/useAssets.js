@@ -16,13 +16,17 @@ import passowrdGenerator from "@/assets/images/project-thumbnails/password-gener
 import budgety from "@/assets/images/project-thumbnails/budgety-app-thumbnail-min.png";
 import bookList from "@/assets/images/project-thumbnails/booklist-app-thumbnail-min.png";
 
+import winprecars from "@/assets/images/project-thumbnails/winprecars-thumbnail.png";
+import blog from "@/assets/images/project-thumbnails/blog-app-thumbnail.png";
+import uiCollection from "@/assets/images/project-thumbnails/ui-collection-thumbnail.png";
 import pokedex from "@/assets/images/project-thumbnails/pokedex-pikachu.png";
 import musicApp from "@/assets/images/project-thumbnails/vue-music-app-thumbnail.png";
 import dadJokes from "@/assets/images/project-thumbnails/baba-jokes-app-thumbnail.png";
-import blog from "@/assets/images/project-thumbnails/blog-app-thumbnail.png";
+
+import dadJokesReact from "@/assets/images/project-thumbnails/dadjokes-react-thumbnail.png";
+import lightsOut from "@/assets/images/project-thumbnails/lights-out-thumbnail.png";
 
 import archStudio from "@/assets/images/project-thumbnails/arch-studio-thumbnail.png";
-import dadJokesReact from "@/assets/images/project-thumbnails/dadjokes-react-thumbnail.png";
 
 const thumbnailCSS = [
     {
@@ -112,6 +116,21 @@ const thumbnailJavascript = [
 // =====================================
 const thumbnailVue = [
     {
+        img: winprecars,
+        siteLink: "https://winprecars.com",
+        githubLink: "https://github.com/GillyRabutTsurwa/winprecars",
+    },
+    {
+        img: blog,
+        siteLink: "https://gilbertrabuttsurwa.blog",
+        githubLink: "https://github.com/GillyRabutTsurwa/blog",
+    },
+    {
+        img: uiCollection,
+        siteLink: "https://ui-components-collection-gillyrabuttsurwa.vercel.app",
+        githubLink: "https://github.com/GillyRabutTsurwa/ui-components-collection",
+    },
+    {
         img: pokedex,
         siteLink: "https://gilberttsurwa-pokedex-legacy.netlify.app/",
         githubLink: "https://github.com/GillyRabutTsurwa/pokedex-legacy",
@@ -126,24 +145,6 @@ const thumbnailVue = [
         siteLink: "https://gilberttsurwa-baba-jokes.netlify.app/",
         githubLink: "https://github.com/GillyRabutTsurwa/nuxt-with-brad-traversy",
     },
-    // {
-    //   img: blog,
-    //   siteLink: "https://gilbertrabuttsurwa.tech",
-    //   githubLink: "https://github.com/GillyRabutTsurwa/my-website",
-    // },
-];
-// =====================================
-const thumbnailSvelte = [
-    {
-        img: archStudio,
-        siteLink: "https://gilberttsurwa-arch-studio.vercel.app/",
-        githubLink: "https://github.com/GillyRabutTsurwa/arch-studio-website",
-    },
-    {
-        img: blog,
-        siteLink: "https://gilbertrabuttsurwa.tech",
-        githubLink: "https://github.com/GillyRabutTsurwa/my-website",
-    },
 ];
 // =====================================
 const thumbnailReact = [
@@ -151,6 +152,19 @@ const thumbnailReact = [
         img: dadJokesReact,
         siteLink: "https://gilberttsurwa-dadjokes-react.netlify.app/",
         githubLink: "https://github.com/GillyRabutTsurwa/dadjokes-app-react",
+    },
+    {
+        img: lightsOut,
+        siteLink: "https://gilberttsurwa-lightsout.vercel.app/",
+        githubLink: "https://github.com/GillyRabutTsurwa/lights-out-game",
+    },
+];
+// =====================================
+const thumbnailSvelte = [
+    {
+        img: archStudio,
+        siteLink: "https://gilberttsurwa-arch-studio.vercel.app/",
+        githubLink: "https://github.com/GillyRabutTsurwa/arch-studio-website",
     },
 ];
 
