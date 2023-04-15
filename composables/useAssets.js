@@ -19,11 +19,11 @@ import bookList from "@/assets/images/project-thumbnails/booklist-app-thumbnail-
 import winprecars from "@/assets/images/project-thumbnails/winprecars-thumbnail.png";
 import blog from "@/assets/images/project-thumbnails/blog-app-thumbnail.png";
 import uiCollection from "@/assets/images/project-thumbnails/ui-collection-thumbnail.png";
-import pokedex from "@/assets/images/project-thumbnails/pokedex-pikachu.png";
 import musicApp from "@/assets/images/project-thumbnails/vue-music-app-thumbnail.png";
-import dadJokes from "@/assets/images/project-thumbnails/baba-jokes-app-thumbnail.png";
+import pokedex from "@/assets/images/project-thumbnails/pokedex-pikachu.png";
+import planets from "@/assets/images/project-thumbnails/planets-site-thumbnail.png";
 
-import dadJokesReact from "@/assets/images/project-thumbnails/dadjokes-react-thumbnail.png";
+import dadJokes from "@/assets/images/project-thumbnails/dadjokes-react-thumbnail.png";
 import lightsOut from "@/assets/images/project-thumbnails/lights-out-thumbnail.png";
 
 import archStudio from "@/assets/images/project-thumbnails/arch-studio-thumbnail.png";
@@ -131,25 +131,25 @@ const thumbnailVue = [
         githubLink: "https://github.com/GillyRabutTsurwa/ui-components-collection",
     },
     {
-        img: pokedex,
-        siteLink: "https://gilberttsurwa-pokedex-legacy.netlify.app/",
-        githubLink: "https://github.com/GillyRabutTsurwa/pokedex-legacy",
-    },
-    {
         img: musicApp,
         siteLink: "https://gilberttsurwa-vue-music-player.netlify.app/",
         githubLink: "https://github.com/GillyRabutTsurwa/vue-music-app",
     },
     {
-        img: dadJokes,
-        siteLink: "https://gilberttsurwa-baba-jokes.netlify.app/",
-        githubLink: "https://github.com/GillyRabutTsurwa/nuxt-with-brad-traversy",
+        img: pokedex,
+        siteLink: "https://gilberttsurwa-pokedex-legacy.netlify.app/",
+        githubLink: "https://github.com/GillyRabutTsurwa/pokedex-legacy",
+    },
+    {
+        img: planets,
+        siteLink: "https://planets-site-git-master-gillyrabuttsurwa.vercel.app/",
+        githubLink: "https://github.com/GillyRabutTsurwa/planets-site",
     },
 ];
 // =====================================
 const thumbnailReact = [
     {
-        img: dadJokesReact,
+        img: dadJokes,
         siteLink: "https://gilberttsurwa-dadjokes-react.netlify.app/",
         githubLink: "https://github.com/GillyRabutTsurwa/dadjokes-app-react",
     },
