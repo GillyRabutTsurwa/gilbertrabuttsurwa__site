@@ -27,8 +27,9 @@ onMounted(() => {
                 class="fa fa-linkedin"></i></a>
         <a href="mailto:rabuttsurwa@outlook.com" rel="noreferrer noopener" class="google"><i class="fa fa-envelope"></i></a>
         <a href="#" target="_blank" rel="noreferrer noopener" class="facebook"><i class="fa fa-facebook"></i></a>
-        <NuxtLink to="shop" target="_blank" rel="noreferrer noopener" class="boutique"><i class="fa fa-shopping-cart"></i>
-        </NuxtLink>
+        <a href="https://gilbertrabuttsurwa-shop.netlify.app" target="_blank" rel="noreferrer noopener" class="boutique"><i
+                class="fa fa-shopping-cart"></i>
+        </a>
     </div>
 </template>
 
@@ -60,37 +61,69 @@ onMounted(() => {
     font-size: 20px;
 }
 
-.icon-bar a:hover {
-    background-color: #000;
-}
-
 .facebook {
     background: #3b5998;
     color: white;
+
+    &:hover,
+    &:active {
+        background: white;
+        color: #3b5998;
+    }
 }
 
 .github {
     background: #443c41;
     color: white;
+
+    &:hover,
+    &:active {
+        background: white;
+        color: #443c41;
+    }
 }
 
 .google {
     background: #dd4b39;
     color: white;
+
+    &:hover,
+    &:active {
+        background: white;
+        color: #dd4b39;
+    }
 }
 
 .linkedin {
     background: #007bb5;
     color: white;
+
+    &:hover,
+    &:active {
+        background: white;
+        color: #007bb5;
+    }
 }
 
 .youtube {
     background: #bb0000;
     color: white;
+
+    &:hover,
+    &:active {
+        background: white;
+        color: #bb0000;
+    }
 }
 
 .boutique {
-    background-color: rgb(231, 61, 61);
+    background-color: #e73d3d;
     color: white;
+
+    &:hover,
+    &:active {
+        background: white;
+        color: #e73d3d;
+    }
 }
 </style>
