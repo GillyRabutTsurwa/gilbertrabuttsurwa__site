@@ -29,7 +29,7 @@
             <p>Instructor: Jonas Schmedtmann</p>
           </li>
           <li class="credentials__list--item">
-            <p><strong>Course:</strong> VueJS 2 - The Complete Guide (incl. Vue Router & Vuex)</p>
+            <p><strong>Course:</strong> Vue - The Complete Guide (incl. Router & Composition API)</p>
             <p>Instructor: Max Schwarzmüller</p>
           </li>
         </ul>
@@ -46,16 +46,20 @@
         <!-- NOTE: moved markup to LearningList.svelte -->
         <ul class="credentials__list learning">
           <li class="credentials__list--item">
-            <i class="devicon-mongodb-plain" />
-            <span>Mongo DB</span>
+            <i class="devicon-storybook-plain" />
+            <span>Storybook</span>
+          </li>
+          <li class="credentials__list--item">
+            <i class="devicon-react-plain react-logo" />
+            <span>React</span>
           </li>
           <li class="credentials__list--item">
             <i class="devicon-express-original" />
             <span>Express</span>
           </li>
           <li class="credentials__list--item">
-            <i class="devicon-react-plain react-logo" />
-            <span>React</span>
+            <i class="devicon-mongodb-plain" />
+            <span>Mongo DB</span>
           </li>
           <li class="credentials__list--item">
             <i class="devicon-nodejs-plain" />
