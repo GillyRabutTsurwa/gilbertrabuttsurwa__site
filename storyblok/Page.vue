@@ -1,10 +1,9 @@
 <script setup>
-defineProps({ blok: Object })
+const props = defineProps({ blok: Object });
+console.log(props.blok);
 </script>
   
 <template>
-    <div v-editable="blok" class="px-4">
-        <StoryblokComponent v-for="blok in blok.body" :key="blok._uid" :blok="blok" />
-    </div>
+    <StoryblokComponent v-for="blok in blok.body" :key="blok._uid" :blok="blok" />
 </template>
    

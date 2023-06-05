@@ -1,11 +1,19 @@
+<script setup>
+// TESTING:
+const story = await useAsyncStoryblok("home", { version: "draft" });
+console.log(story);
+console.log(story.value.content);
+
+</script>
 <template>
-  <Header />
+  <StoryblokComponent v-if="story" :blok="story.content" />
+  <!-- <Header />
   <Premier />
   <Deuxieme />
   <Troisieme />
   <Quatrieme />
   <Cinquieme />
-  <Footer />
+  <Footer /> -->
 </template>
 
 <style lang="scss">
