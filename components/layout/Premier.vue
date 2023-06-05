@@ -31,15 +31,14 @@ let photoIndex = 0;
                 class="link__job">Shenandoah University</a>,
             whilst doing a bit of freelancing on the side. I specialise in front-end web development, particularly with
             Vanilla Javascript and the Vue
-            framework. Additionally, I am learning React and SvelteKit as it is important and advantageous to be comfortable
-            with different libraries,
-            frameworks, languages etc. I am steady learner, attentive, and harbour a good set of researching skills that
+            framework. I am steady learner, attentive, and harbour a good set of researching skills that
             help me quickly pick up new
             technologies. I also harbour some knowledge in back-end development. particularly with NodeJS, MongoDB and
             Express. I decided to learn them,
             to some degree, in order to be able to use them to interact with some of my favourite APIs upon making
-            full-stack applications, with two of my
-            favourites being Spotify and Stripe. The Chart below shows my competence (comfort) levels with certain front-end
+            full-stack applications. Such as my <a href="https://gilbertrabuttsurwa-shop.netlify.app/" target="_blank"
+                rel="noopener noreferrer" class="link__blog">shop</a>, that I built with Node, Express and Sanity IO. The
+            Chart below shows my competence (comfort) levels with certain front-end
             development tools. These are
             also, more or less, the main technologies that will be the makeup of my entire skillset.
         </p>
