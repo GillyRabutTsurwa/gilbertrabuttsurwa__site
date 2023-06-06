@@ -1,37 +1,25 @@
-<script>
+<script setup>
+const props = defineProps({ blok: Object });
+const richTextOne = computed(() => {
+    return renderRichText(props.blok.paraOne);
+});
+
+const richTextTwo = computed(() => {
+    return renderRichText(props.blok.paraTwo);
+});
+
+const richTextThree = computed(() => {
+    return renderRichText(props.blok.paraThree);
+});
 </script>
 
 <template>
-    <section class="proficiency">
+    <section class="proficiency" v-editable="blok">
         <h2 class="proficiency__title">Skills</h2>
         <div class="proficiency__text">
-            <p>
-                I am adept in some technologies whereas I am still learning others. My strong points include: <span
-                    class="lang-in-bold"><span class="css">CSS</span>/<span class="sass">Sass</span></span>, <span
-                    class="lang-in-bold javascript">JavaScript</span>, <span class="lang-in-bold vue">VueJS</span>, and
-                <span class="lang-in-bold svelte">Svelte</span>. I am also gradually improving my skills with:
-                <span class="lang-in-bold react">React</span>,
-                <span class="lang-in-bold typescript">TypeScript</span>, and <span
-                    class="lang-in-bold webpack">Webpack</span>.
-            </p>
-            <p>
-                I also have adequate experience using css frameworks, such as <span
-                    class="lang-in-bold bootstrap">Bootstrap</span> and
-                <span class="lang-in-bold tailwind">Tailwind</span> (which is my preferred one). I also have adept skills
-                with GulpJS and Git for front-end
-                workflow and version control respectively, which, along with all the other technologies I've learnt, have
-                given me the skills to make cool
-                projects. Even though there will be much to learn in the future, these aforementioned tools and technologies
-                are the ones that I will be currently
-                focusing on. As the web dev world changes, I will adapt accordingly, as this is one of the most important
-                attributes of a good developer.
-            </p>
-            <p>
-                Looking beyond the scope of coding — but could still be somewhat pertinent —, I possess very good research,
-                writing, and problem-solving
-                skills. I take my work seriously, with the purpose of producing good work that <em>I</em>, primarily, will
-                be pleased with.
-            </p>
+            <p v-html="richTextOne"></p>
+            <p v-html="richTextTwo"></p>
+            <p v-html="richTextThree"></p>
         </div>
         <Chart />
     </section>
@@ -74,12 +62,12 @@
 .lang-in-bold {
     font-weight: bolder;
 
-    .css {
+    &.css {
         @extend %text-gradient;
         background-image: linear-gradient(#3c99dc, #66d3fa);
     }
 
-    .sass {
+    &.sass {
         @extend %text-gradient;
         background-image: linear-gradient(#cd6799, #e293b9);
     }

@@ -11,6 +11,10 @@ const showBackend = () => {
     currentComponent.value = Backend;
     console.log("backend");
 };
+
+const props = defineProps({ blok: Object });
+console.log(props.blok);
+console.log(props.blok.component);
 </script>
 
 <template>
