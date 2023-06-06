@@ -1,6 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    modules: [["@storyblok/nuxt", { accessToken: process.env.STORYBLOK_TOKEN }]],
+    modules: [
+        [
+            "@storyblok/nuxt",
+            {
+                accessToken: "gVxtEKl9Q1ThlwQdzJdoywtt",
+                apiOptions: { region: "us" },
+            },
+        ],
+    ],
     app: {
         head: {
             meta: [

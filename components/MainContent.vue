@@ -1,15 +1,17 @@
+<script setup>
+// use draft dataset in development and published dataset in production
+const versionType = import.meta.env.DEV ? "draft" : "published";
+const story = await useAsyncStoryblok("home", { version: versionType });
+console.log(story);
+console.log(story.value.content);
+</script>
+
 <template>
-  <Header />
-  <Premier />
-  <Deuxieme />
-  <Troisieme />
-  <Quatrieme />
-  <Cinquieme />
+  <StoryblokComponent v-if="story" :blok="story.content" />
   <Footer />
 </template>
 
 <style lang="scss">
-/* TESTING */
 .maincontent {
   height: 100%;
 }
