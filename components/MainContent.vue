@@ -1,5 +1,7 @@
 <script setup>
-const story = await useAsyncStoryblok("home", { version: "draft" });
+// use draft dataset in development and published dataset in production
+const versionType = import.meta.env.DEV ? "draft" : "published";
+const story = await useAsyncStoryblok("home", { version: versionType });
 console.log(story);
 console.log(story.value.content);
 </script>
