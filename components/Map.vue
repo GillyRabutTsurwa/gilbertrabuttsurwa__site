@@ -1,5 +1,7 @@
 <script setup>
 import "leaflet/dist/leaflet.css"; //NOTE: this is needed, or else the map will break
+import markerIcon from "leaflet/dist/images/marker-icon.png"; // NOTE: this is needed for the map marker to show in production
+
 
 const emit = defineEmits({
     scrollStatus: null //NOTE: no validation, peut-être je le ferais +tard
@@ -19,7 +21,7 @@ const createMap = (mapObject) => {
          * came to this conclusion thanks to this:
          * https://stackoverflow.com/questions/75043116/nuxt-3-how-to-use-dynamic-variable-for-img-src
          */
-        iconUrl: "/_nuxt/assets/images/marker-icon.png"
+        iconUrl: markerIcon
     });
 
     //
