@@ -93,6 +93,15 @@
               <i class="devicon-github-plain" />
             </a>
           </li>
+          <li class="skills__list--item">
+            <span>Lights Out</span>
+            <a href="https://gilberttsurwa-lightsout.vercel.app/" target="__blank" class="">
+              <i class="devicon-devicon-plain" />
+            </a>
+            <a href="https://github.com/GillyRabutTsurwa/lights-out-game" target="__blank" class="">
+              <i class="devicon-github-plain" />
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -165,6 +174,15 @@
               <i class="devicon-devicon-plain" />
             </a>
             <a href="https://github.com/GillyRabutTsurwa/arch-studio-website" target="__blank">
+              <i class="devicon-github-plain" />
+            </a>
+          </li>
+          <li class="skills__list--item">
+            Jobs Dashboard
+            <a href="https://jobs-dashboard-nu.vercel.app/" target="__blank">
+              <i class="devicon-devicon-plain" />
+            </a>
+            <a href="https://github.com/GillyRabutTsurwa/jobs-dashboard" target="__blank">
               <i class="devicon-github-plain" />
             </a>
           </li>

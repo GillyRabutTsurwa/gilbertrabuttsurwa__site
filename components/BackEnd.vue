@@ -1,6 +1,6 @@
 <template>
   <div class="back-end-container">
-    <h4 style="color: #1a2934; font-size: 8rem">Projects Coming in the Autumn</h4>
+    <h4 style="color: #1a2934; font-size: 8rem">Projects Coming this Winter</h4>
   </div>
 </template>
 

@@ -27,6 +27,7 @@ import dadJokes from "@/assets/images/project-thumbnails/dadjokes-react-thumbnai
 import lightsOut from "@/assets/images/project-thumbnails/lights-out-thumbnail.png";
 
 import archStudio from "@/assets/images/project-thumbnails/arch-studio-thumbnail.png";
+import jobsDashboard from "@/assets/images/project-thumbnails/jobs-dashboard-ui-thumbnail.png";
 
 const thumbnailCSS = [
     {
@@ -165,6 +166,11 @@ const thumbnailSvelte = [
         img: archStudio,
         siteLink: "https://gilberttsurwa-arch-studio.vercel.app/",
         githubLink: "https://github.com/GillyRabutTsurwa/arch-studio-website",
+    },
+    {
+        img: jobsDashboard,
+        siteLink: "https://jobs-dashboard-nu.vercel.app/",
+        githubLink: "https://github.com/GillyRabutTsurwa/jobs-dashboard",
     },
 ];
 
