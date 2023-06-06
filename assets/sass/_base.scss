@@ -3,12 +3,12 @@
 // @import url("https://fonts.googleapis.com/css?family=Kulim+Park:400,400i,600,600i,700&display=swap");
 
 ::-moz-selection {
-    background: rgb(238, 238, 238);
-    color: variables.$steelblue;
+    background-color: variables.$steelblue;
+    color: variables.$default-grey;
 }
 ::selection {
-    background: rgb(238, 238, 238);
-    color: variables.$steelblue;
+    background-color: variables.$steelblue;
+    color: variables.$default-grey;
 }
 * {
     &,
