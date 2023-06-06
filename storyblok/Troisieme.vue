@@ -4,11 +4,11 @@ const BackEnd = resolveComponent("BackEnd");
 // NOTE: using shallow ref as recommended by Vue to avoid performance issues upon using ref with a dynamic component value
 const currentComponent = shallowRef(FrontEnd);
 const showFrontend = () => {
-    currentComponent.value = Frontend;
+    currentComponent.value = FrontEnd;
     console.log("frontend");
 };
 const showBackend = () => {
-    currentComponent.value = Backend;
+    currentComponent.value = BackEnd;
     console.log("backend");
 };
 
