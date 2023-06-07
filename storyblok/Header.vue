@@ -55,6 +55,7 @@ onMounted(() => {
     position: relative;
     display: grid;
     grid-template-columns: 56% min-content 1fr;
+    grid-template-columns: 50% min-content 1fr;
 
     // TESTING
     & .icon {
