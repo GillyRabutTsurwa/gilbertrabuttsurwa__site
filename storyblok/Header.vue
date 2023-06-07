@@ -55,6 +55,7 @@ onMounted(() => {
     position: relative;
     display: grid;
     grid-template-columns: 50% min-content 1fr;
+    // TESTING: delete this after, ce pour tester le pushing du code
 
     // TESTING
     & .icon {
