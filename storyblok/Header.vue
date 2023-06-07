@@ -54,7 +54,6 @@ onMounted(() => {
     width: 100%;
     position: relative;
     display: grid;
-    grid-template-columns: 56% min-content 1fr;
     grid-template-columns: 50% min-content 1fr;
 
     // TESTING
@@ -76,8 +75,6 @@ onMounted(() => {
         &-img {
             position: absolute;
             left: 0;
-            width: 77rem;
-            height: 96rem;
             width: 100%;
             height: 100%;
             object-fit: cover; // makes it look nicer
