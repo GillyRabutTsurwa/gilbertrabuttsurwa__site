@@ -28,6 +28,7 @@ const richTextThree = computed(() => {
 <style lang="scss">
 @use "@/assets/sass/variables";
 @use "@/assets/sass/extend";
+@use "@/assets/sass/mixins";
 
 .proficiency {
     display: grid;
@@ -37,11 +38,23 @@ const richTextThree = computed(() => {
     background-color: variables.$default-grey;
     margin-top: 6rem;
 
+    @include mixins.breakpoint(1023) {
+        grid-template-columns: 1fr;
+        // grid-template-rows: unset;
+        // grid-auto-rows: max-content;
+    }
+
     &__title {
         grid-column: 1 / -1;
         grid-row: 1 / 2;
         text-align: center;
         font-size: 5rem;
+
+        @include mixins.breakpoint(1023) {
+            grid-column: 1 / 3;
+            // grid-row: 1 / 2;
+            justify-self: center;
+        }
     }
 
     &__text {
@@ -52,10 +65,13 @@ const richTextThree = computed(() => {
         line-height: 2;
         grid-column: 2 / -1;
         grid-row: 2 / -1;
-        //   @include responsive(tablet-portrait) {
-        //     margin: 2.5rem 0 0 2.5rem;
-        //     font-size: 3rem;
-        //   }
+
+        @include mixins.breakpoint(1023) {
+            margin-top: 0;
+            margin-left: 0;
+            font-size: 1.75rem;
+            grid-row: 2 / 3;
+        }
     }
 }
 

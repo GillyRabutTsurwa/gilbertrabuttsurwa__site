@@ -33,6 +33,8 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
+@use "@/assets/sass/mixins";
+
 .intro {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -40,6 +42,10 @@ onMounted(() => {
     column-gap: 13rem;
     background-color: rgb(238, 238, 238);
     margin-top: 5rem;
+
+    @include mixins.breakpoint(1023) {
+        grid-template-columns: 1fr;
+    }
 
     &__title {
         grid-column: 1 / -1;
@@ -53,6 +59,10 @@ onMounted(() => {
         line-height: 2;
         align-self: center;
         padding: 0 5rem;
+
+        @include mixins.breakpoint(1023) {
+            font-size: 1.75rem;
+        }
     }
 
     & .icon {
