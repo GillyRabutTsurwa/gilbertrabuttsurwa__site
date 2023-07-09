@@ -28,6 +28,7 @@ import lightsOut from "@/assets/images/project-thumbnails/lights-out-thumbnail.p
 
 import archStudio from "@/assets/images/project-thumbnails/arch-studio-thumbnail.png";
 import jobsDashboard from "@/assets/images/project-thumbnails/jobs-dashboard-ui-thumbnail.png";
+import whitneyVanessa from "@/assets/images/project-thumbnails/whitney-vanessa-thumbnail.png";
 
 const thumbnailCSS = [
     {
@@ -171,6 +172,11 @@ const thumbnailSvelte = [
         img: jobsDashboard,
         siteLink: "https://jobs-dashboard-nu.vercel.app/",
         githubLink: "https://github.com/GillyRabutTsurwa/jobs-dashboard",
+    },
+    {
+        img: whitneyVanessa,
+        siteLink: "https://whitneyvanessa.com",
+        githubLink: "https://github.com/GillyRabutTsurwa/whitney-vanessa-blog",
     },
 ];
 
