@@ -1,5 +1,6 @@
 <script setup>
 import { filename } from 'pathe/utils';
+import { useBreakpoints } from '~~/composables/useBreakpoints';
 const glob = import.meta.glob('~/assets/images/*', { eager: true });
 const images = Object.fromEntries(
     Object.entries(glob).map(([key, value]) => [filename(key), value.default])
@@ -14,12 +15,24 @@ const props = defineProps({ blok: Object });
 console.log(props.blok);
 console.log(props.blok.portraits)
 
+
+const { pixels, toggleElementOnResize } = useBreakpoints();
+const show = ref(null);
+
 onMounted(() => {
     setInterval(() => {
         photoIndex.value++;
         if (photoIndex.value >= props.blok.portraits.length) photoIndex.value = 0;
     }, 15000);
-    // if (browser) toggleElementOnResize(1023);
+    console.log(process.client)
+    if (process.client) {
+        toggleElementOnResize(1023);
+        console.log(pixels.value);
+        const body = document.querySelector("body");
+        console.log(body.clientWidth)
+        show.value = pixels.value < body.clientWidth ? true : false;
+        console.log(show.value);
+    }
 });
 </script>
 
@@ -27,19 +40,23 @@ onMounted(() => {
     <header class="header" v-editable="blok">
         <img src="@/assets/images/svg/my-logo.svg" alt="my-logo" class="header__logo" />
         <div class="header__title">
-            <h1 class="header__title--primary">{{ blok.firstname }}<span>{{ blok.middlename }}</span>{{ blok.surname
-            }}<span></span></h1>
+            <h1 class="header__title--primary">
+                <span>{{ blok.firstname }}</span>
+                <span>{{ blok.middlename }}</span>
+                <span>{{ blok.surname }}</span>
+            </h1>
             <div class="header__buttons">
                 <NuxtLink to="/projects" target="_blank" class="header__buttons--button"> All my Projects </NuxtLink>
-                <a href="https://gilbertrabuttsurwa.blog" target="_blank" rel="noreferrer"
-                    class="header__buttons--button">My Blog</a>
+                <a href="https://gilbertrabuttsurwa.blog" target="_blank" rel="noreferrer" class="header__buttons--button">
+                    My Blog
+                </a>
             </div>
         </div>
         <div class="icon" style="align-self: center;">
             <Devicon />
         </div>
 
-        <figure class="autoportrait">
+        <figure class="autoportrait" v-if="show">
             <img v-for="(currentPortrait, index) in blok.portraits" :src="currentPortrait.filename" alt="Croquis de moi"
                 :class="{ opaque: index === photoIndex }" class="autoportrait-img" />
         </figure>
@@ -48,6 +65,7 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 @use "@/assets/sass/variables";
+@use "@/assets/sass/mixins";
 
 .header {
     min-height: 100vh; // on le ramene
@@ -57,11 +75,25 @@ onMounted(() => {
     grid-template-columns: 50% min-content 1fr;
     // TESTING: delete this after, ce pour tester le pushing du code
 
+    @include mixins.breakpoint(1023) {
+        min-height: max-content;
+        padding-bottom: 3rem;
+        place-items: center;
+        grid-template-columns: 1fr;
+        grid-auto-rows: min-content;
+        // grid-template-rows: repeat(2, max-content);
+    }
+
     // TESTING
     & .icon {
         align-self: center;
         grid-column: 2 / 3;
         transform: translateX(-10rem); // deplacer vers le gauche juste un peu
+
+        @include mixins.breakpoint(1023) {
+            grid-column: 1 / 2; //NOTE; reinitialise la configuration dessus
+            transform: translateX(0);
+        }
     }
 
     & .autoportrait {
@@ -112,6 +144,11 @@ onMounted(() => {
         margin-bottom: 7rem;
         z-index: 1000;
         color: variables.$steelblue;
+
+        @include mixins.breakpoint(1023) {
+            padding-right: unset; //NOTE: so this does work. same as padding-right: 0;
+            margin-top: 12rem;
+        }
 
         &--primary {
             font-size: 10.5rem;
