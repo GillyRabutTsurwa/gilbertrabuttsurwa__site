@@ -100,6 +100,10 @@ console.log(props.blok);
     display: flex;
     -ms-flex-pack: distribute;
     justify-content: space-around;
+
+    @include mixins.breakpoint(1023) {
+      flex-direction: column-reverse;
+    }
   }
 
   &__main-title {
@@ -112,12 +116,22 @@ console.log(props.blok);
   &__right--title {
     font-size: 2rem;
     margin-bottom: 2.5rem;
+
+    @include mixins.breakpoint(1023) {
+      font-size: 3rem;
+      text-align: center;
+    }
   }
 
   &__left {
+
     // &--title {
     //   font-size: 2rem;
     //   margin-bottom: 2.5rem;
+    @include mixins.breakpoint(1023) {
+      margin-top: 3rem;
+    }
+
     // }
   }
 
@@ -126,12 +140,30 @@ console.log(props.blok);
     list-style-type: none;
     font-size: 2.5rem;
 
+    // @include mixins.breakpoint(1023) {
+    //   display: flex;
+    //   flex-wrap: wrap;
+    //   justify-content: space-around;
+    // }
+
     &--item {
       margin-bottom: 5rem;
     }
 
     &.courses {
       list-style-type: disc;
+
+      @include mixins.breakpoint(1023) {
+        margin-left: 3rem;
+      }
+    }
+
+    &.learning {
+      @include mixins.breakpoint(1023) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
     }
   }
 
@@ -143,6 +175,10 @@ console.log(props.blok);
       i {
         font-size: 5rem;
         margin-right: 2rem;
+
+        @include mixins.breakpoint(1023) {
+          margin-right: 0.25rem;
+        }
       }
     }
   }
