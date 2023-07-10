@@ -24,14 +24,24 @@ onMounted(() => {
         photoIndex.value++;
         if (photoIndex.value >= props.blok.portraits.length) photoIndex.value = 0;
     }, 15000);
-    console.log(process.client)
-    if (process.client) {
-        toggleElementOnResize(1023);
-        console.log(pixels.value);
+
+    const renderElements = () => {
         const body = document.querySelector("body");
         console.log(body.clientWidth)
         show.value = pixels.value < body.clientWidth ? true : false;
         console.log(show.value);
+    }
+
+    if (process.client) {
+        toggleElementOnResize(1023);
+        renderElements();
+
+        window.addEventListener("resize", () => {
+            toggleElementOnResize(1023);
+            renderElements();
+        })
+
+
     }
 });
 </script>
