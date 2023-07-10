@@ -45,6 +45,7 @@ onMounted(() => {
 
     @include mixins.breakpoint(1023) {
         grid-template-columns: 1fr;
+        order: 2; //NOTE: this works because i display the parent (#app) to be display: grid in pages/index.vue
     }
 
     &__title {

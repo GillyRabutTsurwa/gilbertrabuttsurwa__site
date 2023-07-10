@@ -42,6 +42,7 @@ const richTextThree = computed(() => {
         grid-template-columns: 1fr;
         // grid-template-rows: unset;
         // grid-auto-rows: max-content;
+        order: 4; //NOTE: this works because i display the parent (#app) to be display: grid in pages/index.vue
     }
 
     &__title {

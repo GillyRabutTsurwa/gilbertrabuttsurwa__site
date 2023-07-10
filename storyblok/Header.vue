@@ -91,7 +91,7 @@ onMounted(() => {
         place-items: center;
         grid-template-columns: 1fr;
         grid-auto-rows: min-content;
-        // grid-template-rows: repeat(2, max-content);
+        order: 1; //NOTE: this works because i display the parent (#app) to be display: grid in pages/index.vue
     }
 
     // TESTING

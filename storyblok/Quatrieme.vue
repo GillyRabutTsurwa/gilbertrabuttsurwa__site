@@ -81,10 +81,18 @@ console.log(props.blok);
   </section>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@use "@/assets/sass/mixins";
+
 .credentials {
   padding-top: 6rem;
   background-color: rgb(238, 238, 238);
+
+  @include mixins.breakpoint(1023) {
+    order: 5; //NOTE: this works because i display the parent (#app) to be display: grid in pages/index.vue
+  }
+
+
 
   &__content {
     display: -webkit-box;

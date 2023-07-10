@@ -19,7 +19,12 @@ console.log(currentComponent)
 
 
 <style lang="scss">
+@use "@/assets/sass/mixins";
+
 #app {
+    display: grid;
+    grid-template-areas: "Header" "First" "Second" "Third" "Fourth" "Fifth" "Footer";
+    grid-template-columns: 1fr;
     height: 100%;
 }
 
