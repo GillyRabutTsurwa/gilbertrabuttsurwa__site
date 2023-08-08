@@ -1,5 +1,2 @@
-@use "animations";
-@use "base";
-@use "mixins";
-@use "extend";
-@use "variables";
+@use "./abstracts/" as abstracts;
+@use "./base/" as base;

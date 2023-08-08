@@ -1,5 +1,13 @@
 // COLORS
+$colour-primary: #104f55;
 $steelblue: #1a2934;
+$midnight: #104f55;
+
+$text-grey: #3f4954;
+$text-grey-light: #686666da;
+$bg-color: #0f0f0f;
+$whitish: #f0f0f0;
+$kibichi: goldenrod;
 $default-grey: #eeeeee;
 
 $colour-blanc: #fff;
@@ -20,7 +28,12 @@ $colour-gradient-bootstrap: 315deg, #3806ad 25%, #553c7b;
 $colour-gradient-webpack: 315deg, #1d78c1 25%, #465e69;
 // END COLORS
 
-// NOTE: j'utlise pas ceux-ci dessous. peut-être plus tard
-// $colour-gris-sombre: #777;
-// $colour-gris-leger: #f7f7f7;
-// $default-box-shadow: 0 1rem 2rem rgba($colour-noir, 0.15);
+$primaryFontStack: "League Spartan", sans-serif;
+$modified-root-font-size: 62.5%;
+
+// /* gradient color   */
+$sky: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+
+// /*      theme font-family   */
+$Abel: "Abel", sans-serif;
+$Lexend: "Lexend Deca", sans-serif;

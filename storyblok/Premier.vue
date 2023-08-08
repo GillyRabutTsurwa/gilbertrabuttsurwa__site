@@ -25,7 +25,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <section class="intro" v-editable="blok">
+    <section class="intro landing" v-editable="blok">
         <h2 class="intro__title">Introduction</h2>
         <p class="intro__paragraph" v-html="richTextOne"></p>
         <p class="intro__paragraph" v-html="richTextTwo"></p>
@@ -33,8 +33,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
-@use "@/assets/sass/mixins";
-
 .intro {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -43,7 +41,7 @@ onMounted(() => {
     background-color: rgb(238, 238, 238);
     margin-top: 5rem;
 
-    @include mixins.breakpoint(1023) {
+    @include breakpoint(1023) {
         grid-template-columns: 1fr;
         order: 2; //NOTE: this works because i display the parent (#app) to be display: grid in pages/index.vue
     }
@@ -61,7 +59,7 @@ onMounted(() => {
         align-self: center;
         padding: 0 5rem;
 
-        @include mixins.breakpoint(1023) {
+        @include breakpoint(1023) {
             font-size: 1.75rem;
         }
     }

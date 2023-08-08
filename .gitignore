@@ -11,3 +11,4 @@ dist
 # Added By Me
 localhost-key.pem
 localhost.pem
+.storybook

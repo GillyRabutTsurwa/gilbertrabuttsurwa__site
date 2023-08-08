@@ -1,11 +1,21 @@
 <template>
-    <div>
-
-    </div>
+  <figure>
+    <NuxtLink to="/">
+      <img src="../assets/img/svg/my-logo-alternate-2.svg" alt="">
+    </NuxtLink>
+  </figure>
 </template>
 
-<script setup>
+<style lang="scss" scoped>
+figure {
+  display: inline-block;
+  width: 6rem;
+  height: 6rem;
+  z-index: 1000;
 
-</script>
-
-<style lang="scss" scoped></style>
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+</style>

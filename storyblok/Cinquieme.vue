@@ -6,19 +6,16 @@ const logChange = (emitValue) => {
 </script>
 
 <template>
-  <section class="map">
+  <section class="map landing">
     <h2>Gil's Favourite Spots</h2>
     <span>Scroll {{ status }}</span>
-    <Map @scroll-status="logChange" />
+    <!-- <MapX @scroll-status="logChange" /> -->
   </section>
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/sass/variables";
-@use "@/assets/sass/mixins";
-
 .map {
-  @include mixins.breakpoint(1023) {
+  @include breakpoint(1023) {
     order: 6; //NOTE: this works because i display the parent (#app) to be display: grid in pages/index.vue
   }
 
@@ -40,7 +37,7 @@ const logChange = (emitValue) => {
     color: #fff;
     padding: 1.5rem 3rem;
     margin: 2rem auto;
-    background-color: variables.$steelblue;
+    background-color: $steelblue;
     cursor: not-allowed;
     opacity: 1;
     transition: opacity 0.5s ease-in;

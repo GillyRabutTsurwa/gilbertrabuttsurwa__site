@@ -38,15 +38,12 @@
 </template>
 
 <style lang="scss">
-@use "@/assets/sass/variables";
-@use "@/assets/sass/extend";
-
 .proficiency {
     display: grid;
     // grid-template-columns: repeat(2, 1fr);
     grid-template-columns: 55% 1fr;
     grid-template-rows: min-content 1fr;
-    background-color: variables.$default-grey;
+    background-color: $default-grey;
     margin-top: 6rem;
 
     &__title {

@@ -18,7 +18,7 @@ console.log(props.blok.component);
 </script>
 
 <template>
-    <section class="skills">
+    <section class="skills landing">
         <h2 class="skills__main-title">Select Projects</h2>
         <div class="skills__buttons">
             <button @click="showFrontend" class="header__button skills__buttons--button">Front-End</button>
@@ -29,9 +29,6 @@ console.log(props.blok.component);
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/sass/variables";
-@use "@/assets/sass/mixins";
-
 .skills {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -39,14 +36,14 @@ console.log(props.blok.component);
     // grid-template-rows: repeat(2, min-content) 80vh;
     grid-template-rows: repeat(2, min-content) 1fr;
     // height: 100vh;
-    min-height: 100vh;
+    // min-height: 100vh;
     margin: 0 3rem;
-    background-color: variables.$default-grey;
+    background-color: $default-grey;
     gap: 4rem;
     padding-top: 6rem;
     color: rgb(238, 238, 238);
 
-    @include mixins.breakpoint(1023) {
+    @include breakpoint(1023) {
         order: 3; //NOTE: this works because i display the parent (#app) to be display: grid in pages/index.vue
         min-height: unset;
         height: auto;
@@ -84,13 +81,13 @@ console.log(props.blok.component);
     color: #fff;
     padding: 1.5rem 3rem;
     margin-top: 3rem;
-    background-color: variables.$steelblue;
+    background-color: $steelblue;
     cursor: pointer;
     z-index: 10000;
 
     &:hover {
         background-color: #fff;
-        color: variables.$steelblue;
+        color: $steelblue;
     }
 }
 </style>

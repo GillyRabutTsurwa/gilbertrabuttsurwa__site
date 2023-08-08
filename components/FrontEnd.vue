@@ -193,15 +193,13 @@
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/sass/mixins";
-
 .front-end-container {
   grid-column: 1 / -1;
   display: grid;
   gap: 4rem;
   grid-template-rows: repeat(2, 50rem);
 
-  @include mixins.breakpoint(1023) {
+  @include breakpoint(1023) {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 50rem);
   }
@@ -330,7 +328,7 @@
       grid-column: 2 / 3;
       grid-row: 1 / 2;
 
-      @include mixins.breakpoint(1023) {
+      @include breakpoint(1023) {
         grid-column: 1 / 2;
         grid-row: 3 / 4;
       }
@@ -340,7 +338,7 @@
       grid-column: 2 / 3;
       grid-row: 2 / 3;
 
-      @include mixins.breakpoint(1023) {
+      @include breakpoint(1023) {
         grid-column: 1 / 2;
         grid-row: 4 / 5;
       }

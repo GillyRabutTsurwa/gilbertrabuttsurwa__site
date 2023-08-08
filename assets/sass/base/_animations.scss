@@ -1,0 +1,55 @@
+@mixin fadeAnimation($name, $from, $to) {
+    @-webkit-keyframes #{$name} {
+        from {
+            opacity: $from;
+        }
+        to {
+            opacity: $to;
+        }
+    }
+    @keyframes #{$name} {
+        from {
+            opacity: $from;
+        }
+        to {
+            opacity: $to;
+        }
+    }
+}
+
+@-webkit-keyframes ellipsisFade {
+    0%,
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes ellipsisFade {
+    0%,
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+// NOTENEW: for react logo. ** animation not working **
+@-webkit-keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

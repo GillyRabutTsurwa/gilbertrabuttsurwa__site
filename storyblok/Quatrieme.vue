@@ -4,7 +4,7 @@ console.log(props.blok);
 </script>
 
 <template>
-  <section class="credentials">
+  <section class="credentials landing">
     <h2 class="credentials__main-title">Credentials</h2>
     <div class="credentials__content">
       <div class="credentials__left">
@@ -82,13 +82,11 @@ console.log(props.blok);
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/sass/mixins";
-
 .credentials {
   padding-top: 6rem;
   background-color: rgb(238, 238, 238);
 
-  @include mixins.breakpoint(1023) {
+  @include breakpoint(1023) {
     order: 5; //NOTE: this works because i display the parent (#app) to be display: grid in pages/index.vue
   }
 
@@ -101,7 +99,7 @@ console.log(props.blok);
     -ms-flex-pack: distribute;
     justify-content: space-around;
 
-    @include mixins.breakpoint(1023) {
+    @include breakpoint(1023) {
       flex-direction: column-reverse;
     }
   }
@@ -117,7 +115,7 @@ console.log(props.blok);
     font-size: 2rem;
     margin-bottom: 2.5rem;
 
-    @include mixins.breakpoint(1023) {
+    @include breakpoint(1023) {
       font-size: 3rem;
       text-align: center;
     }
@@ -128,7 +126,7 @@ console.log(props.blok);
     // &--title {
     //   font-size: 2rem;
     //   margin-bottom: 2.5rem;
-    @include mixins.breakpoint(1023) {
+    @include breakpoint(1023) {
       margin-top: 3rem;
     }
 
@@ -140,7 +138,7 @@ console.log(props.blok);
     list-style-type: none;
     font-size: 2.5rem;
 
-    // @include mixins.breakpoint(1023) {
+    // @include breakpoint(1023) {
     //   display: flex;
     //   flex-wrap: wrap;
     //   justify-content: space-around;
@@ -153,13 +151,13 @@ console.log(props.blok);
     &.courses {
       list-style-type: disc;
 
-      @include mixins.breakpoint(1023) {
+      @include breakpoint(1023) {
         margin-left: 3rem;
       }
     }
 
     &.learning {
-      @include mixins.breakpoint(1023) {
+      @include breakpoint(1023) {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
@@ -176,7 +174,7 @@ console.log(props.blok);
         font-size: 5rem;
         margin-right: 2rem;
 
-        @include mixins.breakpoint(1023) {
+        @include breakpoint(1023) {
           margin-right: 0.25rem;
         }
       }

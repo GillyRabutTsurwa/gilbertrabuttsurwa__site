@@ -14,7 +14,7 @@ const richTextThree = computed(() => {
 </script>
 
 <template>
-    <section class="proficiency" v-editable="blok">
+    <section class="proficiency landing" v-editable="blok">
         <h2 class="proficiency__title">Skills</h2>
         <div class="proficiency__text">
             <p v-html="richTextOne"></p>
@@ -26,19 +26,15 @@ const richTextThree = computed(() => {
 </template>
 
 <style lang="scss">
-@use "@/assets/sass/variables";
-@use "@/assets/sass/extend";
-@use "@/assets/sass/mixins";
-
 .proficiency {
     display: grid;
     // grid-template-columns: repeat(2, 1fr);
     grid-template-columns: 55% 1fr;
     grid-template-rows: min-content 1fr;
-    background-color: variables.$default-grey;
+    background-color: $default-grey;
     margin-top: 6rem;
 
-    @include mixins.breakpoint(1023) {
+    @include breakpoint(1023) {
         grid-template-columns: 1fr;
         // grid-template-rows: unset;
         // grid-auto-rows: max-content;
@@ -51,7 +47,7 @@ const richTextThree = computed(() => {
         text-align: center;
         font-size: 5rem;
 
-        @include mixins.breakpoint(1023) {
+        @include breakpoint(1023) {
             grid-column: 1 / 3;
             // grid-row: 1 / 2;
             justify-self: center;
@@ -67,7 +63,7 @@ const richTextThree = computed(() => {
         grid-column: 2 / -1;
         grid-row: 2 / -1;
 
-        @include mixins.breakpoint(1023) {
+        @include breakpoint(1023) {
             margin-top: 0;
             margin-left: 0;
             font-size: 1.75rem;

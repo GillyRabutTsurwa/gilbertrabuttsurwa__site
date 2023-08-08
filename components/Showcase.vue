@@ -46,13 +46,11 @@ console.log(assets)
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/sass/variables";
-
 .showcase {
   width: 100%;
   height: 100%;
-  background-color: variables.$steelblue;
-  color: variables.$default-grey;
+  background-color: $steelblue;
+  color: $default-grey;
   padding: 0 3rem;
 
   &-top {

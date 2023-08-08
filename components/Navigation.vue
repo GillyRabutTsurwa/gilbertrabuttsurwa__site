@@ -1,129 +1,145 @@
-<script setup>
-const navigation = ref(null); //NOTE: this is our template ref
-const showNavigation = ref(false);
-const navShow = computed(() => {
-    return {
-        show: showNavigation.value //PASS: i can do this inline mais je voulas faire qq'chose de different
-    }
-})
-onMounted(() => {
-    setTimeout(() => {
-        /**
-         * NOTE: delay navigation render
-         * this is so that the navigation ne s'affiche sur le composant Loader
-         * @todo - make navigation transparent en filant
-         */
-        showNavigation.value = true;
-    }, 2700);
-    const header = navigation.value.parentNode.children[1].children[0];
-    console.dir(header);
-});
+<script setup lang="ts">
+const { data: user } = await useFetch("/api/session");
+console.log(user.value);
+const { status, signIn, signOut } = useAuth();
+const router = useRouter();
+const logOut = async () => {
+  console.log("Logout Settings");
+}
+const isLoggedIn = computed(() => status.value === "authenticated");
+
+
+
+const goBack = () => (router.back());
 </script>
+
 <template>
-    <div :class="navShow" class="icon-bar" ref="navigation">
-        <a href="https://github.com/GillyRabutTsurwa" target="_blank" rel="noreferrer noopener" class="github"><i
-                class="fa fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/gilberttsurwa" target="_blank" rel="noreferrer noopener" class="linkedin"><i
-                class="fa fa-linkedin"></i></a>
-        <a href="mailto:rabuttsurwa@outlook.com" rel="noreferrer noopener" class="google"><i class="fa fa-envelope"></i></a>
-        <a href="#" target="_blank" rel="noreferrer noopener" class="facebook"><i class="fa fa-facebook"></i></a>
-        <a href="https://gilbertrabuttsurwa-shop.netlify.app" target="_blank" rel="noreferrer noopener" class="boutique"><i
-                class="fa fa-shopping-cart"></i>
-        </a>
-    </div>
+  <nav class="navigation">
+    <LogoX />
+    <ul class="navigation__list">
+      <li class="navigation__list--item">
+        <NuxtLink to="/personal/posts">Blogs</NuxtLink>
+      </li>
+      <li class="navigation__list--item">
+        <NuxtLink to="/authours/gilbert-rabut-tsurwa">About Me</NuxtLink>
+      </li>
+      <li class="navigation__list--item">
+        <NuxtLink :to="`/${$route.name === 'tech' ? 'personal' : 'tech'}`">
+          {{ $route.name === 'tech' ? 'Personal' : 'Tech' }} Page
+        </NuxtLink>
+      </li>
+      <li class="navigation__list--item">
+        <NuxtLink to="/uncensored">Uncensored Posts</NuxtLink>
+      </li>
+      <li class="navigation__list--item">
+        <a href="https://gilbertrabuttsurwa.tech" target="_blank" rel="noreferrer noopener">Portfolio Site</a>
+      </li>
+      <li class="navigation__list--item">
+        <a href="https://gilbertrabuttsurwa-shop.netlify.app" target="_blank" rel="noreferrer noopener">Shop</a>
+      </li>
+      <li class="navigation__list--item">
+        <NuxtLink to="/contact">Contact Me</NuxtLink>
+      </li>
+    </ul>
+    <ul class="navigation__list">
+      <!-- account username -->
+      <li v-if="isLoggedIn" class="navigation__list--item">
+        <span class="username">{{ user.user.name || user.user.email }}</span>
+      </li>
+      <li v-if="isLoggedIn" class="navigation__list--item">
+        <span @click="signOut" style="color: #fefefe;">Sign Out</span>
+      </li>
+      <li v-else class="navigation__list--item">
+        <NuxtLink to="/login">Sign In</NuxtLink>
+      </li>
+
+    </ul>
+  </nav>
 </template>
 
-
 <style lang="scss" scoped>
-.icon-bar {
-    position: fixed;
-    top: 50%;
-    left: 0;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    z-index: 10000;
-    // will hide for transition
-    opacity: 0;
-    transition: opacity 0.5s ease-in;
+@use "~/assets/sass/abstracts/" as abstracts;
 
-    &.show {
-        opacity: 1;
+.navigation {
+  @extend %flex-basic;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 10vh;
+  background-color: #f0f0f0;
+  padding: 0 1.75rem;
+  background-color: abstracts.$colour-primary;
+
+  @include abstracts.breakpoint(480) {
+    height: 17.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &>*:not(:first-child) {
+      margin-top: 1.25rem;
     }
-}
+  }
 
-.icon-bar a {
-    display: block;
-    text-align: center;
-    padding: 16px;
-    transition: all 0.3s ease;
-    color: white;
-    font-size: 20px;
-}
+  .logo {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: abstracts.$text-grey-light;
+    // font-family: abstracts.$Josefin;
+    letter-spacing: 1.5px;
+  }
 
-.facebook {
-    background: #3b5998;
-    color: white;
+  &__list,
+  &__icons {
+    list-style: none;
+    @extend %flex-basic;
+  }
 
-    &:hover,
-    &:active {
-        background: white;
-        color: #3b5998;
+  &__list {
+    font-family: "Abel", cursive;
+    font-size: 1.6rem;
+
+    &--item {
+      margin-right: 3.25rem;
+
+      a {
+
+        &,
+        &:link,
+        &:visited {
+          font-size: 1.75rem;
+          text-decoration: none;
+          color: abstracts.$whitish;
+        }
+
+        &:hover,
+        &:active {
+          font-weight: bold;
+        }
+      }
+
+      .username {
+        font-size: 1.8rem;
+        color: #fefefe;
+      }
     }
-}
+  }
 
-.github {
-    background: #443c41;
-    color: white;
+  &__icons {
+    font-size: 1.6rem;
 
-    &:hover,
-    &:active {
-        background: white;
-        color: #443c41;
+    &--icon {
+      margin-right: 2rem;
+
+      a {
+
+        &:link,
+        &:visited {
+          text-decoration: none;
+          color: abstracts.$whitish;
+        }
+      }
     }
-}
-
-.google {
-    background: #dd4b39;
-    color: white;
-
-    &:hover,
-    &:active {
-        background: white;
-        color: #dd4b39;
-    }
-}
-
-.linkedin {
-    background: #007bb5;
-    color: white;
-
-    &:hover,
-    &:active {
-        background: white;
-        color: #007bb5;
-    }
-}
-
-.youtube {
-    background: #bb0000;
-    color: white;
-
-    &:hover,
-    &:active {
-        background: white;
-        color: #bb0000;
-    }
-}
-
-.boutique {
-    background-color: #e73d3d;
-    color: white;
-
-    &:hover,
-    &:active {
-        background: white;
-        color: #e73d3d;
-    }
+  }
 }
 </style>

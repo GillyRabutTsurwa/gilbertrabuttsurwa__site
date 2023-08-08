@@ -48,13 +48,11 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/sass/variables";
-
 i[class^="devicon"] {
   display: block;
   font-size: 9.5rem;
   z-index: 1000;
-  color: variables.$steelblue;
+  color: $steelblue;
   -webkit-animation: fade 3800ms ease-in-out infinite;
   animation: fade 3800ms ease-in-out infinite;
 }

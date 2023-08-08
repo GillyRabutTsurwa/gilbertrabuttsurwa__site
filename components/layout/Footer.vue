@@ -55,8 +55,6 @@
 </template>
 
 <style lang="scss">
-@use "@/assets/sass/mixins";
-
 .footer {
   background-color: #1a2934;
   color: rgb(238, 238, 238);
@@ -64,7 +62,7 @@
   padding: 2rem;
   font-size: 2.5rem;
 
-  @include mixins.breakpoint(1023) {
+  @include breakpoint(1023) {
     order: 7; //NOTE: this works because i display the parent (#app) to be display: grid in pages/index.vue
   }
 

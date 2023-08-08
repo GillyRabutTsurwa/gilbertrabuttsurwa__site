@@ -74,9 +74,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/sass/variables";
-@use "@/assets/sass/mixins";
-
 .header {
     min-height: 100vh; // on le ramene
     width: 100%;
@@ -85,7 +82,7 @@ onMounted(() => {
     grid-template-columns: 50% min-content 1fr;
     // TESTING: delete this after, ce pour tester le pushing du code
 
-    @include mixins.breakpoint(1023) {
+    @include breakpoint(1023) {
         min-height: max-content;
         padding-bottom: 3rem;
         place-items: center;
@@ -100,7 +97,7 @@ onMounted(() => {
         grid-column: 2 / 3;
         transform: translateX(-10rem); // deplacer vers le gauche juste un peu
 
-        @include mixins.breakpoint(1023) {
+        @include breakpoint(1023) {
             grid-column: 1 / 2; //NOTE; reinitialise la configuration dessus
             transform: translateX(0);
         }
@@ -153,9 +150,9 @@ onMounted(() => {
         padding-right: 7rem;
         margin-bottom: 7rem;
         z-index: 1000;
-        color: variables.$steelblue;
+        color: $steelblue;
 
-        @include mixins.breakpoint(1023) {
+        @include breakpoint(1023) {
             padding-right: unset; //NOTE: so this does work. same as padding-right: 0;
             margin-top: 12rem;
         }
@@ -197,7 +194,7 @@ onMounted(() => {
             color: #fff;
             padding: 1.5rem 3rem;
             margin-top: 3rem;
-            background-color: variables.$steelblue;
+            background-color: $steelblue;
             cursor: pointer;
             z-index: 10000;
 
@@ -206,7 +203,7 @@ onMounted(() => {
             // }
             &:hover {
                 background-color: #fff;
-                color: variables.$steelblue;
+                color: $steelblue;
             }
         }
     }

@@ -8,7 +8,7 @@ console.log(story.value.content);
 
 <template>
   <StoryblokComponent v-if="story" :blok="story.content" />
-  <Footer />
+  <FooterX />
 </template>
 
 <style lang="scss">

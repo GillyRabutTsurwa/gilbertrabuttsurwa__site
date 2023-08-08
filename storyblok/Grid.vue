@@ -8,7 +8,7 @@ console.log(props.blok)
     </div>
 </template>
    
-<style scoped>
+<style lang="scss" scoped>
 div {
     width: 100vw;
     height: 100vh;

@@ -1,0 +1,11 @@
+%flex-basic {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+%text-gradient {
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}

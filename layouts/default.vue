@@ -20,9 +20,6 @@ onMounted(() => {
 })
 </script>
 <template>
-    <Navigation v-if="!projectsPage && show" />
+    <NavigationX v-if="!projectsPage && show" />
     <slot />
 </template>
-
-
-<style lang="scss" scoped></style>

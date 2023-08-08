@@ -41,8 +41,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/sass/variables";
-
 .header {
     min-height: 100vh; // on le ramene
     width: 100%;
@@ -106,7 +104,7 @@ onMounted(() => {
         padding-right: 7rem;
         margin-bottom: 7rem;
         z-index: 1000;
-        color: variables.$steelblue;
+        color: $steelblue;
 
         &--primary {
             font-size: 10.5rem;
@@ -145,7 +143,7 @@ onMounted(() => {
             color: #fff;
             padding: 1.5rem 3rem;
             margin-top: 3rem;
-            background-color: variables.$steelblue;
+            background-color: $steelblue;
             cursor: pointer;
             z-index: 10000;
 
@@ -154,7 +152,7 @@ onMounted(() => {
             // }
             &:hover {
                 background-color: #fff;
-                color: variables.$steelblue;
+                color: $steelblue;
             }
         }
     }

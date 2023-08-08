@@ -9,13 +9,11 @@ const logChange = (emitValue) => {
   <div>
     <h2>Gil's Favourite Spots</h2>
     <span>Scroll {{ status }}</span>
-    <Map @scroll-status="logChange" />
+    <MapX @scroll-status="logChange" />
   </div>
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/sass/variables";
-
 h2 {
   text-align: center;
   font-size: 3rem;
@@ -34,7 +32,7 @@ span {
   color: #fff;
   padding: 1.5rem 3rem;
   margin: 2rem auto;
-  background-color: variables.$steelblue;
+  background-color: $steelblue;
   cursor: not-allowed;
   opacity: 1;
   transition: opacity 0.5s ease-in;
