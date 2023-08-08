@@ -1,12 +1,11 @@
 <script setup>
 const Loader = resolveComponent("Loader");
 const MainContent = resolveComponent("MainContent");
-// NOTE: using shallow ref as recommended by Vue to avoid performance issues upon using ref with a dynamic component value
 const currentComponent = shallowRef(Loader);
 onMounted(() => {
     setTimeout(() => {
         currentComponent.value = MainContent;
-    }, 2500);
+    }, 5000);
 })
 console.log(currentComponent)
 </script>

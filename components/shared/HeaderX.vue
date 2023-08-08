@@ -39,7 +39,7 @@ onMounted(() => {
 })
 </script>
 <template>
-  <LoaderX v-if="pending" />
+  <Spinner v-if="pending" />
   <header v-else class="header">
     <div class="header__blog-intro">
       <h2>Featured Post</h2>
@@ -115,6 +115,7 @@ onMounted(() => {
 
       .title {
         font-size: 6rem;
+        font-weight: 600;
       }
 
       .text {

@@ -21,5 +21,13 @@ onMounted(() => {
 });
 </script>
 <template>
-    <slot />
+    <div class="corps">
+        <slot />
+    </div>
 </template>
+
+<style lang="scss">
+.corps {
+    font-family: "Kulim Park", Arial, Helvetica, sans-serif !important;
+}
+</style>

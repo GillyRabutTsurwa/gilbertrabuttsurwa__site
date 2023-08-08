@@ -80,7 +80,7 @@ onMounted(() => {
     grid-template-columns: 50% min-content 1fr;
 
     @include breakpoint(1023) {
-        min-height: max-content;
+        // min-height: max-content;
         padding-bottom: 3rem;
         place-items: center;
         grid-template-columns: 1fr;

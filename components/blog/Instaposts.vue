@@ -30,7 +30,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <LoaderX v-if="pending" />
+  <Spinner v-if="pending" />
   <div class="picture-category__category">
     <h4 class="picture-category__category--title">Instagram</h4>
     <div class="instagram-images">
