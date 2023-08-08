@@ -1,7 +1,11 @@
 <script setup>
 import { usePostsStore } from "@/stores/posts";
+
+const { data: posts } = await useFetch("/api/blogs/personal");
 const store = usePostsStore();
-store.fetchPosts();
+// store.fetchPosts();
+store.posts = posts.value;
+store.filteredPosts = posts.value;
 
 const state = reactive({
   currentPage: 1,

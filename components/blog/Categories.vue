@@ -1,5 +1,8 @@
-<script setup>
+<script setup lang="ts">
 import { usePostsStore } from '@/stores/posts';
+
+const { data: posts } = await useFetch("/api/blogs/personal");
+
 const props = defineProps({
   listDisplay: {
     type: String,
@@ -7,7 +10,10 @@ const props = defineProps({
   }
 })
 const store = usePostsStore();
-await store.fetchPosts();
+const populatePosts = () => {
+  store.posts = posts.value;
+  store.filteredPosts = posts.value;
+}
 
 const categories = store.posts.map((currentPost) => currentPost.categories);
 const categoriesList = computed(() => {
@@ -28,7 +34,8 @@ function getNumOfPostsByCategory(category) {
 }
 
 async function testFilter(category) {
-  await store.filterPosts(category)
+  // await store.filterPosts(category)
+  store.filteredPosts = store.posts.filter((currentPost) => currentPost.categories.includes(category));
 }
 
 // NOTE: style
@@ -45,7 +52,8 @@ const listStyle = computed(() => {
   <div class="category">
     <h4 class="category__title">Categories</h4>
     <ul class="category__list" :style="listStyle">
-      <li @click="store.fetchPosts()">
+      <!-- will put code below in a function + tard -->
+      <li @click="populatePosts">
         <span>All</span>
         <span>&nbsp;</span>
         <span>({{ store.posts.length }})</span>

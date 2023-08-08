@@ -12,18 +12,17 @@ export const usePostsStore = defineStore("posts", {
         };
     },
     actions: {
-        async fetchPosts() {
-            const query = groq`*[_type == "personal-post"]`;
-            const posts = await client.fetch(query);
+        // async fetchPosts() {
+        //     const query = groq`*[_type == "personal-post"]`;
+        //     const posts = await client.fetch(query);
 
-            this.posts = posts;
-            this.filteredPosts = posts; //NOTE; filtered posts will initially show all the posts
-            console.log(this.posts);
-        },
-        async filterPosts(category) {
-            await this.fetchPosts();
-            this.filteredPosts = this.posts.filter((currentPost) => currentPost.categories.includes(category));
-        },
+        //     this.posts = posts;
+        //     this.filteredPosts = posts; //NOTE; filtered posts will initially show all the posts
+        //     console.log(this.posts);
+        // },
+        // async filterPosts(category) {
+        //     this.filteredPosts = this.posts.filter((currentPost) => currentPost.categories.includes(category));
+        // },
         // REFACTOR
         async fetchTechPosts() {
             const query = groq`*[_type == "tech-post"]`;

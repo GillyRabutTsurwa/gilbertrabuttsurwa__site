@@ -1,13 +1,16 @@
 <script setup>
 import { usePostsStore } from '@/stores/posts';
 
+const { data: posts } = await useFetch("/api/blogs/personal");
+
 const state = reactive({
   currentPage: 1,
   postsPerPage: 8
 });
 const store = usePostsStore();
-await store.fetchPosts();
-
+// await store.fetchPosts();
+store.posts = posts.value;
+store.filteredPosts = posts.value;
 
 const indexOfLastPost = computed(() => {
   return state.currentPage * state.postsPerPage;
