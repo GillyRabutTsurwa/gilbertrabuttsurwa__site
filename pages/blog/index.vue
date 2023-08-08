@@ -4,7 +4,7 @@
       <figure :class="`${myClasses[index]}__img`">
         <SanityImage :asset-id="currentImage.url" auto="format" />
       </figure>
-      <NuxtLink :to="`/${myClasses[index]}`" :class="`${myClasses[index]}__link`">
+      <NuxtLink :to="`/blog/${myClasses[index]}`" :class="`${myClasses[index]}__link`">
         <span :class="`${myClasses[index]}__link--text`">{{ myClasses[index] }}</span>
       </NuxtLink>
     </div>

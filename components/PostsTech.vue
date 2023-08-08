@@ -52,7 +52,7 @@ onMounted(() => {
                 <div class="snippet">
                     <p>{{ getSnippet(currentPost.body) }}</p>
                 </div>
-                <Button isLink :path="`/tech/posts/${currentPost.slug.current}`" colourPrimary="#104f55"
+                <Button isLink :path="`/blog/tech/posts/${currentPost.slug.current}`" colourPrimary="#104f55"
                     colourSecondary="#f0f0f0" />
             </div>
         </div>

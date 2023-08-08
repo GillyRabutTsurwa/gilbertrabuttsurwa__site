@@ -56,10 +56,8 @@ onMounted(() => {
                 <span>{{ blok.surname }}</span>
             </h1>
             <div class="header__buttons">
-                <NuxtLink to="/projects" target="_blank" class="header__buttons--button"> All my Projects </NuxtLink>
-                <a href="https://gilbertrabuttsurwa.blog" target="_blank" rel="noreferrer" class="header__buttons--button">
-                    My Blog
-                </a>
+                <NuxtLink to="/projects" target="_blank" class="header__buttons--button">View Projects</NuxtLink>
+                <NuxtLink to="/blog" target="_blank" class="header__buttons--button">Read Blogs</NuxtLink>
             </div>
         </div>
         <div class="icon" style="align-self: center;">

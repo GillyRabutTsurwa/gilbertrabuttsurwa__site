@@ -38,7 +38,7 @@ onMounted(() => {
     </figure>
 
     <div class="blog-content">
-      <Button isLink path="/personal/posts/" text="All Posts" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
+      <Button isLink path="/blog/personal/posts/" text="All Posts" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
       <h1 class="blog-content__title">{{ title }}</h1>
       <h3 class="blog-content__author">
         <span>By: </span>

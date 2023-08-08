@@ -48,7 +48,7 @@ onMounted(() => {
       <div class="header__post--content">
         <h2 class="title">{{ randomPost.title }}</h2>
         <p class="text">{{ getSnippet(randomPost.body) }}</p>
-        <Button isLink :path="`/personal/posts/${randomPost.slug.current}`" colourPrimary="#104f55"
+        <Button isLink :path="`/blog/personal/posts/${randomPost.slug.current}`" colourPrimary="#104f55"
           colourSecondary="#f0f0f0" />
       </div>
     </div>
