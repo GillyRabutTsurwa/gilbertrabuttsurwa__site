@@ -14,6 +14,10 @@ export default defineNuxtConfig({
         ],
     ],
     runtimeConfig: {
+        stripe: {
+            dev_key: process.env.STRIPE_PRIVATE_TEST_KEY,
+            prod_key: process.env.STRIPE_PRIVATE_PROD_KEY,
+        },
         github: {
             client_ID: process.env.GITHUB_CLIENT_ID,
             client_secret: process.env.GITHUB_CLIENT_SECRET,
