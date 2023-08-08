@@ -112,6 +112,7 @@ onMounted(() => {
 </script>
 
 <template>
+  <Navigation />
   <div>
     <div class="marquee-container" v-if="!showElement">
       <Vue3Marquee :pauseOnHover="true">

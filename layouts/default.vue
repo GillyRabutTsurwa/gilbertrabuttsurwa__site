@@ -3,6 +3,7 @@ import { useBreakpoints } from '~~/composables/useBreakpoints';
 
 const route = useRoute();
 const projectsPage = route.name === "projects" || route.name === "shop";
+console.log(route.name);
 
 const { pixels, toggleElementOnResize } = useBreakpoints();
 const show = ref(null);
@@ -17,9 +18,8 @@ onMounted(() => {
         show.value = pixels.value < body.clientWidth ? true : false;
         console.log(show.value);
     }
-})
+});
 </script>
 <template>
-    <!-- <NavigationX v-if="!projectsPage && show" /> -->
     <slot />
 </template>

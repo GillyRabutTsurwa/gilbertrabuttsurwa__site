@@ -45,6 +45,7 @@ onUpdated(() => {
 </script>
 
 <template>
+  <Navigation />
   <HeaderX />
   <FlexContainer :layout="flexDir">
     <Main>

@@ -7,6 +7,7 @@ console.log(story.value.content);
 </script>
 
 <template>
+  <HomeNav />
   <StoryblokComponent v-if="story" :blok="story.content" />
   <FooterX />
 </template>

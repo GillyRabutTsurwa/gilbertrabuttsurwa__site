@@ -32,6 +32,7 @@ function renderPagination(eventPayload) {
 </script> 
   
 <template>
+  <Navigation />
   <FlexContainer layout="column">
     <Categories listDisplay="row" />
     <PostsTech :posts="store.filteredTechPosts" />

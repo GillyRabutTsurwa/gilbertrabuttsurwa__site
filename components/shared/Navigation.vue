@@ -2,7 +2,7 @@
 const { data: user } = await useFetch("/api/session");
 console.log(user.value);
 const { status, signIn, signOut } = useAuth();
-const router = useRouter();
+const route = useRoute();
 const logOut = async () => {
   console.log("Logout Settings");
 }
@@ -10,7 +10,6 @@ const isLoggedIn = computed(() => status.value === "authenticated");
 
 
 
-const goBack = () => (router.back());
 </script>
 
 <template>
@@ -18,24 +17,21 @@ const goBack = () => (router.back());
     <LogoX />
     <ul class="navigation__list">
       <li class="navigation__list--item">
-        <NuxtLink to="/personal/posts">Blogs</NuxtLink>
+        <NuxtLink to="/blog/personal/posts">Blogs</NuxtLink>
       </li>
       <li class="navigation__list--item">
-        <NuxtLink to="/authours/gilbert-rabut-tsurwa">About Me</NuxtLink>
+        <NuxtLink to="/blog/authours/gilbert-rabut-tsurwa">About Me</NuxtLink>
       </li>
       <li class="navigation__list--item">
-        <NuxtLink :to="`/${$route.name === 'tech' ? 'personal' : 'tech'}`">
+        <NuxtLink :to="`/blog/${$route.name === 'tech' ? 'personal' : 'tech'}`">
           {{ $route.name === 'tech' ? 'Personal' : 'Tech' }} Page
         </NuxtLink>
       </li>
       <li class="navigation__list--item">
-        <NuxtLink to="/uncensored">Uncensored Posts</NuxtLink>
+        <NuxtLink to="/blog/uncensored">Uncensored Posts</NuxtLink>
       </li>
       <li class="navigation__list--item">
-        <a href="https://gilbertrabuttsurwa.tech" target="_blank" rel="noreferrer noopener">Portfolio Site</a>
-      </li>
-      <li class="navigation__list--item">
-        <a href="https://gilbertrabuttsurwa-shop.netlify.app" target="_blank" rel="noreferrer noopener">Shop</a>
+        <NuxtLink to="/shop" target="_blank" rel="noreferrer noopener">Shop</NuxtLink>
       </li>
       <li class="navigation__list--item">
         <NuxtLink to="/contact">Contact Me</NuxtLink>

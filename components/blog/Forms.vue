@@ -48,7 +48,7 @@ const loginUser = async () => {
 const goBack = () => (router.back());
 const addRightPanel = () => container.value.classList.add("right-panel-active");
 const removeRightPanel = () => container.value.classList.remove("right-panel-active");
-if (status.value === "authenticated") await navigateTo("/uncensored");
+if (status.value === "authenticated") await navigateTo("/blog/uncensored");
 </script>
 
 <template>

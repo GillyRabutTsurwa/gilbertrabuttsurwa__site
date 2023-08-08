@@ -101,8 +101,6 @@ const currentYear = computed(() => {
     
     
 <style lang="scss" scoped>
-@use "@/assets/sass/abstracts" as abstracts;
-
 .footer {
     position: relative;
     width: 100%;
@@ -122,7 +120,7 @@ const currentYear = computed(() => {
     background-color: #104f55;
     color: #fefefe;
 
-    @include abstracts.breakpoint(480) {
+    @include breakpoint(480) {
         display: flex;
         flex-direction: column;
 

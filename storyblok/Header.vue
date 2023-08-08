@@ -23,7 +23,7 @@ onMounted(() => {
     setInterval(() => {
         photoIndex.value++;
         if (photoIndex.value >= props.blok.portraits.length) photoIndex.value = 0;
-    }, 15000);
+    }, 30000);
 
     const renderElements = () => {
         const body = document.querySelector("body");
@@ -47,7 +47,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <header class="header" v-editable="blok">
+    <header class="header tete" v-editable="blok">
         <img src="@/assets/images/svg/my-logo.svg" alt="my-logo" class="header__logo" />
         <div class="header__title">
             <h1 class="header__title--primary">
@@ -78,7 +78,6 @@ onMounted(() => {
     position: relative;
     display: grid;
     grid-template-columns: 50% min-content 1fr;
-    // TESTING: delete this after, ce pour tester le pushing du code
 
     @include breakpoint(1023) {
         min-height: max-content;
@@ -93,7 +92,8 @@ onMounted(() => {
     & .icon {
         align-self: center;
         grid-column: 2 / 3;
-        transform: translateX(-10rem); // deplacer vers le gauche juste un peu
+        transform: translateX(-10rem);
+        // transform: translate(-10rem, -5rem); // deplacer vers le gauche juste un peu na juu kidogo
 
         @include breakpoint(1023) {
             grid-column: 1 / 2; //NOTE; reinitialise la configuration dessus
@@ -149,6 +149,7 @@ onMounted(() => {
         margin-bottom: 7rem;
         z-index: 1000;
         color: $steelblue;
+        // transform: translateY(-5rem);
 
         @include breakpoint(1023) {
             padding-right: unset; //NOTE: so this does work. same as padding-right: 0;

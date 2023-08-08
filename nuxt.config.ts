@@ -90,6 +90,26 @@ export default defineNuxtConfig({
             path: "~/components",
             pathPrefix: false,
         },
+        {
+            path: "~/components/blog",
+            pathPrefix: false,
+        },
+        {
+            path: "~/components/home",
+            pathPrefix: false,
+        },
+        {
+            path: "~/components/layout",
+            pathPrefix: false,
+        },
+        {
+            path: "~/components/shared",
+            pathPrefix: false,
+        },
+        {
+            path: "~/components/shop",
+            pathPrefix: false,
+        },
     ],
     googleFonts: {
         display: "swap",

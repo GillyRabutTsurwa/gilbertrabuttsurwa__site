@@ -1,7 +1,7 @@
 <template>
   <figure>
     <NuxtLink to="/">
-      <img src="../assets/images/svg/my-logo-alternate-2.svg" alt="">
+      <img src="@/assets/images/svg/my-logo-alternate-2.svg" alt="">
     </NuxtLink>
   </figure>
 </template>
