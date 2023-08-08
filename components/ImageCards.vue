@@ -37,7 +37,7 @@ export default defineComponent({
 <script setup>
 import { filename } from "pathe/utils";
 
-const glob = import.meta.glob("~/assets/img/*.jpeg", { eager: true });
+const glob = import.meta.glob("~/assets/images/*.jpeg", { eager: true });
 const types = Object.fromEntries(Object.entries(glob).map(([key, value]) => [filename(key), value.default]));
 
 const imgName = "card-pic-1";
