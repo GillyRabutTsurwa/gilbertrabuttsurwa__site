@@ -40,7 +40,7 @@
         display: none;
     }
 
-    // This is the label turned button. When clicked, background, and navigation will appear
+    // @todo: This is the label turned button. When clicked, background, and navigation will appear
     &__button {
         background-color: $whitish;
         height: 7rem;
