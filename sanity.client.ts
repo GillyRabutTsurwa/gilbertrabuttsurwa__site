@@ -1,4 +1,4 @@
-import { createClient } from "@sanity/client";
+import { createClient } from "@nuxtjs/sanity/dist/runtime/client";
 
 const config = useRuntimeConfig();
 export const client = createClient({
