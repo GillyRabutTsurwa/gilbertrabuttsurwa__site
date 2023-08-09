@@ -2,24 +2,23 @@
 // import imageUrlBuilder from "@sanity/image-url";
 // import { RuntimeConfig } from "nuxt/schema";
 // import { client, fetchProducts } from "./products";
-// import type { H3Event } from "h3";
 
 // const config: RuntimeConfig = useRuntimeConfig();
 
 // const builder = imageUrlBuilder(client);
-// const urlFor = (source: string) => builder.image(source);
+// const urlFor = (source) => builder.image(source);
 
-// const clientProdUrl: string = config.public.client_url.production;
-// const clientDevUrl: string = config.public.client_url.development;
+// const clientProdUrl = config.public.client_url.production;
+// const clientDevUrl = config.public.client_url.development;
 
 // //NOTE: have access to import.meta.env.__ via vite (which Nuxt uses)
-// const CLIENT_URL: string = import.meta.env.PROD ? clientProdUrl : clientDevUrl;
+// const CLIENT_URL = import.meta.env.PROD ? clientProdUrl : clientDevUrl;
 
-// const stripe: Stripe = new Stripe(config.stripe.dev_key, {
-//     apiVersion: "2022-11-15",
+// const stripe = new Stripe(config.stripe.dev_key, {
+//     apiVersion: "2022-11-15"
 // });
 
-// export default defineEventHandler(async (event: H3Event) => {
+// export default defineEventHandler(async (event) => {
 //     const body = await readBody(event); // data coming from frontend. not using a form but it's still easy
 //     console.log(body);
 
@@ -46,67 +45,70 @@
 
 //     console.log(lineItems);
 
-//     //     // =======================================
-
-//     try {
-//         const session = await stripe.checkout.sessions.create({
-//             payment_method_types: ["card"],
-//             mode: "payment",
-//             line_items: lineItems,
-//             success_url: `${CLIENT_URL}/success`,
-//             cancel_url: `${CLIENT_URL}`,
-//             locale: "en",
-//             shipping_address_collection: {
-//                 allowed_countries: ["US"],
-//             },
-//             shipping_options: [
-//                 {
-//                     shipping_rate_data: {
-//                         type: "fixed_amount",
-//                         fixed_amount: {
-//                             amount: 0,
-//                             currency: "usd",
-//                         },
-//                         display_name: "Free shipping",
-//                         delivery_estimate: {
-//                             minimum: {
-//                                 unit: "business_day",
-//                                 value: 5,
+//         try {
+//             const session = await stripe.checkout.sessions.create({
+//                 payment_method_types: ["card"],
+//                 mode: "payment",
+//                 line_items: lineItems,
+//                 success_url: `${CLIENT_URL}/success`,
+//                 cancel_url: `${CLIENT_URL}`,
+//                 locale: "en",
+//                 shipping_address_collection: {
+//                     allowed_countries: ["US"],
+//                 },
+//                 shipping_options: [
+//                     {
+//                         shipping_rate_data: {
+//                             type: "fixed_amount",
+//                             fixed_amount: {
+//                                 amount: 0,
+//                                 currency: "usd",
 //                             },
-//                             maximum: {
-//                                 unit: "business_day",
-//                                 value: 7,
+//                             display_name: "Free shipping",
+//                             delivery_estimate: {
+//                                 minimum: {
+//                                     unit: "business_day",
+//                                     value: 5,
+//                                 },
+//                                 maximum: {
+//                                     unit: "business_day",
+//                                     value: 7,
+//                                 },
 //                             },
 //                         },
 //                     },
-//                 },
-//                 {
-//                     shipping_rate_data: {
-//                         type: "fixed_amount",
-//                         fixed_amount: {
-//                             amount: 1500,
-//                             currency: "usd",
-//                         },
-//                         display_name: "Next day air",
-//                         delivery_estimate: {
-//                             minimum: {
-//                                 unit: "business_day",
-//                                 value: 1,
+//                     {
+//                         shipping_rate_data: {
+//                             type: "fixed_amount",
+//                             fixed_amount: {
+//                                 amount: 1500,
+//                                 currency: "usd",
 //                             },
-//                             maximum: {
-//                                 unit: "business_day",
-//                                 value: 1,
+//                             display_name: "Next day air",
+//                             delivery_estimate: {
+//                                 minimum: {
+//                                     unit: "business_day",
+//                                     value: 1,
+//                                 },
+//                                 maximum: {
+//                                     unit: "business_day",
+//                                     value: 1,
+//                                 },
 //                             },
 //                         },
 //                     },
-//                 },
-//             ],
-//         });
-//         console.log(session.url);
-//         return {
-//             url: session.url,
-//         };
-//     } catch (err) {
-//         console.error(err);
-//     }
+//                 ],
+//             });
+//             console.log(session.url);
+//             return {
+//                 url: session.url
+//             }
+//         } catch (err) {
+//             console.error(err);
+//         }
 // });
+
+export default defineEventHandler(async (event) => {
+    const body = await readBody(event);
+    console.log(body);
+});

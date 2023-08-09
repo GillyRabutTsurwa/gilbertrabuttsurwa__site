@@ -1,13 +1,20 @@
-<script setup>
-const { data } = await useFetch("/api/products");
-console.log(data.value.products);
+<script setup lang="ts">
+import groq from 'groq';
+import { useProductsStore } from '@/stores/products';
+
+const query = groq`*[_type == "product"]`;
+const { data: products } = await useSanityQuery(query);
+
+const store = useProductsStore();
+store.products = products.value;
+
 </script>
 
 <template>
   <section class="products">
     <h2 class="section-title">Our Products</h2>
     <div class="products-centre">
-      <Product v-for="(currentProduct, index) in data.products" :key="index" :product="currentProduct" />
+      <Product v-for="(currentProduct, index) in store.products" :key="index" :product="currentProduct" />
     </div>
   </section>
 </template>
@@ -22,7 +29,7 @@ console.log(data.value.products);
   font-size: 2.5rem;
   margin-bottom: 5rem;
   text-transform: capitalize;
-  letter-spacing: var(--mainSpacing);
+  letter-spacing: 0.1rem;
 }
 
 .products-centre {

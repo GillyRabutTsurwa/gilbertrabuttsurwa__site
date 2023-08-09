@@ -60,7 +60,8 @@ const clearCart = () => {
 // NOTE: this is code straight from stores/products.js but copying it just to get it to work
 console.log(import.meta.env.DEV);
 
-const redirectToStripe = async () => {
+const stripeCheckout = async () => {
+  if (cartItems.value.length === 0) return; //NOTE: si le panier est vide, don't make a post request to the server
   const { data } = await useFetch("/api/checkout", {
     method: "POST",
     body: {
@@ -69,7 +70,7 @@ const redirectToStripe = async () => {
   });
   // console.log(data.value.url);
   await navigateTo(data.value.url, {
-    external: true //on en a besoin pour pouvoir naviguer à un url externe
+    external: true //NOTE: on en a besoin pour pouvoir naviguer à un url externe
   }); // equivalent effect as window.location = url
 }
 
@@ -92,22 +93,24 @@ watch(() => cartItems.value, (newValue, oldValue) => {
       </div>
       <div class="cart-footer">
         <h3>Your total : $ <span class="cart-total">{{ (sum / 100).toFixed(2) }}</span></h3>
-        <button @click="clearCart" class="clear-cart banner-btn">Clear cart</button>
-        <button @click="redirectToStripe" class="clear-cart banner-btn">Checkout</button>
+        <div class="buttons">
+          <Button @click="clearCart" text="Clear Cart" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
+          <Button @click="stripeCheckout" text="Checkout" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
-<style>
+<style scoped lang="scss">
 .cart-overlay {
   position: fixed;
   top: 0;
   right: 0;
   width: 100%;
   height: 100%;
-  -webkit-transition: var(--mainTransition);
-  transition: var(--mainTransition);
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
   /* background: transparent; */
   background-color: rgba(240, 157, 81, 0.5);
   z-index: 20;
@@ -125,8 +128,8 @@ watch(() => cartItems.value, (newValue, oldValue) => {
   /* cart needs higher z-index que son parent, cart-overlay */
   z-index: 30;
   padding: 1.5rem;
-  -webkit-transition: var(--mainTransition);
-  transition: var(--mainTransition);
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
   -webkit-transform: translateX(100%);
   transform: translateX(100%);
 }
@@ -155,13 +158,13 @@ watch(() => cartItems.value, (newValue, oldValue) => {
 .cart h2 {
   text-transform: capitalize;
   text-align: center;
-  letter-spacing: var(--mainSpacing);
+  letter-spacing: 0.1rem;
   margin-bottom: 2rem;
 }
 
 .cart-footer {
   margin-top: 2rem;
-  letter-spacing: var(--mainSpacing);
+  letter-spacing: 0.1rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -171,5 +174,14 @@ watch(() => cartItems.value, (newValue, oldValue) => {
 .cart-footer h3 {
   text-transform: capitalize;
   margin-bottom: 1rem;
+}
+
+.buttons {
+  position: absolute; //NOTE: on peut le faire car la position (cart) du parent est defini (sticky)
+  bottom: 2rem;
+
+  &>* {
+    margin: 1.5rem;
+  }
 }
 </style>

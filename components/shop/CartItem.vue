@@ -77,12 +77,12 @@ function removeItem() {
 .cart-item h4 {
   font-size: 0.85rem;
   text-transform: capitalize;
-  letter-spacing: var(--mainSpacing);
+  letter-spacing: 0.1rem;
 }
 
 .cart-item h5 {
   margin: 0.5rem 0;
-  letter-spacing: var(--mainSpacing);
+  letter-spacing: 0.1rem;
 }
 
 .item-amount {

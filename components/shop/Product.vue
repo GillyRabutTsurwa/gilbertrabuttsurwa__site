@@ -1,8 +1,11 @@
 <script setup>
+import groq from 'groq';
 import { useProductsStore } from "~/stores/products";
-const { data } = await useFetch("/api/products");
-const store = useProductsStore();
 
+const query = groq`*[_type == "product"]`;
+const { data: products } = await useSanityQuery(query);
+
+const store = useProductsStore();
 
 const props = defineProps({
   product: {
@@ -11,7 +14,7 @@ const props = defineProps({
   }
 });
 
-store.products = data.value.products;
+store.products = products.value;
 console.log(props.product);
 
 const addItemToCart = () => {
@@ -40,7 +43,7 @@ const addItemToCart = () => {
   </article>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .img-container {
   position: relative;
   overflow: hidden;
@@ -60,32 +63,32 @@ const addItemToCart = () => {
   /* IMPORTANT: sans celui-ci, l'image sera trop grande */
   width: 100%;
   min-height: 18rem;
-  -webkit-transition: var(--mainTransition);
-  transition: var(--mainTransition);
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
 }
 
 .bag-btn {
   position: absolute;
   top: 70%;
   right: 0;
-  background-color: var(--primaryColor);
+  background-color: $colour-primary;
   border: none;
   text-transform: uppercase;
   padding: 0.5rem 0.75rem;
-  letter-spacing: var(--mainSpacing);
+  letter-spacing: 0.1rem;
   font-weight: bold;
-  -webkit-transition: var(--mainTransition);
-  transition: var(--mainTransition);
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
   -webkit-transform: translateX(101%);
   transform: translateX(101%);
   /*POURQUOI 101%?*/
   cursor: pointer;
-  color: var(--mainGrey)
+  color: $whitish;
 }
 
 .bag-btn:hover {
-  background-color: var(--mainWhite);
-  color: var(--primaryColor);
+  background-color: $whitish;
+  color: $colour-primary;
 }
 
 .fa-shopping-cart {
@@ -96,13 +99,13 @@ const addItemToCart = () => {
   text-transform: capitalize;
   font-size: 1.1rem;
   margin-top: 1rem;
-  letter-spacing: var(--mainSpacing);
+  letter-spacing: 0.1rem;
   text-align: center;
 }
 
 .product h4 {
   margin-top: 0.7rem;
-  letter-spacing: var(--mainSpacing);
+  letter-spacing: 0.1rem;
   color: var(--primaryColor);
   text-align: center;
 }

@@ -1,7 +1,9 @@
 <script setup></script>
 
 <template>
-    <Header />
+    <Navbar />
+    <ShopHeader />
     <Cart />
     <Products />
+    <FooterX />
 </template>

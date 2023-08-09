@@ -15,7 +15,7 @@ const itemsInCart = computed(() => {
     <div class="navbar-center">
       <figure class="nav-icon">
         <!-- <i class="fas fa-bars" /> -->
-        <img src="~/assets/icons/svg/my-logo.svg" alt="logo">
+        <img src="~/assets/images/svg/my-logo.svg" alt="logo">
       </figure>
       <h1>Gil's Shop</h1>
       <button @click=cartStore.toggleCartStatus class="cart-btn">
