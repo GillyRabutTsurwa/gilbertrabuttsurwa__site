@@ -1,7 +1,11 @@
 <script setup>
 import { usePostsStore } from '@/stores/posts';
+
+const { data: posts } = await useFetch("/api/blogs/tech");
 const store = usePostsStore();
-store.fetchTechPosts();
+
+store.techPosts = posts.value;
+store.filteredTechPosts = posts.value;
 
 const props = defineProps({
     posts: {

@@ -4,7 +4,7 @@ definePageMeta({
     title: "Gil's Projects",
 });
 
-console.log(route.meta.title) // My home page
+console.log(route.meta.title);
 console.log(route.meta);
 </script>
 

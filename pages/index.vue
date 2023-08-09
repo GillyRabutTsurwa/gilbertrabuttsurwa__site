@@ -7,7 +7,6 @@ onMounted(() => {
         currentComponent.value = MainContent;
     }, 5000);
 })
-console.log(currentComponent)
 </script>
 
 <template>

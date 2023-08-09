@@ -1,10 +1,6 @@
 <script setup>
 import { useBreakpoints } from '~~/composables/useBreakpoints';
 
-const route = useRoute();
-const projectsPage = route.name === "projects" || route.name === "shop";
-console.log(route.name);
-
 const { pixels, toggleElementOnResize } = useBreakpoints();
 const show = ref(null);
 

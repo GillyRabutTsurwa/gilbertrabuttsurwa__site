@@ -44,7 +44,7 @@
         "stripe": "^12.17.0",
         "vue-chart-3": "^3.1.8",
         "vue3-carousel": "^0.2.9",
-        "vue3-marquee": "^3.1.2"
+        "vue3-marquee": "^4.0.0"
     },
     "overrides": {
         "vue": "latest"

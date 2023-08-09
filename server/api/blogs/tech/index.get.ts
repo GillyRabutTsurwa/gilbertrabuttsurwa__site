@@ -7,8 +7,6 @@ export async function fetchPosts() {
     return posts;
 }
 
-fetchPosts();
-
 export default defineEventHandler(() => {
     return fetchPosts();
 });

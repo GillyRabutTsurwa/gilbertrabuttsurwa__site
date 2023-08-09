@@ -2,20 +2,16 @@
 // NEW
 import { usePostsStore } from '@/stores/posts';
 
+const { data: posts } = await useFetch("/api/blogs/tech");
+
 const state = reactive({
   currentPage: 1,
   postsPerPage: 8
 });
 
 const store = usePostsStore();
-store.fetchTechPosts();
-
-
-// NEW
-definePageMeta({
-  layout: "dark"
-})
-
+store.techPosts = posts.value;
+store.filteredTechPosts = posts.value;
 
 const query = groq`*[_type == "about"]`;
 const { data } = await useSanityQuery(query);
@@ -114,12 +110,14 @@ onMounted(() => {
 <template>
   <Navigation />
   <div>
-    <div class="marquee-container" v-if="!showElement">
-      <Vue3Marquee :pauseOnHover="true">
-        <i v-for="(currentIconName, index) in iconNames" :key="index" :class="setIconName(currentIconName)"
-          class="word"></i>
-      </Vue3Marquee>
-    </div>
+    <DevOnly>
+      <div class="marquee-container" v-if="!showElement">
+        <Vue3Marquee :pauseOnHover="true">
+          <i v-for="(currentIconName, index) in iconNames" :key="index" :class="setIconName(currentIconName)"
+            class="word"></i>
+        </Vue3Marquee>
+      </div>
+    </DevOnly>
     <FlexContainer :layout="flexDir">
       <Main>
         <template v-slot:post-list>
