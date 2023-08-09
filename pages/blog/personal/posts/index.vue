@@ -1,9 +1,11 @@
 <script setup>
+import groq from "groq";
 import { usePostsStore } from "@/stores/posts";
 
-const { data: posts } = await useFetch("/api/blogs/personal");
+const query = groq`*[_type == "personal-post"]`;
+const { data: posts } = await useSanityQuery(query);
 const store = usePostsStore();
-// store.fetchPosts();
+
 store.posts = posts.value;
 store.filteredPosts = posts.value;
 

@@ -1,16 +1,18 @@
 <script setup>
+import groq from "groq";
 import { usePostsStore } from '@/stores/posts';
 
-const { data: posts } = await useFetch("/api/blogs/personal");
+const query = groq`*[_type == "personal-post"]`;
+const { data: posts } = await useSanityQuery(query);
+const store = usePostsStore();
+
+store.posts = posts.value;
+store.filteredPosts = posts.value;
 
 const state = reactive({
   currentPage: 1,
   postsPerPage: 8
 });
-const store = usePostsStore();
-// await store.fetchPosts();
-store.posts = posts.value;
-store.filteredPosts = posts.value;
 
 const indexOfLastPost = computed(() => {
   return state.currentPage * state.postsPerPage;
@@ -29,8 +31,16 @@ function renderPagination(eventPayload) {
   console.log(eventPayload);
 }
 
-const { pixels, toggleElementOnResize } = useBreakpoints();
+//NEW: send sanity posts to server
+const sendPostsToServer = async () => {
+  const { data: allPosts } = await useFetch("/api/blogs/personal", {
+    method: "POST",
+    body: posts.value
+  });
+  console.log("Posts", allPosts.value);
+}
 
+sendPostsToServer();
 
 const flexDir = ref("");
 onMounted(() => {

@@ -1,8 +1,9 @@
 <script setup>
-// NEW
+import groq from 'groq';
 import { usePostsStore } from '@/stores/posts';
 
-const { data: posts } = await useFetch("/api/blogs/tech");
+const postsQuery = groq`*[_type == "tech-post"]`;
+const { data: posts } = await useSanityQuery(postsQuery);
 
 const state = reactive({
   currentPage: 1,
@@ -13,8 +14,8 @@ const store = usePostsStore();
 store.techPosts = posts.value;
 store.filteredTechPosts = posts.value;
 
-const query = groq`*[_type == "about"]`;
-const { data } = await useSanityQuery(query);
+const aboutQuery = groq`*[_type == "about"]`;
+const { data } = await useSanityQuery(aboutQuery);
 const allIntros = data.value;
 const techIntro = allIntros.find((currentIntro) => {
   return currentIntro.aboutTitle.includes("Tech");

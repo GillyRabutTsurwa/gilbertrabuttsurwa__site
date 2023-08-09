@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import groq from 'groq';
 import { usePostsStore } from '@/stores/posts';
 
-const { data: posts } = await useFetch("/api/blogs/personal");
+const query = groq`*[_type == "personal-post"]`;
+const { data: posts } = await useSanityQuery(query);
 
 const props = defineProps({
   listDisplay: {
