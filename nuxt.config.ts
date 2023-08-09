@@ -45,7 +45,7 @@ export default defineNuxtConfig({
             secret: process.env.AUTH_SECRET,
         },
         mongodb: {
-            uri: process.env.MONGODB_URI,
+            uri: process.env.MONGODB_PROD_URI,
         },
         instagram: {
             api_key: process.env.INSTAGRAM_TOKEN,

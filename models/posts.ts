@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
 interface IPost {
-    _id: string;
+    _post_id: string;
     title: string;
     _type: string;
     _createdAt: string;
@@ -19,7 +19,7 @@ interface IPost {
 
 const PostSchema: Schema = new mongoose.Schema<IPost>(
     {
-        _id: {
+        _post_id: {
             type: String,
             required: true,
             unique: true,
