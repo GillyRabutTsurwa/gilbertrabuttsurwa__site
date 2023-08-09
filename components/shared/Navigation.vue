@@ -8,7 +8,11 @@ const logOut = async () => {
 }
 const isLoggedIn = computed(() => status.value === "authenticated");
 
-
+/**
+ * @todo: Test
+ * testing todo here
+ * labels: ["responsiveness", "test"]
+ */
 
 </script>
 
