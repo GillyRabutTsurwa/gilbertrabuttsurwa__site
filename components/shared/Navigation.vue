@@ -17,15 +17,10 @@ const isLoggedIn = computed(() => status.value === "authenticated");
     <LogoX />
     <ul class="navigation__list">
       <li class="navigation__list--item">
-        <NuxtLink to="/blog/personal/posts">Blogs</NuxtLink>
+        <NuxtLink to="/blog">Blogs</NuxtLink>
       </li>
       <li class="navigation__list--item">
         <NuxtLink to="/blog/authours/gilbert-rabut-tsurwa">About Me</NuxtLink>
-      </li>
-      <li class="navigation__list--item">
-        <NuxtLink :to="`/blog/${$route.name === 'tech' ? 'personal' : 'tech'}`">
-          {{ $route.name === 'tech' ? 'Personal' : 'Tech' }} Page
-        </NuxtLink>
       </li>
       <li class="navigation__list--item">
         <NuxtLink to="/blog/uncensored">Uncensored Posts</NuxtLink>
@@ -48,7 +43,6 @@ const isLoggedIn = computed(() => status.value === "authenticated");
       <li v-else class="navigation__list--item">
         <NuxtLink to="/login">Sign In</NuxtLink>
       </li>
-
     </ul>
   </nav>
 </template>

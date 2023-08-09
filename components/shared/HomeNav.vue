@@ -33,6 +33,7 @@
 
 <style lang="scss" scoped>
 .navigation {
+    z-index: 100000;
 
     &__checkbox {
         // Hide actual checkbox
