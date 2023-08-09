@@ -76,7 +76,7 @@ if (status.value === "authenticated") await navigateTo("/blog/uncensored");
                             my monthly
                             newsletter</label>
                     </div>
-                    <button type="submit">Sign Up</button>
+                    <Button text="Sign In" colourPrimary="#07343f" colourSecondary="#fefefe" />
                 </form>
                 <p class="login-alernative">Or Login With</p>
                 <div class="oauth">
@@ -98,7 +98,7 @@ if (status.value === "authenticated") await navigateTo("/blog/uncensored");
                 <form @submit.prevent="loginUser">
                     <input v-model="formLogin.username" type="text" placeholder="Username (or E-mail)" required />
                     <input v-model="formLogin.password" type="password" placeholder="Password" required />
-                    <button type="submit">Sign In</button>
+                    <Button text="Sign In" colourPrimary="#07343f" colourSecondary="#fefefe" />
                 </form>
                 <p class="login-alernative">Or Login With</p>
                 <div class="oauth">
@@ -113,12 +113,13 @@ if (status.value === "authenticated") await navigateTo("/blog/uncensored");
                 <div class="overlay-panel overlay-left">
                     <h1 style="margin-bottom: 2rem;">Welcome Back</h1>
                     <p style="margin-bottom: 2rem;">Sign in with your credentials and enjoy the blog posts</p>
-                    <button class="ghost" id="signIn" @click="removeRightPanel">Sign In</button>
+                    <Button @click="removeRightPanel" text="Sign Up" colourPrimary="#fefefe" colourSecondary="#07343f" />
                 </div>
                 <div class="overlay-panel overlay-right">
                     <h1 style="margin-bottom: 2rem;">Register</h1>
                     <p style="margin-bottom: 2rem;">Sign up to get access to <strong>all</strong> my posts</p>
-                    <button class="ghost" id="signUp" @click="addRightPanel">Sign Up</button>
+                    <!-- <button class="ghost" id="signUp" @click="addRightPanel">Sign Up</button> -->
+                    <Button @click="addRightPanel" text="Sign Up" colourPrimary="#fefefe" colourSecondary="#07343f" />
                 </div>
             </div>
         </div>
@@ -187,6 +188,13 @@ button.ghost {
     height: 100%;
     text-align: center;
 
+    form {
+
+        input[type="password"] {
+            margin-bottom: 3rem;
+        }
+    }
+
     .login-alernative {
         margin-bottom: 2rem;
     }
@@ -219,7 +227,7 @@ input {
     height: 100%;
     overflow: hidden;
     max-width: 100%;
-    min-height: 480px;
+    height: 100vh;
 }
 
 .form-container {
@@ -355,5 +363,10 @@ input {
     margin: 0 5px;
     height: 40px;
     width: 40px;
+}
+
+//NOTE: placer celle-ci quelquepart plus approprié
+.newsletter {
+    margin-bottom: 3rem;
 }
 </style>

@@ -15,23 +15,22 @@ export default defineNuxtConfig({
     ],
     //NOTE: for sanity config via @nuxt/sanityjs docs
     sanity: {
-        projectId: process.env.VITE_SANITY_PROJECT_ID,
-        dataset: process.env.VITE_SANITY_ENV_PROD,
-        apiVersion: process.env.VITE_SANITY_API_VERSION,
+        projectId: process.env.SANITY_PROJECT_ID,
+        dataset: process.env.SANITY_ENV_PROD,
+        apiVersion: process.env.SANITY_API_VERSION,
         useCdn: false,
     },
     runtimeConfig: {
         //NOTE: to use for making sanity client (via vanilla js)
         // NOTE: need this to construct the api for all my endpoints
         sanity: {
-            projectId: process.env.VITE_SANITY_PROJECT_ID,
-            dataset: process.env.VITE_SANITY_ENV_PROD,
-            apiVersion: process.env.VITE_SANITY_API_VERSION,
+            projectId: process.env.SANITY_PROJECT_ID,
+            dataset: process.env.SANITY_ENV_PROD,
+            apiVersion: process.env.SANITY_API_VERSION,
             useCdn: false,
         },
         stripe: {
-            dev_key: process.env.STRIPE_PRIVATE_TEST_KEY,
-            prod_key: process.env.STRIPE_PRIVATE_PROD_KEY,
+            key: process.env.STRIPE_KEY,
         },
         github: {
             client_ID: process.env.GITHUB_CLIENT_ID,
@@ -45,7 +44,7 @@ export default defineNuxtConfig({
             secret: process.env.AUTH_SECRET,
         },
         mongodb: {
-            uri: process.env.MONGODB_PROD_URI,
+            uri: process.env.MONGODB_URI,
         },
         instagram: {
             api_key: process.env.INSTAGRAM_TOKEN,

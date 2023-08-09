@@ -18,20 +18,19 @@ const props = defineProps({
   },
   colourSecondary: {
     type: String,
-    required: true
-  }
+    required: false
+  },
 });
 
-//NEW
 const isHovered = ref(false)
 
-//NEW
 const btnStyles = computed(() => {
   return {
     backgroundColor: isHovered.value ? props.colourSecondary : props.colourPrimary,
     color: isHovered.value ? props.colourPrimary : props.colourSecondary,
+    border: `2px solid ${isHovered.value ? props.colourPrimary : props.colourSecondary}`
   }
-})
+});
 </script>
 
 <template>
@@ -48,9 +47,9 @@ const btnStyles = computed(() => {
 @use "../assets/sass/abstracts/" as abstracts;
 
 .button {
-  @include abstracts.button-config(1.5rem, 2.2rem, 0.5rem);
+  @include button-config(1.5rem, 2.2rem, 0.5rem);
   font-size: 1.6rem;
-  border: 2px solid transparent;
+  // border: 2px solid transparent;
   transition: transform 0.5s ease;
   font-family: inherit;
 
@@ -58,7 +57,7 @@ const btnStyles = computed(() => {
   // dans ce cas-ci, je veux que la couleur du contour ne change pas
   &:hover,
   &:active {
-    border: 2px solid abstracts.$colour-primary;
+    // border: 2px solid abstracts.$colour-primary;
   }
 }
 </style>

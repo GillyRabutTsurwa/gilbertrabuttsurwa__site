@@ -12,3 +12,4 @@ dist
 localhost-key.pem
 localhost.pem
 .storybook
+.env.local
