@@ -6,6 +6,8 @@ const query = groq`*[_type == "personal-post"]`;
 const { data: posts } = await useSanityQuery(query);
 const store = usePostsStore();
 
+console.log(posts.value);
+
 store.posts = posts.value;
 store.filteredPosts = posts.value;
 

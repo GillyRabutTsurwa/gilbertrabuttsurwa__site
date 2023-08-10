@@ -21,7 +21,7 @@ const imageData = data.value[0]; //NOTE: il n'y qu'un seul truc (objet) dans le 
 const images = imageData.gridImages.map((currentImage) => {
   return {
     id: currentImage._key,
-    url: currentImage.asset._ref,
+    url: currentImage?.asset?._ref,
   };
 });
 const myClasses = ["personal", "tech"];

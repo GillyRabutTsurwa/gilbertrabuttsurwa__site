@@ -53,7 +53,7 @@ onMounted(() => {
       </div>
     </div>
     <figure class="header__post--img">
-      <SanityImage :asset-id="randomPost.thumbnail.asset._ref" auto="format" />
+      <SanityImage :asset-id="randomPost.thumbnail?.asset?._ref" auto="format" />
     </figure>
   </header>
 </template>

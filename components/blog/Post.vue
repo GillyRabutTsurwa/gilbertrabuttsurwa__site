@@ -34,7 +34,7 @@ onMounted(() => {
 <template>
   <article class="blog-container">
     <figure class="blog-img-container" v-if="!showElement">
-      <SanityImage :asset-id="imgURL.asset._ref" auto="format" />
+      <SanityImage :asset-id="imgURL?.asset?._ref" auto="format" />
     </figure>
 
     <div class="blog-content">

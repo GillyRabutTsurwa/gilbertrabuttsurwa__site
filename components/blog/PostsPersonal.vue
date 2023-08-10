@@ -6,6 +6,8 @@ const props = defineProps({
   }
 });
 
+console.log(props.posts);
+
 const snippetLength = computed(() => {
   return showElement.value ? 300 : 400;
 });
@@ -40,7 +42,7 @@ onMounted(() => {
   <section class="blogs">
     <div v-for="(currentPost, index) in props.posts" :key="currentPost._id" class="blogs__item">
       <figure class="blogs__item--picture">
-        <SanityImage :asset-id="currentPost.thumbnail.asset._ref" auto="format" />
+        <SanityImage :asset-id="currentPost.thumbnail?.asset?._ref" auto="format" />
       </figure>
       <div class="blogs__item--content">
         <h3 class="title">{{ currentPost.title }}</h3>
