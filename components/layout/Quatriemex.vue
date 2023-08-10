@@ -1,8 +1,5 @@
-<script>
-</script>
-
 <template>
-  <section class="credentials">
+  <section class="credentials landing">
     <h2 class="credentials__main-title">Credentials</h2>
     <div class="credentials__content">
       <div class="credentials__left">
@@ -79,10 +76,16 @@
   </section>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .credentials {
   padding-top: 6rem;
   background-color: rgb(238, 238, 238);
+
+  @include breakpoint(1023) {
+    order: 5; //NOTE: this works because i display the parent (#app) to be display: grid in pages/index.vue
+  }
+
+
 
   &__content {
     display: -webkit-box;
@@ -90,6 +93,10 @@
     display: flex;
     -ms-flex-pack: distribute;
     justify-content: space-around;
+
+    @include breakpoint(1023) {
+      flex-direction: column-reverse;
+    }
   }
 
   &__main-title {
@@ -102,12 +109,22 @@
   &__right--title {
     font-size: 2rem;
     margin-bottom: 2.5rem;
+
+    @include breakpoint(1023) {
+      font-size: 3rem;
+      text-align: center;
+    }
   }
 
   &__left {
+
     // &--title {
     //   font-size: 2rem;
     //   margin-bottom: 2.5rem;
+    @include breakpoint(1023) {
+      margin-top: 3rem;
+    }
+
     // }
   }
 
@@ -116,12 +133,30 @@
     list-style-type: none;
     font-size: 2.5rem;
 
+    // @include breakpoint(1023) {
+    //   display: flex;
+    //   flex-wrap: wrap;
+    //   justify-content: space-around;
+    // }
+
     &--item {
       margin-bottom: 5rem;
     }
 
     &.courses {
       list-style-type: disc;
+
+      @include breakpoint(1023) {
+        margin-left: 3rem;
+      }
+    }
+
+    &.learning {
+      @include breakpoint(1023) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
     }
   }
 
@@ -133,6 +168,10 @@
       i {
         font-size: 5rem;
         margin-right: 2rem;
+
+        @include breakpoint(1023) {
+          margin-right: 0.25rem;
+        }
       }
     }
   }

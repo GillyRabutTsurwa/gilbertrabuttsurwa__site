@@ -1,32 +1,52 @@
 <script setup>
 import { filename } from 'pathe/utils';
+const { pixels, toggleElementOnResize } = useBreakpoints();
 const glob = import.meta.glob('~/assets/images/*', { eager: true });
 const images = Object.fromEntries(
     Object.entries(glob).map(([key, value]) => [filename(key), value.default])
 );
 const selfPortraits = ["autoportrait-croquis", "autoportrait-croquis-2", "autoportrait-croquis-3", "moi-high-top"];
-const logo = ["my-logo"];
 
 const photoIndex = ref(0);
+const show = ref(null);
 
 onMounted(() => {
     setInterval(() => {
         photoIndex.value++;
         if (photoIndex.value >= selfPortraits.length) photoIndex.value = 0;
     }, 15000);
-    // if (browser) toggleElementOnResize(1023);
+
+    const renderElements = () => {
+        const body = document.querySelector("body");
+        console.log(body.clientWidth)
+        show.value = pixels.value < body.clientWidth ? true : false;
+        console.log(show.value);
+    }
+
+    if (process.client) {
+        toggleElementOnResize(1023);
+        renderElements();
+
+        window.addEventListener("resize", () => {
+            toggleElementOnResize(1023);
+            renderElements();
+        })
+    }
 });
 </script>
 
 <template>
-    <header class="header">
+    <header class="header tete">
         <img src="@/assets/images/svg/my-logo.svg" alt="my-logo" class="header__logo" />
         <div class="header__title">
-            <h1 class="header__title--primary">Gilbert<span>Rabut</span><span>Tsurwa</span></h1>
+            <h1 class="header__title--primary">
+                <span>Gilbert</span>
+                <span>Rabut</span>
+                <span>Tsurwa</span>
+            </h1>
             <div class="header__buttons">
-                <NuxtLink to="/projects" target="_blank" class="header__buttons--button"> All my Projects </NuxtLink>
-                <a href="https://gilbertrabuttsurwa.blog" target="_blank" rel="noreferrer"
-                    class="header__buttons--button">My Blog</a>
+                <NuxtLink to="/projects" target="_blank" class="header__buttons--button">View Projects</NuxtLink>
+                <NuxtLink to="/blog" target="_blank" class="header__buttons--button">Read Blogs</NuxtLink>
             </div>
         </div>
         <div class="icon" style="align-self: center;">
@@ -46,13 +66,28 @@ onMounted(() => {
     width: 100%;
     position: relative;
     display: grid;
-    grid-template-columns: 56% min-content 1fr;
+    grid-template-columns: 50% min-content 1fr;
+
+    @include breakpoint(1023) {
+        // min-height: max-content;
+        padding-bottom: 3rem;
+        place-items: center;
+        grid-template-columns: 1fr;
+        grid-auto-rows: min-content;
+        order: 1; //NOTE: this works because i display the parent (#app) to be display: grid in pages/index.vue
+    }
 
     // TESTING
     & .icon {
         align-self: center;
         grid-column: 2 / 3;
-        transform: translateX(-10rem); // deplacer vers le gauche juste un peu
+        transform: translateX(-10rem);
+        // transform: translate(-10rem, -5rem); // deplacer vers le gauche juste un peu na juu kidogo
+
+        @include breakpoint(1023) {
+            grid-column: 1 / 2; //NOTE; reinitialise la configuration dessus
+            transform: translateX(0);
+        }
     }
 
     & .autoportrait {
@@ -67,10 +102,8 @@ onMounted(() => {
         &-img {
             position: absolute;
             left: 0;
-            width: 77rem;
-            height: 96rem;
-            // width: 100%;
-            // height: 100%;
+            width: 100%;
+            height: 100%;
             object-fit: cover; // makes it look nicer
             margin-left: 7.5rem;
             background-image: linear-gradient(to bottom,
@@ -105,6 +138,12 @@ onMounted(() => {
         margin-bottom: 7rem;
         z-index: 1000;
         color: $steelblue;
+        // transform: translateY(-5rem);
+
+        @include breakpoint(1023) {
+            padding-right: unset; //NOTE: so this does work. same as padding-right: 0;
+            margin-top: 12rem;
+        }
 
         &--primary {
             font-size: 10.5rem;

@@ -3,12 +3,10 @@ const currentDate = new Date();
 const birthday = new Date("1996-05-09"); //NOTE: american format is Javascript's default
 // thanks to this link: https://stackoverflow.com/questions/10008050/get-age-from-birthdate
 const age = Math.floor((currentDate - birthday) / 31557600000);
-
-let photoIndex = 0;
 </script>
 
 <template>
-    <section class="intro">
+    <section class="intro landing">
         <h2 class="intro__title">Introduction</h2>
         <p class="intro__paragraph">
             I am a {{ age }} years young front-end developer from Nairobi Kenya who currently resides in the United States.
@@ -54,6 +52,11 @@ let photoIndex = 0;
     background-color: rgb(238, 238, 238);
     margin-top: 5rem;
 
+    @include breakpoint(1023) {
+        grid-template-columns: 1fr;
+        order: 2; //NOTE: this works because i display the parent (#app) to be display: grid in pages/index.vue
+    }
+
     &__title {
         grid-column: 1 / -1;
         font-size: 5rem;
@@ -66,6 +69,10 @@ let photoIndex = 0;
         line-height: 2;
         align-self: center;
         padding: 0 5rem;
+
+        @include breakpoint(1023) {
+            font-size: 1.75rem;
+        }
     }
 
     & .icon {

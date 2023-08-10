@@ -5,13 +5,14 @@ export default defineNuxtConfig({
         "@nuxtjs/sanity",
         "@nuxtjs/google-fonts",
         "@pinia/nuxt",
-        [
-            "@storyblok/nuxt",
-            {
-                accessToken: process.env.STORYBLOK_TOKEN,
-                apiOptions: { region: "us" },
-            },
-        ],
+        // NOTE: @storyblok/nuxt is breaking my app
+        // [
+        //     "@storyblok/nuxt",
+        //     {
+        //         accessToken: process.env.STORYBLOK_TOKEN,
+        //         apiOptions: { region: "us" },
+        //     },
+        // ],
     ],
     //NOTE: for sanity config via @nuxt/sanityjs docs
     sanity: {

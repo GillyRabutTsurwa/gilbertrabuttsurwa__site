@@ -46,11 +46,24 @@
     background-color: $default-grey;
     margin-top: 6rem;
 
+    @include breakpoint(1023) {
+        grid-template-columns: 1fr;
+        // grid-template-rows: unset;
+        // grid-auto-rows: max-content;
+        order: 4; //NOTE: this works because i display the parent (#app) to be display: grid in pages/index.vue
+    }
+
     &__title {
         grid-column: 1 / -1;
         grid-row: 1 / 2;
         text-align: center;
         font-size: 5rem;
+
+        @include breakpoint(1023) {
+            grid-column: 1 / 3;
+            // grid-row: 1 / 2;
+            justify-self: center;
+        }
     }
 
     &__text {
@@ -61,22 +74,25 @@
         line-height: 2;
         grid-column: 2 / -1;
         grid-row: 2 / -1;
-        //   @include responsive(tablet-portrait) {
-        //     margin: 2.5rem 0 0 2.5rem;
-        //     font-size: 3rem;
-        //   }
+
+        @include breakpoint(1023) {
+            margin-top: 0;
+            margin-left: 0;
+            font-size: 1.75rem;
+            grid-row: 2 / 3;
+        }
     }
 }
 
 .lang-in-bold {
     font-weight: bolder;
 
-    .css {
+    &.css {
         @extend %text-gradient;
         background-image: linear-gradient(#3c99dc, #66d3fa);
     }
 
-    .sass {
+    &.sass {
         @extend %text-gradient;
         background-image: linear-gradient(#cd6799, #e293b9);
     }

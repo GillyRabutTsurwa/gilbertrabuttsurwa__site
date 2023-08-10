@@ -32,19 +32,19 @@ const showBackend = () => {
     // grid-template-rows: repeat(2, min-content) 80vh;
     grid-template-rows: repeat(2, min-content) 1fr;
     // height: 100vh;
-    min-height: 100vh;
+    // min-height: 100vh;
     margin: 0 3rem;
     background-color: $default-grey;
     gap: 4rem;
     padding-top: 6rem;
     color: rgb(238, 238, 238);
 
-    // @include responsive(1023) {
-    //     grid-template-columns: 1fr;
-    //     grid-template-rows: min-content repeat(3, 1fr);
-    //     row-gap: 4rem;
-    //     column-gap: 0;
-    // }
+    @include breakpoint(1023) {
+        order: 3; //NOTE: this works because i display the parent (#app) to be display: grid in pages/index.vue
+        min-height: unset;
+        height: auto;
+    }
+
     &__main-title {
         grid-column: 1 / -1;
         justify-self: center;
