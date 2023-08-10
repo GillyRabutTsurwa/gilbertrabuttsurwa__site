@@ -1,58 +1,67 @@
 <script setup lang="ts">
-// import groq from 'groq';
-// import { usePostsStore } from '@/stores/posts';
+import { usePostsStore } from '@/stores/posts';
 
-// const query = groq`*[_type == "personal-post"]`;
-// const { data: posts } = await useSanityQuery(query);
+const props = defineProps({
+  posts: {
+    type: Array,
+    required: true
+  },
+  listDisplay: {
+    type: String,
+    default: "column"
+  }
+});
 
-// const props = defineProps({
-//   listDisplay: {
-//     type: String,
-//     default: "column"
-//   }
-// })
-// const store = usePostsStore();
-// const populatePosts = () => {
-//   store.posts = posts.value;
-//   store.filteredPosts = posts.value;
-// }
+console.log(props.posts);
+props.posts.forEach((currentPost) => {
+  console.log(currentPost.categories);
+})
 
-// const categories = store.posts.map((currentPost) => currentPost.categories);
-// const categoriesList = computed(() => {
-//   //NOTE: i think this may have been the issue
-//   // if i don't give the posts a category, this array gets populated with a value of undefined for that post
-//   // so, therefore, the solution must be to remove the undefined values from this array (in case i forget to add a category to the post)
-//   // i do this below
-//   return [...new Set(categories.flat())].filter((currentValue) => currentValue !== undefined);
-// });
+const store = usePostsStore();
 
-// console.log(categoriesList.value);
+const populatePosts = () => {
+  store.posts = props.posts;
+  store.filteredPosts = props.posts;
+}
 
-// function getNumOfPostsByCategory(category) {
-//   //NOTE: site still breaks because this does not (and should not) filter posts that have no category tags
-//   // so it's trying to look the the category property from a post that has none, ie undefined
-//   // so the solution is to ALWAYS put category tags on all posts
-//   return store.posts.filter((currentPost) => currentPost.categories.includes(category)).length;
-// }
+console.log(store.posts);
 
-// async function testFilter(category) {
-//   // await store.filterPosts(category)
-//   store.filteredPosts = store.posts.filter((currentPost) => currentPost.categories.includes(category));
-// }
+const categories = store.posts.map((currentPost) => currentPost.categories);
+const categoriesList = computed(() => {
+  //NOTE: i think this may have been the issue
+  // if i don't give the posts a category, this array gets populated with a value of undefined for that post
+  // so, therefore, the solution must be to remove the undefined values from this array (in case i forget to add a category to the post)
+  // i do this below
+  return [...new Set(categories.flat())].filter((currentValue) => currentValue !== undefined);
+});
 
-// // NOTE: style
-// const listStyle = computed(() => {
-//   const displayStyle = {
-//     display: props.listDisplay === "row" ? "flex" : "block",
-//     justifyContent: props.listDisplay === "row" ? "space-around" : ""
-//   }
-//   return displayStyle;
-// })
+console.log(categoriesList.value);
+
+function getNumOfPostsByCategory(category) {
+  //NOTE: site still breaks because this does not (and should not) filter posts that have no category tags
+  // so it's trying to look the the category property from a post that has none, ie undefined
+  // so the solution is to ALWAYS put category tags on all posts
+  return store.posts.filter((currentPost) => currentPost.categories.includes(category)).length;
+}
+
+async function testFilter(category) {
+  // await store.filterPosts(category)
+  store.filteredPosts = store.posts.filter((currentPost) => currentPost.categories.includes(category));
+}
+
+// NOTE: style
+const listStyle = computed(() => {
+  const displayStyle = {
+    display: props.listDisplay === "row" ? "flex" : "block",
+    justifyContent: props.listDisplay === "row" ? "space-around" : ""
+  }
+  return displayStyle;
+})
 </script>
 
 <template>
   <div class="category">
-    <!-- <h4 class="category__title">Categories</h4>
+    <h4 class="category__title">Categories</h4>
     <ul class="category__list" :style="listStyle">
       <li @click="populatePosts">
         <span>All</span>
@@ -64,13 +73,11 @@
         <span>&nbsp;</span>
         <span>({{ getNumOfPostsByCategory(currentCategory) }})</span>
       </li>
-    </ul> -->
+    </ul>
   </div>
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/sass/abstracts" as abstracts;
-
 .category {
   display: flex;
   flex-direction: column;
@@ -91,8 +98,8 @@
 
     li {
       margin-bottom: 2rem;
-      background-color: abstracts.$colour-primary;
-      color: abstracts.$whitish;
+      background-color: $colour-primary;
+      color: $whitish;
       // font-weight: bold;
       padding: 1.1rem 1.5rem;
       border-radius: 1rem;

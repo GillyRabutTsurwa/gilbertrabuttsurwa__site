@@ -46,7 +46,7 @@ onMounted(() => {
       </figure>
       <div class="blogs__item--content">
         <h3 class="title">{{ currentPost.title }}</h3>
-        <h5 style="font-weight: 500;">{{ formatDate(currentPost.publishedAt) }}</h5>
+        <h5 style="font-weight: 500; margin-bottom: 1rem;">{{ formatDate(currentPost.publishedAt) }}</h5>
         <div class="snippet">
           <p>{{ getSnippet(currentPost.body) }}</p>
         </div>
@@ -58,15 +58,13 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/sass/abstracts" as abstracts;
-
 h2 {
   position: relative;
   margin-top: 4rem;
   font-size: 4rem;
   left: 46%;
 
-  @include abstracts.breakpoint(480) {
+  @include breakpoint(480) {
     left: 37.5%;
   }
 }
@@ -82,7 +80,7 @@ h2 {
   -moz-gap: 7rem;
   gap: 2rem;
 
-  @include abstracts.breakpoint(1023) {
+  @include breakpoint(1023) {
     grid-template-columns: 1fr;
     grid-template-rows: unset;
     grid-auto-rows: 50rem;
@@ -98,7 +96,7 @@ h2 {
   &__item {
     position: relative;
 
-    @include abstracts.breakpoint(1023) {
+    @include breakpoint(1023) {
       grid-column: 1 / -1 !important;
       grid-row: auto !important;
     }
@@ -148,7 +146,7 @@ h2 {
       grid-row: 10 / 13;
     }
 
-    // @include abstracts.breakpoint(480) {
+    // @include breakpoint(480) {
     //   grid-template-rows: 20rem repeat(4, -webkit-min-content);
     //   grid-template-rows: 20rem repeat(4, min-content);
     // }
@@ -180,12 +178,14 @@ h2 {
       background-color: rgba(0, 0, 0, 0.75);
       transition: opacity 0.5s ease-in;
       padding: 1.5rem 3rem;
-      color: abstracts.$whitish;
+      color: $whitish;
 
       opacity: 0;
 
       .title {
-        font-size: 2.5rem;
+        font-size: 3rem;
+        color: $whitish;
+        font-weight: 700;
       }
 
 

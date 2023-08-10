@@ -1,9 +1,9 @@
 <script setup></script>
 <template>
     <aside>
-        <Categories />
-        <Instaposts />
-        <Newsletter />
+        <slot name="categories"></slot>
+        <slot name="instaposts"></slot>
+        <slot name="newsletter"></slot>
     </aside>
 </template>
 

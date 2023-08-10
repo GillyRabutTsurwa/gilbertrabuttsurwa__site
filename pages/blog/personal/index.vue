@@ -72,7 +72,17 @@ onUpdated(() => {
           @paginate="renderPagination($event)" />
       </template>
     </Main>
-    <Aside />
+    <Aside>
+      <template v-slot:categories>
+        <Categories :posts="store.posts" />
+      </template>
+      <template v-slot:instaposts>
+        <Instaposts />
+      </template>
+      <template v-slot:newsletter>
+        <Newsletter />
+      </template>
+    </Aside>
   </FlexContainer>
 </template>
   
