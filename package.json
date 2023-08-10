@@ -35,8 +35,6 @@
     "dependencies": {
         "@nuxtjs/sanity": "^1.8.1",
         "@pinia/nuxt": "^0.4.11",
-        "@sanity/client": "^6.4.5",
-        "@sanity/image-url": "^1.0.2",
         "chart.js": "^3.9.1",
         "groq": "^3.14.5",
         "highlight.js": "^11.8.0",
