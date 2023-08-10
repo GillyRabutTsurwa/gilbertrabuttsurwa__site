@@ -39,7 +39,7 @@ const sendPostsToServer = async () => {
     method: "POST",
     body: posts.value
   });
-  console.log("Posts", allPosts.value);
+  console.log("Posts", allPosts.value); //Not really doing anything with this
 }
 
 sendPostsToServer();

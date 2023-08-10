@@ -52,8 +52,6 @@ const isLoggedIn = computed(() => status.value === "authenticated");
 </template>
 
 <style lang="scss" scoped>
-@use "~/assets/sass/abstracts/" as abstracts;
-
 .navigation {
   @extend %flex-basic;
   justify-content: space-between;
@@ -62,9 +60,10 @@ const isLoggedIn = computed(() => status.value === "authenticated");
   height: 10vh;
   background-color: #f0f0f0;
   padding: 0 1.75rem;
-  background-color: abstracts.$colour-primary;
+  background-color: $colour-primary;
+  margin-bottom: 2.5rem;
 
-  @include abstracts.breakpoint(480) {
+  @include breakpoint(480) {
     height: 17.5rem;
     display: flex;
     flex-direction: column;
@@ -78,8 +77,8 @@ const isLoggedIn = computed(() => status.value === "authenticated");
   .logo {
     font-size: 2.5rem;
     font-weight: 500;
-    color: abstracts.$text-grey-light;
-    // font-family: abstracts.$Josefin;
+    color: $text-grey-light;
+    // font-family: $Josefin;
     letter-spacing: 1.5px;
   }
 
@@ -103,7 +102,7 @@ const isLoggedIn = computed(() => status.value === "authenticated");
         &:visited {
           font-size: 1.75rem;
           text-decoration: none;
-          color: abstracts.$whitish;
+          color: $whitish;
         }
 
         &:hover,
@@ -130,7 +129,7 @@ const isLoggedIn = computed(() => status.value === "authenticated");
         &:link,
         &:visited {
           text-decoration: none;
-          color: abstracts.$whitish;
+          color: $whitish;
         }
       }
     }

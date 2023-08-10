@@ -26,4 +26,6 @@ export default defineEventHandler(async (event: H3Event) => {
 
         await Post.create(post);
     });
+
+    return body;
 });

@@ -41,6 +41,6 @@ export default NuxtAuthHandler({
         },
     },
     pages: {
-        signIn: "/blog/login",
+        signIn: "/login",
     },
 });
