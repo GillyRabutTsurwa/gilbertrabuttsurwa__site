@@ -2,10 +2,12 @@
 import { NuxtAuthHandler } from "#auth";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
+import InstagramProvider from "next-auth/providers/instagram";
 import CredentialsProvider from "next-auth/providers/credentials";
 import User from "../../../models/users";
 
 const config = useRuntimeConfig();
+console.log("Auth Origin", process.env.AUTH_ORIGIN);
 
 export default NuxtAuthHandler({
     secret: config.auth.secret,
@@ -19,6 +21,12 @@ export default NuxtAuthHandler({
         GoogleProvider.default({
             clientId: config.google.client_ID,
             clientSecret: config.google.client_secret,
+            checks: ["none"],
+        }),
+        // @ts-expect-error You need to use .default here for it to work during SSR. May be fixed via Vite at some point
+        InstagramProvider.default({
+            clientId: config.instagram.client_ID,
+            clientSecret: config.instagram.client_secret,
         }),
         // @ts-expect-error You need to use .default here for it to work during SSR. May be fixed via Vite at some point
         CredentialsProvider.default({
