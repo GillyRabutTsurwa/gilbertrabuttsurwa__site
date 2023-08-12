@@ -1,19 +1,10 @@
+const storyblokOptions = {
+    accessToken: process.env.STORYBLOK_TOKEN,
+    apiOptions: { region: "us" },
+};
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    modules: [
-        "@sidebase/nuxt-auth",
-        "@nuxtjs/sanity",
-        "@nuxtjs/google-fonts",
-        "@pinia/nuxt",
-        // NOTE: @storyblok/nuxt is breaking my app
-        [
-            "@storyblok/nuxt",
-            {
-                accessToken: process.env.STORYBLOK_TOKEN,
-                apiOptions: { region: "us" },
-            },
-        ],
-    ],
+    modules: ["@sidebase/nuxt-auth", "@nuxtjs/sanity", "@nuxtjs/google-fonts", "@pinia/nuxt", ["@storyblok/nuxt", storyblokOptions]],
     //NOTE: for sanity config via @nuxt/sanityjs docs
     sanity: {
         projectId: process.env.SANITY_PROJECT_ID,
@@ -22,6 +13,9 @@ export default defineNuxtConfig({
         useCdn: false,
     },
     runtimeConfig: {
+        auth: {
+            secret: process.env.AUTH_SECRET,
+        },
         //NOTE: to use for making sanity client (via vanilla js)
         // NOTE: need this to construct the api for all my endpoints
         sanity: {
@@ -45,9 +39,6 @@ export default defineNuxtConfig({
             api_key: process.env.INSTAGRAM_TOKEN,
             client_ID: process.env.INSTAGRAM_CLIENT_ID,
             client_secret: process.env.INSTAGRAM_CLIENT_SECRET,
-        },
-        auth: {
-            secret: process.env.AUTH_SECRET,
         },
         mongodb: {
             uri: process.env.MONGODB_URI,

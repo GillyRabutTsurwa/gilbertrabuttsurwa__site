@@ -46,9 +46,9 @@ export default NuxtAuthHandler({
             console.log("Session", session);
             return session;
         },
-        // redirect: async ({ url, baseUrl }) => baseUrl,
     },
     pages: {
-        signIn: "/login",
+        // signIn: "/login",
+        signIn: `${process.env.AUTH_ORIGIN}/login`, //NOTE: voyons si ça fait une difference
     },
 });
