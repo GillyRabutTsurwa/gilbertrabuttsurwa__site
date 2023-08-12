@@ -21,7 +21,6 @@ export default NuxtAuthHandler({
         GoogleProvider.default({
             clientId: config.google.client_ID,
             clientSecret: config.google.client_secret,
-            checks: ["none"],
         }),
         // @ts-expect-error You need to use .default here for it to work during SSR. May be fixed via Vite at some point
         InstagramProvider.default({

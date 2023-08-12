@@ -6,13 +6,13 @@ export default defineNuxtConfig({
         "@nuxtjs/google-fonts",
         "@pinia/nuxt",
         // NOTE: @storyblok/nuxt is breaking my app
-        // [
-        //     "@storyblok/nuxt",
-        //     {
-        //         accessToken: process.env.STORYBLOK_TOKEN,
-        //         apiOptions: { region: "us" },
-        //     },
-        // ],
+        [
+            "@storyblok/nuxt",
+            {
+                accessToken: process.env.STORYBLOK_TOKEN,
+                apiOptions: { region: "us" },
+            },
+        ],
     ],
     //NOTE: for sanity config via @nuxt/sanityjs docs
     sanity: {
@@ -41,14 +41,16 @@ export default defineNuxtConfig({
             client_ID: process.env.GOOGLE_CLIENT_ID,
             client_secret: process.env.GOOGLE_CLIENT_SECRET,
         },
+        instagram: {
+            api_key: process.env.INSTAGRAM_TOKEN,
+            client_ID: process.env.INSTAGRAM_CLIENT_ID,
+            client_secret: process.env.INSTAGRAM_CLIENT_SECRET,
+        },
         auth: {
             secret: process.env.AUTH_SECRET,
         },
         mongodb: {
             uri: process.env.MONGODB_URI,
-        },
-        instagram: {
-            api_key: process.env.INSTAGRAM_TOKEN,
         },
     },
     app: {

@@ -104,6 +104,9 @@ if (status.value === "authenticated") await navigateTo("/blog/uncensored");
                 <div class="oauth">
                     <Icon @click="signIn('google')" name="google" :pxSize="42" />
                     <Icon @click="signIn('github')" name="github" :pxSize="42" />
+                    <DevOnly>
+                        <Icon @click="signIn('instagram')" name="instagram" :pxSize="42" />
+                    </DevOnly>
 
                 </div>
             </div>

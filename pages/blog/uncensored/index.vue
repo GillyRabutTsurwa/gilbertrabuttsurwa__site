@@ -6,6 +6,7 @@ definePageMeta({
 </script>
 
 <template>
+    <Navigation />
     <div>
         <h2>this is the uncensored page</h2>
         <pre>{{ status }}</pre>
