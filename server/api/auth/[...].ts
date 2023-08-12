@@ -16,16 +16,19 @@ export default NuxtAuthHandler({
         GithubProvider.default({
             clientId: config.github.client_ID,
             clientSecret: config.github.client_secret,
+            checks: ["none"],
         }),
         // @ts-expect-error You need to use .default here for it to work during SSR. May be fixed via Vite at some point
         GoogleProvider.default({
             clientId: config.google.client_ID,
             clientSecret: config.google.client_secret,
+            checks: ["none"],
         }),
         // @ts-expect-error You need to use .default here for it to work during SSR. May be fixed via Vite at some point
         InstagramProvider.default({
             clientId: config.instagram.client_ID,
             clientSecret: config.instagram.client_secret,
+            checks: ["none"],
         }),
         // @ts-expect-error You need to use .default here for it to work during SSR. May be fixed via Vite at some point
         CredentialsProvider.default({
@@ -48,7 +51,8 @@ export default NuxtAuthHandler({
         },
     },
     pages: {
-        // signIn: "/login",
-        signIn: `${process.env.AUTH_ORIGIN}/login`, //NOTE: voyons si ça fait une difference
+        signIn: "/login",
+
+        checks: ["none"],
     },
 });
