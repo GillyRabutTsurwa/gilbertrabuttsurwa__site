@@ -1,19 +1,11 @@
 <script setup lang="ts">
-const { data: user } = await useFetch("/api/session");
-console.log(user.value);
-const { status, signIn, signOut } = useAuth();
-const route = useRoute();
-const logOut = async () => {
-  console.log("Logout Settings");
-}
-const isLoggedIn = computed(() => status.value === "authenticated");
-
+//NOTE: for now
+const isLoggedIn: Ref<boolean> = ref(false);
 // @todo(GillyRabutTsurwa): Trying The Proper Syntaxe
 // Line 1
 // Line 2
 // Line 3
 // labels: syntaxe, suppertime
-
 </script>
 
 <template>
@@ -39,10 +31,11 @@ const isLoggedIn = computed(() => status.value === "authenticated");
     <ul class="navigation__list">
       <!-- account username -->
       <li v-if="isLoggedIn" class="navigation__list--item">
-        <span class="username">{{ user.user.name || user.user.email }}</span>
+        <!-- <span class="username">{{ user.user.name || user.user.email }}</span> -->
+        <span class="username">Username</span>
       </li>
       <li v-if="isLoggedIn" class="navigation__list--item">
-        <span @click="signOut" style="color: #fefefe;">Sign Out</span>
+        <span @click="console.log('logout')" style="color: #fefefe;">Sign Out</span>
       </li>
       <li v-else class="navigation__list--item">
         <NuxtLink to="/login">Sign In</NuxtLink>

@@ -4,7 +4,7 @@ const storyblokOptions = {
 };
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    modules: ["@sidebase/nuxt-auth", "@nuxtjs/sanity", "@nuxtjs/google-fonts", "@pinia/nuxt", ["@storyblok/nuxt", storyblokOptions]],
+    modules: ["@nuxtjs/sanity", "@nuxtjs/supabase", "@nuxtjs/google-fonts", "@pinia/nuxt", ["@storyblok/nuxt", storyblokOptions]],
     //NOTE: for sanity config via @nuxt/sanityjs docs
     sanity: {
         projectId: process.env.SANITY_PROJECT_ID,
@@ -66,6 +66,7 @@ export default defineNuxtConfig({
             ],
         },
     },
+    //NOTE: properly setup sass thanks to this: https://www.therdnotes.com/use-scss-with-nuxt-3
     vite: {
         css: {
             preprocessorOptions: {

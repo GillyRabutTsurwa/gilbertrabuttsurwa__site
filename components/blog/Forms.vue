@@ -1,7 +1,8 @@
 <script setup lang="ts">
 const router = useRouter();
-const { status, signIn } = useAuth();
+const supabase = useSupabaseClient();
 const container: Ref<HTMLDivElement | null> = ref(null); //NOTE: template ref for addressing form styles
+
 
 const formLogin = reactive({
     username: "",
@@ -38,17 +39,21 @@ const registerUser = async () => {
     formRegister.password = "";
 }
 
-const loginUser = async () => {
-    await signIn("credentials", {
-        name: formLogin.username,
-        password: formLogin.password
+const signInWithOAuth = async (providerName: string): Promise<void> => {
+    const { error } = await supabase.auth.signInWithOAuth({
+        provider: providerName,
+        options: {
+            redirectTo: "http://localhost:3000/blog"
+        }
     });
+    if (error) console.log(error);
 }
+
 
 const goBack = () => (router.back());
 const addRightPanel = () => container.value.classList.add("right-panel-active");
 const removeRightPanel = () => container.value.classList.remove("right-panel-active");
-if (status.value === "authenticated") await navigateTo("/blog/uncensored");
+// if (status.value === "authenticated") await navigateTo("/blog/uncensored");
 </script>
 
 <template>
@@ -80,8 +85,8 @@ if (status.value === "authenticated") await navigateTo("/blog/uncensored");
                 </form>
                 <p class="login-alernative">Or Login With</p>
                 <div class="oauth">
-                    <Icon @click="signIn('google')" name="google" :pxSize="42" />
-                    <Icon @click="signIn('github')" name="github" :pxSize="42" />
+                    <Icon @click="console.log('google login')" name="google" :pxSize="42" />
+                    <Icon @click="console.log('github login')" name="github" :pxSize="42" />
                 </div>
             </div>
         </div>
@@ -102,9 +107,9 @@ if (status.value === "authenticated") await navigateTo("/blog/uncensored");
                 </form>
                 <p class="login-alernative">Or Login With</p>
                 <div class="oauth">
-                    <Icon @click="signIn('google')" name="google" :pxSize="42" />
-                    <Icon @click="signIn('github')" name="github" :pxSize="42" />
-                    <Icon @click="signIn('instagram')" name="instagram" :pxSize="42" />
+                    <!-- <Icon @click="signIn('google')" name="google" :pxSize="42" /> -->
+                    <Icon @click="signInWithOAuth('github')" name="github" :pxSize="42" />
+                    <!-- <Icon @click="signIn('instagram')" name="instagram" :pxSize="42" /> -->
 
                 </div>
             </div>
