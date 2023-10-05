@@ -12,7 +12,19 @@ export default defineNuxtConfig({
         apiVersion: process.env.SANITY_API_VERSION,
         useCdn: false,
     },
+    supabase: {
+        url: process.env.SUPABASE_URL,
+        key: process.env.SUPABASE_KEY,
+        redirectOptions: {
+            login: "/login",
+            callback: "/blog/uncensored",
+            exclude: ["/", "/blog", "/blog/personal", "/blog/tech", "/projects", "/shop"],
+        },
+    },
     runtimeConfig: {
+        public: {
+            client_url: process.env.CLIENT_URL,
+        },
         auth: {
             secret: process.env.AUTH_SECRET,
         },

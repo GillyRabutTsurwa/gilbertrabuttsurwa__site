@@ -3,6 +3,10 @@ const router = useRouter();
 const supabase = useSupabaseClient();
 const container: Ref<HTMLDivElement | null> = ref(null); //NOTE: template ref for addressing form styles
 
+const config = useRuntimeConfig();
+const clientURL = config.public.client_url;
+
+console.log(clientURL);
 
 const formLogin = reactive({
     username: "",
@@ -39,15 +43,22 @@ const registerUser = async () => {
     formRegister.password = "";
 }
 
+//NOTENEW: sign in with oauth providers (using Github for now)
 const signInWithOAuth = async (providerName: string): Promise<void> => {
     const { error } = await supabase.auth.signInWithOAuth({
         provider: providerName,
         options: {
-            redirectTo: "http://localhost:3000/blog"
+            redirectTo: `${clientURL}/blog/uncensored`
         }
     });
     if (error) console.log(error);
 }
+
+
+
+
+
+
 
 
 const goBack = () => (router.back());
@@ -110,7 +121,9 @@ const removeRightPanel = () => container.value.classList.remove("right-panel-act
                     <!-- <Icon @click="signIn('google')" name="google" :pxSize="42" /> -->
                     <Icon @click="signInWithOAuth('github')" name="github" :pxSize="42" />
                     <!-- <Icon @click="signIn('instagram')" name="instagram" :pxSize="42" /> -->
-
+                </div>
+                <div class="back-2-blogs" style="transform: translateY(25rem);">
+                    <NuxtLink to="/blog">Back To Blogs</NuxtLink>
                 </div>
             </div>
         </div>

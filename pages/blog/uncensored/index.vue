@@ -1,15 +1,13 @@
 <script setup lang="ts">
-const { status } = useAuth();
 definePageMeta({
-    middleware: "auth" //NOTE: this is auth from nuxt-auth
-})
+    middleware: "auth"
+});
 </script>
 
 <template>
     <Navigation />
     <div>
         <h2>this is the uncensored page</h2>
-        <pre>{{ status }}</pre>
     </div>
 </template>
 

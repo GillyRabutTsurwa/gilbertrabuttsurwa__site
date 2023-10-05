@@ -115,6 +115,11 @@ auth_token = "env(SUPABASE_AUTH_SMS_TWILIO_AUTH_TOKEN)"
 # Use an external OAuth provider. The full list of providers are: `apple`, `azure`, `bitbucket`,
 # `discord`, `facebook`, `github`, `gitlab`, `google`, `keycloak`, `linkedin`, `notion`, `twitch`,
 # `twitter`, `slack`, `spotify`, `workos`, `zoom`.
+[auth.external.github]
+enabled = true
+client_id = "b6198e6d3f815fe8c509"
+secret = "01d43f4b377472889a6ad50fbad6fd2c5f655db3"
+redirect_uri = "http://localhost:54321/auth/v1/callback"
 [auth.external.apple]
 enabled = false
 client_id = ""

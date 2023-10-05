@@ -1,11 +1,14 @@
 <script setup lang="ts">
-//NOTE: for now
 const isLoggedIn: Ref<boolean> = ref(false);
-// @todo(GillyRabutTsurwa): Trying The Proper Syntaxe
-// Line 1
-// Line 2
-// Line 3
-// labels: syntaxe, suppertime
+const supabase = useSupabaseClient();
+const user = useSupabaseUser();
+console.log(user);
+
+const signOut = async () => {
+  const { error } = await supabase.auth.signOut();
+  if (error) console.log(error);
+  location.reload();
+}
 </script>
 
 <template>
@@ -30,12 +33,12 @@ const isLoggedIn: Ref<boolean> = ref(false);
     </ul>
     <ul class="navigation__list">
       <!-- account username -->
-      <li v-if="isLoggedIn" class="navigation__list--item">
-        <!-- <span class="username">{{ user.user.name || user.user.email }}</span> -->
-        <span class="username">Username</span>
+
+      <li v-if="user?.role === 'authenticated'" class="navigation__list--item">
+        <span @click="signOut">Sign Out</span>
       </li>
-      <li v-if="isLoggedIn" class="navigation__list--item">
-        <span @click="console.log('logout')" style="color: #fefefe;">Sign Out</span>
+      <li v-if="user?.role === 'authenticated'" class="navigation__list--item">
+        <span style="color: #f0f0f0;">{{ user?.user_metadata.user_name }}</span>
       </li>
       <li v-else class="navigation__list--item">
         <NuxtLink to="/login">Sign In</NuxtLink>

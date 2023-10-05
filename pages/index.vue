@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 const Loader = resolveComponent("Loader");
 const MainContent = resolveComponent("MainContent");
 const currentComponent = shallowRef(Loader);
