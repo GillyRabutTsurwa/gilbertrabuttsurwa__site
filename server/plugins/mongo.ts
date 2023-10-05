@@ -6,6 +6,7 @@ const databaseConnect = async () => {
         const connection = await mongoose.connect(config.mongodb.uri, {
             dbName: "gilbertrabuttsurwa",
         });
+        console.log(`Status: ${mongoose.STATES[connection.connection.readyState]}`);
         console.log(`Connected to Database ${connection.connection.db.databaseName} @ Host ${connection.connection.host}`);
     } catch (error) {
         console.error(error);

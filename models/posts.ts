@@ -56,6 +56,9 @@ const PostSchema: Schema = new mongoose.Schema<IPost>(
     },
     {
         collection: "posts",
+        // NOTE: attempt to FIX buffer timeout error in production
+        bufferCommands: false,
+        autoCreate: false,
     }
 );
 
