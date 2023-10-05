@@ -96,7 +96,7 @@ const removeRightPanel = () => container.value.classList.remove("right-panel-act
     <div class="container" id="container" ref="container">
         <div class="form-container sign-up-container">
             <div class="form-test">
-                <h1 style="margin-bottom: 2rem;">Create Login</h1>
+                <h1 style="margin-bottom: 2rem;">Register</h1>
                 <!-- hide for now -->
                 <div class="social-container" style="display: none; visibility: hidden;">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -145,7 +145,7 @@ const removeRightPanel = () => container.value.classList.remove("right-panel-act
                 <div class="oauth">
                     <!-- <Icon @click="signIn('google')" name="google" :pxSize="42" /> -->
                     <Icon @click="signInWithOAuth('github')" name="github" :pxSize="42" />
-                    <!-- <Icon @click="signIn('instagram')" name="instagram" :pxSize="42" /> -->
+                    <Icon @click="signInWithOAuth('google')" name="google" :pxSize="42" />
                 </div>
                 <div class="back-2-blogs" style="transform: translateY(25rem);">
                     <NuxtLink to="/blog">Back To Blogs</NuxtLink>
@@ -163,7 +163,7 @@ const removeRightPanel = () => container.value.classList.remove("right-panel-act
                     <h1 style="margin-bottom: 2rem;">Register</h1>
                     <p style="margin-bottom: 2rem;">Sign up to get access to <strong>all</strong> my posts</p>
                     <!-- <button class="ghost" id="signUp" @click="addRightPanel">Sign Up</button> -->
-                    <Button @click="addRightPanel" text="Sign Up" colourPrimary="#fefefe" colourSecondary="#07343f" />
+                    <Button @click="addRightPanel" text="Register" colourPrimary="#fefefe" colourSecondary="#07343f" />
                 </div>
             </div>
         </div>
