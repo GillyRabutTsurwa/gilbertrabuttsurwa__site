@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const user = useSupabaseUser();
 definePageMeta({
     middleware: "auth"
 });
@@ -8,6 +9,7 @@ definePageMeta({
     <Navigation />
     <div>
         <h2>this is the uncensored page</h2>
+        <pre>{{ user }}</pre>
     </div>
 </template>
 

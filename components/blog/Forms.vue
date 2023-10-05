@@ -27,7 +27,20 @@ const logState = (e: Event) => {
 }
 
 const registerUser = async () => {
-    const { data: user } = await useFetch("/api/user", {
+    const { user, error } = await supabase.auth.signUp({
+        email: formRegister.email,
+        password: formRegister.password,
+    });
+
+    if (error) {
+        alert("Something Went Wrong");
+        console.log(error);
+        return;
+    }
+    console.log(user);
+    alert("Access the e-mail we just sent you to verify your compte")
+
+    const { data } = await useFetch("/api/user", {
         method: "POST",
         body: {
             email: formRegister.email,
@@ -36,11 +49,23 @@ const registerUser = async () => {
             isSubscribed: formRegister.isSubscribed
         }
     });
-    console.log(user.value);
     // NOTE: clear form input
     formRegister.email = "";
     formRegister.username = "";
     formRegister.password = "";
+}
+
+const loginUser = async () => {
+    const { user, error } = await supabase.auth.signInWithPassword({
+        email: formLogin.username,
+        password: formLogin.password
+    });
+
+    if (error) {
+        alert("problem loggin in user");
+    }
+    console.log(user);
+    await navigateTo("/blog/uncensored");
 }
 
 //NOTENEW: sign in with oauth providers (using Github for now)
@@ -92,7 +117,7 @@ const removeRightPanel = () => container.value.classList.remove("right-panel-act
                             my monthly
                             newsletter</label>
                     </div>
-                    <Button text="Sign In" colourPrimary="#07343f" colourSecondary="#fefefe" />
+                    <Button text="Register" colourPrimary="#07343f" colourSecondary="#fefefe" />
                 </form>
                 <p class="login-alernative">Or Login With</p>
                 <div class="oauth">

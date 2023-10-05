@@ -16,6 +16,9 @@ const signOut = async () => {
     <LogoX />
     <ul class="navigation__list">
       <li class="navigation__list--item">
+        <NuxtLink to="/">Home</NuxtLink>
+      </li>
+      <li class="navigation__list--item">
         <NuxtLink to="/blog">Blogs</NuxtLink>
       </li>
       <li class="navigation__list--item">
@@ -35,10 +38,10 @@ const signOut = async () => {
       <!-- account username -->
 
       <li v-if="user?.role === 'authenticated'" class="navigation__list--item">
-        <span @click="signOut">Sign Out</span>
+        <span @click="signOut" style="color: #f0f0f0;">Sign Out</span>
       </li>
       <li v-if="user?.role === 'authenticated'" class="navigation__list--item">
-        <span style="color: #f0f0f0;">{{ user?.user_metadata.user_name }}</span>
+        <span style="color: #f0f0f0;">{{ user?.user_metadata.user_name || user.email }}</span>
       </li>
       <li v-else class="navigation__list--item">
         <NuxtLink to="/login">Sign In</NuxtLink>

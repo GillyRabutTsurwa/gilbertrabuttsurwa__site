@@ -57,8 +57,8 @@ onMounted(() => {
             </h1>
             <div class="header__buttons">
                 <NuxtLink to="/projects" target="_blank" class="header__buttons--button">View Projects</NuxtLink>
-                <NuxtLink to="/blog" target="_blank" class="header__buttons--button">Read Blogs</NuxtLink>
-                <NuxtLink to="/login" target="_blank" class="header__buttons--button">Login</NuxtLink>
+                <NuxtLink to="/blog" class="header__buttons--button">Read Blogs</NuxtLink>
+                <NuxtLink to="/login" class="header__buttons--button">Login</NuxtLink>
 
             </div>
         </div>
