@@ -18,7 +18,7 @@ export default defineNuxtConfig({
         redirectOptions: {
             login: "/login",
             callback: "/blog/uncensored",
-            exclude: ["/", "/blog", "/blog/personal", "/blog/tech", "/projects", "/shop"],
+            exclude: ["/", "/blog", "/blog/personal/*", "/blog/tech/*", "/projects", "/shop", "/contact"],
         },
     },
     runtimeConfig: {
@@ -28,7 +28,7 @@ export default defineNuxtConfig({
         auth: {
             secret: process.env.AUTH_SECRET,
         },
-        //NOTE: to use for making sanity client (via vanilla js)
+        // NOTE: to use for making sanity client (via vanilla js)
         // NOTE: need this to construct the api for all my endpoints
         sanity: {
             projectId: process.env.SANITY_PROJECT_ID,
