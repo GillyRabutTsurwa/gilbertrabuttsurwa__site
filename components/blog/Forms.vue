@@ -121,8 +121,11 @@ const removeRightPanel = () => container.value.classList.remove("right-panel-act
                 </form>
                 <p class="login-alernative">Or Login With</p>
                 <div class="oauth">
-                    <Icon @click="console.log('google login')" name="google" :pxSize="42" />
-                    <Icon @click="console.log('github login')" name="github" :pxSize="42" />
+                    <Icon @click="signInWithOAuth('google')" name="google" :pxSize="42" />
+                    <Icon @click="signInWithOAuth('github')" name="github" :pxSize="42" />
+                    <DevOnly>
+                        <Icon @click="console.log('facebook login')" name="facebook" :pxSize="42" />
+                    </DevOnly>
                 </div>
             </div>
         </div>
@@ -144,8 +147,11 @@ const removeRightPanel = () => container.value.classList.remove("right-panel-act
                 <p class="login-alernative">Or Login With</p>
                 <div class="oauth">
                     <!-- <Icon @click="signIn('google')" name="google" :pxSize="42" /> -->
-                    <Icon @click="signInWithOAuth('github')" name="github" :pxSize="42" />
                     <Icon @click="signInWithOAuth('google')" name="google" :pxSize="42" />
+                    <Icon @click="signInWithOAuth('github')" name="github" :pxSize="42" />
+                    <DevOnly>
+                        <Icon @click="console.log('facebook login')" name="facebook" :pxSize="42" />
+                    </DevOnly>
                 </div>
                 <div class="back-2-blogs" style="transform: translateY(25rem);">
                     <NuxtLink to="/blog">Back To Blogs</NuxtLink>
@@ -157,7 +163,7 @@ const removeRightPanel = () => container.value.classList.remove("right-panel-act
                 <div class="overlay-panel overlay-left">
                     <h1 style="margin-bottom: 2rem;">Welcome Back</h1>
                     <p style="margin-bottom: 2rem;">Sign in with your credentials and enjoy the blog posts</p>
-                    <Button @click="removeRightPanel" text="Sign Up" colourPrimary="#fefefe" colourSecondary="#07343f" />
+                    <Button @click="removeRightPanel" text="Sign In" colourPrimary="#fefefe" colourSecondary="#07343f" />
                 </div>
                 <div class="overlay-panel overlay-right">
                     <h1 style="margin-bottom: 2rem;">Register</h1>

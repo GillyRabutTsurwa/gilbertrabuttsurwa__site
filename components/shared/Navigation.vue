@@ -24,9 +24,11 @@ const signOut = async () => {
       <li class="navigation__list--item">
         <NuxtLink to="/blog/authours/gilbert-rabut-tsurwa">About Me</NuxtLink>
       </li>
-      <li class="navigation__list--item">
-        <NuxtLink to="/blog/uncensored">Uncensored Posts</NuxtLink>
-      </li>
+      <DevOnly>
+        <li class="navigation__list--item">
+          <NuxtLink to="/blog/uncensored">Uncensored Posts</NuxtLink>
+        </li>
+      </DevOnly>
       <li class="navigation__list--item">
         <NuxtLink to="/shop" target="_blank" rel="noreferrer noopener">Shop</NuxtLink>
       </li>
