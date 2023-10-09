@@ -2,12 +2,18 @@
 const isLoggedIn: Ref<boolean> = ref(false);
 const supabase = useSupabaseClient();
 const user = useSupabaseUser();
+const route = useRoute();
+const router = useRouter();
 console.log(user);
 
 const signOut = async () => {
-  const { error } = await supabase.auth.signOut();
-  if (error) console.log(error);
-  location.reload();
+  try {
+    const { error } = await supabase.auth.signOut();
+    if (error) throw new Error(error.message);
+    if (route.path === "/blog/uncensored") router.push("/login");
+  } catch (error) {
+    console.log(error);
+  }
 }
 </script>
 

@@ -15,13 +15,11 @@ export default defineNuxtConfig({
     supabase: {
         url: process.env.SUPABASE_URL,
         key: process.env.SUPABASE_KEY,
-        //TESTING: because i'm using my own using middleware/auth.ts
-        redirect: false,
-        // redirectOptions: {
-        //     login: "/login",
-        //     callback: "/blog/uncensored",
-        //     exclude: ["/", "/blog", "/blog/personal/*", "/blog/tech/*", "/projects", "/shop", "/contact"],
-        // },
+        redirectOptions: {
+            login: "/login",
+            callback: "/blog/uncensored",
+            exclude: ["/", "/blog", "/blog/personal", "/blog/personal/*", "/blog/tech", "/blog/tech/*", "/projects", "/shop", "/contact"],
+        },
     },
     runtimeConfig: {
         public: {
