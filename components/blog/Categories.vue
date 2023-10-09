@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { usePostsStore } from '@/stores/posts';
 
+const store = usePostsStore();
+
 const props = defineProps({
   posts: {
     type: Array,
@@ -17,7 +19,6 @@ props.posts.forEach((currentPost) => {
   console.log(currentPost.categories);
 })
 
-const store = usePostsStore();
 
 const populatePosts = () => {
   store.posts = props.posts;

@@ -40,7 +40,7 @@ function renderPagination(eventPayload) {
 <template>
   <Navigation />
   <FlexContainer layout="column">
-    <Categories listDisplay="row" />
+    <Categories :posts="store.techPosts" listDisplay="row" />
     <PostsTech :posts="store.filteredTechPosts" />
     <Pagination :postsPerPage="state.postsPerPage" :postsLength="store.filteredPosts.length"
       @paginate="renderPagination($event)" />
