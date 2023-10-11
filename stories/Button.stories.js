@@ -15,7 +15,7 @@ export default {
         onClick: {},
         size: {
             control: {
-                type: "select",
+                type: "radio",
             },
             options: ["small", "medium", "large"],
         },
