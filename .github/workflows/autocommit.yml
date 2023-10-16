@@ -3,6 +3,8 @@
 name: Auto Commit Settings
 
 on:
+    push:
+        branches: ["master"]
     schedule:
         - cron: "*/2 * * * *"
 
