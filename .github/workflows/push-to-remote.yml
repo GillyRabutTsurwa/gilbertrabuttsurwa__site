@@ -1,0 +1,22 @@
+# This workflow will do a will make issues from todos comments in my project
+
+name: Auto Commit Settings
+on:
+    push:
+        branches: ["master"]
+    schedule:
+        - cron: "*/1 * * * *"
+
+permissions:
+    contents: write
+
+jobs:
+    auto-commit:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Verifying Repository
+              uses: actions/checkout@v4
+            - name: Auto Push To Remote
+              run: |
+                  chmod +x ./scripts/push-to-remote.sh
+              shell: bash

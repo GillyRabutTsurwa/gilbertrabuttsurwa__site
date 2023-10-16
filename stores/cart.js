@@ -18,3 +18,5 @@ export const useCartStore = defineStore("cart", {
         },
     },
 });
+
+// TESTING: if action has worked, this code will be pushed to the github in 2 minutes (test settings leseeee)
