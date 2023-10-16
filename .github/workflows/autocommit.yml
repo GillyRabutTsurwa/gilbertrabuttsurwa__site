@@ -17,10 +17,16 @@ jobs:
             - name: Verifying Repository
               uses: actions/checkout@v4
               with:
-                  token: ${{secrets.ACCESS_TOKEN}}
+                  ref: master
+                  path: ./local_repo
             - name: Commit report
               run: |
+                  cd ./local_repo
                   git config --global user.name 'Gilbert Tsurwa'
                   git config --global user.email 'tsurwagilbert@gmail.com'
                   git commit -am "Automated report"
                   git push
+            - name: Push to Remote
+              run: |
+                  cd ./local_repo
+                  git push origin master
