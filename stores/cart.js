@@ -19,4 +19,4 @@ export const useCartStore = defineStore("cart", {
     },
 });
 
-// TESTING: using bash scripting. let us see if this works. now i just wait a bit
+// TESTING: using bash scripting. testing script. almost there
