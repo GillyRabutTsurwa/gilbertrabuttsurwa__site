@@ -19,4 +19,4 @@ export const useCartStore = defineStore("cart", {
     },
 });
 
-// TESTING: using bash scripting. cron works, except for git push part. hmmmmmm
+// TESTING: using bash scripting. cron works, except for git push part. hmmmmmmmmm
