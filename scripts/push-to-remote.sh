@@ -6,6 +6,7 @@ timestamp() {
 
 echo "Committing & Pushing to Remote"
 cd /home/rabuttsurwa96/Web\ Development/Projects/Personal/My\ Sites\ --gsm/Submodule\ Dev\ Environments/website/
+ssh -T git@github.com
 git add .
 git commit --message "Regular Auto-Commit $(timestamp)"
 git push
