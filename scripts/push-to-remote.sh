@@ -1,6 +1,6 @@
 #!/bin/bash
-eval "$(ssh-agent -s)"
-ssh-add /home/rabuttsurwa96/.ssh/id_github
+export GIT_SSH_COMMAND="ssh -i /home/rabuttsurwa96/.ssh/id_github"
+
 # Functions
 timestamp() {
     date +"at %H:%M:%S on %m/%d/%Y"
