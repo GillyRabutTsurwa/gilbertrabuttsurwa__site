@@ -1,4 +1,6 @@
 #!/bin/bash
+unset SSH_AUTH_SOCK
+unset KRB5CCNAME
 # Functions
 timestamp() {
     date +"at %H:%M:%S on %m/%d/%Y"
