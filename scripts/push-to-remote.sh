@@ -1,7 +1,7 @@
 #!/bin/bash
 # Functions
 timestamp() {
-    date +"at %H:%M:%S on %m/%d/%Y"
+    date +"at %H:%M:%S on %d/%m/%Y"
 }
 
 eval $(ssh-agent -s)
