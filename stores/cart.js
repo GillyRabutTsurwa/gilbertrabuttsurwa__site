@@ -19,4 +19,4 @@ export const useCartStore = defineStore("cart", {
     },
 });
 
-// TESTING: i think it worked.
+// TESTING: now using production remote to push to netlify
