@@ -21,4 +21,4 @@ export const useCartStore = defineStore("cart", {
 
 // TESTING: now using production remote to push to netlify.. still don't know if it worked......
 //NOTE: things seem to work well now. it's been a while though. testing. we bak
-//TESTING: git submodule test
+//TESTING: git submodule final test
