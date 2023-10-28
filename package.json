@@ -16,7 +16,8 @@
         "postinstall": "nuxt prepare",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
-        "release": "release-it"
+        "release": "release-it",
+        "release-minour": "release-it minour"
     },
     "devDependencies": {
         "@commitlint/cli": "^18.2.0",
