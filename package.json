@@ -52,6 +52,7 @@
         "vue3-marquee": "^4.0.0"
     },
     "release-it": {
+        "non-interactive": "false",
         "git": {
             "commitMessage": "chore: release v${version}"
         },
