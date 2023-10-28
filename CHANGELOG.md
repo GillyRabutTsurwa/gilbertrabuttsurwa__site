@@ -1,5 +1,12 @@
 
 
+## [1.1.4](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.1.3...v1.1.4) (2023-10-28)
+
+
+### Bug Fixes
+
+* auto-release not working ([d682c6b](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/d682c6bd8edc459811e35520f6ed7012ba073563))
+
 ## [1.1.3](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.1.2...v1.1.3) (2023-10-28)
 
 
