@@ -1,4 +1,8 @@
 {
+    "name": "gilbertrabuttsurwa.com__site",
+    "version": "1.0.0",
+    "description": "Coming Soon",
+    "main": "nuxt.config.ts",
     "private": true,
     "scripts": {
         "build": "nuxt build",
@@ -15,8 +19,11 @@
         "release": "release-it"
     },
     "devDependencies": {
+        "@commitlint/cli": "^18.2.0",
+        "@commitlint/config-conventional": "^18.1.0",
         "@nuxtjs/google-fonts": "^3.0.1",
         "@nuxtjs/supabase": "^1.1.2",
+        "@release-it/conventional-changelog": "^7.0.2",
         "@storybook/addon-essentials": "^7.2.1",
         "@storybook/addon-interactions": "^7.2.1",
         "@storybook/addon-links": "^7.2.1",
@@ -30,6 +37,7 @@
         "nuxt": "^3.7.3",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "release-it": "^16.2.1",
         "sass": "^1.64.2",
         "sass-loader": "^13.3.2",
         "storybook": "^7.2.1"
