@@ -1,5 +1,7 @@
 
 
+* fix: @release-it setup issues (e8edcda)
+
 ## [1.1.0](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v.sveltekit...v1.1.0) (2023-10-28)
 
 
