@@ -51,37 +51,6 @@
         "vue3-carousel": "^0.2.9",
         "vue3-marquee": "^4.0.0"
     },
-    "release-it": {
-        "non-interactive": "false",
-        "git": {
-            "commitMessage": "chore: release v${version}"
-        },
-        "github": {
-            "release": true
-        },
-        "npm": {
-            "publish": false
-        },
-        "plugins": {
-            "@release-it/conventional-changelog": {
-                "infile": "CHANGELOG.md",
-                "preset": {
-                    "name": "conventionalcommits",
-                    "types": [
-                        {
-                            "type": "feat",
-                            "section": "Features"
-                        },
-                        {
-                            "type": "fix",
-                            "section": "Bug Fixes"
-                        },
-                        {}
-                    ]
-                }
-            }
-        }
-    },
     "overrides": {
         "vue": "latest"
     }
