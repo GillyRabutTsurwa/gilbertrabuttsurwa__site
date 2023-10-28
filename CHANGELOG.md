@@ -1,5 +1,12 @@
 
 
+## [1.1.3](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.1.2...v1.1.3) (2023-10-28)
+
+
+### Bug Fixes
+
+* wrong script (spelling Error) ([c2ddf92](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/c2ddf92cd31debedc7c8703cfd69dadf89c98f02))
+
 ## [1.1.2](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.1.1...v1.1.2) (2023-10-28)
 
 * fix: @release-it setup issues (e8edcda)
