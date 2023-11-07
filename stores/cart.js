@@ -18,5 +18,3 @@ export const useCartStore = defineStore("cart", {
         },
     },
 });
-
-// TESTING: @release-it plugin... some more test
