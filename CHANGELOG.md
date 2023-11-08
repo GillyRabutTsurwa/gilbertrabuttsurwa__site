@@ -1,5 +1,12 @@
 
 
+## [1.2.0](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.1.4...v1.2.0) (2023-11-08)
+
+
+### Features
+
+* Reinstating Stripe ([cf8a12c](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/cf8a12c93a0ca5ba69f2d9d66a5f4f7744e1ab94))
+
 ## [1.1.4](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.1.3...v1.1.4) (2023-10-28)
 
 
