@@ -6,7 +6,7 @@ timestamp() {
 
 eval $(ssh-agent -s)
 ssh-add /home/rabuttsurwa96/.ssh/key_github
-echo "Committing & Pushing to Remote"
+echo "Initiating Auto Staging & Committing"
 cd /home/rabuttsurwa96/Web\ Development/Projects/Personal/My\ Sites\ --gsm/Submodule\ Dev\ Environments/website/
 git add .
 git commit --message "Scheculed Auto-Commit $(timestamp)"
