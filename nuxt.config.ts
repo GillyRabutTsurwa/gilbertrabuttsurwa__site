@@ -4,6 +4,9 @@ const storyblokOptions = {
 };
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+    devServer: {
+        // host: "0.0.0.0",
+    },
     modules: ["@nuxtjs/sanity", "@nuxtjs/supabase", "@nuxtjs/google-fonts", "@pinia/nuxt", ["@storyblok/nuxt", storyblokOptions]],
     //NOTE: for sanity config via @nuxt/sanityjs docs
     sanity: {

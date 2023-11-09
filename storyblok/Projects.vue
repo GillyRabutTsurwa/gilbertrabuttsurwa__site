@@ -27,24 +27,24 @@ console.log(props.blok);
         </ul>
 
         <h2 class="showcase-language-subtitle">{{ props.blok.js_title }}</h2>
-        <!-- <ul class="showcase__list">
-            <Thumbnail v-for="(currentJSAsset, index) in javascript" :key="index" :thumbnail="currentJSAsset" />
-        </ul> -->
+        <ul class="showcase__list">
+            <Project v-for="(currentProject, index) in props.blok.projects_js" :key="index" :project="currentProject" />
+        </ul>
 
         <h2 class="showcase-language-subtitle">{{ props.blok.vue_title }}</h2>
-        <!-- <ul class="showcase__list">
-            <Thumbnail v-for="(currentVueAsset, index) in vue" :key="index" :thumbnail="currentVueAsset" />
-        </ul> -->
+        <ul class="showcase__list">
+            <Project v-for="(currentProject, index) in props.blok.projects_vue" :key="index" :project="currentProject" />
+        </ul>
 
         <h2 class="showcase-language-subtitle">{{ props.blok.svelte_title }}</h2>
-        <!-- <ul class="showcase__list">
-            <Thumbnail v-for="(currentReactAsset, index) in react" :key="index" :thumbnail="currentReactAsset" />
-        </ul> -->
+        <ul class="showcase__list">
+            <Project v-for="(currentProject, index) in props.blok.projects_svelte" :key="index" :project="currentProject" />
+        </ul>
 
         <h2 class="showcase-language-subtitle">{{ props.blok.react_title }}</h2>
-        <!-- <ul class="showcase__list">
-            <Thumbnail v-for="(currentSvelteAsset, index) in svelte" :key="index" :thumbnail="currentSvelteAsset" />
-        </ul> -->
+        <ul class="showcase__list">
+            <Project v-for="(currentProject, index) in props.blok.projects_react" :key="index" :project="currentProject" />
+        </ul>
     </div>
 </template>
 
