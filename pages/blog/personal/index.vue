@@ -65,7 +65,9 @@ onUpdated(() => {
   <FlexContainer :layout="flexDir">
     <Main>
       <template v-slot:post-list>
-        <PostsPersonal :posts="currentPosts" />
+        <!-- <PostsPersonal :posts="currentPosts" /> -->
+        <!-- NOTE: below post doesnt exist yet -->
+        <Posts type="personal" :posts="currentPosts" />
       </template>
       <template v-slot:pagination>
         <Pagination :postsPerPage="state.postsPerPage" :postsLength="store.filteredPosts.length"

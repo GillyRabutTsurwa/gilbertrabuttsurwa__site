@@ -122,7 +122,7 @@ onMounted(() => {
     <FlexContainer :layout="flexDir">
       <Main>
         <template v-slot:post-list>
-          <PostsTech :posts="store.techPosts" />
+          <Posts type="tech" :posts="store.techPosts" />
         </template>
         <template v-slot:pagination>
           <Pagination :postsPerPage="state.postsPerPage" :postsLength="store.filteredTechPosts.length"

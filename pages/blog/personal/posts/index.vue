@@ -41,7 +41,7 @@ function renderPagination(eventPayload) {
   <Navigation />
   <FlexContainer layout="column">
     <Categories :posts="store.posts" listDisplay="row" />
-    <PostsPersonal :posts="store.filteredPosts" />
+    <Posts type="personal" :posts="store.filteredPosts" />
     <Pagination :postsPerPage="state.postsPerPage" :postsLength="store.filteredPosts.length"
       @paginate="renderPagination($event)" />
     <!-- <Newsletter /> NOTE: je suis pas sur que je vais le rendre ici ou pas -->
