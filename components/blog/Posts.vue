@@ -43,7 +43,7 @@ onMounted(() => {
 
 <template>
     <section v-if="type === 'personal'" class="blogs-personal">
-        <div v-for="(currentPost, index) in props.posts" :key="currentPost._id" class="blogs-personal__item">
+        <div v-for="currentPost in props.posts" :key="currentPost._id" class="blogs-personal__item">
             <figure class="blogs-personal__item--picture">
                 <SanityImage :asset-id="currentPost.thumbnail?.asset?._ref" auto="format" />
             </figure>
@@ -59,7 +59,7 @@ onMounted(() => {
         </div>
     </section>
     <section v-else-if="type === 'tech'" class="blogs-tech">
-        <div v-for="(currentPost, index) in props.posts" :key="currentPost._id" class="blogs-tech__item">
+        <div v-for="currentPost in props.posts" :key="currentPost._id" class="blogs-tech__item">
             <figure class="blogs-tech__item--picture">
                 <SanityImage :asset-id="currentPost.thumbnail.asset._ref" auto="format" />
             </figure>
