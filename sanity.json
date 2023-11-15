@@ -1,0 +1,10 @@
+{
+    "project": {
+        "name": "Production",
+        "basePath": "/production"
+    },
+    "api": {
+        "projectId": "g014cs9v",
+        "dataset": "production"
+    }
+}

@@ -10,7 +10,8 @@ dist
 
 # Added By Me
 .netlify
-localhost-key.pem
-localhost.pem
 .storybook
 .env.*
+localhost-key.pem
+localhost.pem
+sanity.groq

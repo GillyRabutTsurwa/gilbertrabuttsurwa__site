@@ -66,6 +66,39 @@ export default defineNuxtConfig({
                     name: "viewport",
                     content: "width=device-width, initial-scale=1.0",
                 },
+                /**
+                 * NOTE: attempt to add featured image on LinkedIn
+                 * thanks to this link: https://medium.com/@jamesyhiggs/how-to-add-thumbnail-images-to-the-featured-section-of-your-linkedin-profile-for-web-apps-sites-917346235932
+                 * copied this code from my original blog site
+                 */
+                {
+                    name: "description",
+                    content:
+                        "Welcome to my blog site where I have a personal section and a tech section. I write about a vast array of topics so if that interests you, take time to read my posts.",
+                },
+                {
+                    name: "title",
+                    property: "og:title",
+                    content: "Gilbert's Blog",
+                },
+                {
+                    property: "og:type",
+                    content: "Gilbert's Blog",
+                },
+                {
+                    name: "image",
+                    property: "og:image",
+                    content: "https://live.staticflickr.com/65535/52922380457_af2cf73399_k.jpg",
+                },
+                {
+                    name: "description",
+                    property: "og:description",
+                    content: "Gilbert's Blog",
+                },
+                {
+                    name: "author",
+                    content: "Gilbert Rabut Tsurwa",
+                },
             ],
             link: [
                 {
