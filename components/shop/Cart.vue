@@ -81,8 +81,8 @@ watch(() => cartItems.value, (newValue, oldValue) => {
 </script>
 
 <template>
-  <div @click.self="cartStore.toggleCartStatus" v-if="isCartOpen" :class="{ showCart: isCartOpen }" class="cart-overlay">
-    <div class="cart" :class="{ showCart: isCartOpen }">
+  <div @click.self="cartStore.toggleCartStatus" v-if="isCartOpen" class="cart-overlay">
+    <div class="cart">
       <span class="close-cart" @click="cartStore.toggleCartStatus">
         <i class="fas fa-window-close" />
       </span>
@@ -111,39 +111,17 @@ watch(() => cartItems.value, (newValue, oldValue) => {
   height: 100%;
   background-color: rgba(240, 157, 81, 0.4);
   z-index: 20;
-  -webkit-transition: all 0.3s linear;
-  transition: all 0.3s linear;
-  -webkit-transform: translateX(-30vw);
-  transform: translateX(-30vw);
 }
 
 .cart {
   position: absolute;
-  // right: 0;
-  right: -30vw;
+  right: 0;
   width: 30vw;
   height: 100%;
   overflow: scroll;
   background-color: rgb(255, 219, 183);
   padding: 1.5rem;
 }
-
-.showCart {
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
-  right: 0;
-}
-
-.transparentBcg {
-  visibility: visible;
-}
-
-// @media screen and (min-width: 768px) {
-//   .cart {
-//     width: 30vw;
-//     min-width: 450px;
-//   }
-// }
 
 .close-cart {
   font-size: 1.7rem;
