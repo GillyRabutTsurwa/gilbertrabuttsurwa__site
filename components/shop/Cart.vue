@@ -81,8 +81,8 @@ watch(() => cartItems.value, (newValue, oldValue) => {
 </script>
 
 <template>
-  <div @click.self="isCartOpen = false" v-if="isCartOpen" :class="{ showCart: isCartOpen }" class="cart-overlay">
-    <div class="cart" :class="{ showCart: isCartOpen, transparentBcg: isCartOpen }">
+  <div @click.self="cartStore.toggleCartStatus" v-if="isCartOpen" :class="{ showCart: isCartOpen }" class="cart-overlay">
+    <div class="cart" :class="{ showCart: isCartOpen }">
       <span class="close-cart" @click="cartStore.toggleCartStatus">
         <i class="fas fa-window-close" />
       </span>
@@ -109,46 +109,41 @@ watch(() => cartItems.value, (newValue, oldValue) => {
   right: 0;
   width: 100%;
   height: 100%;
+  background-color: rgba(240, 157, 81, 0.4);
+  z-index: 20;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
-  /* background: transparent; */
-  background-color: rgba(240, 157, 81, 0.5);
-  z-index: 20;
-  // visibility: hidden;
+  -webkit-transform: translateX(-30vw);
+  transform: translateX(-30vw);
 }
 
 .cart {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
+  position: absolute;
+  // right: 0;
+  right: -30vw;
+  width: 30vw;
   height: 100%;
   overflow: scroll;
-  background-color: rgb(231, 226, 221);
-  /* cart needs higher z-index que son parent, cart-overlay */
-  z-index: 30;
+  background-color: rgb(255, 219, 183);
   padding: 1.5rem;
-  -webkit-transition: all 0.3s linear;
-  transition: all 0.3s linear;
-  -webkit-transform: translateX(100%);
-  transform: translateX(100%);
 }
 
 .showCart {
-  -webkit-transform: translate(0);
-  transform: translate(0);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  right: 0;
 }
 
 .transparentBcg {
   visibility: visible;
 }
 
-@media screen and (min-width: 768px) {
-  .cart {
-    width: 30vw;
-    min-width: 450px;
-  }
-}
+// @media screen and (min-width: 768px) {
+//   .cart {
+//     width: 30vw;
+//     min-width: 450px;
+//   }
+// }
 
 .close-cart {
   font-size: 1.7rem;
