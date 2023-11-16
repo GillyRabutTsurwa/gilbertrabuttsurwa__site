@@ -69,8 +69,9 @@ function removeItem() {
 }
 
 .cart-item img {
-  width: 7.5rem;
-  height: 7.5rem;
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
 }
 
 .cart-item h4 {
