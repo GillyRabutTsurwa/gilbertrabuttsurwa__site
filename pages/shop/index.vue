@@ -3,9 +3,7 @@
 <template>
     <Navbar />
     <ShopHeader />
-    <Teleport>
-        <Cart />
-    </Teleport>
+    <Cart />
     <Products />
     <FooterX />
 </template>

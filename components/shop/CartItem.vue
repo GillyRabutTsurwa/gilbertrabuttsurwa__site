@@ -29,15 +29,14 @@ function decrementItem() {
       state.productsInCart.splice(index, 1);
     }
     return state.productsInCart
-  })
+  });
 }
 
 // remove all instances of a singular item, so if there's 10 "queen beds" this function will remove all queen beds
 function removeItem() {
-  // store.productsInCart.update((currentValue) => {
-  //     return currentValue.filter((arrayValue) => arrayValue !== cartItemProp);
-  // });
-  console.log("functionality coming soo")
+  store.$patch((state) => {
+    state.productsInCart = state.productsInCart.filter((currentProduct) => currentProduct !== props.cartItemProp);
+  });
 }
 </script>
 
