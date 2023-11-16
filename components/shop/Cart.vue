@@ -81,7 +81,7 @@ watch(() => cartItems.value, (newValue, oldValue) => {
 </script>
 
 <template>
-  <div @click.self="isCartOpen = false" v-if="isCartOpen" :class="{ showCart: isCartOpen }" class="cart-overlay">
+  <div class="cart-overlay">
     <div class="cart" :class="{ showCart: isCartOpen, transparentBcg: isCartOpen }">
       <span class="close-cart" @click="cartStore.toggleCartStatus">
         <i class="fas fa-window-close" />
@@ -114,7 +114,7 @@ watch(() => cartItems.value, (newValue, oldValue) => {
   /* background: transparent; */
   background-color: rgba(240, 157, 81, 0.5);
   z-index: 20;
-  // visibility: hidden;
+  visibility: hidden;
 }
 
 .cart {
