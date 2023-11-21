@@ -101,4 +101,4 @@ function removeItem() {
 }
 </style>
 
-<!-- TESTING: git submodules test, wagwanin? -->
+<!-- TESTING: email action test. c'est top -->
