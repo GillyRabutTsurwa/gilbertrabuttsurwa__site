@@ -21,7 +21,7 @@ jobs:
                   #   username: ${{secrets.USERNAME}}
                   username: ${{secrets.EMAIL_SERVER_USERNAME}}
                   #   password: ${{secrets.PASSWORD}}
-                  #   password: ${{secrets.EMAIL_SERVER_PASSWORD}}
+                    password: ${{secrets.EMAIL_SERVER_PASSWORD}}
                   #   subject: ${{matrix.subject}}
                   subject: "Testing Testing Yoyyoyo One One"
                   # body: ${{matrix.body}}
