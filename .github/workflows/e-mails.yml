@@ -25,8 +25,8 @@ jobs:
                   body: "Ça c'est un test courriel"
                   # html_body: ${{matrix.html_body}}
                   html_body: "<h1>Ça c'est un test de courriel</h1>"
-                  to: ${{github.event.pusher.email}}
-                  from: github-actions
+                  to: ${{github.event.pusher.email}}, gtsurwa@su.edu
+                  from: tsurwagilbert@gmail.com
                   # attachments: ${{matrix.attachments}}
                   # convert_markdown: ${{matrix.convert_markdown}}
                   priority: high
