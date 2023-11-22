@@ -20,13 +20,20 @@ jobs:
                   username: ${{secrets.EMAIL_SERVER_USERNAME}}
                   password: ${{secrets.EMAIL_SERVER_PASSWORD}}
                   #   subject: ${{matrix.subject}}
-                  subject: "Testing Testing Yoyyoyo One One"
+                  subject: "Testing Email"
                   # body: ${{matrix.body}}
-                  body: "Ça c'est un test courriel"
                   # html_body: ${{matrix.html_body}}
-                  html_body: "<h1>Ça c'est un test de courriel</h1>"
-                  to: ${{github.event.pusher.email}}, gtsurwa@su.edu
+                  html_body: |
+                      <!DOCTYPE html>
+                      <html>
+                      <body>
+                      <h1>Heading</h1>
+                      <p>Paragraph</p>
+                      <p>${{github.event.sender.email}}</p>
+                      </body>
+                      </html>
+                  to: tsurwagilbert@gmail.com, gtsurwa@su.edu
                   from: tsurwagilbert@gmail.com
                   # attachments: ${{matrix.attachments}}
                   # convert_markdown: ${{matrix.convert_markdown}}
-                  priority: high
+                  attachments: package.json
