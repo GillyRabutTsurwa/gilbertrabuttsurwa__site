@@ -100,5 +100,3 @@ function removeItem() {
   cursor: pointer;
 }
 </style>
-
-<!-- TESTING: email action test. c'est top. testing once more before i pay ratchet & clank ou dbz -->
