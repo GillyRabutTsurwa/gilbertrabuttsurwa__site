@@ -29,7 +29,7 @@ jobs:
                       <body>
                       <h1>Heading</h1>
                       <p>Paragraph</p>
-                      <p>${{github.event.sender.email}}</p>
+                      <p>${{github.event.pusher.email}}</p>
                       </body>
                       </html>
                   to: tsurwagilbert@gmail.com, gtsurwa@su.edu
