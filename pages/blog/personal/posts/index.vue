@@ -1,37 +1,44 @@
-<script setup>
+<script setup lang="ts">
 import groq from "groq";
 import { usePostsStore } from "@/stores/posts";
+import { ComputedRef } from "vue";
+import { Post } from "~/interfaces/post";
 
-const query = groq`*[_type == "personal-post"]`;
+const query: string = groq`*[_type == "personal-post"]`;
 const { data: posts } = await useSanityQuery(query);
 const store = usePostsStore();
 
 store.posts = posts.value;
 store.filteredPosts = posts.value;
 
-const state = reactive({
+interface Page {
+  currentPage: number;
+  postsPerPage: number
+}
+
+const state: Page = reactive({
   currentPage: 1,
   postsPerPage: 8
 });
 
-const indexOfLastPost = computed(() => {
+const indexOfLastPost: ComputedRef<number> = computed(() => {
   return state.currentPage * state.postsPerPage;
 });
 
-const indexOfFirstPost = computed(() => {
+const indexOfFirstPost: ComputedRef<number> = computed(() => {
   return indexOfLastPost.value - state.postsPerPage;
 });
 
-// this signifies the current posts on the page
-const currentPosts = computed(() => {
+//NOTE: this signifies the current posts on the page
+const currentPosts: ComputedRef<Post[]> = computed(() => {
   return store.filteredPosts.slice(indexOfFirstPost.value, indexOfLastPost.value);
 });
 
 onUpdated(() => {
   console.log(currentPosts.value);
-})
+});
 
-function renderPagination(eventPayload) {
+function renderPagination(eventPayload: number) {
   state.currentPage = eventPayload;
   console.log(eventPayload);
 }

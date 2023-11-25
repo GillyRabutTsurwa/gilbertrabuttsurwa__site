@@ -1,75 +1,57 @@
-<script setup>
+<script setup lang="ts">
 import groq from 'groq';
 import { usePostsStore } from '@/stores/posts';
 
-const postsQuery = groq`*[_type == "tech-post"]`;
-const { data: posts } = await useSanityQuery(postsQuery);
+interface Page {
+  currentPage: number;
+  postsPerPage: number;
+}
 
-const state = reactive({
+// VARIABLES
+const postsQuery: string = groq`*[_type == "tech-post"]`;
+const isColoured: Ref<boolean> = ref(true);
+const flexDir: Ref<string> = ref("");
+const iconNames: Ref<string[]> = ref(["html5", "css3", "sass", "codepen", "tailwindcss", "javascript", "typescript", "jquery", "vuejs", "nuxtjs", "svelte", "react", "gulp", "markdown", "git", "github", "php", "jest", "linux"]);
+const state: Page = reactive({
   currentPage: 1,
   postsPerPage: 8
 });
 
-const store = usePostsStore();
-store.techPosts = posts.value;
-store.filteredTechPosts = posts.value;
-
-const aboutQuery = groq`*[_type == "about"]`;
-const { data } = await useSanityQuery(aboutQuery);
-const allIntros = data.value;
-const techIntro = allIntros.find((currentIntro) => {
-  return currentIntro.aboutTitle.includes("Tech");
-});
-console.log(techIntro);
-const introText = techIntro.aboutText;
-
-// ====================================
+// COMPOSABLES
 const route = useRoute();
-const routeName = route.name;
+const store = usePostsStore();
+const { formatDate } = useFormatDate();
+const { showElement, toggleElementOnResize } = useBreakpoints();
+const { data: posts } = await useSanityQuery(postsQuery);
 
-const titleCategory = computed(() => {
-  return routeName.charAt(0).toUpperCase() + routeName.slice(1);
-});
-
-const iconNames = [
-  "html5",
-  "css3",
-  "sass",
-  "codepen",
-  "tailwindcss",
-  "javascript",
-  "typescript",
-  "jquery",
-  "vuejs",
-  "nuxtjs",
-  "svelte",
-  "react",
-  "gulp",
-  "markdown",
-  "git",
-  "github",
-  "php",
-  "jest",
-  "linux",
-  ,
-];
-
-const isColoured = ref(true);
-const colouredOrBW = computed(() => {
+// COMPUTED VALUES
+const colouredOrBW: ComputedRef<string> = computed(() => {
   return isColoured.value === true ? "plain colored" : "plain";
 });
 
-const setIconName = (iconName) => {
-  return `devicon-${iconName}-${colouredOrBW.value}`;
-};
-const { showElement, toggleElementOnResize } = useBreakpoints();
-if (process.client) window.addEventListener("resize", () => (toggleElementOnResize(767)));
-
-// NEW
-const { formatDate } = useFormatDate();
-const snippetLength = computed(() => {
+const snippetLength: ComputedRef<number> = computed(() => {
   return showElement.value ? 300 : 400;
 });
+
+// NOTE: pagination for code
+const indexOfLastPost: ComputedRef<number> = computed(() => {
+  return state.currentPage * state.postsPerPage;
+});
+
+const indexOfFirstPost: ComputedRef<number> = computed(() => {
+  return indexOfLastPost.value - state.postsPerPage;
+});
+
+const currentPosts = computed(() => {
+  return store.filteredPosts.slice(indexOfFirstPost.value, indexOfLastPost.value);
+});
+// =========================
+
+// FUNCTIONS
+function setIconName(iconName: string): string {
+  return `devicon-${iconName}-${colouredOrBW.value}`;
+};
+
 function getSnippet(blockContent) {
   const body = blockContent
     .filter(block => block._type === "block")
@@ -78,26 +60,17 @@ function getSnippet(blockContent) {
   return body.slice(0, snippetLength.value) + "...";
 }
 
-// NEW: Pagination code
-const indexOfLastPost = computed(() => {
-  return state.currentPage * state.postsPerPage;
-});
-
-const indexOfFirstPost = computed(() => {
-  return indexOfLastPost.value - state.postsPerPage;
-});
-
-const currentPosts = computed(() => {
-  return store.filteredPosts.slice(indexOfFirstPost.value, indexOfLastPost.value);
-});
-
-function renderPagination(eventPayload) {
+function renderPagination(eventPayload: number) {
   state.currentPage = eventPayload;
   console.log(eventPayload);
 }
 
-const flexDir = ref("");
+// CODE TO RUN ON COMPONENT CREATION
+store.techPosts = posts.value;
+store.filteredTechPosts = posts.value;
+if (process.client) window.addEventListener("resize", () => (toggleElementOnResize(767)));
 
+// LIFECYCLE HOOKS
 onMounted(() => {
   if (process.client) {
     toggleElementOnResize(767);
@@ -105,7 +78,7 @@ onMounted(() => {
     console.log(mediaQueryList);
     flexDir.value = mediaQueryList.matches ? "column" : "row";
   }
-})
+});
 </script>
 
 <template>

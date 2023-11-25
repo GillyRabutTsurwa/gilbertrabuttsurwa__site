@@ -1,7 +1,11 @@
 import { defineStore } from "pinia";
 
+type cartState = {
+    cartStatus: boolean;
+};
+
 export const useCartStore = defineStore("cart", {
-    state: () => {
+    state: (): cartState => {
         return {
             cartStatus: false,
         };

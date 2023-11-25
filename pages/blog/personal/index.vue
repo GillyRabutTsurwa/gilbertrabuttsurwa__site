@@ -1,26 +1,31 @@
-<script setup>
+<script setup lang="ts">
 import groq from "groq";
 import { usePostsStore } from '@/stores/posts';
 
-const query = groq`*[_type == "personal-post"]`;
-const { data: posts } = await useSanityQuery(query);
-const store = usePostsStore();
+interface Page {
+  currentPage: number;
+  postsPerPage: number;
+}
 
-console.log(posts.value);
-
-store.posts = posts.value;
-store.filteredPosts = posts.value;
-
-const state = reactive({
+// VARIABLES
+const query: string = groq`*[_type == "personal-post"]`;
+const flexDir: Ref<string> = ref("");
+const state: Page = reactive({
   currentPage: 1,
   postsPerPage: 8
 });
 
-const indexOfLastPost = computed(() => {
+// COMPOSABLES
+const store = usePostsStore();
+const { data: posts } = await useSanityQuery(query);
+
+
+// COMPUTED VALUES
+const indexOfLastPost: ComputedRef<number> = computed(() => {
   return state.currentPage * state.postsPerPage;
 });
 
-const indexOfFirstPost = computed(() => {
+const indexOfFirstPost: ComputedRef<number> = computed(() => {
   return indexOfLastPost.value - state.postsPerPage;
 });
 
@@ -28,13 +33,14 @@ const currentPosts = computed(() => {
   return store.filteredPosts.slice(indexOfFirstPost.value, indexOfLastPost.value);
 });
 
-function renderPagination(eventPayload) {
+// FUNCTIONS
+function renderPagination(eventPayload: number) {
   state.currentPage = eventPayload;
   console.log(eventPayload);
 }
 
 //NEW: send sanity posts to server
-const sendPostsToServer = async () => {
+async function sendPostsToServer() {
   const { data: allPosts } = await useFetch("/api/blogs/personal", {
     method: "POST",
     body: posts.value
@@ -42,9 +48,12 @@ const sendPostsToServer = async () => {
   console.log("Posts", allPosts.value); //Not really doing anything with this
 }
 
+// CODE TO RUN ON COMPONENT CREATION
+store.posts = posts.value;
+store.filteredPosts = posts.value;
 sendPostsToServer();
 
-const flexDir = ref("");
+// LIFECYCLE HOOKS
 onMounted(() => {
   if (process.client) {
     const mediaQueryList = window.matchMedia("(max-width: 1023px)");
@@ -53,7 +62,6 @@ onMounted(() => {
 
   }
 });
-
 onUpdated(() => {
   console.log(currentPosts.value);
 })
