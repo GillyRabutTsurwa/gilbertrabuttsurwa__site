@@ -1,4 +1,8 @@
 <script setup>
+//@todo: Convert JavaScript Code to TypeScript
+// start with this file. convert the JavaScript file to TypeScript
+// it's a good file to start with as it is not that big
+// labels: à faire, refactor
 import { useProductsStore } from "~/stores/products";
 
 const store = useProductsStore();
