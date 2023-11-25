@@ -1,26 +1,25 @@
 <script setup lang="ts">
 import groq from "groq";
-import { usePostsStore } from "@/stores/posts";
-import { ComputedRef } from "vue";
+import { usePostsStore } from "@/stores/posts"
 import { Post } from "~/interfaces/post";
-
-const query: string = groq`*[_type == "personal-post"]`;
-const { data: posts } = await useSanityQuery(query);
-const store = usePostsStore();
-
-store.posts = posts.value;
-store.filteredPosts = posts.value;
 
 interface Page {
   currentPage: number;
   postsPerPage: number
 }
 
+// VARIABLES
+const query: string = groq`*[_type == "personal-post"]`;
 const state: Page = reactive({
   currentPage: 1,
   postsPerPage: 8
 });
 
+// COMPOSABLES
+const { data: posts } = await useSanityQuery(query);
+const store = usePostsStore();
+
+// COMPUTED VALUES
 const indexOfLastPost: ComputedRef<number> = computed(() => {
   return state.currentPage * state.postsPerPage;
 });
@@ -34,14 +33,20 @@ const currentPosts: ComputedRef<Post[]> = computed(() => {
   return store.filteredPosts.slice(indexOfFirstPost.value, indexOfLastPost.value);
 });
 
-onUpdated(() => {
-  console.log(currentPosts.value);
-});
-
+// FUNCTIONS
 function renderPagination(eventPayload: number) {
   state.currentPage = eventPayload;
   console.log(eventPayload);
 }
+
+// CODE TO RUN ON COMPONENT CREATION
+store.posts = posts.value;
+store.filteredPosts = posts.value;
+
+// LIFECYCLE HOOKS
+onUpdated(() => {
+  console.log(currentPosts.value);
+});
 </script> 
   
 <template>
@@ -54,8 +59,6 @@ function renderPagination(eventPayload: number) {
     <!-- <Newsletter /> NOTE: je suis pas sur que je vais le rendre ici ou pas -->
   </FlexContainer>
 </template>
-    
-    
     
 <style lang="scss" scoped>
 .containertings {
