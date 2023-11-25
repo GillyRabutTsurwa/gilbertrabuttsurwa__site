@@ -40,7 +40,6 @@ export interface Post {
     _createdAt: string;
     _updatedAt: Date;
     _type: string;
-    // NOTE: not sure if this part below will work
     author: {
         _ref: string;
         _type: string;

@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { Post } from "~/interfaces/post";
 
-interface PostState {
+interface State {
     posts: Array<Post>;
     techPosts: Array<Post>;
     filteredPosts: Array<Post>;
@@ -9,7 +9,7 @@ interface PostState {
 }
 
 export const usePostsStore = defineStore("posts", {
-    state: (): PostState => {
+    state: (): State => {
         return {
             posts: [],
             techPosts: [],
