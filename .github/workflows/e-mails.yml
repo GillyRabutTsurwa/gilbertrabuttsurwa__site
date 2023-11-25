@@ -3,8 +3,8 @@
 name: Making Issues From Todos
 
 on:
-    push:
-        branches: ["develop"]
+    issues:
+        types: ["opened", "edited", "closed"]
 
 jobs:
     send-email:
@@ -29,6 +29,7 @@ jobs:
                       <body>
                       <h1>Heading</h1>
                       <p>Paragraph</p>
+                      <p>${{github.event.issue.body}}</p>
                       </body>
                       </html>
                   to: tsurwagilbert@gmail.com, gtsurwa@su.edu
