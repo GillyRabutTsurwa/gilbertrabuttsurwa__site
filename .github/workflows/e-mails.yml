@@ -28,8 +28,12 @@ jobs:
                       <html>
                       <body>
                       <h1>Heading</h1>
-                      <p>Paragraph</p>
+                      <p>${{github.event.issue.title}}</p>
                       <p>${{github.event.issue.body}}</p>
+                      <a href="${{github.event.issue.url}}">Access the Issue in GitHub</a>
+                      <p>${{github.event.issue.state}}</p>
+                      <p>${{github.event.issue.assignee}}</p>
+
                       </body>
                       </html>
                   to: tsurwagilbert@gmail.com, gtsurwa@su.edu
