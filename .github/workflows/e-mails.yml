@@ -19,14 +19,8 @@ jobs:
                   server_port: 465
                   username: ${{secrets.EMAIL_SERVER_USERNAME}}
                   password: ${{secrets.EMAIL_SERVER_PASSWORD}}
-                  #   subject: ${{matrix.subject}}
                   subject: "Testing Email"
-                  # body: ${{matrix.body}}
-                  # html_body: ${{matrix.html_body}}
                   html_body: file://README.md
                   convert_markdown: true
                   to: tsurwagilbert@gmail.com, gtsurwa@su.edu
                   from: tsurwagilbert@gmail.com
-                  # attachments: ${{matrix.attachments}}
-                  # convert_markdown: ${{matrix.convert_markdown}}
-                  attachments: package.json

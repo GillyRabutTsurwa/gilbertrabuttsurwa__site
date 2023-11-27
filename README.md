@@ -3,4 +3,5 @@
 
 # My Website
 
-This is the documentation to my [website][website]. This website is built with [NuxtJS][nuxt], eventually I will create a shop using [Sanity](https://sanity.io). More coming soon
+This is the documentation to my [website][website]. This website is built with [NuxtJS][nuxt], eventually I will create a shop using [Sanity](https://sanity.io). More coming soon.
+Trying to output github context object property [here](${{github.event.issue.url}})
