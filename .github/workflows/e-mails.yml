@@ -20,7 +20,19 @@ jobs:
                   username: ${{secrets.EMAIL_SERVER_USERNAME}}
                   password: ${{secrets.EMAIL_SERVER_PASSWORD}}
                   subject: "GitHub Issue E-mail"
-                  html_body: file://templates/email/issue.html
-                  #   convert_markdown: true
+                  html_body: |
+                      <!DOCTYPE html>
+                      <html lang="en">
+                      <body>
+                          <p>
+                              <a href="${{github.event.issue.html_url}}">Issue # ${{github.event.issue.number}} ${{github.event.issue.title}}</a>
+                          </p>
+                          <hr>
+                          <p>${{github.event.issue.body}}</p>
+                          <p>${{github.event.issue.labels.name}}
+                          <p>${{github.event.issue.state}}</p>
+                          <p>${{github.event.issue.state_reason}}</p>
+                      </body>
+                      </html>
                   to: tsurwagilbert@gmail.com, gtsurwa@su.edu
                   from: tsurwagilbert@gmail.com
