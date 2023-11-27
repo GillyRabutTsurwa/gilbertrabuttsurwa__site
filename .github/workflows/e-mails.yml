@@ -21,6 +21,6 @@ jobs:
                   password: ${{secrets.EMAIL_SERVER_PASSWORD}}
                   subject: "GitHub Issue E-mail"
                   html_body: file://templates/email/issue.html
-                  convert_markdown: true
+                  #   convert_markdown: true
                   to: tsurwagilbert@gmail.com, gtsurwa@su.edu
                   from: tsurwagilbert@gmail.com
