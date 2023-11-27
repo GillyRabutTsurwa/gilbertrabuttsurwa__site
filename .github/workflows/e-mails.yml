@@ -23,19 +23,7 @@ jobs:
                   subject: "Testing Email"
                   # body: ${{matrix.body}}
                   # html_body: ${{matrix.html_body}}
-                  html_body: |
-                      <!DOCTYPE html>
-                      <html>
-                      <body>
-                      <h1>Heading</h1>
-                      <p>${{github.event.issue.title}}</p>
-                      <p>${{github.event.issue.body}}</p>
-                      <a href="${{github.event.issue.url}}">Access the Issue in GitHub</a>
-                      <p>${{github.event.issue.state}}</p>
-                      <p>${{github.event.issue.assignee}}</p>
-
-                      </body>
-                      </html>
+                  html_body: file://README.md
                   to: tsurwagilbert@gmail.com, gtsurwa@su.edu
                   from: tsurwagilbert@gmail.com
                   # attachments: ${{matrix.attachments}}
