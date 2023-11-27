@@ -24,6 +24,7 @@ jobs:
                   # body: ${{matrix.body}}
                   # html_body: ${{matrix.html_body}}
                   html_body: file://README.md
+                  convert_markdown: true
                   to: tsurwagilbert@gmail.com, gtsurwa@su.edu
                   from: tsurwagilbert@gmail.com
                   # attachments: ${{matrix.attachments}}
