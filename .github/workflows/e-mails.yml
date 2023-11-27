@@ -19,8 +19,8 @@ jobs:
                   server_port: 465
                   username: ${{secrets.EMAIL_SERVER_USERNAME}}
                   password: ${{secrets.EMAIL_SERVER_PASSWORD}}
-                  subject: "Testing Email"
-                  html_body: file://README.md
+                  subject: "GitHub Issue E-mail"
+                  html_body: file://templates/email/issue.html
                   convert_markdown: true
                   to: tsurwagilbert@gmail.com, gtsurwa@su.edu
                   from: tsurwagilbert@gmail.com
