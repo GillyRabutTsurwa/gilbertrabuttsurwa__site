@@ -1,5 +1,12 @@
 
 
+## [1.2.1](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.2.0...v1.2.1) (2023-12-01)
+
+
+### Bug Fixes
+
+* Cart UX is improved, with smooth transition ([142b334](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/142b334833ff7b3bbd6d30c939397687ec698c6f))
+
 ## [1.2.0](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.1.4...v1.2.0) (2023-11-08)
 
 
