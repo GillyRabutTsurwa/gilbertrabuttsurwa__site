@@ -165,3 +165,5 @@ watch(() => cartItems.value, (newValue, oldValue) => {
   }
 }
 </style>
+
+<!-- NOTE: forgot to make the commit as a release in the feature branch. hence this comment -->
