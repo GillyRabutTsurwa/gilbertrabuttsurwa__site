@@ -81,46 +81,53 @@ watch(() => cartItems.value, (newValue, oldValue) => {
 </script>
 
 <template>
-  <div @click.self="cartStore.toggleCartStatus" v-if="isCartOpen" class="cart-overlay">
-    <div class="cart">
-      <span class="close-cart" @click="cartStore.toggleCartStatus">
-        <i class="fas fa-window-close" />
-      </span>
-      <h2>Your cart</h2>
-      <div class="cart-content">
-        <CartItem v-for="(currentProduct, index) in productsInCartUI" :key="index" :cartItemProp="currentProduct" />
-        <h5 v-if="productsInCartUI.length === 0" style="text-align:center;">Your Cart is Empty</h5>
-      </div>
-      <div class="cart-footer">
-        <h3>Your total : $ <span class="cart-total">{{ (sum / 100).toFixed(2) }}</span></h3>
-        <div class="buttons">
-          <Button @click="clearCart" text="Clear Cart" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
-          <Button @click="stripeCheckout" text="Checkout" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
-        </div>
+  <!-- <div @click.self="cartStore.toggleCartStatus" v-if="isCartOpen" class="cart-overlay"> -->
+  <div :class="{ show: cartStore.cartStatus }" class="cart">
+    <span class="close-cart" @click="cartStore.toggleCartStatus">
+      <i class="fas fa-window-close" />
+    </span>
+    <h2>Your cart</h2>
+    <div class="cart-content">
+      <CartItem v-for="(currentProduct, index) in productsInCartUI" :key="index" :cartItemProp="currentProduct" />
+      <h5 v-if="productsInCartUI.length === 0" style="text-align:center;">Your Cart is Empty</h5>
+    </div>
+    <div class="cart-footer">
+      <h3>Your total : $ <span class="cart-total">{{ (sum / 100).toFixed(2) }}</span></h3>
+      <div class="buttons">
+        <Button @click="clearCart" text="Clear Cart" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
+        <Button @click="stripeCheckout" text="Checkout" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
       </div>
     </div>
   </div>
+  <!-- </div> -->
 </template>
 
 <style scoped lang="scss">
-.cart-overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(240, 157, 81, 0.4);
-  z-index: 20;
-}
+// .show {
+//   transform: translateX(0vw);
+// }
 
 .cart {
-  position: absolute;
+  position: fixed;
+  top: 0;
   right: 0;
   width: 30vw;
   height: 100%;
   overflow: scroll;
+  z-index: 1000;
   background-color: rgb(255, 219, 183);
   padding: 1.5rem;
+  transform: translateX(30vw);
+  transition: transform 0.5s ease;
+
+  @include breakpoint(767) {
+    width: 100vw;
+    transform: translateX(100vw);
+  }
+
+  &.show {
+    transform: translateX(0vw);
+  }
 }
 
 .close-cart {
