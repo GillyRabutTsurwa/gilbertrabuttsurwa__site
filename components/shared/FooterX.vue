@@ -1,12 +1,5 @@
-<script setup>
-/**
- * NOTE: using props keep track of the mode in the footer
- * but more importantly, i'm using it to dynamically change the logo in the footer
- * NOTEIMPORTANT: the code for defining the props has been removed to be used later
- */
-
-//NOTE: for copyright statement
-const currentYear = computed(() => {
+<script setup lang="ts">
+const currentYear: ComputedRef<number> = computed(() => {
     return new Date().getFullYear();
 });
 </script>
@@ -49,16 +42,16 @@ const currentYear = computed(() => {
         <ul class="links-footer__follow">
             <h4 class="links-footer__subtitle">Links</h4>
             <li class="links-footer--item">
-                <NuxtLink to="/personal/posts">Blogs</NuxtLink>
+                <NuxtLink to="/blog">Blog</NuxtLink>
+            </li>
+            <li class="links-footer--item">
+                <NuxtLink to="/blog/uncensored">Uncensored</NuxtLink>
             </li>
             <li class="links-footer--item">
                 <NuxtLink to="/authours/gilbert-rabut-tsurwa" target="_blank" rel="noopener noreferrer">About Me</NuxtLink>
             </li>
             <li class="links-footer--item">
-                <NuxtLink to="/tech" target="_blank" rel="noopener noreferrer">Tech Page</NuxtLink>
-            </li>
-            <li class="links-footer--item">
-                <a href="https://gilbertrabuttsurwa.tech/projects" target="_blank" rel="noopener noreferrer">Projects</a>
+                <NuxtLink to="/projects">Projects</NuxtLink>
             </li>
         </ul>
         <ul class="links-footer__socials">
@@ -74,8 +67,8 @@ const currentYear = computed(() => {
                 </a>
             </li>
             <li class="links-footer--item">
-                <a href="https://www.linkedin.com/in/gilberttsurwa" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-twitter"></i>
+                <a href="https://www.github.com/GillyRabutTsurwa" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
                 </a>
             </li>
             <li class="links-footer--item">
@@ -118,7 +111,8 @@ const currentYear = computed(() => {
     place-items: center;
     // align-content: center;
     row-gap: 2.5rem;
-    background-color: #104f55;
+    // background-color: #104f55;
+    background-color: #1a2934;
     color: #fefefe;
 
     @include breakpoint(480) {

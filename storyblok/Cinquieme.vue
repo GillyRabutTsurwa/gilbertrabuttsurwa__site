@@ -9,7 +9,7 @@ const logChange = (emitValue) => {
   <section class="map landing">
     <h2>Gil's Favourite Spots</h2>
     <span>Scroll {{ status }}</span>
-    <!-- <MapX @scroll-status="logChange" /> -->
+    <MapX @scroll-status="logChange" />
   </section>
 </template>
 

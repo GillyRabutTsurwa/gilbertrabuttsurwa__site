@@ -1,12 +1,11 @@
 import Stripe from "stripe";
 import imageUrlBuilder from "@sanity/image-url";
-import { RuntimeConfig } from "nuxt/schema";
 import { client, fetchProducts } from "../products/index.get";
 
-const config: RuntimeConfig = useRuntimeConfig();
+const config = useRuntimeConfig();
 
 const builder = imageUrlBuilder(client);
-const urlFor = (source) => builder.image(source);
+const urlFor = (source: any) => builder.image(source);
 
 const stripe = new Stripe(config.stripe.key, {
     apiVersion: "2022-11-15",
@@ -20,8 +19,8 @@ export default defineEventHandler(async (event) => {
     console.log("---------");
     console.log(products);
 
-    const lineItems = body.items.map((currentItem) => {
-        const storeItem = products.find((currentProduct) => currentProduct._id === currentItem.id);
+    const lineItems = body.items.map((currentItem: any) => {
+        const storeItem = products.find((currentProduct: any) => currentProduct._id === currentItem.id);
         const str = storeItem.mainImage.asset._ref;
         const { baseUrl, projectId, dataset, source } = urlFor(str).options;
         return {

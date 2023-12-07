@@ -24,7 +24,18 @@ export default defineNuxtConfig({
         redirectOptions: {
             login: "/login",
             callback: "/blog/uncensored",
-            exclude: ["/", "/blog", "/blog/personal", "/blog/personal/*", "/blog/tech", "/blog/tech/*", "/projects", "/shop", "/contact"],
+            exclude: [
+                "/",
+                "/blog",
+                "/blog/personal",
+                "/blog/personal/*",
+                "/blog/tech",
+                "/blog/tech/*",
+                "/projects",
+                "/shop",
+                "/contact",
+                "/authours/*",
+            ],
         },
     },
     runtimeConfig: {
