@@ -1,4 +1,4 @@
-import { PortableTextBlock } from "sanity";
+import type { PortableTextBlock } from "sanity";
 
 type image = {
     _type: string;

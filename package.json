@@ -8,8 +8,8 @@
         "build": "nuxt build",
         "dev": "nuxt dev --dotenv .env.local",
         "dev-full": "nuxt dev",
-        "clean": "nuxi clean",
-        "deep-clean": "nuxi clean && rm package-lock.json & rm -rf node_modules",
+        "clean": "nuxi cleanup",
+        "deep-clean": "nuxi cleanup && rm package-lock.json & rm -rf node_modules",
         "storyblok": "NODE_TLS_REJECT_UNAUTHORIZED=0 nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem --dotenv .env.staging",
         "generate": "nuxt generate",
         "preview": "nuxt preview",
@@ -22,6 +22,7 @@
     "devDependencies": {
         "@commitlint/cli": "^18.2.0",
         "@commitlint/config-conventional": "^18.1.0",
+        "@nuxt/devtools": "^1.0.4",
         "@nuxtjs/google-fonts": "^3.0.2",
         "@nuxtjs/supabase": "^1.1.2",
         "@release-it/conventional-changelog": "^7.0.2",

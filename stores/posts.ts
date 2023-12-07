@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { Post } from "~/interfaces/post";
+import type { Post } from "~/interfaces/post";
 
 interface State {
     posts: Array<Post>;

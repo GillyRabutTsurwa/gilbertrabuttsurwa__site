@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import groq from "groq";
 import { usePostsStore } from "@/stores/posts"
-import { Post } from "~/interfaces/post";
+import type { Post } from "~/interfaces/post";
+import type { StateTree, Store } from "pinia";
 
 interface Page {
   currentPage: number;
@@ -17,7 +18,19 @@ const state: Page = reactive({
 
 // COMPOSABLES
 const { data: posts } = await useSanityQuery(query);
-const store = usePostsStore();
+/**
+ * NOTEIMPORTANT:
+ * below code fixes the type issue of assigning store values,
+ * like when I do store.posts = posts.value
+ * i think what is happening is when i pass the ID of my store to this generic, which is posts...
+ * ... the StateTree "argument" seems to take care of the rest, knowing what types are acceptable based on my store definitions
+ * i am not 100% that is the case, but this is what i think is happening
+ * 
+ * edit: i think this is even more so the case, because putting in the wrong in the generic will throw an error
+ * found the solution thanks to this StackOverflow post
+ * https://stackoverflow.com/questions/69833591/how-to-set-the-type-for-the-state-object-in-pinia
+ */
+const store: Store<"posts", StateTree> = usePostsStore();
 
 // COMPUTED VALUES
 const indexOfLastPost: ComputedRef<number> = computed(() => {

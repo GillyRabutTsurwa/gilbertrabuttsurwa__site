@@ -10,6 +10,7 @@ console.log(route.meta);
 const versionType = import.meta.env.DEV ? "draft" : "published";
 const story = await useAsyncStoryblok("/projects", { version: versionType });
 console.log(story);
+console.log(story.value);
 console.log(story.value.content);
 </script>
 
