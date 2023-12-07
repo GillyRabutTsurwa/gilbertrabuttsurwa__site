@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import groq from 'groq';
 import Stripe from "stripe";
-// import { RuntimeConfig } from "nuxt/schema";
-import { useProductsStore } from '@/stores/products';
-import type { Product } from "~/interfaces/product";
 import type { StateTree, Store } from 'pinia';
+import type { Product } from "~/interfaces/product";
+import { useProductsStore } from '@/stores/products';
 
-// const config: RuntimeConfig = useRuntimeConfig();
 const config = useRuntimeConfig();
 
 const stripe: Stripe = new Stripe(config?.stripe?.key, {
@@ -15,10 +13,11 @@ const stripe: Stripe = new Stripe(config?.stripe?.key, {
 const query = groq`*[_type == "product"]`;
 const { data: products } = await useSanityQuery(query);
 
+// NOTE: consult pages/blog/personal/posts/index.vue for a detailed explanation of this one line of code below
 const store: Store<"products", StateTree> = useProductsStore();
 store.products = products.value;
 
-store.products.forEach(async (currentProduct) => {
+store.products.forEach(async (currentProduct: Product) => {
   const products = await stripe.products.create({
     name: currentProduct.name
   });
