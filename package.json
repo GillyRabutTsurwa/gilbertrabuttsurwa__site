@@ -10,7 +10,7 @@
         "dev-full": "nuxt dev",
         "clean": "nuxi cleanup",
         "deep-clean": "nuxi cleanup && rm package-lock.json & rm -rf node_modules",
-        "storyblok": "NODE_TLS_REJECT_UNAUTHORIZED=0 nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem --dotenv .env.staging",
+        "dev-https": "NODE_TLS_REJECT_UNAUTHORIZED=0 nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem --dotenv .env.staging",
         "generate": "nuxt generate",
         "preview": "nuxt preview",
         "postinstall": "nuxt prepare",
