@@ -4,10 +4,10 @@ timestamp() {
     date +"at %H:%M:%S on %d/%m/%Y"
 }
 
-if [ -z "$(git diff --exit-code)" ] && [ "$(git diff --staged --exit-code)" ]
-then 
-    echo "Your working tree is clean... for now"
-fi
+# if [ -z "$(git diff --exit-code)" ] && [ "$(git diff --staged --exit-code)" ]
+# then 
+#     echo "Your working tree is clean... for now"
+# fi
 
 if [ "$(git diff --exit-code)" ]
 then
@@ -27,6 +27,8 @@ then
     sleep 5s
     echo "Pushing to master"
     git push origin master
+else 
+    echo "Your working tree is clean... for now"
 fi
 
 # if [ "$(git rev-list --count --right-only @{u}...HEAD)" -gt 0 ]
