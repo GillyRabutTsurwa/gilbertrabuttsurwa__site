@@ -4,7 +4,7 @@ timestamp() {
     date +"at %H:%M:%S on %d/%m/%Y"
 }
 
-if [ -z "$(git diff --exit-code)" && "$(git diff --staged --exit-code)" ]
+if [ -z "$(git diff --exit-code)" ] && [ "$(git diff --staged --exit-code)" ]
 then 
     echo "Your working tree is clean... for now"
 fi
