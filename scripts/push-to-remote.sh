@@ -4,8 +4,6 @@ timestamp() {
     date +"at %H:%M:%S on %d/%m/%Y"
 }
 
-eval $(ssh-agent -s)
-ssh-add /home/rabuttsurwa96/.ssh/key_github
 
 if [ "$(git diff --exit-code)" ]
 then
@@ -14,6 +12,8 @@ elif [ "$(git diff --staged --exit-code)" ]
 then 
     echo "You have some staged changes to commit"
     sleep 5s
+    eval $(ssh-agent -s)
+    ssh-add /home/rabuttsurwa96/.ssh/key_github
     cd /home/rabuttsurwa96/Web\ Development/Projects/Personal/My\ Sites\ --gsm/Submodule\ Dev\ Environments/gilbertrabuttsurwa.com/frontend
     git commit --message "Scheculed Auto-Commit $(timestamp)"
     git push origin master  
