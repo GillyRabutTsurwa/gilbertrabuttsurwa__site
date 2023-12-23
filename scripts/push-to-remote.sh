@@ -7,6 +7,7 @@ timestamp() {
 if [ "$(git diff --exit-code)" ]
 then
     echo "You have some unstaged changes to add"
+    git status --porcelain | lolcat
 elif [ "$(git diff --staged --exit-code)" ]
 then 
     echo "You have some staged changes to commit"
@@ -20,7 +21,7 @@ then
     git push origin master  
 elif [ "$(git rev-list --count --right-only @{u}...HEAD)" -gt 0 ]
 then
-    echo "Your local branch is $(git rev-list --count --right-only @{u}...HEAD) commits ahead of the remote branch. Push needed"
+    echo "Your local branch is $(git rev-list --count --right-only @{u}...HEAD) commits ahead of the remote branch"
     sleep 5s
     echo "Pushing to master"
     git push origin master
