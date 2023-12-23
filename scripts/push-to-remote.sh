@@ -4,10 +4,13 @@ timestamp() {
     date +"at %H:%M:%S on %d/%m/%Y"
 }
 
+cd /home/rabuttsurwa96/Web\ Development/Projects/Personal/My\ Sites\ --gsm/Submodule\ Dev\ Environments/gilbertrabuttsurwa.com/frontend
+
+
 if [ "$(git diff --exit-code)" ]
 then
     echo "You have some unstaged changes to add"
-    git status --porcelain | lolcat
+    git status --porcelain
 elif [ "$(git diff --staged --exit-code)" ]
 then
     echo "You have some staged changes to commit"
@@ -15,7 +18,7 @@ then
     eval $(ssh-agent -s)
     echo "Adding SSH Key to agent to authorise push through this script"
     ssh-add /home/rabuttsurwa96/.ssh/key_github
-    cd /home/rabuttsurwa96/Web\ Development/Projects/Personal/My\ Sites\ --gsm/Submodule\ Dev\ Environments/gilbertrabuttsurwa.com/frontend
+    # cd /home/rabuttsurwa96/Web\ Development/Projects/Personal/My\ Sites\ --gsm/Submodule\ Dev\ Environments/gilbertrabuttsurwa.com/frontend
     echo "Creating auto-commit"
     git commit --message "Scheculed Auto-Commit $(timestamp)"
     git push origin master
