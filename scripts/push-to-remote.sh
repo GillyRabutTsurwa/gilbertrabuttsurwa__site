@@ -19,7 +19,7 @@ then
     echo "Creating auto-commit"
     git commit --message "Scheculed Auto-Commit $(timestamp)"
     git push origin master  
-elif [ "$(git rev-list --count --right-only @{u}...HEAD)" -gt 0 ]
+elif [[ "$(/usr/bin/git rev-list --count --right-only @{u}...HEAD)" -gt 0 ]]
 then
     echo "Your local branch is $(git rev-list --count --right-only @{u}...HEAD) commits ahead of the remote branch"
     sleep 5s
