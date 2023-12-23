@@ -18,7 +18,7 @@ then
     git push origin master  
 elif [ "$(git rev-list --count --right-only @{u}...HEAD)" -gt 0 ]
 then
-    echo "Your local branch is $(git rev-list --count --right-only @{u}...HEAD) commits ahead of the remote branch. Push needed."
+    echo "Your local branch is $(git rev-list --count --right-only @{u}...HEAD) commits ahead of the remote branch. Push needed"
     sleep 5s
     echo "Pushing to master"
     git push origin master
