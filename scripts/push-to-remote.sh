@@ -9,7 +9,7 @@ then
     echo "You have some unstaged changes to add"
     git status --porcelain | lolcat
 elif [ "$(git diff --staged --exit-code)" ]
-then 
+then
     echo "You have some staged changes to commit"
     sleep 5s
     eval $(ssh-agent -s)
@@ -18,13 +18,13 @@ then
     cd /home/rabuttsurwa96/Web\ Development/Projects/Personal/My\ Sites\ --gsm/Submodule\ Dev\ Environments/gilbertrabuttsurwa.com/frontend
     echo "Creating auto-commit"
     git commit --message "Scheculed Auto-Commit $(timestamp)"
-    git push origin master  
-elif [[ "$(/usr/bin/git rev-list --count --right-only @{u}...HEAD)" -gt 0 ]]
+    git push origin master
+elif [ "$(git rev-list --count --right-only @{u}...HEAD)" -gt 0 ]
 then
     echo "Your local branch is $(git rev-list --count --right-only @{u}...HEAD) commits ahead of the remote branch"
     sleep 5s
     echo "Pushing to master"
     git push origin master
-else 
+else
     echo "Your working tree is clean... for now"
 fi
