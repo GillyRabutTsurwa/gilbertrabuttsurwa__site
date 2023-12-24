@@ -25,107 +25,136 @@ onMounted(() => {
 </script>
 
 <template>
-    <section class="intro landing" v-editable="blok">
-        <h2 class="intro__title">Introduction</h2>
-        <p class="intro__paragraph" v-html="richTextOne"></p>
-        <p class="intro__paragraph" v-html="richTextTwo"></p>
-    </section>
+<section class="columns">
+    <div class="columns__box">
+        <div class="columns__box--front">
+            <h3 class="columns__title">Who I am</h3>
+        </div>
+        <div class="columns__box--back">
+            <h4 class="columns__subtitle">Developer / Designer</h4>
+            <p class="columns__text">
+                Proficient front-end web developper - who is also learning web design. I am currently an intern
+                for Aeonnova Consulting Company. Have a look at my projects and see what I have made thus far.
+            </p>
+        </div>
+    </div>
+    <div class="columns__box">
+        <div class="columns__box--front">
+            <h3 class="columns__title">What I do</h3>
+        </div>
+        <div class="columns__box--back">
+            <h4 class="columns__subtitle">Everything Front-End</h4>
+            <p class="columns__text">
+                I specialise in front-end development - although I do know some back-end - and am beginning to
+                hone my craft in UI/UX design, particulary for websites and web applications. VueJS is my
+                framework of choice.
+            </p>
+        </div>
+    </div>
+    <div class="columns__box">
+        <div class="columns__box--front">
+            <h3 class="columns__title">What I use</h3>
+        </div>
+        <div class="columns__box--back">
+            <h4 class="columns__subtitle">My Tools</h4>
+            <ul class="columns__list">
+                <li class="columns__list--item">Sass</li>
+                <li class="columns__list--item">Tailwind</li>
+                <li class="columns__list--item">Bootstrap</li>
+                <li class="columns__list--item">Materialize</li>
+            </ul>
+            <ul class="columns__list">
+                <li class="columns__list--item">Webpack</li>
+                <li class="columns__list--item">Axios</li>
+                <li class="columns__list--item">Node (NPM)</li>
+                <li class="columns__list--item">Jest</li>
+                <li class="columns__list--item">Gulp</li>
+            </ul>
+            <ul class="columns__list">
+                <li class="columns__list--item">Vue</li>
+                <li class="columns__list--item">Svelte</li>
+            </ul>
+        </div>
+    </div>
+</section>
 </template>
 
 <style lang="scss">
-.intro {
+.columns {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: min-content 1fr;
-    column-gap: 13rem;
-    background-color: rgb(238, 238, 238);
-    margin-top: 5rem;
+    grid-template-columns: repeat(3,1fr);
+    height: 100vh; 
 
-    @include breakpoint(1023) {
-        grid-template-columns: 1fr;
-        order: 2; //NOTE: this works because i display the parent (#app) to be display: grid in pages/index.vue
-    }
+    &__box {
+		position: relative;
+		width: 100%;
+		height: 100%;
 
-    &__title {
-        grid-column: 1 / -1;
-        font-size: 5rem;
-        text-align: center;
-        margin-bottom: 3rem;
-    }
+		&:hover &--front {
+			opacity: 0;
+		}
+		&:hover &--back {
+			opacity: 1;
+		}
 
-    &__paragraph {
-        font-size: 2.25rem;
-        line-height: 2;
-        align-self: center;
-        padding: 0 5rem;
+		&--front,
+		&--back {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
 
-        @include breakpoint(1023) {
-            font-size: 1.75rem;
-        }
-    }
+			display: -webkit-box;
 
-    & .icon {
-        align-self: center;
-    }
-}
+			display: -ms-flexbox;
 
-// @todo - modify styles and move all this code dessous
-.link__blog {
-    font-weight: bold;
-    text-decoration: none;
-    color: currentColor;
-}
+			display: flex;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			justify-content: center;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
 
-.link__job {
-    position: relative;
-    display: inline-block;
+			// TESTING:
+			-webkit-transition: all 0.3s ease;
+			transition: all 0.3s ease;
+		}
 
-    &:link,
-    &:visited {
-        text-decoration: none;
-        font-weight: bold;
-        color: transparent;
-        background-image: linear-gradient(to right, #002e62, #980630);
-        -webkit-background-clip: text;
-        background-clip: text;
-        font-style: normal;
-    }
+		&--front {
+			font-family: inherit;
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+		&--back {
+			opacity: 0;
+			background-color: #1a2934;
+			color: #fff;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			-ms-flex-direction: column;
+			flex-direction: column;
 
-    &::before {
-        position: absolute;
-        content: "";
-        bottom: 0;
-        right: 0;
-        width: 100%;
-        border-bottom: 3px solid currentColor;
-        transform: scaleX(0);
-        transition: transform 0.25s ease-in-out;
-        transform-origin: 0% 50%;
-    }
+			padding: 0 2rem;
+		}
+	}
 
-    &:hover,
-    &:active {
+	&__list {
+		list-style: none;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		font-size: 3.5rem;
 
-        // font-style: italic; for now
-        &:before {
-            transform: scaleX(1);
-        }
-    }
-}
-
-.arrow {
-    font-size: 5rem;
-    text-align: center;
-    margin: 1.5rem;
-    transform: rotate(-50deg);
-
-    a {
-
-        &:link,
-        &:visited {
-            text-decoration: none;
-            color: currentColor;
-        }
-    }
+		&--item {
+			margin: 1.25rem;
+		}
+	}
 }
 </style>
