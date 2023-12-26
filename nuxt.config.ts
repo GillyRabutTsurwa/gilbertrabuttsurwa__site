@@ -26,6 +26,7 @@ export default defineNuxtConfig({
             callback: "/blog/uncensored",
             exclude: [
                 "/",
+                "/api/**/*",
                 "/blog",
                 "/blog/personal",
                 "/blog/personal/*",

@@ -16,145 +16,167 @@ const richTextOne = computed(() => {
 const richTextTwo = computed(() => {
     return renderRichText(props.blok.paraTwo);
 })
-
-onMounted(() => {
-    console.log(richTextOne.value)
-})
-
-// 
 </script>
 
 <template>
-<section class="columns">
-    <div class="columns__box">
-        <div class="columns__box--front">
-            <h3 class="columns__title">Who I am</h3>
+    <section class="columns">
+        <div class="columns__box">
+            <div :style="{ backgroundImage: 'linear-gradient(to bottom, #1a2934 0%, #1a2934 33%, #fefefe 33%, #fefefe 66%, #1a2934 66%, #1a2934 100%)', color: '#1a2934' }"
+                class="columns__box--front">
+                <h3 class="columns__title">Who I am</h3>
+            </div>
+            <div :style="{ backgroundColor: '#1a2934', color: '#fefefe' }" class="columns__box--back">
+                <h4 class="columns__subtitle">A Bit About Me</h4>
+                <p class="columns__text">
+                    I am {{ age }}, Kenyan who resides in the East Coast region of the United States. I speak 3 languages:
+                    english, swahili and french, with the intent of learning Spanish. I like to read french literature ―
+                    among other things of course ― play football, and my playstation 2 during my freetime. I currently work
+                    at Shenandoah University as web developer. My
+                    favourite thing right now is my ongoing gameplay of the Ratchet & Clank PS2 series.
+                </p>
+            </div>
         </div>
-        <div class="columns__box--back">
-            <h4 class="columns__subtitle">Developer / Designer</h4>
-            <p class="columns__text">
-                Proficient front-end web developper - who is also learning web design. I am currently an intern
-                for Aeonnova Consulting Company. Have a look at my projects and see what I have made thus far.
-            </p>
+        <div class="columns__box">
+            <div :style="{ backgroundColor: '#fefefe', color: '#1a2934' }" class="columns__box--front">
+                <h3 class="columns__title">What I do</h3>
+            </div>
+            <div :style="{ backgroundColor: '#1a2934', color: '#fefefe' }" class="columns__box--back">
+                <h4 class="columns__subtitle">Fullstack Dev</h4>
+                <p class="columns__text">
+                    I am a full-stack developer, particularly proficient with JavaScript by using tools such as Vue, Svelte,
+                    Node, Express, MongoDB / Mongoose, Nitro, and Webpack - just to name a few - to make sites and
+                    applications, in addition to simple User Interfaces and templates. I am also proficient with PHP,
+                    MySQL. Additionally, I am in the process of learning Linux, particularly bash scripting, as I would like
+                    to learn about managing Linux servers.
+                </p>
+            </div>
         </div>
-    </div>
-    <div class="columns__box">
-        <div class="columns__box--front">
-            <h3 class="columns__title">What I do</h3>
+        <div class="columns__box">
+            <div :style="{ backgroundImage: 'linear-gradient(to bottom, #1a2934 0%, #1a2934 33%, #fefefe 33%, #fefefe 66%, #1a2934 66%, #1a2934 100%)', color: '#1a2934' }"
+                class="columns__box--front">
+                <h3 class="columns__title">What I use</h3>
+            </div>
+            <div :style="{ backgroundColor: '#1a2934', color: '#fefefe' }" class="columns__box--back">
+                <h4 class="columns__subtitle">My Tools</h4>
+                <ul class="columns__list">
+                    <li class="columns__list--item">Vue</li>
+                    <li class="columns__list--item">Sass</li>
+                    <li class="columns__list--item">TypeScript</li>
+                    <li class="columns__list--item">Tailwind</li>
+                    <li class="columns__list--item">Webpack</li>
+                    <li class="columns__list--item">Sanity</li>
+                    <li class="columns__list--item">Storyblok</li>
+                    <li class="columns__list--item">WordPress</li>
+                    <li class="columns__list--item">Nuxt</li>
+                    <li class="columns__list--item">Sveltekit</li>
+                    <li class="columns__list--item">Node</li>
+                    <li class="columns__list--item">Express</li>
+                    <li class="columns__list--item">MongoDB</li>
+                    <li class="columns__list--item">MySQL</li>
+                    <li class="columns__list--item">PHP</li>
+                </ul>
+            </div>
         </div>
-        <div class="columns__box--back">
-            <h4 class="columns__subtitle">Everything Front-End</h4>
-            <p class="columns__text">
-                I specialise in front-end development - although I do know some back-end - and am beginning to
-                hone my craft in UI/UX design, particulary for websites and web applications. VueJS is my
-                framework of choice.
-            </p>
-        </div>
-    </div>
-    <div class="columns__box">
-        <div class="columns__box--front">
-            <h3 class="columns__title">What I use</h3>
-        </div>
-        <div class="columns__box--back">
-            <h4 class="columns__subtitle">My Tools</h4>
-            <ul class="columns__list">
-                <li class="columns__list--item">Sass</li>
-                <li class="columns__list--item">Tailwind</li>
-                <li class="columns__list--item">Bootstrap</li>
-                <li class="columns__list--item">Materialize</li>
-            </ul>
-            <ul class="columns__list">
-                <li class="columns__list--item">Webpack</li>
-                <li class="columns__list--item">Axios</li>
-                <li class="columns__list--item">Node (NPM)</li>
-                <li class="columns__list--item">Jest</li>
-                <li class="columns__list--item">Gulp</li>
-            </ul>
-            <ul class="columns__list">
-                <li class="columns__list--item">Vue</li>
-                <li class="columns__list--item">Svelte</li>
-            </ul>
-        </div>
-    </div>
-</section>
+    </section>
 </template>
 
 <style lang="scss">
 .columns {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    height: 100vh; 
+    grid-template-columns: repeat(3, 1fr);
+    height: 100vh;
 
     &__box {
-		position: relative;
-		width: 100%;
-		height: 100%;
+        position: relative;
+        width: 100%;
+        height: 100%;
 
-		&:hover &--front {
-			opacity: 0;
-		}
-		&:hover &--back {
-			opacity: 1;
-		}
+        //TESTING
+        &:nth-of-type(2):hover &--back {
+            background-color: #fefefe !important;
+            color: #1a2934 !important;
+        }
 
-		&--front,
-		&--back {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
+        &:hover &--front {
+            opacity: 0;
+        }
 
-			display: -webkit-box;
+        &:hover &--back {
+            opacity: 1;
+        }
 
-			display: -ms-flexbox;
+        &--front,
+        &--back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
 
-			display: flex;
-			-webkit-box-pack: center;
-			-ms-flex-pack: center;
-			justify-content: center;
-			-webkit-box-align: center;
-			-ms-flex-align: center;
-			align-items: center;
+            display: -webkit-box;
 
-			// TESTING:
-			-webkit-transition: all 0.3s ease;
-			transition: all 0.3s ease;
-		}
+            display: -ms-flexbox;
 
-		&--front {
-			font-family: inherit;
-			text-transform: uppercase;
-			font-weight: bold;
-		}
-		&--back {
-			opacity: 0;
-			background-color: #1a2934;
-			color: #fff;
-			-webkit-box-orient: vertical;
-			-webkit-box-direction: normal;
-			-ms-flex-direction: column;
-			flex-direction: column;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
 
-			padding: 0 2rem;
-		}
-	}
+            // TESTING:
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
 
-	&__list {
-		list-style: none;
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		-ms-flex-wrap: wrap;
-		flex-wrap: wrap;
-		-webkit-box-pack: center;
-		-ms-flex-pack: center;
-		justify-content: center;
-		font-size: 3.5rem;
+        &--front {
+            font-family: inherit;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
 
-		&--item {
-			margin: 1.25rem;
-		}
-	}
+        &--back {
+            opacity: 0;
+            background-color: #1a2934;
+            color: #fff;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            font-size: 2.5rem;
+
+            padding: 0 2rem;
+        }
+    }
+
+    &__title {
+        font-size: 5rem;
+    }
+
+    &__subtitle {
+        margin-bottom: 2rem;
+    }
+
+    &__text {
+        padding: 0 1.5rem;
+        line-height: 1.5;
+    }
+
+    &__list {
+        list-style: none;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+
+        &--item {
+            margin: 1.25rem;
+        }
+    }
 }
 </style>

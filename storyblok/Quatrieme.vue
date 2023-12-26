@@ -8,7 +8,7 @@ console.log(props.blok);
     <h2 class="credentials__main-title">Credentials</h2>
     <div class="credentials__content">
       <div class="credentials__left">
-        <h3 class="credentials__left--title">Certifications</h3>
+        <h3 class="credentials__left--title">Select Certifications</h3>
 
         <ul class="credentials__list courses">
           <li class="credentials__list--item">
@@ -56,20 +56,16 @@ console.log(props.blok);
             <span>React</span>
           </li>
           <li class="credentials__list--item">
-            <i class="devicon-express-original" />
-            <span>Express</span>
+            <i class="devicon-java-plain" />
+            <span>Java</span>
           </li>
           <li class="credentials__list--item">
-            <i class="devicon-mongodb-plain" />
-            <span>Mongo DB</span>
+            <i class="devicon-mysql-plain" />
+            <span>MySQL</span>
           </li>
           <li class="credentials__list--item">
-            <i class="devicon-nodejs-plain" />
-            <span>Node</span>
-          </li>
-          <li class="credentials__list--item">
-            <i class="devicon-typescript-plain" />
-            <span>TypeScript</span>
+            <i class="devicon-linux-plain" />
+            <span>Linux</span>
           </li>
           <li class="credentials__list--item">
             <i class="devicon-bash-plain" />
