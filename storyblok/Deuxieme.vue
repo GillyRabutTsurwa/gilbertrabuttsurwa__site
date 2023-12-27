@@ -16,11 +16,6 @@ const richTextThree = computed(() => {
 <template>
     <section class="proficiency landing" v-editable="blok">
         <h2 class="proficiency__title">Skills</h2>
-        <div class="proficiency__text">
-            <p v-html="richTextOne"></p>
-            <p v-html="richTextTwo"></p>
-            <p v-html="richTextThree"></p>
-        </div>
         <Chart />
     </section>
 </template>
@@ -54,22 +49,22 @@ const richTextThree = computed(() => {
         }
     }
 
-    &__text {
-        font-size: 2.25rem;
-        margin-top: 12rem;
-        margin-left: 4rem;
-        margin-right: 4rem;
-        line-height: 2;
-        grid-column: 2 / -1;
-        grid-row: 2 / -1;
+    // &__text {
+    //     font-size: 2.25rem;
+    //     margin-top: 12rem;
+    //     margin-left: 4rem;
+    //     margin-right: 4rem;
+    //     line-height: 2;
+    //     grid-column: 2 / -1;
+    //     grid-row: 2 / -1;
 
-        @include breakpoint(1023) {
-            margin-top: 0;
-            margin-left: 0;
-            font-size: 1.75rem;
-            grid-row: 2 / 3;
-        }
-    }
+    //     @include breakpoint(1023) {
+    //         margin-top: 0;
+    //         margin-left: 0;
+    //         font-size: 1.75rem;
+    //         grid-row: 2 / 3;
+    //     }
+    // }
 }
 
 .lang-in-bold {
