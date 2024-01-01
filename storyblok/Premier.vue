@@ -15,10 +15,11 @@ const richTextOne = computed(() => {
 
 const richTextTwo = computed(() => {
     return renderRichText(props.blok.paraTwo);
-})
+});
 </script>
 
 <template>
+    <!-- @todo: Make this component a Storyblok component  -->
     <section class="columns">
         <div class="columns__box">
             <div :style="{ backgroundImage: 'linear-gradient(to bottom, #1a2934 0%, #1a2934 33%, #fefefe 33%, #fefefe 66%, #1a2934 66%, #1a2934 100%)', color: '#1a2934' }"
