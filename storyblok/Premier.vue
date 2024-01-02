@@ -1,21 +1,9 @@
 <script setup>
 const currentDate = new Date();
 const birthday = new Date("1996-05-09"); //NOTE: american format is Javascript's default
-// thanks to this link: https://stackoverflow.com/questions/10008050/get-age-from-birthdate
 const age = Math.floor((currentDate - birthday) / 31557600000);
-
-let photoIndex = 0;
-
 const props = defineProps({ blok: Object });
 console.log(props.blok);
-
-const richTextOne = computed(() => {
-    return renderRichText(props.blok.paraOne);
-})
-
-const richTextTwo = computed(() => {
-    return renderRichText(props.blok.paraTwo);
-});
 </script>
 
 <template>
