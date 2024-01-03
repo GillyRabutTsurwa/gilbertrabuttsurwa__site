@@ -1,13 +1,10 @@
 <script setup>
-const currentDate = new Date();
-const birthday = new Date("1996-05-09"); //NOTE: american format is Javascript's default
-const age = Math.floor((currentDate - birthday) / 31557600000);
 const props = defineProps({
     columns: {
         type: Array,
         required: true
     }
-})
+});
 </script>
 
 <template>
@@ -15,6 +12,8 @@ const props = defineProps({
 </template>
 
 <style lang="scss">
+// NOTE: child component styles (Column.vue) are in here as well instead of in their own component. 
+// everything still works fine
 .columns {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
