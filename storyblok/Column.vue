@@ -6,14 +6,6 @@ const props = defineProps({
     }
 });
 
-// const title = computed(() => {
-//     return renderRichText(props.column.title);
-// });
-
-// const subtitle = computed(() => {
-//     return renderRichText(props.column.subtitle);
-// });
-
 const text = computed(() => {
     return renderRichText(props.column.text);
 });
