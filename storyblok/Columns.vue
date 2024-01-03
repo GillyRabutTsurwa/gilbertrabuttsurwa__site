@@ -2,15 +2,16 @@
 const currentDate = new Date();
 const birthday = new Date("1996-05-09"); //NOTE: american format is Javascript's default
 const age = Math.floor((currentDate - birthday) / 31557600000);
-const props = defineProps({ blok: Object });
-console.log(props.blok);
-console.log(props.blok.columns)
+const props = defineProps({
+    columns: {
+        type: Array,
+        required: true
+    }
+})
 </script>
 
 <template>
-    <section v-editable="blok" class="columns">
-        <Columns :columns="props.blok.columns" />
-    </section>
+    <Column v-for="(currentColumn, index) in props.columns" :key="index" :column="currentColumn" />
 </template>
 
 <style lang="scss">
