@@ -19,7 +19,7 @@ then
     echo "Adding SSH Key to agent to authorise push through this script"
     ssh-add /home/rabuttsurwa96/.ssh/key_github
     echo "Creating auto-commit"
-    git commit --message "Scheculed Auto-Commit $(timestamp)"
+    git commit --message "Scheculed Maintainence Auto-Commit @ $(timestamp)"
     git push origin master
 elif [ "$(git rev-list --count --right-only @{u}...HEAD)" -gt 0 ]
 then

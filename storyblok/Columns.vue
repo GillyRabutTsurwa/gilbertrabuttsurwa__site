@@ -12,8 +12,6 @@ const props = defineProps({
 </template>
 
 <style lang="scss">
-// NOTE: child component styles (Column.vue) are in here as well instead of in their own component. 
-// everything still works fine
 .columns {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

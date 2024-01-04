@@ -5,7 +5,6 @@ const props = defineProps({
         required: true
     }
 });
-
 const text = computed(() => {
     return renderRichText(props.column.text);
 });
@@ -22,6 +21,3 @@ const text = computed(() => {
         </div>
     </div>
 </template>
-
-
-<style scoped></style>
