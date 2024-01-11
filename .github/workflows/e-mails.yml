@@ -12,6 +12,14 @@ jobs:
         steps:
             - name: Accessing & Verifying Repository
               uses: actions/checkout@v3
+            - name: Set env as secret
+              env:
+                  MY_VAL: ${{secrets.EMAIL_SERVER_ADDRESS}} ${{secrets.EMAIL_SERVER_USERNAME}} ${{secrets.EMAIL_SERVER_PASSWORD}}
+              run: |
+                  import os
+                  for q in (os.getenv("MY_VAL")):
+                      print(q)
+              shell: python
             - name: Send mail
               uses: dawidd6/action-send-mail@v3
               with:
@@ -36,11 +44,3 @@ jobs:
                       </html>
                   to: tsurwagilbert@gmail.com, gtsurwa@su.edu
                   from: tsurwagilbert@gmail.com
-            - name: Set env as secret
-            env:
-                MY_VAL: ${{secrets.EMAIL_SERVER_ADDRESS}} ${{secrets.EMAIL_SERVER_USERNAME}} ${{secrets.EMAIL_SERVER_PASSWORD}}
-            run: |
-                import os
-                for q in (os.getenv("MY_VAL")):
-                    print(q)
-            shell: python
