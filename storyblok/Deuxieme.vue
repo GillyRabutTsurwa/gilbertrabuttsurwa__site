@@ -24,8 +24,8 @@ const richTextThree = computed(() => {
 .proficiency {
     display: grid;
     // grid-template-columns: repeat(2, 1fr);
-    grid-template-columns: 55% 1fr;
-    grid-template-rows: min-content 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: min-content 100dvh;
     background-color: $default-grey;
     margin-top: 6rem;
 

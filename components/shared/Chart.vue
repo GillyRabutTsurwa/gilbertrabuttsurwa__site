@@ -1,10 +1,10 @@
 <script setup>
-import { BarChart as Bar } from "vue-chart-3";
+import { BarChart as Bar, PieChart as Pie } from "vue-chart-3";
 import { Chart, registerables } from "chart.js";
 Chart.register(...registerables);
 
 const chartData = {
-  labels: ["Sass", "Typescript", "Nuxt/Vue", "(Svelte)Kit", "PHP", "MongoDB", "Linux"],
+  labels: ["Sass", "Typescript", "Vue/Nuxt", "(Svelte)Kit", "PHP", "MongoDB", "Linux"],
   datasets: [
     {
       label: "Comfort Levels",
@@ -44,19 +44,19 @@ const options = {
   plugins: {
     title: {
       display: true,
-      text: 'Custom Chart Title',
+      text: 'Most Used Skills',
       font: {
         size: 20,
-        family: "Jost"
+        family: "Lexend Deca"
       }
     },
     subtitle: {
       display: true,
-      text: 'Custom Chart Subtitle',
+      text: 'Comfort Levels, Not Level of Expertise',
       padding: 14,
       font: {
         size: 14,
-        family: "Jost"
+        family: "Lexend Deca"
       }
     },
     legend: {
@@ -68,7 +68,7 @@ const options = {
       ticks: {
         font: {
           size: 20,
-          family: "Jost"
+          family: "Lexend Deca"
         }
       }
     },
@@ -85,20 +85,21 @@ const options = {
 
 <template>
   <Bar :chartData="chartData" :options="options" class="proficiency__chart" />
+  <Pie :chartData="chartData" class="pie"/>
 </template>
 
 <style lang="scss">
-// #line-chart {
-
-// }
-
 .proficiency {
   &__chart {
-    // width: 100rem;
-    height: 70dvh;
-    grid-column: 1 / -1;
+    // width: 100%;
+    grid-column: 1 / 2;
     grid-row: 2 / 3;
     padding: 4rem;
+
+    & > canvas#bar-chart {
+      width: 100% !important;
+    }
+
     // &--container {
     //   position: relative;
     //   margin: 10rem 0;
@@ -123,6 +124,16 @@ const options = {
     //     height: 100%;
     //   }
     // }
+  }
+}
+.pie {
+  grid-column: 2 / 3;
+    grid-row: 2 / 3;
+
+  #pie-chart {
+    // width: 80% !important;
+    // height: 80% !important;
+    padding: 7rem;
   }
 }
 </style>
