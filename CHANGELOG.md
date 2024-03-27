@@ -1,5 +1,16 @@
 
 
+## [1.2.2](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.2.1...v1.2.2) (2024-03-27)
+
+
+### Bug Fixes
+
+* Devtools Setup & TypeScript ([d79166d](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/d79166d9c04d3aaa41897c62b9a44fcf8497030e))
+* Duplicate Stripe Products on Load ([b5ad78d](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/b5ad78d0df48ad669235e71cf88f9e726bb88bea))
+* Fixed Poor Layout of Learning List ([e0191f1](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/e0191f1cb5167eb8b5647d6304e9ee687f3014e9))
+* IMPORTANT - Upgraded Nuxt & Addressing Last Commit ([4a709fa](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/4a709fad483d4ff18dd64c6da622704805d3455c))
+* Sanity Products Now Showing in Stripe ([9869f7c](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/9869f7c4d48179b1da323dfd279d10187ef4b462))
+
 ## [1.2.1](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.2.0...v1.2.1) (2023-12-01)
 
 
