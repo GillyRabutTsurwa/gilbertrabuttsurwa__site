@@ -21,7 +21,7 @@ const text = computed(() => {
 </script>
 <template>
     <article class="row">
-        <input type="checkbox" :name="props.column.title.toLowerCase()" :id="props.column._uid">
+        <input type="checkbox" :name="props.column.title.toLowerCase()" :id="props.column._uid" checked>
         <label :for="props.column._uid">
             <div class="row__heading">
                 <div class="row__heading--title">{{ props.column.title }}</div>
