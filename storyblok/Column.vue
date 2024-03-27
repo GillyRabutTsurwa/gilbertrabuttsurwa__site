@@ -80,6 +80,7 @@ const text = computed(() => {
                 font-size: 3.5rem;
                 margin-top: 3.5rem;
                 margin-bottom: 0;
+                margin-left: auto;margin-right: auto;
             }
         }
 
@@ -89,6 +90,11 @@ const text = computed(() => {
                 font-size: 7rem;
                 padding-right: 3rem;
                 cursor: pointer;
+
+                @include breakpoint(767) {
+                    display: none;
+                    visibility:hidden;
+                }
             }
         }
     }
