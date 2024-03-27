@@ -137,4 +137,27 @@ const text = computed(() => {
 .row:has(input:checked) {
     height: 13.5rem;
 }
+
+// v-html styles
+:deep(.row__content--right p) {
+    @include breakpoint(767) {
+        text-align: center;
+    }
+}
+:deep(.row__content--right ul) {
+    width: 90%;
+    margin: 2rem auto 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style: none;
+
+    
+
+    li {
+        margin-right: 2rem;
+        margin-bottom: 0.75rem;
+        text-align: center;
+    }
+}
 </style>
