@@ -17,23 +17,29 @@
             <p>
                 I also have adequate experience using css frameworks, such as <span
                     class="lang-in-bold bootstrap">Bootstrap</span> and
-                <span class="lang-in-bold tailwind">Tailwind</span> (which is my preferred one). I also have adept skills
+                <span class="lang-in-bold tailwind">Tailwind</span> (which is my preferred one). I also have adept
+                skills
                 with GulpJS and Git for front-end
-                workflow and version control respectively, which, along with all the other technologies I've learnt, have
+                workflow and version control respectively, which, along with all the other technologies I've learnt,
+                have
                 given me the skills to make cool
-                projects. Even though there will be much to learn in the future, these aforementioned tools and technologies
+                projects. Even though there will be much to learn in the future, these aforementioned tools and
+                technologies
                 are the ones that I will be currently
-                focusing on. As the web dev world changes, I will adapt accordingly, as this is one of the most important
+                focusing on. As the web dev world changes, I will adapt accordingly, as this is one of the most
+                important
                 attributes of a good developer.
             </p>
             <p>
-                Looking beyond the scope of coding — but could still be somewhat pertinent —, I possess very good research,
+                Looking beyond the scope of coding — but could still be somewhat pertinent —, I possess very good
+                research,
                 writing, and problem-solving
-                skills. I take my work seriously, with the purpose of producing good work that <em>I</em>, primarily, will
+                skills. I take my work seriously, with the purpose of producing good work that <em>I</em>, primarily,
+                will
                 be pleased with.
             </p>
         </div>
-        <Chart />
+        <!-- <Chart /> -->
     </section>
 </template>
 

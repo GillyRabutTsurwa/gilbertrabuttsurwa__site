@@ -1,139 +1,139 @@
 <script setup>
-import { BarChart as Bar, PieChart as Pie } from "vue-chart-3";
-import { Chart, registerables } from "chart.js";
-Chart.register(...registerables);
+// import { BarChart as Bar, PieChart as Pie } from "vue-chart-3";
+// import { Chart, registerables } from "chart.js";
+// Chart.register(...registerables);
 
-const chartData = {
-  labels: ["Sass", "Typescript", "Vue/Nuxt", "(Svelte)Kit", "PHP", "MongoDB", "Linux"],
-  datasets: [
-    {
-      label: "Comfort Levels",
-      data: [84, 66, 76, 70, 60, 55, 39],
-      backgroundColor: [
-        'rgb(205, 103, 153)',
-        'rgb(35, 90, 151)',
-        'rgb(66, 211, 146)',
-        'rgb(255, 62, 0)',
-        'rgb(137, 147, 190)',
-        'rgb(0, 104, 74)',
-        'rgb(255, 204, 51)'
-      ],
-      borderColor: [
-        'rgb(205, 103, 153)',
-        'rgb(35, 90, 151)',
-        'rgb(66, 211, 146)',
-        'rgb(255, 62, 0)',
-        'rgb(137, 147, 190)',
-        'rgb(0, 104, 74)',
-        'rgb(255, 204, 51)'
-      ],
-      hoverBackgroundColor: [
-        'rgba(205, 103, 153, 0.6)',
-        'rgba(35, 90, 151, 0.6)',
-        'rgba(66, 211, 146, 0.6)',
-        'rgba(255, 62, 0, 0.6)',
-        'rgba(137, 147, 190, 0.6)',
-        'rgba(0, 104, 74, 0.6)',
-        'rgba(255, 204, 51, 0.6)'
-      ]
-    },
-  ],
-}
+// const chartData = {
+//   labels: ["Sass", "Typescript", "Vue/Nuxt", "(Svelte)Kit", "PHP", "MongoDB", "Linux"],
+//   datasets: [
+//     {
+//       label: "Comfort Levels",
+//       data: [84, 66, 76, 70, 60, 55, 39],
+//       backgroundColor: [
+//         'rgb(205, 103, 153)',
+//         'rgb(35, 90, 151)',
+//         'rgb(66, 211, 146)',
+//         'rgb(255, 62, 0)',
+//         'rgb(137, 147, 190)',
+//         'rgb(0, 104, 74)',
+//         'rgb(255, 204, 51)'
+//       ],
+//       borderColor: [
+//         'rgb(205, 103, 153)',
+//         'rgb(35, 90, 151)',
+//         'rgb(66, 211, 146)',
+//         'rgb(255, 62, 0)',
+//         'rgb(137, 147, 190)',
+//         'rgb(0, 104, 74)',
+//         'rgb(255, 204, 51)'
+//       ],
+//       hoverBackgroundColor: [
+//         'rgba(205, 103, 153, 0.6)',
+//         'rgba(35, 90, 151, 0.6)',
+//         'rgba(66, 211, 146, 0.6)',
+//         'rgba(255, 62, 0, 0.6)',
+//         'rgba(137, 147, 190, 0.6)',
+//         'rgba(0, 104, 74, 0.6)',
+//         'rgba(255, 204, 51, 0.6)'
+//       ]
+//     },
+//   ],
+// }
 
-const options = {
-  plugins: {
-    title: {
-      display: true,
-      text: 'Most Used Skills',
-      font: {
-        size: 20,
-        family: "Lexend Deca"
-      }
-    },
-    subtitle: {
-      display: true,
-      text: 'Comfort Levels, Not Level of Expertise',
-      padding: 14,
-      font: {
-        size: 14,
-        family: "Lexend Deca"
-      }
-    },
-    legend: {
-      display: false
-    },
-  },
-  scales: {
-    x: {
-      ticks: {
-        font: {
-          size: 20,
-          family: "Lexend Deca"
-        }
-      }
-    },
-    y: {
-      ticks: {
-        font: {
-          size: 20
-        }
-      }
-    }
-  },
-}
+// const options = {
+//   plugins: {
+//     title: {
+//       display: true,
+//       text: 'Most Used Skills',
+//       font: {
+//         size: 20,
+//         family: "Lexend Deca"
+//       }
+//     },
+//     subtitle: {
+//       display: true,
+//       text: 'Comfort Levels, Not Level of Expertise',
+//       padding: 14,
+//       font: {
+//         size: 14,
+//         family: "Lexend Deca"
+//       }
+//     },
+//     legend: {
+//       display: false
+//     },
+//   },
+//   scales: {
+//     x: {
+//       ticks: {
+//         font: {
+//           size: 20,
+//           family: "Lexend Deca"
+//         }
+//       }
+//     },
+//     y: {
+//       ticks: {
+//         font: {
+//           size: 20
+//         }
+//       }
+//     }
+//   },
+// }
 </script>
 
 <template>
-  <Bar :chartData="chartData" :options="options" class="proficiency__chart" />
-  <Pie :chartData="chartData" class="pie"/>
+  <!-- <Bar :chartData="chartData" :options="options" class="proficiency__chart" />
+  <Pie :chartData="chartData" class="pie"/> -->
 </template>
 
 <style lang="scss">
 .proficiency {
-  &__chart {
-    // width: 100%;
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-    padding: 4rem;
+  // &__chart {
+  //   // width: 100%;
+  //   grid-column: 1 / 2;
+  //   grid-row: 2 / 3;
+  //   padding: 4rem;
 
-    & > canvas#bar-chart {
-      width: 100% !important;
-    }
+  //   & > canvas#bar-chart {
+  //     width: 100% !important;
+  //   }
 
-    // &--container {
-    //   position: relative;
-    //   margin: 10rem 0;
-    //   // margin-right: -8rem;
-    //   width: 100%;
-    //   // grid-column: 1 / 3;
-    //   // grid-row: 2 / -1;
-    //   //TESTING:
-    //   height: 100%;
+  // &--container {
+  //   position: relative;
+  //   margin: 10rem 0;
+  //   // margin-right: -8rem;
+  //   width: 100%;
+  //   // grid-column: 1 / 3;
+  //   // grid-row: 2 / -1;
+  //   //TESTING:
+  //   height: 100%;
 
-    //   // IMPORTANT class generated by chartjs that i found upon inspecting browser
-    //   .chartjs-size-monitor {
-    //     width: 100%;
-    //     height: 100%;
-    //   }
+  //   // IMPORTANT class generated by chartjs that i found upon inspecting browser
+  //   .chartjs-size-monitor {
+  //     width: 100%;
+  //     height: 100%;
+  //   }
 
-    //   #myFirstChart {
-    //     display: block;
-    //     width: 92rem;
-    //     height: 47rem;
-    //     height: 40%;
-    //     height: 100%;
-    //   }
-    // }
-  }
+  //   #myFirstChart {
+  //     display: block;
+  //     width: 92rem;
+  //     height: 47rem;
+  //     height: 40%;
+  //     height: 100%;
+  //   }
+  // }
 }
-.pie {
-  grid-column: 2 / 3;
-    grid-row: 2 / 3;
 
-  #pie-chart {
-    // width: 80% !important;
-    // height: 80% !important;
-    padding: 7rem;
-  }
-}
-</style>
+//}
+// .pie {
+//   grid-column: 2 / 3;
+//     grid-row: 2 / 3;
+
+//   #pie-chart {
+//     // width: 80% !important;
+//     // height: 80% !important;
+//     padding: 7rem;
+//   }
+// }</style>
