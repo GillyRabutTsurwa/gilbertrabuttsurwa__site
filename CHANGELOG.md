@@ -1,5 +1,12 @@
 
 
+## [1.2.3](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.2.2...v1.2.3) (2024-03-27)
+
+
+### Bug Fixes
+
+* Responsive Development ([0d5b68e](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/0d5b68e95165f3f016eed01068e6b093caa3c941))
+
 ## [1.2.2](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.2.1...v1.2.2) (2024-03-27)
 
 
