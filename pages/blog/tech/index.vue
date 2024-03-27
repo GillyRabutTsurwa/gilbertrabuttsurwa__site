@@ -8,7 +8,7 @@ interface Page {
 }
 
 // VARIABLES
-const postsQuery: string = groq`*[_type == "tech-post"]`;
+const postsQuery: string = groq`*[_type == "post" && postGenre == "tech"]`;
 const isColoured: Ref<boolean> = ref(true);
 const flexDir: Ref<string> = ref("");
 const iconNames: Ref<string[]> = ref(["html5", "css3", "sass", "codepen", "tailwindcss", "javascript", "typescript", "jquery", "vuejs", "nuxtjs", "svelte", "react", "gulp", "markdown", "git", "github", "php", "jest", "linux"]);
@@ -350,5 +350,4 @@ onMounted(() => {
 //       font-size: 1.4rem;
 //     }
 //   }
-// }
-</style>
+// }</style>

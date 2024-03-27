@@ -1,22 +1,27 @@
-<template>
-  <Post :postData="state.post" />
-</template>
-    
-<script setup>
+<script setup lang="ts">
+import type { Post } from "~/interfaces/post";
+
+interface myPost {
+  post: Post
+}
+
 const route = useRoute();
-const url = route.params.slug;
-const state = reactive({
+const url: string | Array<string> = route.params.slug;
+
+const state: myPost = reactive({
   post: {},
 });
 
-const query = groq`*[_type == "tech-post" && slug.current == "${url}"] {
+const query = groq`*[_type == "post" && postGenre == "tech" && slug.current == "${url}"] {
   ...,
   author->
 }`;
 
 console.log(await useSanityQuery(query));
-
 const { data, pending, error } = await useSanityQuery(query);
 state.post = data.value[0];
-console.log(state.post);
 </script>
+
+<template>
+  <Post :postData="state.post" />
+</template>

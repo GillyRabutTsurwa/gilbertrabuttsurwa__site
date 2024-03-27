@@ -1,4 +1,6 @@
 <script setup lang="ts">
+//NOTEIMPORTANT:
+// normally this logic would be in 
 // use draft dataset in development and published dataset in production
 const versionType = import.meta.env.DEV ? "draft" : "published";
 const story = await useAsyncStoryblok("home", { version: versionType });

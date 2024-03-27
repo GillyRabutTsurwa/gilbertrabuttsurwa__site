@@ -8,7 +8,7 @@ export default defineNuxtConfig({
         enabled: true,
     },
     devServer: {
-        // host: "0.0.0.0",
+        host: "0.0.0.0",
     },
     modules: ["@nuxtjs/sanity", "@nuxtjs/supabase", "@nuxtjs/google-fonts", "@pinia/nuxt", ["@storyblok/nuxt", storyblokOptions]],
     //NOTE: for sanity config via @nuxt/sanityjs docs

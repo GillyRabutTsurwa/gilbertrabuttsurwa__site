@@ -10,7 +10,7 @@ interface Page {
 }
 
 // VARIABLES
-const query: string = groq`*[_type == "personal-post"]`;
+const query: string = groq`*[_type == "post" && postGenre == "personal"]`;
 const state: Page = reactive({
   currentPage: 1,
   postsPerPage: 8
@@ -60,8 +60,8 @@ store.filteredPosts = posts.value;
 onUpdated(() => {
   console.log(currentPosts.value);
 });
-</script> 
-  
+</script>
+
 <template>
   <Navigation />
   <FlexContainer layout="column">
@@ -72,7 +72,7 @@ onUpdated(() => {
     <!-- <Newsletter /> NOTE: je suis pas sur que je vais le rendre ici ou pas -->
   </FlexContainer>
 </template>
-    
+
 <style lang="scss" scoped>
 .containertings {
   display: flex;

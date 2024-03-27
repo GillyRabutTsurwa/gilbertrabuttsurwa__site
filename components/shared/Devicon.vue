@@ -50,7 +50,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 i[class^="devicon"] {
   display: block;
-  font-size: 9.5rem;
+  // font-size: 9.5rem;
   z-index: 1000;
   color: $steelblue;
   -webkit-animation: fade 3800ms ease-in-out infinite;

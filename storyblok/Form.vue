@@ -6,11 +6,11 @@ const logChange = (emitValue) => {
 </script>
 
 <template>
-  <section class="map landing">
+  <!-- <section class="map landing">
     <h2>Gil's Favourite Spots</h2>
     <span>Scroll {{ status }}</span>
     <MapX @scroll-status="logChange" />
-  </section>
+  </section> -->
 </template>
 
 <style lang="scss" scoped>

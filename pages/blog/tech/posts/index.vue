@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import groq from "groq";
 import { usePostsStore } from "@/stores/posts";
-import { Post } from "~/interfaces/post";
+import type { Post } from "~/interfaces/post";
 
 interface Page {
   currentPage: number;
@@ -9,7 +9,7 @@ interface Page {
 }
 
 // VARIABLES
-const query: string = groq`*[_type == "tech-post"]`;
+const query: string = groq`*[_type == "post" && postGenre == "tech"]`;
 const state: Page = reactive({
   currentPage: 1,
   postsPerPage: 8
@@ -47,8 +47,8 @@ store.filteredTechPosts = posts.value;
 onUpdated(() => {
   console.log(currentPosts.value);
 });
-</script> 
-  
+</script>
+
 <template>
   <Navigation />
   <FlexContainer layout="column">
@@ -59,7 +59,7 @@ onUpdated(() => {
     <!-- <Newsletter /> NOTE: je suis pas sur que je vais le rendre ici ou pas -->
   </FlexContainer>
 </template>
-    
+
 <style lang="scss" scoped>
 .containertings {
   display: flex;

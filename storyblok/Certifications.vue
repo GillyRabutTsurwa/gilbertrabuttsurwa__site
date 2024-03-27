@@ -81,7 +81,7 @@ watch(() => hoveredIndex, (newValue, oldValue) => {
 
 <style lang="scss" scoped>
 .credentials {
-  padding-top: 6rem;
+  padding: 6rem 0;
   background-color: rgb(238, 238, 238);
 
   @include breakpoint(1023) {

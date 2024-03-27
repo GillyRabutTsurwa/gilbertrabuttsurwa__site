@@ -8,7 +8,7 @@ interface Page {
 }
 
 // VARIABLES
-const query: string = groq`*[_type == "personal-post"]`;
+const query: string = groq`*[_type == "post" && postGenre == "personal"]`;
 const flexDir: Ref<string> = ref("");
 const state: Page = reactive({
   currentPage: 1,
@@ -95,8 +95,8 @@ onUpdated(() => {
     </Aside>
   </FlexContainer>
 </template>
-  
-  
+
+
 <style lang="scss" scoped>
 .body-tings {
   display: flex;

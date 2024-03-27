@@ -12,7 +12,7 @@ const showBackend = () => {
     console.log("backend");
 };
 
-const props = defineProps({ blok: Object });
+const props = defineProps({ blok: Object }); //NOTE: j'utilise pas pour le moment
 console.log(props.blok);
 console.log(props.blok.component);
 </script>

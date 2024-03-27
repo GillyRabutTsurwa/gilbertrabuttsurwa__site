@@ -1,7 +1,7 @@
 <template>
   <Post :postData="state.post" />
 </template>
-    
+
 <script setup>
 const route = useRoute();
 const url = route.params.slug;
@@ -9,7 +9,7 @@ const state = reactive({
   post: {},
 });
 
-const query = groq`*[_type == "personal-post" && slug.current == "${url}"] {
+const query = groq`*[_type == "post" && postGenre == "personal" && slug.current == "${url}"] {
   ...,
   author->
 }`;

@@ -1,20 +1,17 @@
-<script setup>
-import { filename } from 'pathe/utils';
+<script lang="ts" setup>
 import { useBreakpoints } from '~~/composables/useBreakpoints';
-const glob = import.meta.glob('~/assets/images/*', { eager: true });
-const images = Object.fromEntries(
-    Object.entries(glob).map(([key, value]) => [filename(key), value.default])
-);
-const selfPortraits = ["autoportrait-croquis", "autoportrait-croquis-2", "autoportrait-croquis-3", "moi-high-top"];
-const logo = ["my-logo"];
 
-const photoIndex = ref(0);
+const SiteIcon = resolveComponent("SiteIcon");
+const Devicon = resolveComponent("Devicon");
+const currentComponent = shallowRef(Devicon);
+
+const photoIndex: Ref<number> = ref(0);
+const hovered: Ref<boolean> = ref(false);
 
 // TESTING:
 const props = defineProps({ blok: Object });
 console.log(props.blok);
-console.log(props.blok.portraits)
-
+console.log(props.blok.portraits);
 
 const { pixels, toggleElementOnResize } = useBreakpoints();
 const show = ref(null);
@@ -23,7 +20,7 @@ onMounted(() => {
     setInterval(() => {
         photoIndex.value++;
         if (photoIndex.value >= props.blok.portraits.length) photoIndex.value = 0;
-    }, 30000);
+    }, 60000);
 
     const renderElements = () => {
         const body = document.querySelector("body");
@@ -39,34 +36,33 @@ onMounted(() => {
         window.addEventListener("resize", () => {
             toggleElementOnResize(1023);
             renderElements();
-        })
-
-
+        });
     }
 });
+
+watch(() => hovered.value, (newValue, oldValue) => {
+    console.log("Old Value is: " + oldValue);
+    console.log("New value is: " + newValue);
+    currentComponent.value = hovered.value ? SiteIcon : Devicon;
+})
 </script>
 
 <template>
     <header class="header tete" v-editable="blok">
-        <img src="@/assets/images/svg/my-logo.svg" alt="my-logo" class="header__logo" />
+        <figure @mouseover="hovered = true" @mouseleave="hovered = false" class="header__logo">
+            <component :is="currentComponent">
+            </component>
+        </figure>
+
         <div class="header__title">
             <h1 class="header__title--primary">
                 <span>{{ blok.firstname }}</span>
                 <span>{{ blok.middlename }}</span>
                 <span>{{ blok.surname }}</span>
             </h1>
-            <div class="header__buttons">
-                <NuxtLink to="/projects" target="_blank" class="header__buttons--button">View Projects</NuxtLink>
-                <NuxtLink to="/blog" class="header__buttons--button">Read Blogs</NuxtLink>
-                <NuxtLink to="/shop" class="header__buttons--button">Shop</NuxtLink>
-
-            </div>
-        </div>
-        <div class="icon" style="align-self: center;">
-            <Devicon />
         </div>
 
-        <figure class="autoportrait" v-if="show">
+        <figure class="autoportrait">
             <img v-for="(currentPortrait, index) in blok.portraits" :src="currentPortrait.filename" alt="Croquis de moi"
                 :class="{ opaque: index === photoIndex }" class="autoportrait-img" />
         </figure>
@@ -79,15 +75,14 @@ onMounted(() => {
     width: 100%;
     position: relative;
     display: grid;
-    grid-template-columns: 50% min-content 1fr;
 
     @include breakpoint(1023) {
-        // min-height: max-content;
+        min-height: max-content;
         padding-bottom: 3rem;
         place-items: center;
         grid-template-columns: 1fr;
         grid-auto-rows: min-content;
-        order: 1; //NOTE: this works because i display the parent (#app) to be display: grid in pages/index.vue
+        // order: 1; //NOTE: this works because i display the parent (#app) to be display: grid in pages/index.vue
     }
 
     // TESTING
@@ -104,13 +99,13 @@ onMounted(() => {
     }
 
     & .autoportrait {
-        position: relative;
-        margin-top: 3rem;
-        justify-self: end;
-        align-self: end;
+        position: absolute;
+        // top: 50%;
+        // left: 50%;
+        // transform: translate(-50%, -50%);
         width: 100%;
         height: 100%;
-        grid-column: 3 / 4;
+        opacity: 0.175;
 
         &-img {
             position: absolute;
@@ -118,7 +113,6 @@ onMounted(() => {
             width: 100%;
             height: 100%;
             object-fit: cover; // makes it look nicer
-            margin-left: 7.5rem;
             background-image: linear-gradient(to bottom,
                     transparent 0%,
                     transparent 90%,
@@ -138,9 +132,18 @@ onMounted(() => {
         position: absolute;
         top: 3rem;
         left: 3rem;
-        width: 9rem;
-        height: 9rem;
-        z-index: 1000; //j'ai besoin de cette ligne
+        width: 7rem;
+        height: 7rem;
+        z-index: 1000;
+
+        & img {
+            width: 100%;
+            height: 100%;
+        }
+
+        & i[class^="devicon"] {
+            font-size: 7rem;
+        }
     }
 
     &__title {
@@ -159,7 +162,7 @@ onMounted(() => {
         }
 
         &--primary {
-            font-size: 10.5rem;
+            font-size: 13.5rem;
             font-weight: 600;
             text-transform: uppercase;
             padding-bottom: 2rem;
@@ -167,8 +170,22 @@ onMounted(() => {
             opacity: 1;
             transition: all 2.5s ease;
 
+            @include breakpoint(767) {
+                margin-top: 4rem;
+                font-size: 9rem;
+            }
+
             span {
                 display: block;
+
+                //NOTE: not sure if i want this yet
+                // &:nth-of-type(2) {
+                //     margin-left: 15rem;
+                // }
+
+                // &:nth-of-type(3) {
+                //     margin-left: 40rem;
+                // }
             }
         }
 

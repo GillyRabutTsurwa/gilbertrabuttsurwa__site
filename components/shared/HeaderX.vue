@@ -1,5 +1,5 @@
 <script setup>
-const query = groq`*[_type == "personal-post"]`;
+const query = groq`*[_type == "post" && postGenre == "personal"]`;
 const { data, pending, error } = await useSanityQuery(query);
 pending.value = true; //NOTE: making pending value still true after info has loaded
 const randomPost = computed(() => {
@@ -219,5 +219,4 @@ onMounted(() => {
 // 	to {
 // 		opacity: 1;
 // 	}
-// }
-</style>
+// }</style>

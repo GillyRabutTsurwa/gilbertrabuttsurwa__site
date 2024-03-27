@@ -1,7 +1,7 @@
 <script setup>
 import groq from 'groq';
 import { usePostsStore } from '@/stores/posts';
-const query = groq`*[_type == "personal-post"]`;
+const query = groq`*[_type == "post" && postGenre == "personal"]`;
 const { data: posts } = await useSanityQuery(query);
 
 const state = reactive({

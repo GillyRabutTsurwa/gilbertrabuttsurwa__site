@@ -14,8 +14,8 @@ const props = defineProps({
 <style lang="scss">
 .columns {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); //TODO: changer ça demain
-    height: 100vh;
+    // grid-template-columns: repeat(3, 1fr); //TODO: changer ça demain
+    // height: 100vh;
 
     &__box {
         position: relative;
