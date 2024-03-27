@@ -160,13 +160,21 @@ watch(() => hoveredIndex, (newValue, oldValue) => {
       justify-content: space-around;
       height: 100%;
 
-      li {
-        margin-bottom: 0;
-      }
-
       @include breakpoint(1023) {
         flex-wrap: wrap;
         justify-content: space-around;
+      }
+
+      @include breakpoint(767) {
+        flex-flow: row wrap;
+      }
+
+      li {
+        margin-bottom: 0;
+
+        @include breakpoint(767) {
+          margin-bottom: 1.5rem;
+        }
       }
     }
   }
