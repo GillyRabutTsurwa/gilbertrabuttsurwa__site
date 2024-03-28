@@ -92,7 +92,7 @@ onMounted(() => {
         </Vue3Marquee>
       </div>
     </DevOnly>
-    <FlexContainer :layout="flexDir">
+    <FlexContainer :layout="flexDir" contentJustify="flex-start" itemsAlign="stretch">
       <Main>
         <template v-slot:post-list>
           <Posts type="tech" :posts="store.techPosts" />

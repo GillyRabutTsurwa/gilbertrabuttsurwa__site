@@ -70,11 +70,9 @@ onUpdated(() => {
 <template>
   <Navigation />
   <HeaderX />
-  <FlexContainer :layout="flexDir">
+  <FlexContainer :layout="flexDir" contentJustify="flex-start" itemsAlign="stretch">
     <Main>
       <template v-slot:post-list>
-        <!-- <PostsPersonal :posts="currentPosts" /> -->
-        <!-- NOTE: below post doesnt exist yet -->
         <Posts type="personal" :posts="currentPosts" />
       </template>
       <template v-slot:pagination>
