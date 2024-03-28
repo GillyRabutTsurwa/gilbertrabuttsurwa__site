@@ -40,8 +40,8 @@
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "release-it": "^17.0.3",
-        "sass": "^1.70.0",
-        "sass-loader": "^14.1.0",
+        "sass": "^1.72.0",
+        "sass-loader": "^14.1.1",
         "storybook": "^7.6.12"
     },
     "dependencies": {
@@ -56,10 +56,10 @@
         "mongoose": "^8.1.1",
         "pinia": "^2.1.7",
         "sanity": "^3.27.1",
-        "stripe": "^14.14.0",
+        "stripe": "^14.22.0",
         "typescript": "^5.3.3",
         "vue3-carousel": "^0.3.1",
-        "vue3-marquee": "^4.1.0"
+        "vue3-marquee": "^4.2.0"
     },
     "release-it": {
         "git": {
