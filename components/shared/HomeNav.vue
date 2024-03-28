@@ -46,8 +46,8 @@
         height: 7rem;
         width: 7rem;
         position: fixed;
-        top: 6rem;
-        right: 6rem;
+        top: 3rem;
+        right: 3rem;
         border-radius: 50%;
         z-index: 20000;
         -webkit-box-shadow: 0 1rem 3rem rgba($colour-noir, 0.1);
@@ -71,8 +71,8 @@
         width: 6rem;
         border-radius: 50%;
         position: fixed;
-        top: 6.5rem;
-        right: 6.5rem;
+        top: 3.5rem;
+        right: 3.5rem;
         background-image: radial-gradient($colour-primary, $steelblue);
         z-index: 10000;
         -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
