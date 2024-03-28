@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import FlexContainer from '~/components/blog/FlexContainer.vue';
 import { useBreakpoints } from '~~/composables/useBreakpoints';
 
 const SiteIcon = resolveComponent("SiteIcon");
@@ -53,7 +54,6 @@ watch(() => hovered.value, (newValue, oldValue) => {
             <component :is="currentComponent">
             </component>
         </figure>
-
         <div class="header__title">
             <h1 class="header__title--primary">
                 <span>{{ blok.firstname }}</span>
@@ -61,11 +61,17 @@ watch(() => hovered.value, (newValue, oldValue) => {
                 <span>{{ blok.surname }}</span>
             </h1>
         </div>
-
         <figure class="autoportrait">
             <img v-for="(currentPortrait, index) in blok.portraits" :src="currentPortrait.filename" alt="Croquis de moi"
                 :class="{ opaque: index === photoIndex }" class="autoportrait-img" />
         </figure>
+        <FlexContainer layout="row" contentJustify="space-around" itemsAlign="end" class="header__buttons">
+            <Button to="/blog" isLink text="Read Blogs" colourPrimary="#fefefe" colourSecondary="#07343f"
+                class="btn-test" />
+            <Button to="/shop" isLink text="Access Shop" colourPrimary="#fefefe" colourSecondary="#07343f"
+                class="btn-test" />
+        </FlexContainer>
+
     </header>
 </template>
 
@@ -106,6 +112,7 @@ watch(() => hovered.value, (newValue, oldValue) => {
         width: 100%;
         height: 100%;
         opacity: 0.175;
+        z-index: -100; // Le carousel etait dessus les boutons, ca fixe
 
         &-img {
             position: absolute;
@@ -151,7 +158,7 @@ watch(() => hovered.value, (newValue, oldValue) => {
         place-self: center;
         text-align: center;
         padding-right: 7rem;
-        margin-bottom: 7rem;
+        margin-top: 7rem;
         z-index: 1000;
         color: $steelblue;
         // transform: translateY(-5rem);
@@ -195,38 +202,11 @@ watch(() => hovered.value, (newValue, oldValue) => {
         }
     }
 
-    // NOTE: Je vais ce deplacer
+    // NOTE: this styles the FlexContainer in this section only
     &__buttons {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        &--button {
-            display: inline-block;
-            border: 2px solid #000;
-            border-radius: 1rem;
-            font-size: 1.5rem;
-            text-decoration: none;
-            text-transform: uppercase;
-            color: #fff;
-            padding: 1.5rem 3rem;
-            margin-top: 3rem;
-            background-color: $steelblue;
-            cursor: pointer;
-            z-index: 10000;
-
-            // &:focus {
-            // 	outline: none;
-            // }
-            &:hover {
-                background-color: #fff;
-                color: $steelblue;
-            }
-        }
+        width: 50rem;
+        margin: 6rem auto;
     }
-
-    &__button {}
 
     &__slider {
         height: 100%;
@@ -255,5 +235,10 @@ watch(() => hovered.value, (newValue, oldValue) => {
     to {
         opacity: 1;
     }
+}
+
+// TESTING
+.btn-test {
+    // opacity: 0;
 }
 </style>
