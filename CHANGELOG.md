@@ -1,5 +1,13 @@
 
 
+## [1.2.4](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.2.3...v1.2.4) (2024-03-28)
+
+
+### Bug Fixes
+
+* Re-engineer FlexContainer Component ([dce024d](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/dce024d7b80a0638967d86b50b3ca14aa10c10b7))
+* Responsive Development of Collapsible Rows ([7ce685c](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/7ce685c804cdf2a8a64a61605701f46cf10565c6))
+
 ## [1.2.3](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.2.2...v1.2.3) (2024-03-27)
 
 
