@@ -9,35 +9,33 @@ const currentYear: ComputedRef<number> = computed(() => {
         <ul class="links-footer__other-sites">
             <h4 class="links-footer__subtitle">Other Sites</h4>
             <li class="links-footer--item phone">
-                <a href="https://gilbertrabuttsurwa.tech" target="_blank" rel="noopener noreferrer">
-                    <span>Main Site</span>
-                </a>
+                <NuxtLink to="https://gilbertrabuttsurwa.tech" target="_blank">
+                    Main Site
+                </NuxtLink>
             </li>
             <li class="links-footer--item email">
-                <a href="https://gilbertrabuttsurwa-shop.netlify.app" target="_blank" rel="noopener noreferrer">
+                <NuxtLink to="https://gilbertrabuttsurwa-shop.netlify.app" target="_blank">
                     <span>Shop</span>
-                </a>
+                </NuxtLink>
             </li>
 
         </ul>
         <ul class="links-footer__contact">
             <h4 class="links-footer__subtitle">Contact Me</h4>
             <li class="links-footer--item phone">
-                <a href="tel:+5404045270">
-                    <span>612-450-6115</span>
-                </a>
+                <NuxtLink to="tel:+5408002584" external>
+                    <span>540-800-2584</span>
+                </NuxtLink>
             </li>
             <li class="links-footer--item email">
-                <a href="mailto:tsurwagilbert@gmail.com">
+                <NuxtLink to="mailto:tsurwagilbert@gmail.com">
                     <span>tsurwagilbert@gmail.com</span>
-                </a>
+                </NuxtLink>
             </li>
 
         </ul>
         <div class="links-footer__logo">
-            <NuxtLink to="/">
-                <LogoFooter />
-            </NuxtLink>
+            <LogoFooter />
         </div>
         <ul class="links-footer__follow">
             <h4 class="links-footer__subtitle">Links</h4>
@@ -48,7 +46,7 @@ const currentYear: ComputedRef<number> = computed(() => {
                 <NuxtLink to="/blog/uncensored">Uncensored</NuxtLink>
             </li>
             <li class="links-footer--item">
-                <NuxtLink to="/authours/gilbert-rabut-tsurwa" target="_blank" rel="noopener noreferrer">About Me</NuxtLink>
+                <NuxtLink to="/authours/gilbert-rabut-tsurwa" target="_blank">About Me</NuxtLink>
             </li>
             <li class="links-footer--item">
                 <NuxtLink to="/projects">Projects</NuxtLink>
@@ -57,29 +55,29 @@ const currentYear: ComputedRef<number> = computed(() => {
         <ul class="links-footer__socials">
             <h4 class="links-footer__subtitle">Socials</h4>
             <li class="links-footer--item">
-                <a href="https://www.linkedin.com/in/gilberttsurwa" target="_blank" rel="noopener noreferrer">
+                <NuxtLink to="https://www.linkedin.com/in/gilberttsurwa" target="_blank">
                     <i class="fab fa-facebook-f"></i>
-                </a>
+                </NuxtLink>
             </li>
             <li class="links-footer--item">
-                <a href="https://www.linkedin.com/in/gilberttsurwa" target="_blank" rel="noopener noreferrer">
+                <NuxtLink to="https://www.linkedin.com/in/gilberttsurwa" target="_blank">
                     <i class="fab fa-instagram"></i>
-                </a>
+                </NuxtLink>
             </li>
             <li class="links-footer--item">
-                <a href="https://www.github.com/GillyRabutTsurwa" target="_blank" rel="noopener noreferrer">
+                <NuxtLink to="https://www.github.com/GillyRabutTsurwa" target="_blank">
                     <i class="fab fa-github"></i>
-                </a>
+                </NuxtLink>
             </li>
             <li class="links-footer--item">
-                <a href="https://www.linkedin.com/in/gilberttsurwa" target="_blank" rel="noopener noreferrer">
+                <NuxtLink to="https://www.linkedin.com/in/gilberttsurwa" target="_blank">
                     <i class="fab fa-spotify"></i>
-                </a>
+                </NuxtLink>
             </li>
             <li class="links-footer--item">
-                <a href="https://www.linkedin.com/in/gilberttsurwa" target="_blank" rel="noopener noreferrer">
+                <NuxtLink to="https://www.linkedin.com/in/gilberttsurwa" target="_blank">
                     <i class="fab fa-linkedin"></i>
-                </a>
+                </NuxtLink>
             </li>
         </ul>
         <h3 class="copyright">Copyright &copy; Gilbert Rabut Tsurwa {{ currentYear }}. All Rights Reserved</h3>
@@ -91,8 +89,8 @@ const currentYear: ComputedRef<number> = computed(() => {
         </div> -->
     </footer>
 </template>
-    
-    
+
+
 <style lang="scss" scoped>
 .footer {
     order: 7; //NOTE: can be a grid item

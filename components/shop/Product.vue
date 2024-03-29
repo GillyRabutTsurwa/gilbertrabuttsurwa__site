@@ -1,21 +1,13 @@
 <script setup>
-import groq from 'groq';
 import { useProductsStore } from "~/stores/products";
 
-const query = groq`*[_type == "product"]`;
-const { data: products } = await useSanityQuery(query);
-
 const store = useProductsStore();
-
 const props = defineProps({
   product: {
     type: Object,
     required: true
   }
 });
-
-store.products = products.value;
-console.log(props.product);
 
 const addItemToCart = () => {
   /** NOTE:

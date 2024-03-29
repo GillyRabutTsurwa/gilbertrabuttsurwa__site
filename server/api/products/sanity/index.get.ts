@@ -15,8 +15,7 @@ export async function fetchProducts() {
     return products;
 }
 
-export default defineEventHandler(async (event) => {
-    return {
-        products: await fetchProducts(),
-    };
+export default defineEventHandler(async () => {
+    const products = await fetchProducts();
+    return products;
 });

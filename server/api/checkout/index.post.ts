@@ -1,6 +1,6 @@
 import Stripe from "stripe";
 import imageUrlBuilder from "@sanity/image-url";
-import { client, fetchProducts } from "../products/index.get";
+import { client, fetchProducts } from "../products/sanity/index.get";
 
 const config = useRuntimeConfig();
 
@@ -8,7 +8,7 @@ const builder = imageUrlBuilder(client);
 const urlFor = (source: any) => builder.image(source);
 
 const stripe = new Stripe(config.stripe.key, {
-    apiVersion: "2022-11-15",
+    apiVersion: "2023-10-16",
 });
 
 export default defineEventHandler(async (event) => {
