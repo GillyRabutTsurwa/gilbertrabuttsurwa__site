@@ -31,7 +31,7 @@ const text = computed(() => {
         </label>
 
         <!-- TOGGLE APPEAR IS RESPONSIBLE FOR SMOOTH TRANSITION DISPLAY -->
-        <div class="row__content toggleAppear">
+        <div class="collapsible">
             <div class="row__content">
                 <div class="row__content--left">
                     <address>
@@ -50,10 +50,6 @@ const text = computed(() => {
     margin-bottom: 1.5rem;
     border-bottom: 1px solid #333;
     padding-bottom: 3rem;
-
-
-
-    label {}
 
     input {
         display: none;
@@ -99,9 +95,19 @@ const text = computed(() => {
         }
     }
 
+    .collapsible {
+        // NOTE: this is the element whose "height" i am transitioning, with grid-template-rows. not height
+        // it works great
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.5s ease-in;
+    }
+
     &__content {
+        // NOTE: this is the child of .collapsible
+        // overflow-hidden is to hide all the content (this stuff) that is inside aka the child of .collapsible
+        overflow: hidden;
         display: flex;
-        // padding-bottom: 3rem;
         @include breakpoint(767) {
             flex-direction: column;
         }
@@ -125,17 +131,10 @@ const text = computed(() => {
     }
 }
 
-.row input:checked~.row__content {
-    max-height: 0;
-
-    & * {
-        display: none;
-        max-height: 0;
-    }
-}
-
-.row:has(input:checked) {
-    height: 13.5rem;
+.row input:checked~.collapsible {
+    // NOTE: nothing special here, I'm "lengthening" the element. again with grid-template-rows, not height
+    // NOTE: encore, je me repete, je fais ceci pour bien executer la transition
+    grid-template-rows: 1fr;
 }
 
 // v-html styles
