@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import image from "~/assets/images/header/glen-carrie-birds-chilling.jpg";
 const props = defineProps({
     column: {
         type: Object,
@@ -14,10 +13,6 @@ console.log(props.column);
 const text = computed(() => {
     return renderRichText(props.column.text);
 });
-//NOTE: move this to composables
-// const characterReplace: (param1: string) => string = (str: string) => {
-    
-// }
 </script>
 <template>
     <article class="row">
@@ -25,7 +20,6 @@ const text = computed(() => {
         <label :for="props.column._uid">
             <div class="row__heading">
                 <div class="row__heading--title">{{ props.column.title }}</div>
-                <!-- <span class="info__heading--arrow">&#8593;</span> -->
                 <span class="row__heading--arrow"></span>
             </div>
         </label>
@@ -76,7 +70,8 @@ const text = computed(() => {
                 font-size: 3.5rem;
                 margin-top: 3.5rem;
                 margin-bottom: 0;
-                margin-left: auto;margin-right: auto;
+                margin-left: auto;
+                margin-right: auto;
             }
         }
 
@@ -89,7 +84,7 @@ const text = computed(() => {
 
                 @include breakpoint(767) {
                     display: none;
-                    visibility:hidden;
+                    visibility: hidden;
                 }
             }
         }
@@ -108,6 +103,7 @@ const text = computed(() => {
         // overflow-hidden is to hide all the content (this stuff) that is inside aka the child of .collapsible
         overflow: hidden;
         display: flex;
+
         @include breakpoint(767) {
             flex-direction: column;
         }
@@ -143,6 +139,7 @@ const text = computed(() => {
         text-align: center;
     }
 }
+
 :deep(.row__content--right ul) {
     width: 90%;
     margin: 2rem auto 0 auto;
@@ -151,7 +148,7 @@ const text = computed(() => {
     justify-content: space-around;
     list-style: none;
 
-    
+
 
     li {
         margin-right: 2rem;
