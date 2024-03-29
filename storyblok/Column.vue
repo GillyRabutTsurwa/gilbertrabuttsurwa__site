@@ -99,7 +99,7 @@ const text = computed(() => {
         // NOTE: this is the element whose "height" i am transitioning, with grid-template-rows. not height
         // it works great
         display: grid;
-        grid-template-rows: 0fr;
+        grid-template-rows: 1fr;
         transition: grid-template-rows 0.5s ease-in;
     }
 
@@ -132,9 +132,9 @@ const text = computed(() => {
 }
 
 .row input:checked~.collapsible {
-    // NOTE: nothing special here, I'm "lengthening" the element. again with grid-template-rows, not height
+    // NOTE: nothing special here, I'm "shortening" the element. again with grid-template-rows, not height
     // NOTE: encore, je me repete, je fais ceci pour bien executer la transition
-    grid-template-rows: 1fr;
+    grid-template-rows: 0fr;
 }
 
 // v-html styles
