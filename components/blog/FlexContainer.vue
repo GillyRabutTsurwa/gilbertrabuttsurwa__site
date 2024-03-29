@@ -13,8 +13,6 @@ interface Flex {
 }
 
 const props = defineProps<Props>();
-
-
 const flexStyles: ComputedRef<Flex> = computed(() => {
     return {
         display: "flex",
@@ -22,7 +20,7 @@ const flexStyles: ComputedRef<Flex> = computed(() => {
         justifyContent: props.contentJustify || "center",
         alignItems: props.itemsAlign || "center",
     }
-})
+});
 </script>
 <template>
     <div class="flex-component-container" :style="flexStyles">

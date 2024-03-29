@@ -1,19 +1,16 @@
-<script setup>
+<script setup lang="ts">
+import type { StateTree, Store } from "pinia";
 import { useProductsStore } from "~/stores/products";
+import type { Product } from "~/interfaces/product";
 
-const store = useProductsStore();
-const props = defineProps({
-  product: {
-    type: Object,
-    required: true
-  }
-});
+interface Props {
+  product: Product
+}
+
+const store: Store<"products", StateTree> = useProductsStore();
+const props = defineProps<Props>();
 
 const addItemToCart = () => {
-  /** NOTE:
-   * i should get a warning about mutating props, but it should work nevertheless
-   * i actually get no warning
-   */
   store.$patch((state) => {
     console.log(props.product);
     state.productsInCart = [props.product, ...state.productsInCart];
@@ -52,7 +49,6 @@ const addItemToCart = () => {
 
 .product-image {
   display: block;
-  /* IMPORTANT: sans celui-ci, l'image sera trop grande */
   width: 100%;
   min-height: 18rem;
   -webkit-transition: all 0.3s linear;
