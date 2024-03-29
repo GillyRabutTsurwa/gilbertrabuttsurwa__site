@@ -1,6 +1,6 @@
 {
     "name": "gilbertrabuttsurwa.com__site",
-    "version": "1.2.4",
+    "version": "1.2.5",
     "description": "Coming Soon",
     "main": "nuxt.config.ts",
     "private": true,

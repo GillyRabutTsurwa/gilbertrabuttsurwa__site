@@ -1,5 +1,12 @@
 
 
+## [1.2.5](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.2.4...v1.2.5) (2024-03-29)
+
+
+### Bug Fixes
+
+* Smooth Transition on Collapsible Rows ([3c303f6](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/3c303f6cd68c445db0a02622698aa3cd13c1bbdc))
+
 ## [1.2.4](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.2.3...v1.2.4) (2024-03-28)
 
 
