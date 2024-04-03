@@ -66,10 +66,16 @@ watch(() => state.currentPosts, (newValue, oldValue) => {
   console.log("to");
   console.log([...newValue]);
 
+  //NOTEIMPORTANT: the heart of the code is here
+  // i am looping through the posts with the filter()
   store.filteredPosts = store.posts.filter((currentPost: Post) => {
+    // then, for each post, i am looping through each post category, using the some()
     return currentPost.categories.some((currentCategory: string) => {
+      // if each post category that has at least one the values of the state.currentPosts array (will change that array name, as it's a bit confusing)
       return [...newValue].includes(currentCategory);
+      // true will be returned for that categories array
     });
+    // thus, the results of the filtered posts will be based on the categories array whose value resolved to true from the some()
   });
 
   // NOTE: if the arrray that filters posts via the "checkbox" value is empty, show all the posts
