@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import type { StateTree, Store } from "pinia";
 import type { Post } from '~/interfaces/post';
 import { usePostsStore } from '@/stores/posts';
 
-const store = usePostsStore();
-
+const store: Store<"posts", StateTree> = usePostsStore();
 const props = defineProps({
   posts: {
     type: Array,
@@ -14,11 +14,6 @@ const props = defineProps({
     default: "column"
   }
 });
-
-console.log(props.posts);
-props.posts.forEach((currentPost) => {
-  console.log(currentPost.categories);
-})
 
 const state = reactive({
   currentPosts: []
@@ -31,25 +26,17 @@ const populatePosts = () => {
 
 console.log(store.posts);
 
-const categories: string[][] = store.posts.map((currentPost) => currentPost.categories);
+const categories: string[][] = store.posts.map((currentPost: Post) => currentPost.categories);
 const categoriesList: ComputedRef<string[]> = computed(() => {
-  //NOTE: i think this may have been the issue
-  // if i don't give the posts a category, this array gets populated with a value of undefined for that post
-  // so, therefore, the solution must be to remove the undefined values from this array (in case i forget to add a category to the post)
-  // i do this below
   return [...new Set(categories.flat())].filter((currentValue) => currentValue !== undefined);
 });
 
 console.log(categoriesList.value);
 
 function getNumOfPostsByCategory(category: string): number {
-  //NOTE: site still breaks because this does not (and should not) filter posts that have no category tags
-  // so it's trying to look the the category property from a post that has none, ie undefined
-  // so the solution is to ALWAYS put category tags on all posts
-  return store.posts.filter((currentPost) => currentPost.categories.includes(category)).length;
+  return store.posts.filter((currentPost: Post) => currentPost.categories.includes(category)).length;
 }
 
-// NOTE: style
 const listStyle = computed(() => {
   const displayStyle = {
     display: props.listDisplay === "row" ? "flex" : "block",
@@ -58,27 +45,13 @@ const listStyle = computed(() => {
   return displayStyle;
 });
 
-watch(() => state.currentPosts, (newValue, oldValue) => {
-  console.log("value changed");
-  console.log("from");
-  //NOTE: i can access the values of the currentPosts array (as they change) using the spread operator
-  console.log([...oldValue]);
-  console.log("to");
-  console.log([...newValue]);
-
-  //NOTEIMPORTANT: the heart of the code is here
-  // i am looping through the posts with the filter()
+watch(() => state.currentPosts, (newValue: Array<string>, _) => {
   store.filteredPosts = store.posts.filter((currentPost: Post) => {
-    // then, for each post, i am looping through each post category, using the some()
     return currentPost.categories.some((currentCategory: string) => {
-      // if each post category that has at least one the values of the state.currentPosts array (will change that array name, as it's a bit confusing)
       return [...newValue].includes(currentCategory);
-      // true will be returned for that categories array
     });
-    // thus, the results of the filtered posts will be based on the categories array whose value resolved to true from the some()
   });
 
-  // NOTE: if the arrray that filters posts via the "checkbox" value is empty, show all the posts
   if (state.currentPosts.length === 0) populatePosts();
 });
 </script>
@@ -119,19 +92,19 @@ watch(() => state.currentPosts, (newValue, oldValue) => {
     margin-top: 1.5rem;
 
     li {
-      margin-bottom: 2rem;
-      background-color: $colour-primary;
-      color: $whitish;
-      // font-weight: bold;
-      padding: 1.5rem;
-      border-radius: 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 2rem;
 
-      // cacher le checkbox
       input[type="checkbox"] {
         display: none;
+
+        &:checked~label {
+          background-color: $whitish;
+          color: $colour-primary;
+          border: 1px solid $colour-primary;
+        }
       }
 
       label {
@@ -140,6 +113,13 @@ watch(() => state.currentPosts, (newValue, oldValue) => {
         display: flex;
         justify-content: center;
         cursor: pointer;
+        background-color: $colour-primary;
+        color: $whitish;
+        padding: 1.5rem;
+        border: 1px solid transparent;
+        border-radius: 1rem;
+        transition: all 0.25s ease-in;
+
 
 
         span {
