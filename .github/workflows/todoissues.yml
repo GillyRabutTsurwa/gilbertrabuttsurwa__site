@@ -4,7 +4,7 @@ name: Making Issues From Todos
 
 on:
     push:
-        branches: ["master", "develop"]
+        branches: ["develop"]
 
 jobs:
     check-todos:

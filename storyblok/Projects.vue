@@ -1,29 +1,31 @@
 <script setup>
-const { assets } = useAssets();
-const { css, javascript, vue, svelte, react } = assets;
-console.log(assets);
-
+const { showElement, toggleElementOnResize } = useBreakpoints();
 const props = defineProps({ blok: Object });
-console.log(props.blok);
+
+if (process.client) window.addEventListener("resize", () => (toggleElementOnResize(767)));
+onMounted(() => {
+    if (process.client) toggleElementOnResize(767);
+});
 </script>
 
 <template>
     <div v-editable="blok" class="showcase">
         <div class="showcase-top">
-            <a href="https://github.com/GillyRabutTsurwa" target="_blank" rel="noreferrer">
+            <NuxtLink v-if="!showElement" to="https://github.com/GillyRabutTsurwa" target="_blank">
                 <i class="devicon-github-plain" />
                 <span>GitHub Repo</span>
-            </a>
+            </NuxtLink>
             <h2 style="font-size: 4rem;">{{ props.blok.main_title }}</h2>
-            <a href="https://gilbertrabuttsurwa.blog" target="_blank" rel="noreferrer">
+            <NuxtLink v-if="!showElement" to="https://gilbertrabuttsurwa.blog" target="_blank">
                 <i class="devicon-devicon-plain" />
                 <span>Blog Site</span>
-            </a>
+            </NuxtLink>
         </div>
 
         <h2 class="showcase-language-subtitle">{{ props.blok.css_title }}</h2>
         <ul class="showcase__list">
-            <Project v-for="(currentProject, index) in props.blok.projects_css" :key="index" :project="currentProject" />
+            <Project v-for="(currentProject, index) in props.blok.projects_css" :key="index"
+                :project="currentProject" />
         </ul>
 
         <h2 class="showcase-language-subtitle">{{ props.blok.js_title }}</h2>
@@ -33,17 +35,20 @@ console.log(props.blok);
 
         <h2 class="showcase-language-subtitle">{{ props.blok.vue_title }}</h2>
         <ul class="showcase__list">
-            <Project v-for="(currentProject, index) in props.blok.projects_vue" :key="index" :project="currentProject" />
+            <Project v-for="(currentProject, index) in props.blok.projects_vue" :key="index"
+                :project="currentProject" />
         </ul>
 
         <h2 class="showcase-language-subtitle">{{ props.blok.svelte_title }}</h2>
         <ul class="showcase__list">
-            <Project v-for="(currentProject, index) in props.blok.projects_svelte" :key="index" :project="currentProject" />
+            <Project v-for="(currentProject, index) in props.blok.projects_svelte" :key="index"
+                :project="currentProject" />
         </ul>
 
         <h2 class="showcase-language-subtitle">{{ props.blok.react_title }}</h2>
         <ul class="showcase__list">
-            <Project v-for="(currentProject, index) in props.blok.projects_react" :key="index" :project="currentProject" />
+            <Project v-for="(currentProject, index) in props.blok.projects_react" :key="index"
+                :project="currentProject" />
         </ul>
     </div>
 </template>
@@ -62,6 +67,11 @@ console.log(props.blok);
         justify-content: space-between;
         align-items: center;
         height: 8vh;
+
+        @include breakpoint(767) {
+            flex-direction: column;
+            margin-bottom: 5rem;
+        }
 
         & a {
 
@@ -96,7 +106,10 @@ console.log(props.blok);
         margin: 3rem 3rem 3rem 0;
         text-align: right;
         grid-column: 1 / -1;
-        //}
+
+        @include breakpoint(767) {
+            text-align: center;
+        }
     }
 
     &__list {

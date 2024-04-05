@@ -68,7 +68,7 @@ watch(() => hovered.value, (newValue, oldValue) => {
         <FlexContainer layout="row" contentJustify="space-around" itemsAlign="end" class="header__buttons">
             <Button to="/blog" isLink text="Read Blogs" colourPrimary="#fefefe" colourSecondary="#07343f"
                 class="btn-test" />
-            <Button to="/shop" isLink text="Access Shop" colourPrimary="#fefefe" colourSecondary="#07343f"
+            <Button to="/projects" isLink text="View Projects" colourPrimary="#fefefe" colourSecondary="#07343f"
                 class="btn-test" />
         </FlexContainer>
 

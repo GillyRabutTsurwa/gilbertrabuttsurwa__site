@@ -18,7 +18,7 @@ function randomArray(arr) {
 }
 onMounted(() => {
   setTimeout(() => {
-    //@todo - Use Better Error Handling
+    //@todo Use Better Error Handling
     // consult nuxt documentation, your solution is there
     if (instaposts.value?.data) {
       featuredInstaPosts.value = randomArray(instaposts.value.data);
