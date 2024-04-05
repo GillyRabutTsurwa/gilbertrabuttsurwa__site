@@ -66,10 +66,10 @@ watch(() => hovered.value, (newValue, oldValue) => {
                 :class="{ opaque: index === photoIndex }" class="autoportrait-img" />
         </figure>
         <FlexContainer layout="row" contentJustify="space-around" itemsAlign="end" class="header__buttons">
-            <Button to="/blog" isLink text="Read Blogs" colourPrimary="#fefefe" colourSecondary="#07343f"
+            <Button to="/blog" isLink isExternal text="Read Blogs" colourPrimary="#fefefe" colourSecondary="#07343f"
                 class="btn-test" />
-            <Button to="/projects" isLink text="View Projects" colourPrimary="#fefefe" colourSecondary="#07343f"
-                class="btn-test" />
+            <Button to="/projects" isLink isExternal text="View Projects" colourPrimary="#fefefe"
+                colourSecondary="#07343f" class="btn-test" />
         </FlexContainer>
 
     </header>

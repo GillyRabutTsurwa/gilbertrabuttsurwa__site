@@ -12,6 +12,10 @@ const props = defineProps({
     type: String,
     required: false
   },
+  isExternal: {
+    type: Boolean,
+    default: false
+  },
   colourPrimary: {
     type: String,
     required: false
@@ -35,7 +39,8 @@ const btnStyles = computed(() => {
 
 <template>
   <NuxtLink @mouseover="isHovered = true" @mouseleave="isHovered = false" v-if="props.isLink"
-    :to="`${props.isLink ? props.path : null}`" class="button" :style="btnStyles">
+    :to="`${props.isLink ? props.path : null}`" class="button" :style="btnStyles"
+    :target="isExternal ? '_blank' : '_self'">
     {{ props.text }}
   </NuxtLink>
   <button @mouseover="isHovered = true" @mouseleave="isHovered = false" v-else class="button" :style="btnStyles">
