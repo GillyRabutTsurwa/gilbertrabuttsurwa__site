@@ -12,7 +12,7 @@
 aside {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     margin: 4rem;
     width: 50rem;
 }

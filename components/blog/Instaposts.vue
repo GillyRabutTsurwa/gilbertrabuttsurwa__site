@@ -8,14 +8,9 @@ function randomArray(arr) {
   let newArray = [];
   let numofPosts = 9;
 
-  //NOTE: using while loop for the 1st time in a while
-  // whenever the length of the new array is less than the number of posts
   while (newArray.length < numofPosts) {
-    // generate a random number
     const randomNumber = Math.round(Math.random() * (arr.length - 1));
-    // and if that specific value does not already exist in the eventually returned array
     if (!newArray.includes(arr[randomNumber])) {
-      // then push that value to that array
       newArray.push(arr[randomNumber]);
     }
   }
@@ -23,16 +18,25 @@ function randomArray(arr) {
 }
 onMounted(() => {
   setTimeout(() => {
-    featuredInstaPosts.value = randomArray(instaposts.value.data);
-    pending.value = false;
+    //@todo - Use Better Error Handling
+    // consult nuxt documentation, your solution is there
+    if (instaposts.value?.data) {
+      featuredInstaPosts.value = randomArray(instaposts.value.data);
+      pending.value = false;
+    } else {
+      pending.value = false;
+      error.value = "Can't Fetch Instagram Posts";
+      console.log(error.value);
+    }
   }, 3000);
 });
 </script>
 
 <template>
+  <h3>Instagram</h3>
   <Spinner v-if="pending" />
+  <h4 v-else-if="error">{{ error }}</h4>
   <div class="picture-category__category">
-    <h4 class="picture-category__category--title">Instagram</h4>
     <div class="instagram-images">
       <figure v-for="currentInsta in featuredInstaPosts">
         <a :href="currentInsta.permalink" target="_blank" rel="noopener noreferrer">
@@ -44,6 +48,20 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+h3,
+h4 {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+h3 {
+  font-size: 5rem;
+}
+
+h4 {
+  font-size: 3rem;
+}
+
 .instagram-images {
   display: grid;
   grid-template-columns: repeat(3, 15rem);

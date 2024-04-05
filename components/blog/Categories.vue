@@ -68,7 +68,6 @@ watch(() => state.currentPosts, (newValue: Array<string>, _) => {
         </label>
       </li>
     </ul>
-    <div>{{ state.currentPosts }}</div>
   </div>
 </template>
 
