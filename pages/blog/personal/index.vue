@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import groq from "groq";
+import type { StateTree, Store } from "pinia";
 import { usePostsStore } from '@/stores/posts';
 
 interface Page {
@@ -16,7 +17,7 @@ const state: Page = reactive({
 });
 
 // COMPOSABLES
-const store = usePostsStore();
+const store: Store<"posts", StateTree> = usePostsStore();
 const { data: posts } = await useSanityQuery(query);
 
 
@@ -39,7 +40,6 @@ function renderPagination(eventPayload: number) {
   console.log(eventPayload);
 }
 
-//NEW: send sanity posts to server
 async function sendPostsToServer() {
   const { data: allPosts } = await useFetch("/api/blogs/personal", {
     method: "POST",
@@ -70,38 +70,94 @@ onUpdated(() => {
 <template>
   <Navigation />
   <HeaderX />
-  <FlexContainer :layout="flexDir" contentJustify="flex-start" itemsAlign="stretch">
-    <Main>
-      <template v-slot:post-list>
-        <Posts type="personal" :posts="currentPosts" />
-      </template>
-      <template v-slot:pagination>
-        <Pagination :postsPerPage="state.postsPerPage" :postsLength="store.filteredPosts.length"
-          @paginate="renderPagination($event)" />
-      </template>
-    </Main>
-    <Aside>
-      <template v-slot:categories>
-        <Categories :posts="store.posts" />
-      </template>
-      <template v-slot:instaposts>
-        <Instaposts />
-      </template>
-      <template v-slot:newsletter>
-        <Newsletter />
-      </template>
-    </Aside>
-  </FlexContainer>
+  <div class="grid-test">
+    <Posts type="personal" :posts="currentPosts" class="posto" />
+    <Pagination :postsPerPage="state.postsPerPage" :postsLength="store.filteredPosts.length"
+      @paginate="renderPagination($event)" class="pago" />
+    <Categories :posts="store.posts" class="catego" />
+    <Instaposts class="insto" />
+    <!-- <h5 class="newso">Newsletter Coming Soon</h5> -->
+  </div>
+  <FooterX />
 </template>
 
 
 <style lang="scss" scoped>
+.grid-test {
+  display: grid;
+  grid-template-columns: 1fr 50rem;
+  grid-template-rows: subgrid;
+  grid-template-areas:
+    "posts categories"
+    "posts categories"
+    "posts insta"
+    "posts newsletter"
+    "pagination .";
+
+  @include breakpoint(767) {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+  }
+}
+
+
 .body-tings {
   display: flex;
   // margin: 2.5rem;
 
   @include breakpoint(1023) {
     flex-direction: column;
+  }
+}
+
+.posto {
+  grid-area: posts;
+
+  @include breakpoint(767) {
+    grid-area: unset;
+    order: 2;
+  }
+}
+
+.pago {
+  grid-area: pagination;
+
+  @include breakpoint(767) {
+    grid-area: unset;
+    order: 3;
+  }
+}
+
+.catego {
+  grid-area: categories;
+  align-self: center;
+
+  @include breakpoint(767) {
+    grid-area: unset;
+    order: 1;
+  }
+}
+
+.insto {
+  grid-area: insta;
+  place-self: center;
+
+  @include breakpoint(767) {
+    grid-area: unset;
+    align-self: center;
+    order: 4;
+    margin: 0 auto;
+  }
+}
+
+.newso {
+  grid-area: newsletter;
+
+  @include breakpoint(767) {
+    grid-area: unset;
+    order: 5;
+    margin: 0 auto;
   }
 }
 </style>

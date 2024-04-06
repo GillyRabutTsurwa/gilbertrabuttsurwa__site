@@ -33,10 +33,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <h3>Instagram</h3>
-  <Spinner v-if="pending" />
-  <h4 v-else-if="error">{{ error }}</h4>
-  <div class="picture-category__category">
+  <section class="xyz">
+    <h4>Insta</h4>
     <div class="instagram-images">
       <figure v-for="currentInsta in featuredInstaPosts">
         <a :href="currentInsta.permalink" target="_blank" rel="noopener noreferrer">
@@ -44,7 +42,7 @@ onMounted(() => {
         </a>
       </figure>
     </div>
-  </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>
@@ -60,6 +58,13 @@ h3 {
 
 h4 {
   font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.xyz {
+  // is a grid item;
+  // place-self: center;
+  // margin: 0 auto;
 }
 
 .instagram-images {

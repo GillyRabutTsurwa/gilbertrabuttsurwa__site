@@ -80,6 +80,10 @@ watch(() => state.currentPosts, (newValue: Array<string>, _) => {
   margin: 4rem 0;
   width: inherit;
 
+  @include breakpoint(767) {
+    margin-bottom: 0;
+  }
+
   &__title {
     align-self: center;
     font-size: 4rem;
@@ -89,6 +93,12 @@ watch(() => state.currentPosts, (newValue: Array<string>, _) => {
     list-style-type: none;
     width: 70%;
     margin-top: 1.5rem;
+
+    @include breakpoint(767) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
 
     li {
       display: flex;
@@ -119,6 +129,10 @@ watch(() => state.currentPosts, (newValue: Array<string>, _) => {
         border-radius: 1rem;
         transition: all 0.25s ease-in;
 
+        @include breakpoint(767) {
+          padding: 1rem;
+        }
+
 
 
         span {
@@ -126,6 +140,10 @@ watch(() => state.currentPosts, (newValue: Array<string>, _) => {
 
           &:first-child {
             margin: 0 auto;
+
+            @include breakpoint(767) {
+              margin-right: 0.75rem;
+            }
           }
         }
       }
