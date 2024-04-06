@@ -98,6 +98,13 @@ onMounted(() => {
         margin: 0 auto;
     }
 
+    @include breakpoint(767) {
+        display: flex;
+        flex-basis: 50rem;
+        width: 250rem;
+        overflow-x: scroll;
+    }
+
     &.second {
         grid-template-rows: 54rem -webkit-min-content;
         grid-template-rows: 54rem min-content;
