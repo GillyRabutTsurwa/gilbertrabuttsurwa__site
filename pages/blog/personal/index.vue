@@ -134,6 +134,7 @@ onUpdated(() => {
   align-self: center;
 
   @include breakpoint(767) {
+    width: 100%;
     grid-area: unset;
     order: 1;
   }

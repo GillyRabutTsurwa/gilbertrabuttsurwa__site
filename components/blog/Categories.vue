@@ -39,7 +39,7 @@ function getNumOfPostsByCategory(category: string): number {
 
 const listStyle = computed(() => {
   const displayStyle = {
-    display: props.listDisplay === "row" ? "flex" : "block",
+    display: props.listDisplay === "row" ? "flex" : "",
     justifyContent: props.listDisplay === "row" ? "space-around" : ""
   }
   return displayStyle;
@@ -59,7 +59,7 @@ watch(() => state.currentPosts, (newValue: Array<string>, _) => {
 <template>
   <div class="category">
     <h4 class="category__title">Categories</h4>
-    <ul class="category__list" :style="listStyle">
+    <ul class="category__list">
       <li v-for="currentCategory in categoriesList" :key="currentCategory">
         <input type="checkbox" :id="currentCategory" :value="currentCategory" v-model="state.currentPosts">
         <label :for="currentCategory">
@@ -95,6 +95,7 @@ watch(() => state.currentPosts, (newValue: Array<string>, _) => {
     margin-top: 1.5rem;
 
     @include breakpoint(767) {
+      width: 100%;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
