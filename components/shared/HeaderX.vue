@@ -140,6 +140,10 @@ onMounted(() => {
         margin: 0 auto; // au cas ou
       }
 
+      @include breakpoint(1023) {
+        height: 35rem;
+      }
+
       img {
         border-radius: 1.5rem;
         width: inherit;
