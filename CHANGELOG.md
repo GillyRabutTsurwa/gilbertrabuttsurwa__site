@@ -1,5 +1,12 @@
 
 
+## [1.3.0](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.2.5...v1.3.0) (2024-04-06)
+
+
+### Features
+
+* Replaced Flexbox for Grid for Personal Blog Page Layout ([797b2b4](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/797b2b49e060d8520f053978bc385d6d56a3ebd3))
+
 ## [1.2.5](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.2.4...v1.2.5) (2024-03-29)
 
 
