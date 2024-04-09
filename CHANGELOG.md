@@ -1,5 +1,13 @@
 
 
+## [1.3.1](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.3.0...v1.3.1) (2024-04-09)
+
+
+### Bug Fixes
+
+* Categories Tab Displaying Poorly in Smaller Screens ([7c7ee5e](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/7c7ee5e351da3472cc65b7d5f2ede67da2cc4623))
+* Posts Layout Fixed in Smaller Screens ([f56cf8f](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/f56cf8fa83ce6086327e81964cc167c5a527781d))
+
 ## [1.3.0](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.2.5...v1.3.0) (2024-04-06)
 
 
