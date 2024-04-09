@@ -99,10 +99,11 @@ onMounted(() => {
     }
 
     @include breakpoint(767) {
+        // grid-template-columns: unset;
+        // grid-auto-rows: unset;
         display: flex;
         flex-basis: 50rem;
-        width: 250rem;
-        overflow-x: scroll;
+        overflow-x: auto;
     }
 
     &.second {
@@ -116,6 +117,10 @@ onMounted(() => {
         @include breakpoint(1023) {
             grid-column: 1 / -1 !important;
             grid-row: auto !important;
+        }
+
+        @include breakpoint(767) {
+            flex: 0 0 40rem;
         }
 
         &:hover &--content {
