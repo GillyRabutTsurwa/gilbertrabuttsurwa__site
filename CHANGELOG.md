@@ -1,5 +1,13 @@
 
 
+## [1.3.2](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.3.1...v1.3.2) (2024-04-10)
+
+
+### Bug Fixes
+
+* Adjusting Height of Spinner Component Based on Location ([cc95508](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/cc955082ff77cd8a798d0cc7c3d141d57d3e80b9))
+* Loader Component Now Shows Only Once ([3ee0d8a](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/3ee0d8aa53b99474d127e024ff4c8e1ac02d5ddb))
+
 ## [1.3.1](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.3.0...v1.3.1) (2024-04-09)
 
 
