@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 const props = defineProps({
   postsPerPage: {
     type: Number,
@@ -10,6 +10,8 @@ const props = defineProps({
     required: true,
   }
 });
+
+const pagination: Ref<HTMLUListElement | null> = ref(null);
 const emit = defineEmits(["paginate"]);
 const pageNumbers = computed(() => {
   const pageNos = [];
@@ -22,10 +24,27 @@ const pageNumbers = computed(() => {
 function paginatePg(pageNum) {
   emit("paginate", pageNum);
 }
+
+onMounted(() => {
+  //@todo Refactor this Code
+  pagination.value.addEventListener("mouseover", (e) => {
+    if (e.target.tagName === "BUTTON") {
+      e.target.style.backgroundColor = "#fefefe";
+      e.target.style.color = "#1a2934";
+    }
+  });
+
+  pagination.value.addEventListener("mouseout", (e) => {
+    if (e.target.tagName === "BUTTON") {
+      e.target.style.backgroundColor = "#1a2934";
+      e.target.style.color = "#fefefe";
+    }
+  });
+})
 </script>
 
 <template>
-  <menu class="pagination-list">
+  <menu ref="pagination" class="pagination-list">
     <li v-for="currentPageNum in pageNumbers" v-bind:key="currentPageNum" class="pagination-list__item">
       <button @click="paginatePg(currentPageNum)">{{ currentPageNum }}</button>
     </li>
