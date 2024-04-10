@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
   <div class="loader">
     <span class="loader__icon"></span>
@@ -7,8 +5,6 @@
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/sass/abstracts" as abstracts;
-
 .loader {
   width: 100%;
   height: 30%;
@@ -18,8 +14,8 @@
   &__icon {
     width: 48px;
     height: 48px;
-    border: 5px solid abstracts.$whitish;
-    border-bottom-color: abstracts.$colour-primary;
+    border: 5px solid $whitish;
+    border-bottom-color: $colour-primary;
     border-radius: 50%;
     display: inline-block;
     box-sizing: border-box;

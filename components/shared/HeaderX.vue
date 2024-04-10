@@ -60,9 +60,6 @@ onMounted(() => {
 
 
 <style lang="scss" scoped>
-@use "~/assets/sass/abstracts/" as abstracts;
-@use "~/assets/sass/base/" as base;
-
 .header {
   position: relative;
   // height: 60rem;
@@ -74,7 +71,7 @@ onMounted(() => {
   grid-template-rows: min-content 1fr;
   padding: 0 5rem;
 
-  @include abstracts.breakpoint(1023) {
+  @include breakpoint(1023) {
     height: auto; // au cas ou
     row-gap: 2rem;
     grid-template-columns: 1fr;
@@ -84,13 +81,13 @@ onMounted(() => {
     grid-column: 1 / -1;
     margin: 3rem 0;
 
-    @include abstracts.breakpoint(1023) {
+    @include breakpoint(1023) {
       text-align: center;
     }
   }
 
   &__post {
-    @include abstracts.breakpoint(1023) {
+    @include breakpoint(1023) {
       display: grid;
       grid-template-columns: 1fr;
       grid-column: 1 / -1;
@@ -98,12 +95,12 @@ onMounted(() => {
     }
 
     &--content {
-      @include abstracts.breakpoint(1023) {
+      @include breakpoint(1023) {
         grid-column: 1 / -1;
         grid-row: 3 / 4;
       }
 
-      @include abstracts.breakpoint(767) {
+      @include breakpoint(767) {
         text-align: center;
       }
 
@@ -134,7 +131,7 @@ onMounted(() => {
       width: 100%;
       height: 65rem; //TESTING
 
-      @include abstracts.breakpoint(1023) {
+      @include breakpoint(1023) {
         grid-column: 1 / -1;
         grid-row: 2 / 3;
         margin: 0 auto; // au cas ou
@@ -153,17 +150,6 @@ onMounted(() => {
       }
     }
   }
-
-  // &::after {
-  //     position: absolute;
-  //     top: 0;
-  //     opacity: 0.6;
-  //     // z-index: 1000;
-  //     content: "";
-  //     width: 100%;
-  //     height: 100%;
-  //     background-color: abstracts.$colour-primary;
-  // }
 
   &__title {
     position: absolute;
@@ -188,11 +174,11 @@ onMounted(() => {
 
     &--primary,
     &--secondary {
-      color: abstracts.$whitish;
+      color: $whitish;
     }
 
     &--secondary {
-      font-family: abstracts.$Lexend;
+      font-family: $Lexend;
       font-size: 4.5rem;
       margin-bottom: 5rem;
     }
@@ -204,23 +190,11 @@ onMounted(() => {
   }
 }
 
-@include base.fadeAnimation("appear", 0, 1);
-//NOTE: Code below is replaced by mixin declaration above. We define the animation in our desired element as usual.
+@include fadeAnimation("appear", 0, 1);
 
-// move me. header title animation
-// @-webkit-keyframes appear {
-// 	from {
-// 		opacity: 0;
-// 	}
-// 	to {
-// 		opacity: 100%;
-// 	}
-// }
-// @keyframes appear {
-// 	from {
-// 		opacity: 0;
-// 	}
-// 	to {
-// 		opacity: 1;
-// 	}
-// }</style>
+// NOTEIMPORTANT: this is for the instance of the spinner component in this component.
+// i am overwriting the normal height
+.loader {
+  height: 50dvh;
+}
+</style>

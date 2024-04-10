@@ -49,8 +49,6 @@ const btnStyles = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@use "../assets/sass/abstracts/" as abstracts;
-
 .button {
   @include button-config(1.5rem, 2.2rem, 0.5rem);
   font-size: 1.6rem;
@@ -63,7 +61,7 @@ const btnStyles = computed(() => {
   // dans ce cas-ci, je veux que la couleur du contour ne change pas
   &:hover,
   &:active {
-    // border: 2px solid abstracts.$colour-primary;
+    // border: 2px solid $colour-primary;
   }
 }
 </style>

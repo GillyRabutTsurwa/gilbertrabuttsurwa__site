@@ -1,22 +1,43 @@
 <script setup lang="ts">
+import { useStorage } from "@vueuse/core";
+
+interface LocalStorage<T> {
+    isFirstVisit: T
+}
+
 const Loader = resolveComponent("Loader");
 const MainContent = resolveComponent("MainContent");
-const currentComponent = shallowRef(Loader);
+const Spinner = resolveComponent("Spinner");
+const currentComponent = shallowRef(Spinner);
+
+const storageData: LocalStorage<boolean> = {
+    isFirstVisit: false
+};
+
+const storage = useStorage("visited", storageData);
 onMounted(() => {
-    setTimeout(() => {
+    if (!storage.value.isFirstVisit) {
+        currentComponent.value = Loader;
+        setTimeout(() => {
+            currentComponent.value = MainContent;
+        }, 6000);
+        storage.value.isFirstVisit = true;
+    } else {
         currentComponent.value = MainContent;
-    }, 5000);
-})
+    }
+});
 </script>
 
 <template>
     <section id="app">
-        <component :is="currentComponent"></component>
+        <Transition name="component-fade">
+            <component :is="currentComponent"></component>
+        </Transition>
     </section>
 </template>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 #app {
     display: grid;
     grid-template-areas: "Header" "First" "Second" "Third" "Fourth" "Fifth" "Footer";
@@ -67,5 +88,24 @@ onMounted(() => {
     0% {
         opacity: 0;
     }
+}
+
+// NOTEIMPORTANT: this is for the instance of the spinner component in this component.
+// i am overwriting the normal height
+.loader {
+    height: 100vh;
+}
+
+// transition classes
+.component-fade-enter-active,
+.component-fade-leave-active {
+    transition: opacity 0.75s ease;
+}
+
+.component-fade-enter,
+.component-fade-leave-to {
+    /* transform: rotateY(90deg); */
+    opacity: 0;
+    /* transform: translateX(300px); */
 }
 </style>
