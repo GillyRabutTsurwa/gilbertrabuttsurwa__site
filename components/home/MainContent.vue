@@ -11,7 +11,6 @@ console.log(story.value.content);
 <template>
   <HomeNav />
   <StoryblokComponent v-if="story" :blok="story.content" />
-  <FooterX />
 </template>
 
 <style lang="scss">

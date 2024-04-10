@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
   <div class="loader">
     <span class="loader__icon"></span>
@@ -11,7 +9,7 @@
 
 .loader {
   width: 100%;
-  height: 30%;
+  height: 100vh;
   display: grid;
   place-items: center;
 
