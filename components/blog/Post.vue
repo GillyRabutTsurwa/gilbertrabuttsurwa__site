@@ -59,21 +59,19 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
-@use "@/assets/sass/abstracts";
-
 .blog-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 2rem;
   height: 100vh;
 
-  @include abstracts.breakpoint(1023) {
+  @include breakpoint(1023) {
     grid-template-columns: 1fr;
     grid-template-rows: 35% 1fr;
     min-height: 100vh;
   }
 
-  @include abstracts.breakpoint(480) {
+  @include breakpoint(480) {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
   }
@@ -84,7 +82,7 @@ onMounted(() => {
     height: 100vh;
     overflow: hidden;
 
-    @include abstracts.breakpoint(1023) {
+    @include breakpoint(1023) {
       position: relative;
       grid-row: 1 / 2;
       height: 100%;
@@ -103,14 +101,14 @@ onMounted(() => {
     padding: 4rem 3rem 2rem 3rem;
     overflow: hidden scroll;
 
-    @include abstracts.breakpoint(1023) {
+    @include breakpoint(1023) {
       grid-row: 2 / 3;
     }
 
     &__title,
     &__author,
     &__date-published {
-      @include abstracts.breakpoint(480) {
+      @include breakpoint(480) {
         text-align: center;
       }
     }

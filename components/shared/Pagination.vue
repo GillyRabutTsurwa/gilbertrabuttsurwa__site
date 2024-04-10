@@ -33,8 +33,6 @@ function paginatePg(pageNum) {
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/sass/abstracts";
-
 .pagination-list {
   list-style: none;
   display: flex;
@@ -52,8 +50,8 @@ function paginatePg(pageNum) {
       outline: none;
       padding: 1.5rem 2.5rem;
       font-size: 1.8rem;
-      background-color: abstracts.$colour-primary;
-      color: abstracts.$whitish;
+      background-color: $colour-primary;
+      color: $whitish;
     }
   }
 }

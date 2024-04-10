@@ -37,7 +37,7 @@ onMounted(() => {
 </template>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 #app {
     display: grid;
     grid-template-areas: "Header" "First" "Second" "Third" "Fourth" "Fifth" "Footer";
@@ -88,6 +88,12 @@ onMounted(() => {
     0% {
         opacity: 0;
     }
+}
+
+// NOTEIMPORTANT: this is for the instance of the spinner component in this component.
+// i am overwriting the normal height
+.loader {
+    height: 100vh;
 }
 
 // transition classes

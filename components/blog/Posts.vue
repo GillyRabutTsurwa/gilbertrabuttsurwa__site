@@ -77,8 +77,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/sass/abstracts/" as abstracts;
-
 // ===================== Personal Blog Styles ==========================
 .blogs-personal {
     margin: 3rem 0;
@@ -242,7 +240,7 @@ onMounted(() => {
     -moz-gap: 7rem;
     gap: 7rem;
 
-    @include abstracts.breakpoint(1023) {
+    @include breakpoint(1023) {
         grid-template-columns: 1fr;
         width: 80%;
         margin: 0 auto;

@@ -5,19 +5,17 @@
 </template>
 
 <style lang="scss" scoped>
-@use "@/assets/sass/abstracts" as abstracts;
-
 .loader {
   width: 100%;
-  height: 100vh;
+  height: 30%;
   display: grid;
   place-items: center;
 
   &__icon {
     width: 48px;
     height: 48px;
-    border: 5px solid abstracts.$whitish;
-    border-bottom-color: abstracts.$colour-primary;
+    border: 5px solid $whitish;
+    border-bottom-color: $colour-primary;
     border-radius: 50%;
     display: inline-block;
     box-sizing: border-box;
