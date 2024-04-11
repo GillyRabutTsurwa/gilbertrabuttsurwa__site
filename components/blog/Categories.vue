@@ -37,6 +37,7 @@ function getNumOfPostsByCategory(category: string): number {
   return store.posts.filter((currentPost: Post) => currentPost.categories.includes(category)).length;
 }
 
+//NOTE: not being used
 const listStyle = computed(() => {
   const displayStyle = {
     display: props.listDisplay === "row" ? "flex" : "",
@@ -93,10 +94,12 @@ watch(() => state.currentPosts, (newValue: Array<string>, _) => {
     list-style-type: none;
     width: 70%;
     margin-top: 1.5rem;
+    display: flex;
+    //@todo Make this property dynamic. Off to bed
+    flex-direction: column;
 
     @include breakpoint(767) {
       width: 100%;
-      display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
     }
