@@ -18,15 +18,19 @@ function randomArray(arr) {
 }
 onMounted(() => {
   setTimeout(() => {
-    //@todo Use Better Error Handling
-    // consult nuxt documentation, your solution is there
-    if (instaposts.value?.data) {
-      featuredInstaPosts.value = randomArray(instaposts.value.data);
-      pending.value = false;
-    } else {
-      pending.value = false;
-      error.value = "Can't Fetch Instagram Posts";
-      console.log(error.value);
+    try {
+      if (instaposts.value?.data) {
+        featuredInstaPosts.value = randomArray(instaposts.value.data);
+        pending.value = false;
+      } else {
+        throw new Error("Can't Fetch Instagram Posts")
+      }
+    } catch (err) {
+        pending.value = false;
+        error.value = err.message;
+        console.log(error.value);
+    } finally {
+      console.log("Process of fetching posts complete");
     }
   }, 3000);
 });
