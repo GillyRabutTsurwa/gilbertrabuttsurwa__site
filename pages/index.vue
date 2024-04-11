@@ -31,7 +31,7 @@ onMounted(() => {
 <template>
     <section id="app">
         <Transition name="component-fade">
-            <component :is="currentComponent"></component>
+            <component :is="currentComponent" :dimensions="500"></component>
         </Transition>
     </section>
 </template>

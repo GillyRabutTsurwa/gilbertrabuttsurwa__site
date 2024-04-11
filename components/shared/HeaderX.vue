@@ -39,7 +39,7 @@ onMounted(() => {
 })
 </script>
 <template>
-  <Spinner v-if="pending" />
+  <Spinner v-if="pending" :dimensions="150" />
   <header v-else class="header">
     <div class="header__blog-intro">
       <h2>Featured Post</h2>

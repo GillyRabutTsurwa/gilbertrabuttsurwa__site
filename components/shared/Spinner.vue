@@ -1,6 +1,25 @@
+<script setup lang="ts">
+interface Props {
+  dimensions: number
+}
+
+interface Styles {
+  width: string;
+  height: string;
+}
+
+const props = defineProps<Props>();
+const styles: Styles = computed(() => {
+  return {
+    width: `${props.dimensions}px`,
+    height: `${props.dimensions}px`
+  }
+});
+</script>
+
 <template>
   <div class="loader">
-    <span class="loader__icon"></span>
+    <span :style="styles" class="loader__icon"></span>
   </div>
 </template>
 
@@ -12,8 +31,8 @@
   place-items: center;
 
   &__icon {
-    width: 48px;
-    height: 48px;
+    // width: 48px;
+    // height: 48px;
     border: 5px solid $whitish;
     border-bottom-color: $colour-primary;
     border-radius: 50%;
