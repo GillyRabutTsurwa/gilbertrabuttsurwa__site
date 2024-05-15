@@ -29,14 +29,15 @@ const buttonStylesTwo = computed(() => {
 <template>
     <article class="showcase-item">
         <div class="showcase-item-x">
-            <img :src="project.thumbnail_image.filename" :alt="project.thumbnail_image.filename.alt" class="item__img" />
+            <img :src="project.thumbnail_image.filename" :alt="project.thumbnail_image.filename.alt"
+                class="item__img" />
         </div>
         <div class="showcase-item-y">
-            <a @mouseover="isHovered = true" @mouseleave="isHovered = false" :href="project.github_link.url"
+            <a @mouseover="isHovered = true" @mouseleave="isHovered = false" :href="project.app_link.url"
                 :style="buttonStyles" target="_blank" rel="noreferrer" class="card__button first">Link to Website
                 <i class="devicon-devicon-plain" />
             </a>
-            <a @mouseover="isHoveredTwo = true" @mouseleave="isHoveredTwo = false" :href="project.app_link.url"
+            <a @mouseover="isHoveredTwo = true" @mouseleave="isHoveredTwo = false" :href="project.github_link.url"
                 :style="buttonStylesTwo" target="_blank" rel="noreferrer" class="card__button first">Link to Code
                 <i class="devicon-github-plain" />
             </a>
