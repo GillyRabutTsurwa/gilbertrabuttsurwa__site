@@ -95,6 +95,8 @@ onMounted(() => {
     }
 
     &--content {
+      padding-right: 4rem;
+
       @include breakpoint(1023) {
         grid-column: 1 / -1;
         grid-row: 3 / 4;
@@ -103,8 +105,6 @@ onMounted(() => {
       @include breakpoint(767) {
         text-align: center;
       }
-
-      padding-right: 4rem;
 
       &>*:not(:last-child) {
         margin-bottom: 3rem;
