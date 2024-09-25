@@ -1,8 +1,3 @@
-const storyblokOptions = {
-    accessToken: process.env.STORYBLOK_TOKEN,
-    apiOptions: { region: "us" },
-    devtools: true,
-};
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     devtools: {
@@ -13,7 +8,7 @@ export default defineNuxtConfig({
         host: "0.0.0.0",
     },
 
-    modules: ["@nuxtjs/sanity", "@nuxtjs/supabase", "@nuxtjs/google-fonts", "@pinia/nuxt", ["@storyblok/nuxt", storyblokOptions]],
+    modules: ["@nuxtjs/sanity", "@nuxtjs/supabase", "@nuxtjs/google-fonts", "@pinia/nuxt"],
 
     //NOTE: for sanity config via @nuxt/sanityjs docs
     sanity: {
@@ -21,6 +16,11 @@ export default defineNuxtConfig({
         dataset: process.env.SANITY_ENV_PROD,
         apiVersion: process.env.SANITY_API_VERSION,
         useCdn: false,
+        visualEditing: {
+            studioUrl: process.env.SANITY_STUDIO_URL || "http://localhost:3333",
+            token: process.env.SANITY_API_TOKEN,
+            stega: true,
+        },
     },
 
     supabase: {
@@ -51,14 +51,6 @@ export default defineNuxtConfig({
         },
         auth: {
             secret: process.env.AUTH_SECRET,
-        },
-        // NOTE: to use for making sanity client (via vanilla js)
-        // NOTE: need this to construct the api for all my endpoints
-        sanity: {
-            projectId: process.env.SANITY_PROJECT_ID,
-            dataset: process.env.SANITY_ENV_PROD,
-            apiVersion: process.env.SANITY_API_VERSION,
-            useCdn: false,
         },
         stripe: {
             key: process.env.STRIPE_KEY,
