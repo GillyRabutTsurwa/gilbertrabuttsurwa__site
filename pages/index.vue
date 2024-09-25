@@ -1,38 +1,14 @@
-<script setup lang="ts">
-import { useStorage } from "@vueuse/core";
-
-interface LocalStorage<T> {
-    isFirstVisit: T
-}
-
-const Loader = resolveComponent("Loader");
-const MainContent = resolveComponent("MainContent");
-const Spinner = resolveComponent("Spinner");
-const currentComponent = shallowRef(Spinner);
-
-const storageData: LocalStorage<boolean> = {
-    isFirstVisit: false
-};
-
-const storage = useStorage("visited", storageData);
-onMounted(() => {
-    if (!storage.value.isFirstVisit) {
-        currentComponent.value = Loader;
-        setTimeout(() => {
-            currentComponent.value = MainContent;
-        }, 6000);
-        storage.value.isFirstVisit = true;
-    } else {
-        currentComponent.value = MainContent;
-    }
-});
+<script setup>
+const versionType = import.meta.env.DEV ? "draft" : "published";
+const story = await useAsyncStoryblok("home", { version: versionType });
+console.log(story);
+console.log(story.value);
 </script>
 
 <template>
+    <!-- <HomeNav /> il ne s'affiche pas pour le moment -->
     <section id="app">
-        <Transition name="component-fade">
-            <component :is="currentComponent" :dimensions="500"></component>
-        </Transition>
+        <StoryblokComponent v-if="story" :blok="story.content" />
     </section>
 </template>
 

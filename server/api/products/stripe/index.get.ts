@@ -6,7 +6,7 @@ import { client } from "../sanity/index.get";
 
 const config = useRuntimeConfig();
 const stripe = new Stripe(config.stripe.key, {
-    apiVersion: "2023-10-16",
+    apiVersion: "2024-06-20",
 });
 
 const urlFor = (source: any) => builder.image(source);
