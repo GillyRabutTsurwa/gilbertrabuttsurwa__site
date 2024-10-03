@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import groq from "groq";
+import type { Post } from "~/interfaces/post";
 import type { StateTree, Store } from "pinia";
 import { usePostsStore } from '@/stores/posts';
 
@@ -18,7 +19,7 @@ const state: Page = reactive({
 
 // COMPOSABLES
 const store: Store<"posts", StateTree> = usePostsStore();
-const { data: posts } = await useSanityQuery(query);
+const { data: posts } = await useSanityQuery<Post>(query);
 
 
 // COMPUTED VALUES

@@ -1,16 +1,13 @@
-<script setup lang="ts">
-const query: string = groq`*[_type == "post" && postGenre == "personal"]`;
-const { data: posts } = await useSanityQuery(query);
-
-</script>
-
 <template>
-    <!-- <HomeNav /> il ne s'affiche pas pour le moment -->
+    <HomeNav />
     <section id="app">
-        <!-- <StoryblokComponent v-if="story" :blok="story.content" /> -->
-        <div v-for="(currentPost, index) in posts" :key="currentPost._id">
-            {{ currentPost.title }}
-        </div>
+        <Header />
+        <Columns />
+        <Marquee />
+        <Showcase />
+        <Certifications />
+        <Form />
+        <Footer />
     </section>
 </template>
 
