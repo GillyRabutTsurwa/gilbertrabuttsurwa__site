@@ -1,12 +1,13 @@
-<script setup>
+<script setup lang="ts">
 const props = defineProps({
-  postData: {
+  post: {
     type: Object,
     required: true
   }
 });
-const { title, body, author, publishedAt, mainImage: imgURL } = props.postData;
+
 const { formatDate } = useFormatDate();
+console.log(props.post);
 
 /** NOTE:
  * you can also import the component manually, but with this is cleaner Nuxt solution
@@ -23,39 +24,35 @@ const serializers = {
     code: CustomCode
   }
 }
-
-const { showElement, toggleElementOnResize } = useBreakpoints();
-if (process.client) window.addEventListener("resize", () => (toggleElementOnResize(480)));
-onMounted(() => {
-  if (process.client) toggleElementOnResize(480);
-});
 </script>
 
 <template>
+  <!-- <ClientOnly> -->
   <article class="blog-container">
     <figure class="blog-img-container" v-if="!showElement">
-      <SanityImage :asset-id="imgURL?.asset?._ref" auto="format" />
+      <SanityImage :asset-id="props.post.mainImage?.asset?._ref" auto="format" />
     </figure>
 
     <div class="blog-content">
       <Button isLink path="/blog/personal/posts/" text="All Posts" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
-      <h1 class="blog-content__title">{{ title }}</h1>
+      <h1 class="blog-content__title">{{ props.post.title }}</h1>
       <h3 class="blog-content__author">
         <span>By: </span>
-        <NuxtLink :to="`/authours/${author.slug.current}`">
-          <span>{{ author.name }}</span>
+        <NuxtLink :to="`/authours/${props.post.author.slug.current}`">
+          <span>{{ props.post.author.name }}</span>
         </NuxtLink>
       </h3>
       <h3 class="blog-content__date-published">
         <span>Date Published: </span>
-        <span>{{ formatDate(publishedAt) }}</span>
+        <span>{{ formatDate(props.post.publishedAt) }}</span>
       </h3>
       <div class="blog-content__description">
-        <SanityContent :blocks="body" :serializers="serializers" />
+        <SanityContent :blocks="props.post.body" :serializers="serializers" />
       </div>
       <Button isLink path="/personal/posts/" text="All Posts" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
     </div>
   </article>
+  <!-- </ClientOnly> -->
 </template>
 
 <style lang="scss">
@@ -145,3 +142,28 @@ onMounted(() => {
   }
 }
 </style>
+
+
+
+
+
+
+<!-- <template>
+  <Post :postData="state.post" />
+</template>
+
+<script setup>
+const route = useRoute();
+const url = route.params.slug;
+const state = reactive({
+  post: {},
+});
+
+const query = groq`*[_type == "post" && postGenre == "personal" && slug.current == "${url}"] {
+  ...,
+  author->
+}`;
+
+const { data, pending, error } = await useSanityQuery(query);
+state.post = data.value[0];
+</script> -->
