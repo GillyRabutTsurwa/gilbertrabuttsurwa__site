@@ -4,7 +4,7 @@ export const home: string = groq`*[_type == "home"][0] {
     header,
     _type
 }`;
-export const post: string = groq`*[_type == "post"] {
+export const posts: string = groq`*[_type == "post"] {
     _id,
     title,
     slug,
@@ -18,6 +18,24 @@ export const post: string = groq`*[_type == "post"] {
     body,
     _type
 }`;
+
+export const post = (url: string) => {
+    return groq`*[_type == "post" && slug.current == "${url}"][0] {
+        _id,
+        title,
+        slug,
+        author,
+        postGenre,
+        thumbnail,
+        mainImage,
+        publishedAt,
+        _updatedAt,
+        // "slug": slug.current,
+        body,
+        author->,
+        _type
+    }`;
+};
 
 // NOTE: redundant but pour le moment ça va
 
