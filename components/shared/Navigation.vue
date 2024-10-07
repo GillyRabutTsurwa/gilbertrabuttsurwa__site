@@ -1,20 +1,20 @@
 <script setup lang="ts">
 const isLoggedIn: Ref<boolean> = ref(false);
-const supabase = useSupabaseClient();
-const user = useSupabaseUser();
-const route = useRoute();
-const router = useRouter();
-console.log(user);
+// const supabase = useSupabaseClient();
+// const user = useSupabaseUser();
+// const route = useRoute();
+// const router = useRouter();
+// console.log(user);
 
-const signOut = async () => {
-  try {
-    const { error } = await supabase.auth.signOut();
-    if (error) throw new Error(error.message);
-    if (route.path === "/blog/uncensored") router.push("/login");
-  } catch (error) {
-    console.log(error);
-  }
-}
+// const signOut = async () => {
+//   try {
+//     const { error } = await supabase.auth.signOut();
+//     if (error) throw new Error(error.message);
+//     if (route.path === "/blog/uncensored") router.push("/login");
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 </script>
 
 <template>
@@ -28,7 +28,7 @@ const signOut = async () => {
         <NuxtLink to="/blog">Blogs</NuxtLink>
       </li>
       <li class="navigation__list--item">
-        <NuxtLink to="/blog/authours/gilbert-rabut-tsurwa">About Me</NuxtLink>
+        <NuxtLink to="/blog/blog/authours/gilbert-rabut-tsurwa">About Me</NuxtLink>
       </li>
       <DevOnly>
         <li class="navigation__list--item">
@@ -45,15 +45,15 @@ const signOut = async () => {
     <ul class="navigation__list">
       <!-- account username -->
 
-      <li v-if="user?.role === 'authenticated'" class="navigation__list--item">
+      <!-- <li v-if="user?.role === 'authenticated'" class="navigation__list--item">
         <span @click="signOut" style="color: #f0f0f0;">Sign Out</span>
       </li>
       <li v-if="user?.role === 'authenticated'" class="navigation__list--item">
         <span style="color: #f0f0f0;">{{ user?.user_metadata.user_name || user.email }}</span>
-      </li>
-      <li v-else class="navigation__list--item">
+      </li> -->
+      <!-- <li v-else class="navigation__list--item">
         <NuxtLink to="/login">Sign In</NuxtLink>
-      </li>
+      </li> -->
     </ul>
   </nav>
 </template>

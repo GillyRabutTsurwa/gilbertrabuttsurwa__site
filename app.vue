@@ -5,10 +5,12 @@ const layout: ComputedRef<string> = computed(() => route.name.includes("blog") ?
 </script>
 
 <template>
-  <a v-if="previewEnabled && !inFrame" :href="`/preview/disable?redirect=${route.fullPath}`" class="preview-toggle">
-    <span>Preview Enabled</span>
-    <span>Disable Preview</span>
-  </a>
+  <ClientOnly>
+    <a v-if="previewEnabled && !inFrame" :href="`/preview/disable?redirect=${route.fullPath}`" class="preview-toggle">
+      <span>Preview Enabled</span>
+      <span>Disable Preview</span>
+    </a>
+  </ClientOnly>
   <NuxtLayout :name="layout">
     <NuxtPage />
   </NuxtLayout>

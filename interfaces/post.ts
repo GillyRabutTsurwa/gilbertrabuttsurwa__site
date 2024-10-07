@@ -35,15 +35,26 @@ type image = {
     };
 };
 
+type author = {
+    _id: string;
+    _type: string;
+    name: string;
+    slug: {
+        _type: string;
+        current: string;
+    };
+    _createdAt: Date;
+    _updatedAt: Date;
+    bio: Array<PortableTextBlock>;
+    image: image;
+};
+
 export interface Post {
     _id: string;
     _createdAt: string;
     _updatedAt: Date;
     _type: string;
-    author: {
-        _ref: string;
-        _type: string;
-    };
+    author: author;
     body: Array<PortableTextBlock>;
     categories: Array<string>;
     colourPrimary?: colour;

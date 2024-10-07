@@ -1,30 +1,30 @@
 <script setup lang="ts">
-const props = defineProps({ blok: Object });
-console.log(props.blok);
+// const props = defineProps({ blok: Object });
+// console.log(props.blok);
 
-const hoveredIndex = ref<number | null>(null)
-const logos = ref<string[]>(["storybook", "react", "java", "mysql", "linux", "bash"]);
+// const hoveredIndex = ref<number | null>(null)
+// const logos = ref<string[]>(["storybook", "react", "java", "mysql", "linux", "bash"]);
 
-const handleMouseover: (argument: MouseEvent) => void = (e: MouseEvent) => {
-  const listElement = e.target?.closest("li");
-  if (listElement) {
-    const listIndex = parseInt(listElement.getAttribute("list-index")); // this doesn't give us a number outright. i need to parseInt()
-    hoveredIndex.value = listIndex;
-    console.log(hoveredIndex.value)
-  }
-  console.log("Souris Enter")
-}
+// const handleMouseover: (argument: MouseEvent) => void = (e: MouseEvent) => {
+//   const listElement = e.target?.closest("li");
+//   if (listElement) {
+//     const listIndex = parseInt(listElement.getAttribute("list-index")); // this doesn't give us a number outright. i need to parseInt()
+//     hoveredIndex.value = listIndex;
+//     console.log(hoveredIndex.value)
+//   }
+//   console.log("Souris Enter")
+// }
 
-const handleMouseLeave = () => hoveredIndex.value = null;
+// const handleMouseLeave = () => hoveredIndex.value = null;
 
-const capitalise: (argument: string) => string = (word: string): string => {
-  return `${word.charAt(0).toUpperCase()}${word.substring(1)}`
-}
+// const capitalise: (argument: string) => string = (word: string): string => {
+//   return `${word.charAt(0).toUpperCase()}${word.substring(1)}`
+// }
 
-watch(() => hoveredIndex, (newValue, oldValue) => {
-  console.log(`Old value was ${oldValue.value}`);
-  console.log(`New value is ${newValue.value}`);
-})
+// watch(() => hoveredIndex, (newValue, oldValue) => {
+//   console.log(`Old value was ${oldValue.value}`);
+//   console.log(`New value is ${newValue.value}`);
+// })
 </script>
 
 <template>
@@ -68,12 +68,12 @@ watch(() => hoveredIndex, (newValue, oldValue) => {
           <span class="dot dot-two">.</span>
           <span class="dot dot-three">.</span>
         </h3>
-        <ul @mouseover="handleMouseover($event)" @mouseleave="handleMouseLeave" class="credentials__list learning">
+        <!-- <ul @mouseover="handleMouseover($event)" @mouseleave="handleMouseLeave" class="credentials__list learning">
           <li v-for="(currentLogo, index) in logos" :key="index" :list-index="index" class="credentials__list--item">
             <i :class="[`devicon-${currentLogo}-plain`, `${hoveredIndex === index ? 'colored' : ''}`]" />
             <span>{{ currentLogo === "mysql" ? "MySQL" : capitalise(currentLogo) }}</span>
           </li>
-        </ul>
+        </ul> -->
       </div>
     </div>
   </section>

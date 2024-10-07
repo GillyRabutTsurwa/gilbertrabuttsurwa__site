@@ -1,14 +1,14 @@
 <script setup>
-const props = defineProps({
-    columns: {
-        type: Array,
-        required: true
-    }
-});
+// const props = defineProps({
+//     columns: {
+//         type: Array,
+//         required: true
+//     }
+// });
 </script>
 
 <template>
-    <Column v-for="(currentColumn, index) in props.columns" :key="index" :column="currentColumn" />
+    <!-- <Column v-for="(currentColumn, index) in props.columns" :key="index" :column="currentColumn" /> -->
 </template>
 
 <style lang="scss">

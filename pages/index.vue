@@ -1,7 +1,15 @@
+<script setup lang="ts">
+import type { Home } from "~/interfaces/home";
+import { home } from "~/queries";
+
+const query: string = home;
+const { data: content } = await useSanityQuery<Home>(query);
+</script>
+
 <template>
     <HomeNav />
     <section id="app">
-        <Header />
+        <Header :content />
         <Columns />
         <Marquee />
         <Showcase />

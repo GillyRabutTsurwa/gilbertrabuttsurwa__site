@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import type { Post } from '~/interfaces/post';
 const props = defineProps({
   post: {
-    type: Object,
+    type: Object as PropType<Post | null>,
     required: true
   }
 });
@@ -27,9 +28,8 @@ const serializers = {
 </script>
 
 <template>
-  <!-- <ClientOnly> -->
-  <article class="blog-container">
-    <figure class="blog-img-container" v-if="!showElement">
+  <article v-if="props.post" class="blog-container">
+    <figure class="blog-img-container">
       <SanityImage :asset-id="props.post.mainImage?.asset?._ref" auto="format" />
     </figure>
 
@@ -38,7 +38,7 @@ const serializers = {
       <h1 class="blog-content__title">{{ props.post.title }}</h1>
       <h3 class="blog-content__author">
         <span>By: </span>
-        <NuxtLink :to="`/authours/${props.post.author.slug.current}`">
+        <NuxtLink :to="`/blog/authours/${props.post.author.slug.current}`">
           <span>{{ props.post.author.name }}</span>
         </NuxtLink>
       </h3>
@@ -49,10 +49,9 @@ const serializers = {
       <div class="blog-content__description">
         <SanityContent :blocks="props.post.body" :serializers="serializers" />
       </div>
-      <Button isLink path="/personal/posts/" text="All Posts" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
+      <Button isLink path="/blog/personal/posts/" text="All Posts" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
     </div>
   </article>
-  <!-- </ClientOnly> -->
 </template>
 
 <style lang="scss">
@@ -142,28 +141,3 @@ const serializers = {
   }
 }
 </style>
-
-
-
-
-
-
-<!-- <template>
-  <Post :postData="state.post" />
-</template>
-
-<script setup>
-const route = useRoute();
-const url = route.params.slug;
-const state = reactive({
-  post: {},
-});
-
-const query = groq`*[_type == "post" && postGenre == "personal" && slug.current == "${url}"] {
-  ...,
-  author->
-}`;
-
-const { data, pending, error } = await useSanityQuery(query);
-state.post = data.value[0];
-</script> -->

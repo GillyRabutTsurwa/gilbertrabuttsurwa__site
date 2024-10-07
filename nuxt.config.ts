@@ -1,14 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     devtools: {
-        enabled: true,
+        enabled: false,
     },
 
     devServer: {
         host: "0.0.0.0",
     },
 
-    modules: ["@nuxtjs/sanity", "@nuxtjs/supabase", "@nuxtjs/google-fonts", "@pinia/nuxt"],
+    modules: ["@nuxtjs/sanity", "@nuxtjs/google-fonts", "@pinia/nuxt"],
 
     //NOTE: for sanity config via @nuxt/sanityjs docs
     sanity: {
@@ -23,27 +23,27 @@ export default defineNuxtConfig({
         },
     },
 
-    supabase: {
-        url: process.env.SUPABASE_URL,
-        key: process.env.SUPABASE_KEY,
-        redirectOptions: {
-            login: "/login",
-            callback: "/blog/uncensored",
-            exclude: [
-                "/",
-                "/api/**/*",
-                "/blog",
-                "/blog/personal",
-                "/blog/personal/*",
-                "/blog/tech",
-                "/blog/tech/*",
-                "/projects",
-                "/shop",
-                "/contact",
-                "/authours/*",
-            ],
-        },
-    },
+    // supabase: {
+    //     url: process.env.SUPABASE_URL,
+    //     key: process.env.SUPABASE_KEY,
+    //     redirectOptions: {
+    //         login: "/login",
+    //         callback: "/blog/uncensored",
+    //         exclude: [
+    //             "/",
+    //             "/api/**/*",
+    //             "/blog",
+    //             "/blog/personal",
+    //             "/blog/personal/*",
+    //             "/blog/tech",
+    //             "/blog/tech/*",
+    //             "/projects",
+    //             "/shop",
+    //             "/contact",
+    //             "/blog/authours/*",
+    //         ],
+    //     },
+    // },
 
     runtimeConfig: {
         public: {
@@ -134,6 +134,7 @@ export default defineNuxtConfig({
         css: {
             preprocessorOptions: {
                 scss: {
+                    api: "modern",
                     additionalData: `
                   @use "@/assets/sass/abstracts/_extends.scss" as *; 
                   @use "@/assets/sass/abstracts/_functions.scss" as *;

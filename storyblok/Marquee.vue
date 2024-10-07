@@ -6,7 +6,7 @@
     <section>
         <h2>What I Use</h2>
         <h3>Front-End</h3>
-        <Vue3Marquee duration="30">
+        <Vue3Marquee :duration="30">
             <i class="devicon-tailwindcss-plain"></i>
             <i class="devicon-sass-plain"></i>
             <i class="devicon-javascript-plain"></i>
@@ -21,7 +21,7 @@
             <i class="devicon-jest-plain"></i>
         </Vue3Marquee>
         <h3>Back-End</h3>
-        <Vue3Marquee duration="30">
+        <Vue3Marquee :duration="30">
             <i class="devicon-nodejs-plain"></i>
             <i class="devicon-express-original"></i>
             <i class="devicon-mongodb-plain"></i>

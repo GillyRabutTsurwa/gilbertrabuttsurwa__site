@@ -46,7 +46,7 @@ const currentYear: ComputedRef<number> = computed(() => {
                 <NuxtLink to="/blog/uncensored">Uncensored</NuxtLink>
             </li>
             <li class="links-footer--item">
-                <NuxtLink to="/authours/gilbert-rabut-tsurwa" target="_blank">About Me</NuxtLink>
+                <NuxtLink to="/blog/authours/gilbert-rabut-tsurwa" target="_blank">About Me</NuxtLink>
             </li>
             <li class="links-footer--item">
                 <NuxtLink to="/projects">Projects</NuxtLink>

@@ -1,7 +1,11 @@
 <script lang="ts" setup>
-import type { Home } from "~/interfaces/home";
-import { home } from "~/queries";
-import { useBreakpoints } from '~~/composables/useBreakpoints';
+import type { Home } from '~/interfaces/home';
+const props = defineProps({
+    content: {
+        type: Object as PropType<Home | null>,
+        required: true
+    }
+})
 
 const SiteIcon = resolveComponent("SiteIcon");
 const Devicon = resolveComponent("Devicon");
@@ -10,61 +14,34 @@ const currentComponent = shallowRef(Devicon);
 const photoIndex: Ref<number> = ref(0);
 const hovered: Ref<boolean> = ref(false);
 
-const query: string = home;
-const { data: content } = await useSanityQuery<Home>(query);
-const homeContent = content.value as Home;
-
-console.log(homeContent.header.portraits);
-
-const { pixels, toggleElementOnResize } = useBreakpoints();
-const show = ref(false);
-
 onMounted(() => {
     setInterval(() => {
         photoIndex.value++;
-        if (photoIndex.value >= homeContent.header.portraits.length) photoIndex.value = 0;
+        if (!props.content) return;
+        if (photoIndex.value >= props.content.header.portraits.length) photoIndex.value = 0;
     }, 60000);
-
-    const renderElements = () => {
-        const body = document.querySelector("body") as HTMLBodyElement;
-        console.log(body.clientWidth)
-        show.value = pixels.value < body.clientWidth ? true : false;
-        console.log(show.value);
-    }
-
-    if (process.client) {
-        toggleElementOnResize(1023);
-        renderElements();
-
-        window.addEventListener("resize", () => {
-            toggleElementOnResize(1023);
-            renderElements();
-        });
-    }
 });
 
 watch(() => hovered.value, (newValue, oldValue) => {
-    console.log("Old Value is: " + oldValue);
-    console.log("New value is: " + newValue);
     currentComponent.value = hovered.value ? SiteIcon : Devicon;
 });
 </script>
 
 <template>
-    <header class="header tete">
+    <header v-if="props.content" class="header tete">
         <figure @mouseover="hovered = true" @mouseleave="hovered = false" class="header__logo">
             <component :is="currentComponent">
             </component>
         </figure>
         <div class="header__title">
             <h1 class="header__title--primary">
-                <span>{{ homeContent.header.name }}</span>
-                <span>{{ homeContent.header.middleName }}</span>
-                <span>{{ homeContent.header.surname }}</span>
+                <span>{{ props.content.header.name }}</span>
+                <span>{{ props.content.header.middleName }}</span>
+                <span>{{ props.content.header.surname }}</span>
             </h1>
         </div>
         <figure class="autoportrait">
-            <SanityImage v-for="(currentImage, index) in homeContent.header.portraits"
+            <SanityImage v-for="(currentImage, index) in props.content.header.portraits"
                 :asset-id="currentImage.asset._ref" :key="index" auto="format" :class="{ opaque: index === photoIndex }"
                 class="autoportrait-img" />
         </figure>

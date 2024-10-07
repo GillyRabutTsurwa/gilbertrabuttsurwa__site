@@ -11,7 +11,7 @@ export const posts = (genre?: "personal" | "tech") => {
             _id,
             title,
             slug,
-            author,
+            author->,
             postGenre,
             thumbnail,
             mainImage,
@@ -27,7 +27,7 @@ export const posts = (genre?: "personal" | "tech") => {
         _id,
         title,
         slug,
-        author,
+        author->,
         postGenre,
         thumbnail,
         mainImage,
@@ -44,7 +44,7 @@ export const post = (url: string) => {
         _id,
         title,
         slug,
-        author,
+        author->,
         postGenre,
         thumbnail,
         mainImage,
@@ -52,7 +52,6 @@ export const post = (url: string) => {
         _updatedAt,
         // "slug": slug.current,
         body,
-        author->,
         _type
     }`;
 };
@@ -64,7 +63,7 @@ export const product: string = groq`*[_type == "product"]`;
 const postDebug: string = groq`*[_type == "post"] {
     _id,
     slug,
-    author,
+    author->,
     postGenre,
     thumbnail,
     mainImage,
