@@ -4,20 +4,40 @@ export const home: string = groq`*[_type == "home"][0] {
     header,
     _type
 }`;
-export const posts: string = groq`*[_type == "post"] {
-    _id,
-    title,
-    slug,
-    author,
-    postGenre,
-    thumbnail,
-    mainImage,
-    publishedAt,
-    _updatedAt,
-    // "slug": slug.current,
-    body,
-    _type
-}`;
+
+export const posts = (genre?: "personal" | "tech") => {
+    if (genre !== undefined) {
+        return groq`*[_type == "post" && postGenre == "${genre}"] {
+            _id,
+            title,
+            slug,
+            author,
+            postGenre,
+            thumbnail,
+            mainImage,
+            publishedAt,
+            _updatedAt,
+            // "slug": slug.current,
+            body,
+            _type
+        }`;
+    }
+    //NOTE: else return all posts
+    return groq`*[_type == "post"] {
+        _id,
+        title,
+        slug,
+        author,
+        postGenre,
+        thumbnail,
+        mainImage,
+        publishedAt,
+        _updatedAt,
+        // "slug": slug.current,
+        body,
+        _type
+    }`;
+};
 
 export const post = (url: string) => {
     return groq`*[_type == "post" && slug.current == "${url}"][0] {
