@@ -34,7 +34,7 @@ const serializers = {
     </figure>
 
     <div class="blog-content">
-      <Button isLink path="/blog/personal/posts/" text="All Posts" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
+      <Button isLink path="/blog/personal" text="All Posts" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
       <h1 class="blog-content__title">{{ props.post.title }}</h1>
       <h3 class="blog-content__author">
         <span>By: </span>
@@ -49,7 +49,7 @@ const serializers = {
       <div class="blog-content__description">
         <SanityContent :blocks="props.post.body" :serializers="serializers" />
       </div>
-      <Button isLink path="/blog/personal/posts/" text="All Posts" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
+      <Button isLink path="/blog/personal" text="All Posts" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
     </div>
   </article>
 </template>
@@ -60,6 +60,7 @@ const serializers = {
   grid-template-columns: repeat(2, 1fr);
   column-gap: 2rem;
   height: 100vh;
+  overflow: hidden;
 
   @include breakpoint(1023) {
     grid-template-columns: 1fr;
@@ -95,10 +96,12 @@ const serializers = {
   .blog-content {
     position: relative;
     padding: 4rem 3rem 2rem 3rem;
-    overflow: hidden scroll;
+    overflow: hidden auto;
+    height: 100vh;
 
     @include breakpoint(1023) {
       grid-row: 2 / 3;
+      height: auto;
     }
 
     &__title,

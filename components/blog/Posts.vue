@@ -53,7 +53,7 @@ onMounted(() => {
                 <div class="snippet">
                     <p>{{ getSnippet(currentPost.body) }}</p>
                 </div>
-                <Button isLink :path="`/blog/personal/posts/${currentPost.slug.current}`"
+                <Button isLink :path="`/blog/personal/${currentPost.slug.current}`"
                     :colourPrimary="currentPost.colourPrimary.hex" :colourSecondary="currentPost.colourSecondary.hex" />
             </div>
         </div>
@@ -69,7 +69,7 @@ onMounted(() => {
                 <div class="snippet">
                     <p>{{ getSnippet(currentPost.body) }}</p>
                 </div>
-                <Button isLink :path="`/blog/tech/posts/${currentPost.slug.current}`" colourPrimary="#104f55"
+                <Button isLink :path="`/blog/tech/${currentPost.slug.current}`" colourPrimary="#104f55"
                     colourSecondary="#f0f0f0" />
             </div>
         </div>
