@@ -71,14 +71,10 @@ onUpdated(() => {
 <template>
     <Navigation />
     <HeaderX />
-    <div class="grid-test">
-        <Posts type="personal" :posts="currentPosts" class="posto" />
-        <Pagination :postsPerPage="state.postsPerPage" :postsLength="store.filteredPosts.length"
-            @paginate="renderPagination($event)" class="pago" />
-        <Categories :posts="store.posts" class="catego" />
-        <Instaposts class="insto" />
-        <!-- <h5 class="newso">Newsletter Coming Soon</h5> -->
-    </div>
+    <Categories :posts="store.posts" />
+    <Posts type="personal" :posts="currentPosts" />
+    <Pagination :postsPerPage="state.postsPerPage" :postsLength="store.filteredPosts.length"
+        @paginate="renderPagination($event)" />
     <FooterX />
 </template>
 
@@ -88,12 +84,7 @@ onUpdated(() => {
     display: grid;
     grid-template-columns: 1fr 50rem;
     grid-template-rows: subgrid;
-    grid-template-areas:
-        "posts categories"
-        "posts categories"
-        "posts insta"
-        "posts newsletter"
-        "pagination .";
+    overflow: hidden;
 
     @include breakpoint(767) {
         display: flex;

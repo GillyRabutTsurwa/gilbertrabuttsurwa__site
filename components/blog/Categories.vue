@@ -9,10 +9,6 @@ const props = defineProps({
     type: Array,
     required: true
   },
-  listDisplay: {
-    type: String,
-    default: "column"
-  }
 });
 
 const state = reactive({
@@ -36,15 +32,6 @@ console.log(categoriesList.value);
 function getNumOfPostsByCategory(category: string): number {
   return store.posts.filter((currentPost: Post) => currentPost.categories.includes(category)).length;
 }
-
-//NOTE: not being used
-const listStyle = computed(() => {
-  const displayStyle = {
-    display: props.listDisplay === "row" ? "flex" : "",
-    justifyContent: props.listDisplay === "row" ? "space-around" : ""
-  }
-  return displayStyle;
-});
 
 watch(() => state.currentPosts, (newValue: Array<string>, _) => {
   store.filteredPosts = store.posts.filter((currentPost: Post) => {
@@ -78,8 +65,8 @@ watch(() => state.currentPosts, (newValue: Array<string>, _) => {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin: 4rem 0;
-  width: inherit;
+  margin: 4rem 0 0 0;
+  width: 100%;
 
   @include breakpoint(767) {
     margin-bottom: 0;
@@ -92,11 +79,13 @@ watch(() => state.currentPosts, (newValue: Array<string>, _) => {
 
   &__list {
     list-style-type: none;
-    width: 70%;
+    width: 50%;
     margin-top: 1.5rem;
     display: flex;
-    //@todo Make this property dynamic. Off to bed
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-right: 5rem;
+    margin-bottom: 2rem;
 
     @include breakpoint(767) {
       width: 100%;
@@ -143,7 +132,7 @@ watch(() => state.currentPosts, (newValue: Array<string>, _) => {
           font-size: 1.75rem;
 
           &:first-child {
-            margin: 0 auto;
+            margin-right: 0.5rem;
 
             @include breakpoint(767) {
               margin-right: 0.75rem;
