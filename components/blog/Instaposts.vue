@@ -1,14 +1,13 @@
 <script setup>
-const { data: instaposts, pending, error } = await useAsyncData("instaposts", () => $fetch("/api/instaposts"));
-const featuredInstaPosts = ref([]);
+const { data: instaposts, status, error } = await useFetch("/api/instaposts");
+const featuredInstaPosts = computed(() => randomArray(instaposts.value));
 
-pending.value = true;
+status.value = "pending";
 
-function randomArray(arr) {
+function randomArray(arr, numPosts = 9) {
   let newArray = [];
-  let numofPosts = 9;
 
-  while (newArray.length < numofPosts) {
+  while (newArray.length < numPosts) {
     const randomNumber = Math.round(Math.random() * (arr.length - 1));
     if (!newArray.includes(arr[randomNumber])) {
       newArray.push(arr[randomNumber]);
@@ -16,30 +15,18 @@ function randomArray(arr) {
   }
   return newArray;
 }
-onMounted(() => {
-  setTimeout(() => {
-    try {
-      if (instaposts.value?.data) {
-        featuredInstaPosts.value = randomArray(instaposts.value.data);
-        pending.value = false;
-      } else {
-        throw new Error("Can't Fetch Instagram Posts")
-      }
-    } catch (err) {
-        pending.value = false;
-        error.value = err.message;
-        console.log(error.value);
-    } finally {
-      console.log("Process of fetching posts complete");
-    }
-  }, 3000);
-});
+
+setTimeout(() => (status.value = "success"), 5000);
 </script>
 
 <template>
   <section class="xyz">
     <h4>Insta</h4>
-    <div class="instagram-images">
+    <Spinner v-if="status === 'pending'" :dimensions="150" />
+    <div v-else-if="error">
+      <p>{{ error.statusMessage }}</p>
+    </div>
+    <div v-else class="instagram-images">
       <figure v-for="currentInsta in featuredInstaPosts">
         <a :href="currentInsta.permalink" target="_blank" rel="noopener noreferrer">
           <img :src="currentInsta.media_url" alt="">
