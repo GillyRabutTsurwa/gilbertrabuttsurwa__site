@@ -66,7 +66,7 @@ onMounted(() => {
             <div class="blogs-tech__item--content">
                 <h3 class="title">{{ currentPost.title }}</h3>
                 <h5 class="published">{{ formatDate(currentPost.publishedAt) }}</h5>
-                <p class="snippet">{{ getSnippet(currentPost.body) }}</p>
+                <p class="snippet">{{ currentPost.excerpt }}</p>
                 <Button isLink :path="`/blog/tech/${currentPost.slug.current}`" colourPrimary="#104f55"
                     colourSecondary="#f0f0f0" />
             </div>
