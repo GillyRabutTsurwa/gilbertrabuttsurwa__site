@@ -12,33 +12,12 @@ const props = defineProps({
 
 console.log(props.posts);
 
-const snippetLength = computed(() => {
-    return showElement.value ? 300 : 400;
-});
-
 const { formatDate } = useFormatDate();
-const { showElement, toggleElementOnResize } = useBreakpoints();
 
 
-function getSnippet(blockContent) {
-    const body = blockContent
-        .filter(block => block._type === "block")
-        .map(block => block.children.map(child => child.text).join(""))
-        .join('')
-    return body.slice(0, snippetLength.value) + "...";
+function getSnippet(text, limit = 300) {
+    return text.slice(0, limit) + "...";
 }
-
-if (process.client) {
-    window.addEventListener("resize", () => {
-        toggleElementOnResize(480);
-    })
-};
-
-onMounted(() => {
-    if (process.client) {
-        toggleElementOnResize(480);
-    }
-});
 </script>
 
 <template>
@@ -51,7 +30,7 @@ onMounted(() => {
                 <h3 class="title">{{ currentPost.title }}</h3>
                 <h5 style="font-weight: 500; margin-bottom: 1rem;">{{ formatDate(currentPost.publishedAt) }}</h5>
                 <div class="snippet">
-                    <p>{{ currentPost.excerpt }}</p>
+                    <p>{{ getSnippet(currentPost.excerpt) }}</p>
                 </div>
                 <Button isLink :path="`/blog/personal/${currentPost.slug.current}`"
                     :colourPrimary="currentPost.colourPrimary.hex" :colourSecondary="currentPost.colourSecondary.hex" />
@@ -66,7 +45,7 @@ onMounted(() => {
             <div class="blogs-tech__item--content">
                 <h3 class="title">{{ currentPost.title }}</h3>
                 <h5 class="published">{{ formatDate(currentPost.publishedAt) }}</h5>
-                <p class="snippet">{{ currentPost.excerpt }}</p>
+                <p class="snippet">{{ getSnippet(currentPost.excerpt) }}</p>
                 <Button isLink :path="`/blog/tech/${currentPost.slug.current}`" colourPrimary="#104f55"
                     colourSecondary="#f0f0f0" />
             </div>
