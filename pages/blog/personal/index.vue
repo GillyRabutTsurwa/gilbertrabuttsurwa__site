@@ -70,7 +70,7 @@ onUpdated(() => {
 
 <template>
     <Navigation />
-    <HeaderX />
+    <BlogHeader />
     <Categories :posts="store.posts" />
     <Posts type="personal" :posts="currentPosts" />
     <Pagination :postsPerPage="state.postsPerPage" :postsLength="store.filteredPosts.length"
