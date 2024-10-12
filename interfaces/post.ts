@@ -1,9 +1,9 @@
-import type { PortableTextBlock } from "sanity";
+import type { PortableTextBlock, Slug, ImageAsset, HexColor } from "sanity";
 
 type colour = {
     _type: string;
     alpha: number;
-    hex: string;
+    hex: HexColor;
     hsl: {
         _type: string;
         a: number;
@@ -20,18 +20,10 @@ type colour = {
     };
     rgb: {
         _type: string;
-        a: number;
         r: number;
         g: number;
         b: number;
-    };
-};
-
-type image = {
-    _type: string;
-    asset: {
-        _ref: string;
-        _type: string;
+        a: number;
     };
 };
 
@@ -39,14 +31,11 @@ type author = {
     _id: string;
     _type: string;
     name: string;
-    slug: {
-        _type: string;
-        current: string;
-    };
+    slug: Slug;
     _createdAt: Date;
     _updatedAt: Date;
     bio: Array<PortableTextBlock>;
-    image: image;
+    image: ImageAsset;
 };
 
 export interface Post {
@@ -55,16 +44,14 @@ export interface Post {
     _updatedAt: Date;
     _type: string;
     author: author;
+    excerpt: string;
     body: Array<PortableTextBlock>;
     categories: Array<string>;
     colourPrimary?: colour;
     colourSecondary?: colour;
-    mainImage: image;
+    mainImage: ImageAsset;
     publishedAt: Date;
-    slug: {
-        _type: string;
-        current: string;
-    };
-    thumbnail: image;
+    slug: Slug;
+    thumbnail: ImageAsset;
     title: string;
 }

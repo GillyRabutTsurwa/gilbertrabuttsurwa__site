@@ -18,7 +18,10 @@ export const posts = (genre?: "personal" | "tech") => {
             publishedAt,
             _updatedAt,
             // "slug": slug.current,
+            excerpt,
             body,
+            colourPrimary,
+            colourSecondary,
             _type
         }`;
     }
@@ -34,7 +37,10 @@ export const posts = (genre?: "personal" | "tech") => {
         publishedAt,
         _updatedAt,
         // "slug": slug.current,
+        excerpt,
         body,
+        colourPrimary,
+            colourSecondary,
         _type
     }`;
 };
@@ -51,7 +57,10 @@ export const post = (url: string) => {
         publishedAt,
         _updatedAt,
         // "slug": slug.current,
+        excerpt,
         body,
+        colourPrimary,
+            colourSecondary,
         _type
     }`;
 };
