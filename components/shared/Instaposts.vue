@@ -4,7 +4,7 @@ const featuredInstaPosts = computed(() => randomArray(instaposts.value));
 
 status.value = "pending";
 
-function randomArray(arr, numPosts = 9) {
+function randomArray(arr, numPosts = 12) {
   let newArray = [];
 
   while (newArray.length < numPosts) {
@@ -62,6 +62,7 @@ h4 {
   display: grid;
   grid-template-columns: repeat(3, 15rem);
   grid-auto-rows: 15rem;
+  gap: 1.5rem;
 
   figure {
     width: 100%;
