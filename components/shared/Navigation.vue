@@ -28,7 +28,7 @@ const isLoggedIn: Ref<boolean> = ref(false);
         <NuxtLink to="/blog">Blogs</NuxtLink>
       </li>
       <li class="navigation__list--item">
-        <NuxtLink to="/blog/blog/authours/gilbert-rabut-tsurwa">About Me</NuxtLink>
+        <NuxtLink to="/blog/authours/gilbert-rabut-tsurwa">About Me</NuxtLink>
       </li>
       <DevOnly>
         <li class="navigation__list--item">
@@ -38,9 +38,9 @@ const isLoggedIn: Ref<boolean> = ref(false);
       <li class="navigation__list--item">
         <NuxtLink to="/shop" target="_blank" rel="noreferrer noopener">Shop</NuxtLink>
       </li>
-      <li class="navigation__list--item">
+      <!-- <li class="navigation__list--item">
         <NuxtLink to="/contact">Contact Me</NuxtLink>
-      </li>
+      </li> -->
     </ul>
     <ul class="navigation__list">
       <!-- account username -->
