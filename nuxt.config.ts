@@ -15,7 +15,7 @@ export default defineNuxtConfig({
         projectId: process.env.SANITY_PROJECT_ID,
         dataset: process.env.SANITY_ENV_PROD,
         apiVersion: process.env.SANITY_API_VERSION,
-        useCdn: false,
+        // useCdn: false,
         visualEditing: {
             studioUrl: process.env.SANITY_STUDIO_URL || "http://localhost:3333",
             token: process.env.SANITY_API_TOKEN,
