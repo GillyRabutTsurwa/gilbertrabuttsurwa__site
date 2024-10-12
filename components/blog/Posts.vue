@@ -51,7 +51,7 @@ onMounted(() => {
                 <h3 class="title">{{ currentPost.title }}</h3>
                 <h5 style="font-weight: 500; margin-bottom: 1rem;">{{ formatDate(currentPost.publishedAt) }}</h5>
                 <div class="snippet">
-                    <p>{{ getSnippet(currentPost.body) }}</p>
+                    <p>{{ currentPost.excerpt }}</p>
                 </div>
                 <Button isLink :path="`/blog/personal/${currentPost.slug.current}`"
                     :colourPrimary="currentPost.colourPrimary.hex" :colourSecondary="currentPost.colourSecondary.hex" />
