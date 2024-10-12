@@ -4,7 +4,6 @@ const layout: ComputedRef<string> = computed(() => route.name.includes("blog") ?
 </script>
 
 <template>
-  <Preview />
   <NuxtLayout :name="layout">
     <NuxtPage />
   </NuxtLayout>

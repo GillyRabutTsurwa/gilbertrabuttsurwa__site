@@ -10,5 +10,6 @@ const { data: content } = await useSanityQuery<Post>(query);
 </script>
 
 <template>
+  <Preview />
   <Post :post="content" />
 </template>
