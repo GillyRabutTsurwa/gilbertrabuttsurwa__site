@@ -8,7 +8,3 @@ const layout: ComputedRef<string> = computed(() => route.name.includes("blog") ?
     <NuxtPage />
   </NuxtLayout>
 </template>
-
-<style lang="scss" scoped>
-@import "@/assets/sass/main.scss";
-</style>
