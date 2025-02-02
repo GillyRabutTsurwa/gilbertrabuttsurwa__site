@@ -2,7 +2,7 @@
 import type { Home } from "~/interfaces/home";
 import { home } from "~/queries";
 
-const query: string = home;
+const query: string = home; //NOTE: testing qq'chose. pas une vrai reparation
 const { data: content } = await useSanityQuery<Home>(query);
 </script>
 
