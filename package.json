@@ -9,7 +9,7 @@
     "dev": "nuxt dev --dotenv .env.local",
     "prod-preview": "nuxt dev",
     "clean": "nuxi cleanup",
-    "deep-clean": "nuxi cleanup && rm package-lock.json & rm -rf node_modules",
+    "deep-clean": "nuxi cleanup && rm package-lock.json && rm -rf node_modules",
     "dev-https": "NODE_TLS_REJECT_UNAUTHORIZED=0 nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem --dotenv .env.local",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
@@ -46,7 +46,7 @@
     "vue-router": "^4.5.0"
   },
   "dependencies": {
-    "@nuxtjs/sanity": "^1.12.2",
+    "@nuxtjs/sanity": "^1.13.1",
     "@pinia/nuxt": "^0.9.0",
     "@sanity/client": "^6.27.2",
     "@sanity/image-url": "^1.1.0",
@@ -56,7 +56,7 @@
     "leaflet": "^1.9.4",
     "mongoose": "^8.9.6",
     "pinia": "^2.3.1",
-    "sanity": "^3.62.2",
+    "sanity": "^3.67.1",
     "stripe": "^17.6.0",
     "typescript": "^5.7.3",
     "vue3-carousel": "^0.13.0",
