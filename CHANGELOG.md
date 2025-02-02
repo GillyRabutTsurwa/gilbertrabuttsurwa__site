@@ -1,5 +1,12 @@
 
 
+## [1.3.4](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.3.3...v1.3.4) (2025-02-02)
+
+
+### Bug Fixes
+
+* testing release-it (forgot how to use it) ([bfc9e38](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/bfc9e386f369d85d7c7903a2289f8ec74d81ea98))
+
 ## [1.3.3](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.3.2...v1.3.3) (2025-02-02)
 
 
