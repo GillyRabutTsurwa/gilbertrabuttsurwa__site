@@ -1,5 +1,14 @@
 
 
+## [1.3.3](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.3.2...v1.3.3) (2025-02-02)
+
+
+### Bug Fixes
+
+* Mixed Up The Project Links ([e9aef2f](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/e9aef2f1442dc848b97bc788af5e2ef82e7904cc))
+* Update & Maintainence After Long Time Away ([a902c63](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/a902c63e475d0ca061a9480bdf983b52256cda46))
+* Using Excerpt In Wrong Place ([e0a9eb3](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/e0a9eb396fe3b9366481f1406b370abcffd98a75))
+
 ## [1.3.2](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.3.1...v1.3.2) (2024-04-10)
 
 
