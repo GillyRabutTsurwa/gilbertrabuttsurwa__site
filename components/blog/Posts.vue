@@ -1,11 +1,12 @@
-<script setup>
+<script setup lang="ts">
+import type { Post } from "~/interfaces/post";
 const props = defineProps({
     type: {
         type: String,
         required: false
     },
     posts: {
-        type: Array,
+        type: Array<Post>,
         required: true
     }
 });
@@ -13,11 +14,7 @@ const props = defineProps({
 console.log(props.posts);
 
 const { formatDate } = useFormatDate();
-
-
-function getSnippet(text, limit = 300) {
-    return text.slice(0, limit) + "...";
-}
+const getSnippet = (text: string, limit: number = 300) => text.slice(0, limit) + "...";
 </script>
 
 <template>

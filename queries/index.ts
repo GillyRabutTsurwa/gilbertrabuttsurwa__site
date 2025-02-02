@@ -1,3 +1,4 @@
+import groq from "groq";
 //NOTE: il n'y a quand-même une chose là-dedans, donc c'est pas grave pour chercher le premier valeur
 export const home: string = groq`*[_type == "home"][0] {
     _id,
@@ -6,8 +7,8 @@ export const home: string = groq`*[_type == "home"][0] {
 }`;
 
 export const posts = (genre?: "personal" | "tech") => {
-    if (genre !== undefined) {
-        return groq`*[_type == "post" && postGenre == "${genre}"] {
+  if (genre !== undefined) {
+    return groq`*[_type == "post" && postGenre == "${genre}"] {
             _id,
             title,
             slug,
@@ -24,9 +25,9 @@ export const posts = (genre?: "personal" | "tech") => {
             colourSecondary,
             _type
         }`;
-    }
-    //NOTE: else return all posts
-    return groq`*[_type == "post"] {
+  }
+  //NOTE: else return all posts
+  return groq`*[_type == "post"] {
         _id,
         title,
         slug,
@@ -46,10 +47,11 @@ export const posts = (genre?: "personal" | "tech") => {
 };
 
 export const post = (url: string) => {
-    return groq`*[_type == "post" && slug.current == "${url}"][0] {
+  return groq`*[_type == "post" && slug.current == "${url}"][0] {
         _id,
         title,
         slug,
+        categories,
         author->,
         postGenre,
         thumbnail,

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import groq from "groq";
+import { posts } from "~/queries";
 import type { Post } from "~/interfaces/post";
 import type { StateTree, Store } from "pinia";
 import { usePostsStore } from '@/stores/posts';
@@ -10,7 +10,7 @@ interface Page {
 }
 
 // VARIABLES
-const query: string = groq`*[_type == "post" && postGenre == "personal"]`;
+const query: string = posts("personal");
 const flexDir: Ref<string> = ref("");
 const state: Page = reactive({
     currentPage: 1,
@@ -19,7 +19,7 @@ const state: Page = reactive({
 
 // COMPOSABLES
 const store: Store<"posts", StateTree> = usePostsStore();
-const { data: posts } = await useSanityQuery<Post>(query);
+const { data: blogs } = await useSanityQuery<Post>(query);
 
 
 // COMPUTED VALUES
@@ -44,14 +44,14 @@ function renderPagination(eventPayload: number) {
 async function sendPostsToServer() {
     const { data: allPosts } = await useFetch("/api/blogs/personal", {
         method: "POST",
-        body: posts.value
+        body: blogs.value
     });
     console.log("Posts", allPosts.value); //Not really doing anything with this
 }
 
 // CODE TO RUN ON COMPONENT CREATION
-store.posts = posts.value;
-store.filteredPosts = posts.value;
+store.posts = blogs.value;
+store.filteredPosts = blogs.value;
 sendPostsToServer();
 
 // LIFECYCLE HOOKS

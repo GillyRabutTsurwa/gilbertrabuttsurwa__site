@@ -21,7 +21,7 @@ const CustomCode = resolveComponent("CustomCode");
 const serializers = {
   types: {
     text: CustomText,
-    link: CustomLink, //NOTE: it works
+    link: CustomLink,
     code: CustomCode
   }
 }
@@ -46,6 +46,12 @@ const serializers = {
         <span>Date Published: </span>
         <span>{{ formatDate(props.post.publishedAt) }}</span>
       </h3>
+      <ul class="blog-content__categories">
+        <li class="blog-content__categories--title">Categories: </li>
+        <li v-for="currentCategory in props.post.categories" class="blog-content__categories--category">
+          {{ currentCategory }}
+        </li>
+      </ul>
       <div class="blog-content__description">
         <SanityContent :blocks="props.post.body" :serializers="serializers" />
       </div>
@@ -140,6 +146,29 @@ const serializers = {
       margin: 3rem 0;
       line-height: 1.5;
       color: #333;
+    }
+
+    &__categories {
+      display: flex;
+      margin-top: 1.5rem;
+      list-style-type: none;
+      font-size: 1.75rem;
+      color: $text-grey-light;
+
+      &--title {
+        margin-right: 1rem;
+      }
+
+      &--category {
+        margin-right: 0.75rem;
+
+        // NOTE: mettre une virgule sur chaque categorie sauf la derniere
+        &:not(:last-of-type) {
+          &::after {
+            content: ",";
+          }
+        }
+      }
     }
   }
 }
