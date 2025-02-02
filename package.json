@@ -41,7 +41,8 @@
     "release-it": "^17.0.3",
     "sass": "^1.72.0",
     "sass-loader": "^14.1.1",
-    "storybook": "^8.2.4"
+    "storybook": "^8.2.4",
+    "vue-router": "^4.5.0"
   },
   "dependencies": {
     "@nuxtjs/sanity": "^1.13.1",
