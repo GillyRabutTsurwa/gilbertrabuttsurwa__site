@@ -1,43 +1,18 @@
 <script setup>
 const query = groq`*[_type == "post" && postGenre == "personal"]`;
 const { data, pending, error } = await useSanityQuery(query);
-pending.value = true; //NOTE: making pending value still true after info has loaded
+
 const randomPost = computed(() => {
   return data.value[Math.floor(Math.random() * (data.value.length))];
 });
 
-const snippetLength = computed(() => {
-  return showElement.value ? 300 : 1200;
+pending.value = true;
 
-});
-
-function getSnippet(blockContent) {
-  const body = blockContent
-    .filter(block => block._type === "block")
-    .map(block => block.children.map(child => child.text).join(""))
-    .join('')
-  return body.slice(0, snippetLength.value) + "...";
-}
-
-
-const { showElement, toggleElementOnResize } = useBreakpoints();
-
-if (process.client) {
-  window.addEventListener("resize", () => {
-    toggleElementOnResize(480);
-  })
-};
-
-onMounted(() => {
-  if (process.client) {
-    toggleElementOnResize(480);
-  }
-
-  setTimeout(() => {
-    pending.value = false;
-  }, 3000);
-})
+setTimeout(() => {
+  pending.value = false;
+}, 3000);
 </script>
+
 <template>
   <Spinner v-if="pending" :dimensions="150" />
   <header v-else class="header">
@@ -47,8 +22,8 @@ onMounted(() => {
     <div class="header__post">
       <div class="header__post--content">
         <h2 class="title">{{ randomPost.title }}</h2>
-        <p class="text">{{ getSnippet(randomPost.body) }}</p>
-        <Button isLink :path="`/blog/personal/posts/${randomPost.slug.current}`" colourPrimary="#104f55"
+        <p class="text">{{ randomPost.excerpt }}</p>
+        <Button isLink :path="`/blog/personal/${randomPost.slug.current}`" colourPrimary="#104f55"
           colourSecondary="#f0f0f0" />
       </div>
     </div>

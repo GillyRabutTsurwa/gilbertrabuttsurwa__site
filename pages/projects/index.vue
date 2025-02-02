@@ -7,15 +7,16 @@ definePageMeta({
 console.log(route.meta.title);
 console.log(route.meta);
 
-const versionType = import.meta.env.DEV ? "draft" : "published";
-const story = await useAsyncStoryblok("/projects", { version: versionType });
-console.log(story);
-console.log(story.value);
-console.log(story.value.content);
+// const versionType = import.meta.env.DEV ? "draft" : "published";
+// const story = await useAsyncStoryblok("/projects", { version: versionType });
+// console.log(story);
+// console.log(story.value);
+// console.log(story.value.content);
 </script>
 
 <template>
-    <StoryblokComponent v-if="story" :blok="story.content" />
+    <h4>Projects PageS</h4>
+    <!-- <StoryblokComponent v-if="story" :blok="story.content" /> -->
 </template>
 
 

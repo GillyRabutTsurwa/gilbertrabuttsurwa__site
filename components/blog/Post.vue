@@ -1,12 +1,14 @@
-<script setup>
+<script setup lang="ts">
+import type { Post } from '~/interfaces/post';
 const props = defineProps({
-  postData: {
-    type: Object,
+  post: {
+    type: Object as PropType<Post | null>,
     required: true
   }
 });
-const { title, body, author, publishedAt, mainImage: imgURL } = props.postData;
+
 const { formatDate } = useFormatDate();
+console.log(props.post);
 
 /** NOTE:
  * you can also import the component manually, but with this is cleaner Nuxt solution
@@ -19,41 +21,41 @@ const CustomCode = resolveComponent("CustomCode");
 const serializers = {
   types: {
     text: CustomText,
-    link: CustomLink, //NOTE: it works
+    link: CustomLink,
     code: CustomCode
   }
 }
-
-const { showElement, toggleElementOnResize } = useBreakpoints();
-if (process.client) window.addEventListener("resize", () => (toggleElementOnResize(480)));
-onMounted(() => {
-  if (process.client) toggleElementOnResize(480);
-});
 </script>
 
 <template>
-  <article class="blog-container">
-    <figure class="blog-img-container" v-if="!showElement">
-      <SanityImage :asset-id="imgURL?.asset?._ref" auto="format" />
+  <article v-if="props.post" class="blog-container">
+    <figure class="blog-img-container">
+      <SanityImage :asset-id="props.post.mainImage?.asset?._ref" auto="format" />
     </figure>
 
     <div class="blog-content">
-      <Button isLink path="/blog/personal/posts/" text="All Posts" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
-      <h1 class="blog-content__title">{{ title }}</h1>
+      <Button isLink path="/blog/personal" text="All Posts" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
+      <h1 class="blog-content__title">{{ props.post.title }}</h1>
       <h3 class="blog-content__author">
         <span>By: </span>
-        <NuxtLink :to="`/authours/${author.slug.current}`">
-          <span>{{ author.name }}</span>
+        <NuxtLink :to="`/blog/authours/${props.post.author.slug.current}`">
+          <span>{{ props.post.author.name }}</span>
         </NuxtLink>
       </h3>
       <h3 class="blog-content__date-published">
         <span>Date Published: </span>
-        <span>{{ formatDate(publishedAt) }}</span>
+        <span>{{ formatDate(props.post.publishedAt) }}</span>
       </h3>
+      <ul class="blog-content__categories">
+        <li class="blog-content__categories--title">Categories: </li>
+        <li v-for="currentCategory in props.post.categories" class="blog-content__categories--category">
+          {{ currentCategory }}
+        </li>
+      </ul>
       <div class="blog-content__description">
-        <SanityContent :blocks="body" :serializers="serializers" />
+        <SanityContent :blocks="props.post.body" :serializers="serializers" />
       </div>
-      <Button isLink path="/personal/posts/" text="All Posts" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
+      <Button isLink path="/blog/personal" text="All Posts" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
     </div>
   </article>
 </template>
@@ -64,6 +66,7 @@ onMounted(() => {
   grid-template-columns: repeat(2, 1fr);
   column-gap: 2rem;
   height: 100vh;
+  overflow: hidden;
 
   @include breakpoint(1023) {
     grid-template-columns: 1fr;
@@ -99,10 +102,12 @@ onMounted(() => {
   .blog-content {
     position: relative;
     padding: 4rem 3rem 2rem 3rem;
-    overflow: hidden scroll;
+    overflow: hidden auto;
+    height: 100vh;
 
     @include breakpoint(1023) {
       grid-row: 2 / 3;
+      height: auto;
     }
 
     &__title,
@@ -141,6 +146,29 @@ onMounted(() => {
       margin: 3rem 0;
       line-height: 1.5;
       color: #333;
+    }
+
+    &__categories {
+      display: flex;
+      margin-top: 1.5rem;
+      list-style-type: none;
+      font-size: 1.75rem;
+      color: $text-grey-light;
+
+      &--title {
+        margin-right: 1rem;
+      }
+
+      &--category {
+        margin-right: 0.75rem;
+
+        // NOTE: mettre une virgule sur chaque categorie sauf la derniere
+        &:not(:last-of-type) {
+          &::after {
+            content: ",";
+          }
+        }
+      }
     }
   }
 }

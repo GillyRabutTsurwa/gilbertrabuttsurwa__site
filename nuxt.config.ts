@@ -1,49 +1,49 @@
-const storyblokOptions = {
-    accessToken: process.env.STORYBLOK_TOKEN,
-    apiOptions: { region: "us" },
-    devtools: true,
-};
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     devtools: {
-        enabled: true,
+        enabled: false,
     },
 
     devServer: {
         host: "0.0.0.0",
     },
 
-    modules: ["@nuxtjs/sanity", "@nuxtjs/supabase", "@nuxtjs/google-fonts", "@pinia/nuxt", ["@storyblok/nuxt", storyblokOptions]],
+    modules: ["@nuxtjs/sanity", "@nuxtjs/google-fonts", "@pinia/nuxt"],
 
     //NOTE: for sanity config via @nuxt/sanityjs docs
     sanity: {
         projectId: process.env.SANITY_PROJECT_ID,
         dataset: process.env.SANITY_ENV_PROD,
         apiVersion: process.env.SANITY_API_VERSION,
-        useCdn: false,
-    },
-
-    supabase: {
-        url: process.env.SUPABASE_URL,
-        key: process.env.SUPABASE_KEY,
-        redirectOptions: {
-            login: "/login",
-            callback: "/blog/uncensored",
-            exclude: [
-                "/",
-                "/api/**/*",
-                "/blog",
-                "/blog/personal",
-                "/blog/personal/*",
-                "/blog/tech",
-                "/blog/tech/*",
-                "/projects",
-                "/shop",
-                "/contact",
-                "/authours/*",
-            ],
+        // useCdn: false,
+        visualEditing: {
+            studioUrl: process.env.SANITY_STUDIO_URL || "http://localhost:3333",
+            token: process.env.SANITY_API_TOKEN,
+            stega: true,
         },
     },
+
+    // supabase: {
+    //     url: process.env.SUPABASE_URL,
+    //     key: process.env.SUPABASE_KEY,
+    //     redirectOptions: {
+    //         login: "/login",
+    //         callback: "/blog/uncensored",
+    //         exclude: [
+    //             "/",
+    //             "/api/**/*",
+    //             "/blog",
+    //             "/blog/personal",
+    //             "/blog/personal/*",
+    //             "/blog/tech",
+    //             "/blog/tech/*",
+    //             "/projects",
+    //             "/shop",
+    //             "/contact",
+    //             "/blog/authours/*",
+    //         ],
+    //     },
+    // },
 
     runtimeConfig: {
         public: {
@@ -51,14 +51,6 @@ export default defineNuxtConfig({
         },
         auth: {
             secret: process.env.AUTH_SECRET,
-        },
-        // NOTE: to use for making sanity client (via vanilla js)
-        // NOTE: need this to construct the api for all my endpoints
-        sanity: {
-            projectId: process.env.SANITY_PROJECT_ID,
-            dataset: process.env.SANITY_ENV_PROD,
-            apiVersion: process.env.SANITY_API_VERSION,
-            useCdn: false,
         },
         stripe: {
             key: process.env.STRIPE_KEY,
@@ -142,6 +134,7 @@ export default defineNuxtConfig({
         css: {
             preprocessorOptions: {
                 scss: {
+                    api: "modern",
                     additionalData: `
                   @use "@/assets/sass/abstracts/_extends.scss" as *; 
                   @use "@/assets/sass/abstracts/_functions.scss" as *;
@@ -166,6 +159,10 @@ export default defineNuxtConfig({
         },
         {
             path: "~/components/blog",
+            pathPrefix: false,
+        },
+        {
+            path: "~/components/global",
             pathPrefix: false,
         },
         {

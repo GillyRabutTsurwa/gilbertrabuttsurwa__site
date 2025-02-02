@@ -1,4 +1,5 @@
 <template>
+  <Preview />
   <div class="container">
     <div v-for="(currentImage, index) in images" :key="currentImage.id" :class="myClasses[index]">
       <figure :class="`${myClasses[index]}__img`">
@@ -10,7 +11,7 @@
     </div>
   </div>
 </template>
-  
+
 <script setup>
 const query = groq`*[_type == "homeGrid"] {
     gridImages
@@ -26,7 +27,7 @@ const images = imageData.gridImages.map((currentImage) => {
 });
 const myClasses = ["personal", "tech"];
 </script>
-  
+
 <style lang="scss">
 .container {
   width: 100%;

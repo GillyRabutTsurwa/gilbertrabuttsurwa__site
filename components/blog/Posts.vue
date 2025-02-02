@@ -1,44 +1,20 @@
-<script setup>
+<script setup lang="ts">
+import type { Post } from "~/interfaces/post";
 const props = defineProps({
     type: {
         type: String,
         required: false
     },
     posts: {
-        type: Array,
+        type: Array<Post>,
         required: true
     }
 });
 
 console.log(props.posts);
 
-const snippetLength = computed(() => {
-    return showElement.value ? 300 : 400;
-});
-
 const { formatDate } = useFormatDate();
-const { showElement, toggleElementOnResize } = useBreakpoints();
-
-
-function getSnippet(blockContent) {
-    const body = blockContent
-        .filter(block => block._type === "block")
-        .map(block => block.children.map(child => child.text).join(""))
-        .join('')
-    return body.slice(0, snippetLength.value) + "...";
-}
-
-if (process.client) {
-    window.addEventListener("resize", () => {
-        toggleElementOnResize(480);
-    })
-};
-
-onMounted(() => {
-    if (process.client) {
-        toggleElementOnResize(480);
-    }
-});
+const getSnippet = (text: string, limit: number = 300) => text.slice(0, limit) + "...";
 </script>
 
 <template>
@@ -51,9 +27,9 @@ onMounted(() => {
                 <h3 class="title">{{ currentPost.title }}</h3>
                 <h5 style="font-weight: 500; margin-bottom: 1rem;">{{ formatDate(currentPost.publishedAt) }}</h5>
                 <div class="snippet">
-                    <p>{{ getSnippet(currentPost.body) }}</p>
+                    <p>{{ getSnippet(currentPost.excerpt) }}</p>
                 </div>
-                <Button isLink :path="`/blog/personal/posts/${currentPost.slug.current}`"
+                <Button isLink :path="`/blog/personal/${currentPost.slug.current}`"
                     :colourPrimary="currentPost.colourPrimary.hex" :colourSecondary="currentPost.colourSecondary.hex" />
             </div>
         </div>
@@ -66,10 +42,8 @@ onMounted(() => {
             <div class="blogs-tech__item--content">
                 <h3 class="title">{{ currentPost.title }}</h3>
                 <h5 class="published">{{ formatDate(currentPost.publishedAt) }}</h5>
-                <div class="snippet">
-                    <p>{{ getSnippet(currentPost.body) }}</p>
-                </div>
-                <Button isLink :path="`/blog/tech/posts/${currentPost.slug.current}`" colourPrimary="#104f55"
+                <p class="snippet">{{ getSnippet(currentPost.excerpt) }}</p>
+                <Button isLink :path="`/blog/tech/${currentPost.slug.current}`" colourPrimary="#104f55"
                     colourSecondary="#f0f0f0" />
             </div>
         </div>
@@ -80,7 +54,7 @@ onMounted(() => {
 // ===================== Personal Blog Styles ==========================
 .blogs-personal {
     margin: 3rem 0;
-    padding: 5rem;
+    padding: 0 5rem 5rem 5rem;
 
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -164,6 +138,11 @@ onMounted(() => {
         &:nth-child(8n + 8) {
             grid-column: 1 / 6;
             grid-row: 10 / 13;
+
+            //NOTE: rendre le texte plus large dans le boite plus large vers le dessous
+            p {
+                font-size: 2.5rem !important;
+            }
         }
 
         // @include breakpoint(480) {
@@ -211,13 +190,9 @@ onMounted(() => {
 
             .snippet {
                 margin: 1rem 0 0 0;
-                font-size: 1.5rem;
-
-                p {
-                    font-size: 1.65rem;
-                    line-height: 1.175;
-                    margin-bottom: 0;
-                }
+                font-size: 1.75rem;
+                line-height: 1.175;
+                margin-bottom: 0;
             }
 
             // NOTE: nuxt link button component

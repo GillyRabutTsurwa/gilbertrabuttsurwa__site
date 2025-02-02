@@ -1,14 +1,21 @@
-<script setup>
-const versionType = import.meta.env.DEV ? "draft" : "published";
-const story = await useAsyncStoryblok("home", { version: versionType });
-console.log(story);
-console.log(story.value);
+<script setup lang="ts">
+import type { Home } from "~/interfaces/home";
+import { home } from "~/queries";
+
+const query: string = home;
+const { data: content } = await useSanityQuery<Home>(query);
 </script>
 
 <template>
-    <!-- <HomeNav /> il ne s'affiche pas pour le moment -->
+    <HomeNav />
     <section id="app">
-        <StoryblokComponent v-if="story" :blok="story.content" />
+        <Header :content />
+        <Columns />
+        <Marquee />
+        <Showcase />
+        <Certifications />
+        <Form />
+        <Footer />
     </section>
 </template>
 
