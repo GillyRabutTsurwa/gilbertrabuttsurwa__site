@@ -11,15 +11,17 @@ const SiteIcon = resolveComponent("SiteIcon");
 const Devicon = resolveComponent("Devicon");
 const currentComponent = shallowRef(Devicon);
 
-const photoIndex: Ref<number> = ref(0);
 const hovered: Ref<boolean> = ref(false);
 
-onMounted(() => {
-    setInterval(() => {
-        photoIndex.value++;
-        if (!props.content) return;
-        if (photoIndex.value >= props.content.header.portraits.length) photoIndex.value = 0;
-    }, 60000);
+const randomPhoto = computed(() => {
+    if (!props.content) return;
+
+    const randomIndex = Math.floor(Math.random() * props.content.header.portraits.length);
+    const randomImgURL = props.content?.header.portraits[randomIndex].asset._ref;
+    return {
+        index: randomIndex,
+        url: randomImgURL
+    }                   
 });
 
 watch(() => hovered.value, (newValue, oldValue) => {
@@ -33,7 +35,7 @@ watch(() => hovered.value, (newValue, oldValue) => {
             <component :is="currentComponent">
             </component>
         </figure>
-        <div class="header__title">
+        <div :class="{'gauche': randomPhoto.index === 0}" class="header__title">
             <h1 class="header__title--primary">
                 <span>{{ props.content.header.name }}</span>
                 <span>{{ props.content.header.middleName }}</span>
@@ -41,11 +43,9 @@ watch(() => hovered.value, (newValue, oldValue) => {
             </h1>
         </div>
         <figure class="autoportrait">
-            <SanityImage v-for="(currentImage, index) in props.content.header.portraits"
-                :asset-id="currentImage.asset._ref" :key="index" auto="format" :class="{ opaque: index === photoIndex }"
-                class="autoportrait-img" />
+            <SanityImage :asset-id="randomPhoto.url" auto="format" class="autoportrait-img" />
         </figure>
-        <FlexContainer layout="row" contentJustify="space-around" itemsAlign="end" class="header__buttons">
+        <FlexContainer layout="row" contentJustify="space-around" itemsAlign="end" :class="{'gauche': randomPhoto.index === 0}" class="header__buttons">
             <Button to="/blog" isLink text="Read Blogs" colourPrimary="#fefefe" colourSecondary="#07343f"
                 class="btn-test" />
             <Button to="/projects" isLink isExternal text="View Projects" colourPrimary="#fefefe"
@@ -104,12 +104,8 @@ watch(() => hovered.value, (newValue, oldValue) => {
                     transparent 90%,
                     rgba(255, 255, 255, 1) 90%,
                     rgba(255, 255, 255, 1) 100%);
-            opacity: 0;
+            // opacity: 0;
             transition: opacity 1s ease-in-out;
-
-            &.opaque {
-                opacity: 1;
-            }
         }
     }
 
@@ -140,11 +136,15 @@ watch(() => hovered.value, (newValue, oldValue) => {
         margin-top: 7rem;
         z-index: 1000;
         color: $steelblue;
-        // transform: translateY(-5rem);
 
         @include breakpoint(1023) {
             padding-right: unset; //NOTE: so this does work. same as padding-right: 0;
             margin-top: 12rem;
+        }
+
+        &.gauche {
+            place-self: end start;
+            margin-left: 10rem;
         }
 
         &--primary {
@@ -185,6 +185,12 @@ watch(() => hovered.value, (newValue, oldValue) => {
     &__buttons {
         width: 50rem;
         margin: 6rem auto;
+
+        &.gauche {
+            place-self: end start;
+            margin-left: 10rem;
+            margin-bottom: 20rem;
+        }
     }
 
     &__slider {
