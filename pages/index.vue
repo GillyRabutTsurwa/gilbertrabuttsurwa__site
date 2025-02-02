@@ -10,7 +10,6 @@ const { data: content } = await useSanityQuery<Home>(query);
     <HomeNav />
     <section id="app">
         <Header :content />
-        <Columns />
         <Marquee />
         <Showcase />
         <Certifications />
