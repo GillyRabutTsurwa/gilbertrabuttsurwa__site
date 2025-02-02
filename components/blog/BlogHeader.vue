@@ -1,8 +1,10 @@
-<script setup>
-const query = groq`*[_type == "post" && postGenre == "personal"]`;
-const { data, pending, error } = await useSanityQuery(query);
+<script setup lang="ts">
+import { posts } from '~/queries';
+import type { Post } from '~/interfaces/post';
+const query = posts("personal");
+const { data, pending, error } = await useSanityQuery<Post>(query);
 
-const randomPost = computed(() => {
+const randomPost: ComputedRef<Post> = computed(() => {
   return data.value[Math.floor(Math.random() * (data.value.length))];
 });
 

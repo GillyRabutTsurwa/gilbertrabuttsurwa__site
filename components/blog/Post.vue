@@ -53,6 +53,7 @@ const serializers = {
         </li>
       </ul>
       <div class="blog-content__description">
+        <p>{{ props.post.excerpt }}</p>
         <SanityContent :blocks="props.post.body" :serializers="serializers" />
       </div>
       <Button isLink path="/blog/personal" text="All Posts" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
