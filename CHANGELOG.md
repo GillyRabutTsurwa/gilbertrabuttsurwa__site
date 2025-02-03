@@ -1,5 +1,13 @@
 
 
+## [1.4.3](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.4.2...v1.4.3) (2025-02-03)
+
+
+### Bug Fixes
+
+* footer links contain incorrect URL ([762e5ca](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/762e5cada60e6c5a93803418edd2b2d78f76d9fd))
+* more footer links contain incorrect URL ([15649d0](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/15649d0b612955233c0f0995a9135ebc612f5a68))
+
 ## [1.4.2](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.4.1...v1.4.2) (2025-02-03)
 
 
