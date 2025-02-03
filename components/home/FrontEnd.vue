@@ -308,6 +308,7 @@
             i {
               font-size: 4rem;
               color: #eee;
+              margin: 0 1rem;
             }
 
           }
