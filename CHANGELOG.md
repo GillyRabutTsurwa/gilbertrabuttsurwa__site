@@ -1,5 +1,12 @@
 
 
+## [1.4.0](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.3.4...v1.4.0) (2025-02-03)
+
+
+### Features
+
+* can now add images to blog posts ([66861d1](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/66861d1a068db852d7b5e71447738f935ea017d5))
+
 ## [1.3.4](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.3.3...v1.3.4) (2025-02-02)
 
 
