@@ -273,6 +273,7 @@
         &--item {
           font-size: 3rem;
           display: flex;
+          margin-bottom: 2rem;
 
           span {
             position: relative;
