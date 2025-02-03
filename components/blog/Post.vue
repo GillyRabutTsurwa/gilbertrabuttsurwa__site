@@ -18,11 +18,13 @@ console.log(props.post);
 const CustomText = resolveComponent("CustomText");
 const CustomLink = resolveComponent("CustomLink");
 const CustomCode = resolveComponent("CustomCode");
+const CustomImage = resolveComponent("CustomImage");
 const serializers = {
   types: {
     text: CustomText,
     link: CustomLink,
-    code: CustomCode
+    code: CustomCode,
+    image: CustomImage
   }
 }
 </script>
