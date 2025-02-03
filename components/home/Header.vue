@@ -190,6 +190,10 @@ watch(() => hovered.value, (newValue, oldValue) => {
             place-self: end start;
             margin-left: 10rem;
             margin-bottom: 20rem;
+
+            @include breakpoint(480) {
+                margin: 5rem auto;
+            }
         }
     }
 
