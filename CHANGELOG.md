@@ -1,5 +1,12 @@
 
 
+## [1.4.2](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.4.1...v1.4.2) (2025-02-03)
+
+
+### Bug Fixes
+
+* poor spacing of list items' text & icons ([8fb1690](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/8fb1690532d4f41118b52a84609ef9d41844f306))
+
 ## [1.4.1](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.4.0...v1.4.1) (2025-02-03)
 
 
