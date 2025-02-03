@@ -55,7 +55,7 @@ const currentYear: ComputedRef<number> = computed(() => {
         <ul class="links-footer__socials">
             <h4 class="links-footer__subtitle">Socials</h4>
             <li class="links-footer--item">
-                <NuxtLink to="https://www.linkedin.com/in/gilberttsurwa" target="_blank">
+                <NuxtLink to="https://www.facebook.com/rabuttsurwa/" target="_blank">
                     <i class="fa-brands fa-facebook"></i>
                 </NuxtLink>
             </li>
