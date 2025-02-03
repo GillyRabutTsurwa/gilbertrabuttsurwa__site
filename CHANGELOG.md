@@ -1,5 +1,12 @@
 
 
+## [1.4.1](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.4.0...v1.4.1) (2025-02-03)
+
+
+### Bug Fixes
+
+* misalignment of header buttons in mobile ([1e1d587](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/1e1d5878f2cddf62045b9b92fb26bf6573d043b1))
+
 ## [1.4.0](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.3.4...v1.4.0) (2025-02-03)
 
 
