@@ -3,12 +3,12 @@ const props = defineProps({
   postsPerPage: {
     type: Number,
     required: true,
-    default: 5
+    default: 5,
   },
   postsLength: {
     type: Number,
     required: true,
-  }
+  },
 });
 
 const pagination: Ref<HTMLUListElement | null> = ref(null);
@@ -17,16 +17,16 @@ const pageNumbers = computed(() => {
   const pageNos = [];
   let pageNumLimit = Math.ceil(props.postsLength / props.postsPerPage);
   for (let index = 1; index <= pageNumLimit; index++) {
-    pageNos.push(index)
+    pageNos.push(index);
   }
   return pageNos;
-})
+});
 function paginatePg(pageNum) {
   emit("paginate", pageNum);
 }
 
 onMounted(() => {
-  //@todo Refactor this Code
+  //@todo: Refactor this Code
   pagination.value.addEventListener("mouseover", (e) => {
     if (e.target.tagName === "BUTTON") {
       e.target.style.backgroundColor = "#fefefe";
@@ -40,7 +40,7 @@ onMounted(() => {
       e.target.style.color = "#fefefe";
     }
   });
-})
+});
 </script>
 
 <template>

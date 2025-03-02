@@ -2,7 +2,7 @@
 import { useCartStore } from "~/stores/cart";
 import { useProductsStore } from "~/stores/products";
 
-// TODO Come up with a more imaginative greeting
+// @todo: Come up with a more imaginative greeting
 
 const cartStore = useCartStore();
 const productsStore = useProductsStore();
@@ -24,10 +24,10 @@ const cartItems = computed(() => {
   return productsInCartUI.value.map((currentProduct) => {
     return {
       id: currentProduct._id,
-      quantity: productsStore.getOccurence(currentProduct)
-    }
-  })
-})
+      quantity: productsStore.getOccurence(currentProduct),
+    };
+  });
+});
 
 const totalPricesArr = computed(() => {
   return productsStore.productsInCart.map((currentProduct) => currentProduct.price);
@@ -42,17 +42,16 @@ cartStore.$subscribe((_, state) => {
   console.log(state.cartStatus);
 
   isCartOpen.value = state.cartStatus;
-})
+});
 
-//  TODO Test For Action
+//  @todo: Test For Action
 
 const clearCart = () => {
   if (productsStore.productsInCart !== 0) productsStore.$patch({ productsInCart: [] });
-  console.log("Touts les articles dans la carte supprimés")
+  console.log("Touts les articles dans la carte supprimés");
 };
 
-
-// TODO: Come up with ANOTHER a more imaginative greeting
+// @todo: Come up with ANOTHER a more imaginative greeting
 // Everyone uses hello world and it's boring.
 // trying to create a new issue, WITH labels
 // labels: enhancement, help wanted, testing
@@ -65,19 +64,22 @@ const stripeCheckout = async () => {
   const { data } = await useFetch("/api/checkout", {
     method: "POST",
     body: {
-      items: cartItems.value
-    }
+      items: cartItems.value,
+    },
   });
   // console.log(data.value.url);
   await navigateTo(data.value.url, {
-    external: true //NOTE: on en a besoin pour pouvoir naviguer à un url externe
+    external: true, //NOTE: on en a besoin pour pouvoir naviguer à un url externe
   }); // equivalent effect as window.location = url
-}
+};
 
-watch(() => cartItems.value, (newValue, oldValue) => {
-  console.log(oldValue);
-  console.log(newValue);
-})
+watch(
+  () => cartItems.value,
+  (newValue, oldValue) => {
+    console.log(oldValue);
+    console.log(newValue);
+  }
+);
 </script>
 
 <template>
@@ -160,7 +162,7 @@ watch(() => cartItems.value, (newValue, oldValue) => {
   position: absolute; //NOTE: on peut le faire car la position (cart) du parent est defini (sticky)
   bottom: 2rem;
 
-  &>* {
+  & > * {
     margin: 1.5rem;
   }
 }

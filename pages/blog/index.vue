@@ -47,14 +47,14 @@ const myClasses = ["personal", "tech"];
     height: 100%;
   }
 
-  &>* {
+  & > * {
     width: 100%;
     height: inherit;
     position: relative;
   }
 }
 
-// @todo - address duplicate code for personal and tech blocks. put them in mixins
+// @todo: address duplicate code for personal and tech blocks. put them in mixins
 
 .personal {
   grid-column: 1 / 2;
@@ -110,7 +110,7 @@ const myClasses = ["personal", "tech"];
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
 
-    @media(hover: hover) {
+    @media (hover: hover) {
       -webkit-filter: blur(10px);
       filter: blur(10px);
     }
@@ -193,7 +193,7 @@ const myClasses = ["personal", "tech"];
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
 
-    @media(hover: hover) {
+    @media (hover: hover) {
       -webkit-filter: blur(10px);
       filter: blur(10px);
     }

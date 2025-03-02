@@ -42,7 +42,7 @@ const types = Object.fromEntries(Object.entries(glob).map(([key, value]) => [fil
 
 const imgName = "card-pic-1";
 
-//TODO: Later, put this content in Sanity
+//@todo: Later, put this content in Sanity
 const images = [
   { name: "card-pic-1", caption: "At a Chinese restaurant with a pretty girl taking a photo of me. No smiling" },
   { name: "card-pic-2", caption: "At an amusment park in a classified location. My trousers in this photo, were way to tight" },

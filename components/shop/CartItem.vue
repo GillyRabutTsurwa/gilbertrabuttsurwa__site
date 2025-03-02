@@ -9,14 +9,14 @@ const store = useProductsStore();
 const props = defineProps({
   cartItemProp: {
     type: Object,
-    required: true
-  }
+    required: true,
+  },
 });
 
 function incrementItem() {
   store.$patch((state) => {
     state.productsInCart = [...state.productsInCart, props.cartItemProp];
-  })
+  });
 }
 
 function decrementItem() {
@@ -32,7 +32,7 @@ function decrementItem() {
     if (index > -1) {
       state.productsInCart.splice(index, 1);
     }
-    return state.productsInCart
+    return state.productsInCart;
   });
 }
 
