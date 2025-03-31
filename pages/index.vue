@@ -1,94 +1,31 @@
 <script setup lang="ts">
-import type { Home } from "~/interfaces/home";
-import { home } from "~/queries";
+const Loader = resolveComponent("Loader");
+const Home = resolveComponent("Home");
 
-//@todo: on essaie à nouveau
-const query: string = home;
-const { data: content } = await useSanityQuery<Home>(query);
+const currentComponent = shallowRef(Loader);
+
+onMounted(() => {
+    setTimeout(() => {
+        currentComponent.value = Home;
+    }, 3000);
+});
 </script>
 
 <template>
-    <HomeNav />
-    <section id="app">
-        <Header :content />
-        <Marquee />
-        <Showcase />
-        <Certifications />
-        <Form />
-        <Footer />
-    </section>
+    <Transition mode="out-in">
+        <component :is="currentComponent"></component>
+    </Transition>
 </template>
 
 
 <style lang="scss" scoped>
-#app {
-    display: grid;
-    grid-template-areas: "Header" "First" "Second" "Third" "Fourth" "Fifth" "Footer";
-    grid-template-columns: 1fr;
-    font-family: "Kulim Park", Arial, Helvetica, sans-serif !important;
-    height: 100%;
-
-    &>*.landing {
-        height: inherit;
-    }
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.5s ease-out;
 }
 
-.container {
-    margin: 0 auto;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.title {
-    font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    display: block;
-    font-weight: 300;
-    font-size: 100px;
-    color: #35495e;
-    letter-spacing: 1px;
-}
-
-.appear-enter-active {
-    animation: appear 1s;
-}
-
-.subtitle {
-    font-weight: 300;
-    font-size: 42px;
-    color: #526488;
-    word-spacing: 5px;
-    padding-bottom: 15px;
-}
-
-.links {
-    padding-top: 15px;
-}
-
-@keyframes appear {
-    0% {
-        opacity: 0;
-    }
-}
-
-// NOTEIMPORTANT: this is for the instance of the spinner component in this component.
-// i am overwriting the normal height
-.loader {
-    height: 100vh;
-}
-
-// transition classes
-.component-fade-enter-active,
-.component-fade-leave-active {
-    transition: opacity 0.75s ease;
-}
-
-.component-fade-enter,
-.component-fade-leave-to {
-    /* transform: rotateY(90deg); */
+.v-enter-from,
+.v-leave-to {
     opacity: 0;
-    /* transform: translateX(300px); */
 }
 </style>

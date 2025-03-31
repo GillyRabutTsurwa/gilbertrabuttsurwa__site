@@ -14,6 +14,7 @@ export const posts = (genre?: "personal" | "tech") => {
             slug,
             author->,
             postGenre,
+            categories,
             thumbnail,
             mainImage,
             publishedAt,
@@ -33,6 +34,7 @@ export const posts = (genre?: "personal" | "tech") => {
         slug,
         author->,
         postGenre,
+        categories,
         thumbnail,
         mainImage,
         publishedAt,
@@ -76,6 +78,7 @@ const postDebug: string = groq`*[_type == "post"] {
     slug,
     author->,
     postGenre,
+    categories
     thumbnail,
     mainImage,
     publishedAt,

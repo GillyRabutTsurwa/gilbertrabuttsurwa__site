@@ -25,6 +25,8 @@ const showBackend = () => {
             <button @click="showBackend" class="header__button skills__buttons--button">Back-End</button>
         </div>
         <component :is="currentComponent"></component>
+        <Button isLink isExternal path="/projects/" text="All Projects" colourPrimary="#101d2c"
+          colourSecondary="#c69963" class="all-projects" />
     </section>
 </template>
 
@@ -37,11 +39,11 @@ const showBackend = () => {
     grid-template-rows: repeat(2, min-content) 1fr;
     // height: 100vh;
     // min-height: 100vh;
-    margin: 0 3rem;
-    background-color: $default-grey;
+    // margin: 0 3rem;
+    background-color: $colour-primary;
     gap: 4rem;
-    padding-top: 6rem;
-    color: rgb(238, 238, 238);
+    padding: 6rem 0;
+    color: $colour-secondary;
 
     @include breakpoint(1023) {
         order: 3; //NOTE: this works because i display the parent (#app) to be display: grid in pages/index.vue
@@ -53,7 +55,7 @@ const showBackend = () => {
         grid-column: 1 / -1;
         justify-self: center;
         font-size: 3rem;
-        color: #1a2934;
+        color: $colour-secondary;
     }
 
     &__buttons {
@@ -73,21 +75,26 @@ const showBackend = () => {
 //@todo - refactor and move this
 .header__button {
     display: inline-block;
-    border: 2px solid #000;
+    border: 2px solid $colour-secondary;
     border-radius: 1rem;
     font-size: 1.5rem;
     text-decoration: none;
     text-transform: uppercase;
-    color: #fff;
+    color: $colour-primary;
     padding: 1.5rem 3rem;
     margin-top: 3rem;
-    background-color: $steelblue;
+    background-color: $colour-secondary;
     cursor: pointer;
     z-index: 10000;
 
     &:hover {
-        background-color: #fff;
-        color: $steelblue;
+        background-color: $colour-primary;
+        color: $colour-secondary;
     }
+}
+
+.all-projects {
+    justify-self: end;
+    transform: translateX(50%); // pour le centraliser
 }
 </style>

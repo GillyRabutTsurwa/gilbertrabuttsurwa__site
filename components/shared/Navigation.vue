@@ -65,7 +65,6 @@ const isLoggedIn: Ref<boolean> = ref(false);
   align-items: center;
   width: 100%;
   height: 10vh;
-  background-color: #f0f0f0;
   padding: 0 1.75rem;
   background-color: $colour-primary;
   margin-bottom: 2.5rem;
@@ -109,7 +108,7 @@ const isLoggedIn: Ref<boolean> = ref(false);
         &:visited {
           font-size: 1.75rem;
           text-decoration: none;
-          color: $whitish;
+          color: $colour-secondary;
         }
 
         &:hover,

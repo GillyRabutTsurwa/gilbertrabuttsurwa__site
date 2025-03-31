@@ -77,10 +77,10 @@ const props = defineProps({
     &:visited {
       display: inline-block;
       font-size: 3rem;
-      color: rgb(45, 119, 231);
+      color: $colour-secondary;
       font-size: 1.6rem;
       text-decoration: none;
-      border-bottom: 1px solid rgb(45, 119, 231);
+      border-bottom: 1px solid $colour-secondary;
       padding: 3px;
       -webkit-transition: all 0.5s ease;
       transition: all 0.5s ease;
@@ -88,9 +88,9 @@ const props = defineProps({
 
     &:hover,
     &:active {
-      background-color: rgb(45, 119, 231);
-      color: #fff;
-      border-bottom: 1px solid #fff;
+      background-color: $colour-secondary;
+      color: $colour-primary;
+      border-bottom: 1px solid $colour-primary;
     }
   }
 }

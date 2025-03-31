@@ -79,7 +79,7 @@ watch(() => hoveredIndex, (newValue, oldValue) => {
 <style lang="scss" scoped>
 .credentials {
   padding: 6rem 0;
-  background-color: rgb(238, 238, 238);
+  color: $colour-primary;
 
   @include breakpoint(1023) {
     order: 5; //NOTE: this works because i display the parent (#app) to be display: grid in pages/index.vue

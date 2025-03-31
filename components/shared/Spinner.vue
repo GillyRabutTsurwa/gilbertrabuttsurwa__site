@@ -3,13 +3,13 @@ interface Props {
   dimensions: number
 }
 
-interface Styles {
+type Styles = {
   width: string;
   height: string;
 }
 
 const props = defineProps<Props>();
-const styles: Styles = computed(() => {
+const styles: ComputedRef<Styles> = computed(() => {
   return {
     width: `${props.dimensions}px`,
     height: `${props.dimensions}px`
@@ -33,7 +33,7 @@ const styles: Styles = computed(() => {
   &__icon {
     // width: 48px;
     // height: 48px;
-    border: 5px solid $whitish;
+    border: 5px solid $colour-secondary;
     border-bottom-color: $colour-primary;
     border-radius: 50%;
     display: inline-block;

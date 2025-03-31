@@ -21,7 +21,7 @@ const pageNumbers = computed(() => {
   }
   return pageNos;
 });
-function paginatePg(pageNum) {
+function paginatePg(pageNum: number) {
   emit("paginate", pageNum);
 }
 
@@ -29,15 +29,15 @@ onMounted(() => {
   //@todo: Refactor this Code
   pagination.value.addEventListener("mouseover", (e) => {
     if (e.target.tagName === "BUTTON") {
-      e.target.style.backgroundColor = "#fefefe";
-      e.target.style.color = "#1a2934";
+      e.target.style.backgroundColor = "#c69963";
+      e.target.style.color = "#101d2c";
     }
   });
 
   pagination.value.addEventListener("mouseout", (e) => {
     if (e.target.tagName === "BUTTON") {
-      e.target.style.backgroundColor = "#1a2934";
-      e.target.style.color = "#fefefe";
+      e.target.style.backgroundColor = "#101d2c";
+      e.target.style.color = "#c69963";
     }
   });
 });
@@ -70,7 +70,7 @@ onMounted(() => {
       padding: 1.5rem 2.5rem;
       font-size: 1.8rem;
       background-color: $colour-primary;
-      color: $whitish;
+      color: $colour-secondary;
     }
   }
 }

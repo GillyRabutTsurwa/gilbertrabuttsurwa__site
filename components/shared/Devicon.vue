@@ -52,7 +52,7 @@ i[class^="devicon"] {
   display: block;
   // font-size: 9.5rem;
   z-index: 1000;
-  color: $steelblue;
+  color: $colour-secondary; // pour le moment
   -webkit-animation: fade 3800ms ease-in-out infinite;
   animation: fade 3800ms ease-in-out infinite;
 }

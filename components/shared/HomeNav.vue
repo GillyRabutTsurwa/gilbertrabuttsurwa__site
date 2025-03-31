@@ -41,7 +41,7 @@
   }
 
   &__button {
-    background-color: $whitish;
+    background-color: $colour-secondary;
     height: 7rem;
     width: 7rem;
     position: fixed;
@@ -72,7 +72,9 @@
     position: fixed;
     top: 3.5rem;
     right: 3.5rem;
-    background-image: radial-gradient($colour-primary, $steelblue);
+    // background-image: radial-gradient($colour-primary, $steelblue);
+    background-image: radial-gradient($colour-secondary, $colour-secondary);
+
     z-index: 10000;
     -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
     transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
@@ -122,10 +124,10 @@
       font-size: 3rem;
       font-weight: 300;
       padding: 1rem 2rem;
-      color: $whitish;
+      color: $colour-primary;
       text-decoration: none;
       text-transform: uppercase;
-      background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $whitish 50%);
+      background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $colour-primary 50%);
       background-size: 225%;
       -webkit-transition: all 0.4s;
       transition: all 0.4s;
@@ -139,7 +141,7 @@
     &:hover,
     &:active {
       background-position: 100%;
-      color: $colour-primary;
+      color: $colour-secondary;
       -webkit-transform: translateX(1rem);
       transform: translateX(1rem);
     }

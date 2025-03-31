@@ -6,11 +6,11 @@
     </a>
 </template>
 
-<style>
+<style lang="scss" scoped>
 a,
 a:link,
 a:visited {
-    color: rgb(170, 30, 53);
+    color: $colour-primary;
     text-decoration: none;
 }
 </style>

@@ -36,7 +36,7 @@ const serializers = {
     </figure>
 
     <div class="blog-content">
-      <Button isLink path="/blog/personal" text="All Posts" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
+      <Button isLink path="/blog/personal" text="All Posts" colourPrimary="#101d2c" colourSecondary="#c69963" />
       <h1 class="blog-content__title">{{ props.post.title }}</h1>
       <h3 class="blog-content__author">
         <span>By: </span>
@@ -58,7 +58,7 @@ const serializers = {
         <p>{{ props.post.excerpt }}</p>
         <SanityContent :blocks="props.post.body" :serializers="serializers" />
       </div>
-      <Button isLink path="/blog/personal" text="All Posts" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
+      <Button isLink path="/blog/personal" text="All Posts" colourPrimary="#101d2c" colourSecondary="#c69963" />
     </div>
   </article>
 </template>
@@ -107,6 +107,7 @@ const serializers = {
     padding: 4rem 3rem 2rem 3rem;
     overflow: hidden auto;
     height: 100vh;
+    color: $colour-primary;
 
     @include breakpoint(1023) {
       grid-row: 2 / 3;
@@ -130,16 +131,14 @@ const serializers = {
     &__author,
     &__date-published {
       font-style: italic;
-      color: #888;
       font-weight: normal;
     }
 
     &__author {
-
       a,
       a:link,
       a:visited {
-        color: currentColor;
+        color: $colour-primary;
         text-decoration: underline;
       }
     }
@@ -156,7 +155,6 @@ const serializers = {
       margin-top: 1.5rem;
       list-style-type: none;
       font-size: 1.75rem;
-      color: $text-grey-light;
 
       &--title {
         margin-right: 1rem;

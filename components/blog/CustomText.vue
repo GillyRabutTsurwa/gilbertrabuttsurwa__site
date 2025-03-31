@@ -15,6 +15,7 @@
     line-height: 1.75;
     font-size: 2rem;
     font-weight: normal;
+    color: $colour-primary;
   }
 }
 </style>

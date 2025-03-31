@@ -1,5 +1,5 @@
-<script setup>
-const randomIconIndex = ref(0);
+<script setup lang="ts">
+const randomIconIndex: Ref<number> = ref(0);
 const iconArray = ref([
   "html5-plain",
   "css3-plain",
@@ -18,18 +18,15 @@ const iconArray = ref([
   "gulp-plain",
 ]);
 
-const returnRandomIndex = () => {
+const returnRandomIndex = (): void => {
   randomIconIndex.value = Math.floor(Math.random() * iconArray.value.length);
 };
 
-const randomIcon = computed(() => {
-  return iconArray.value[randomIconIndex.value]
-})
+const randomIcon: ComputedRef<string> = computed(() => {
+  return iconArray.value[randomIconIndex.value];
+});
 
 returnRandomIndex();
-onMounted(() => {
-  console.log(randomIcon.value);
-})
 </script>
 
 <template>
@@ -55,10 +52,10 @@ onMounted(() => {
   -webkit-transition: opacity 2s ease-in;
   -webkit-transition: opacity 2s ease-in;
   transition: opacity 2s ease-in;
-  background-color: #1a2934;
+  background-color: $colour-primary;
 
   & i {
-    color: rgb(238, 238, 238);
+    color: $colour-secondary;
     font-size: 40rem;
   }
 }

@@ -27,7 +27,7 @@ const categoriesList: ComputedRef<string[]> = computed(() => {
   return [...new Set(categories.flat())].filter((currentValue) => currentValue !== undefined);
 });
 
-console.log(categoriesList.value);
+console.log(categories);
 
 function getNumOfPostsByCategory(category: string): number {
   return store.posts.filter((currentPost: Post) => currentPost.categories.includes(category)).length;
@@ -61,6 +61,7 @@ watch(() => state.currentPosts, (newValue: Array<string>, _) => {
 
 <style lang="scss" scoped>
 .category {
+  align-self: start;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -82,9 +83,8 @@ watch(() => state.currentPosts, (newValue: Array<string>, _) => {
     width: 50%;
     margin-top: 1.5rem;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-right: 5rem;
+    flex-direction: column;
+    // margin-right: 5rem;
     margin-bottom: 2rem;
 
     @include breakpoint(767) {
@@ -103,7 +103,7 @@ watch(() => state.currentPosts, (newValue: Array<string>, _) => {
         display: none;
 
         &:checked~label {
-          background-color: $whitish;
+          background-color: $colour-secondary;
           color: $colour-primary;
           border: 1px solid $colour-primary;
         }
@@ -116,7 +116,7 @@ watch(() => state.currentPosts, (newValue: Array<string>, _) => {
         justify-content: center;
         cursor: pointer;
         background-color: $colour-primary;
-        color: $whitish;
+        color: $colour-secondary;
         padding: 1.5rem;
         border: 1px solid transparent;
         border-radius: 1rem;

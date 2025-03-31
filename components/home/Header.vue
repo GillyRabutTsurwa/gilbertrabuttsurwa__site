@@ -7,12 +7,6 @@ const props = defineProps({
     }
 })
 
-const SiteIcon = resolveComponent("SiteIcon");
-const Devicon = resolveComponent("Devicon");
-const currentComponent = shallowRef(Devicon);
-
-const hovered: Ref<boolean> = ref(false);
-
 const randomPhoto = computed(() => {
     if (!props.content) return;
 
@@ -23,33 +17,29 @@ const randomPhoto = computed(() => {
         url: randomImgURL
     }                   
 });
-
-watch(() => hovered.value, (newValue, oldValue) => {
-    currentComponent.value = hovered.value ? SiteIcon : Devicon;
-});
 </script>
 
 <template>
     <header v-if="props.content" class="header tete">
-        <figure @mouseover="hovered = true" @mouseleave="hovered = false" class="header__logo">
-            <component :is="currentComponent">
-            </component>
+        <figure class="header__logo">
+            <Devicon/>
         </figure>
-        <div :class="{'gauche': randomPhoto.index === 0}" class="header__title">
+        <div class="header__title">
             <h1 class="header__title--primary">
                 <span>{{ props.content.header.name }}</span>
                 <span>{{ props.content.header.middleName }}</span>
                 <span>{{ props.content.header.surname }}</span>
             </h1>
+            <h2 class="header__title--secondary">Full Stack Developer</h2>
         </div>
         <figure class="autoportrait">
             <SanityImage :asset-id="randomPhoto.url" auto="format" class="autoportrait-img" />
         </figure>
-        <FlexContainer layout="row" contentJustify="space-around" itemsAlign="end" :class="{'gauche': randomPhoto.index === 0}" class="header__buttons">
-            <Button to="/blog" isLink text="Read Blogs" colourPrimary="#fefefe" colourSecondary="#07343f"
+        <FlexContainer layout="row" contentJustify="start" itemsAlign="start" class="flex-container-custom">
+            <Button to="/blog" isLink text="Read Blogs" colourPrimary="#c69963" colourSecondary="#101d2c"
                 class="btn-test" />
-            <Button to="/projects" isLink isExternal text="View Projects" colourPrimary="#fefefe"
-                colourSecondary="#07343f" class="btn-test" />
+            <Button to="/projects" isLink isExternal text="View Projects" colourPrimary="#c69963"
+                colourSecondary="#101d2c" class="btn-test" />
         </FlexContainer>
     </header>
 </template>
@@ -60,6 +50,7 @@ watch(() => hovered.value, (newValue, oldValue) => {
     width: 100%;
     position: relative;
     display: grid;
+    background-color: $colour-primary;
 
     @include breakpoint(1023) {
         min-height: max-content;
@@ -90,7 +81,7 @@ watch(() => hovered.value, (newValue, oldValue) => {
         // transform: translate(-50%, -50%);
         width: 100%;
         height: 100%;
-        opacity: 0.175;
+        opacity: 0.05;
         z-index: -100; // Le carousel etait dessus les boutons, ca fixe
 
         &-img {
@@ -130,12 +121,12 @@ watch(() => hovered.value, (newValue, oldValue) => {
 
     &__title {
         grid-column: 1 / 2;
-        place-self: center;
-        text-align: center;
+        place-self: center start;
+        // text-align: center;
         padding-right: 7rem;
-        margin-top: 7rem;
+        margin-left: 3rem;
         z-index: 1000;
-        color: $steelblue;
+        color: $colour-secondary;
 
         @include breakpoint(1023) {
             padding-right: unset; //NOTE: so this does work. same as padding-right: 0;
@@ -148,9 +139,8 @@ watch(() => hovered.value, (newValue, oldValue) => {
         }
 
         &--primary {
-            font-size: 13.5rem;
+            font-size: 12rem;
             font-weight: 600;
-            text-transform: uppercase;
             padding-bottom: 2rem;
             //TESTING
             opacity: 1;
@@ -162,7 +152,7 @@ watch(() => hovered.value, (newValue, oldValue) => {
             }
 
             span {
-                display: block;
+                margin-right: 4rem;
 
                 //NOTE: not sure if i want this yet
                 // &:nth-of-type(2) {
@@ -176,26 +166,26 @@ watch(() => hovered.value, (newValue, oldValue) => {
         }
 
         &--secondary {
-            font-size: 4rem;
+            font-size: 7rem;
             height: 4.5rem; // To give it a fixed witdth so that the button doesn't move up when there's not text,
         }
     }
 
-    // NOTE: this styles the FlexContainer in this section only
-    &__buttons {
-        width: 50rem;
-        margin: 6rem auto;
+    // // NOTE: this styles the FlexContainer in this section only
+    // &__buttons {
+    //     width: 50rem;
+    //     margin: 6rem auto;
 
-        &.gauche {
-            place-self: end start;
-            margin-left: 10rem;
-            margin-bottom: 20rem;
+    //     &.gauche {
+    //         place-self: end start;
+    //         margin-left: 10rem;
+    //         margin-bottom: 20rem;
 
-            @include breakpoint(480) {
-                margin: 5rem auto;
-            }
-        }
-    }
+    //         @include breakpoint(480) {
+    //             margin: 5rem auto;
+    //         }
+    //     }
+    // }
 
     &__slider {
         height: 100%;
@@ -229,5 +219,18 @@ watch(() => hovered.value, (newValue, oldValue) => {
 // TESTING
 .btn-test {
     // opacity: 0;
+}
+
+
+.flex-container-custom {
+    margin-left: 3rem;
+
+    &>* {
+        margin-right: 3rem;
+    }
+}
+
+.icon {
+    color: $colour-secondary !important;
 }
 </style>

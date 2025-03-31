@@ -110,8 +110,8 @@ const currentYear: ComputedRef<number> = computed(() => {
   // align-content: center;
   row-gap: 2.5rem;
   // background-color: #104f55;
-  background-color: #1a2934;
-  color: #fefefe;
+  background-color: $colour-primary;
+  color: $colour-secondary;
 
   @include breakpoint(480) {
     display: flex;
@@ -167,7 +167,7 @@ const currentYear: ComputedRef<number> = computed(() => {
         &:hover,
         &:active {
           // color: $colour-primary;
-          color: #fefefe;
+          color: $colour-secondary;
           -webkit-box-shadow: 0 1rem 2rem rgb(0 0 0 / 40%);
           box-shadow: 0 1rem 2rem rgb(0 0 0 / 40%);
           -webkit-transform: rotate(5deg);
@@ -219,7 +219,7 @@ const currentYear: ComputedRef<number> = computed(() => {
 
     &--item:not(.socials) {
       margin-right: 1.5rem;
-      color: #fff;
+      color: $colour-secondary;
       text-decoration: none;
       // text-transform: uppercase;
       display: inline-block;

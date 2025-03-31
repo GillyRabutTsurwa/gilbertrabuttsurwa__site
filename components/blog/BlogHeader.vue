@@ -25,8 +25,8 @@ setTimeout(() => {
       <div class="header__post--content">
         <h2 class="title">{{ randomPost.title }}</h2>
         <p class="text">{{ randomPost.excerpt }}</p>
-        <Button isLink :path="`/blog/personal/${randomPost.slug.current}`" colourPrimary="#104f55"
-          colourSecondary="#f0f0f0" />
+        <Button isLink :path="`/blog/personal/${randomPost.slug.current}`" colourPrimary="#101d2c"
+          colourSecondary="#c69963" />
       </div>
     </div>
     <figure class="header__post--img">
@@ -39,14 +39,12 @@ setTimeout(() => {
 <style lang="scss" scoped>
 .header {
   position: relative;
-  // height: 60rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  // height: 100vh;
-  // grid-template-rows: -webkit-min-content 1fr;
   grid-template-rows: -webkit-min-content 1fr;
   grid-template-rows: min-content 1fr;
   padding: 0 5rem;
+  color: $colour-primary;
 
   @include breakpoint(1023) {
     height: auto; // au cas ou
@@ -151,7 +149,7 @@ setTimeout(() => {
 
     &--primary,
     &--secondary {
-      color: $whitish;
+      color: $colour-primary;
     }
 
     &--secondary {

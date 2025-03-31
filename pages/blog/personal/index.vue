@@ -71,11 +71,13 @@ onUpdated(() => {
 <template>
     <Navigation />
     <BlogHeader />
-    <Categories :posts="store.posts" />
-    <Posts type="personal" :posts="currentPosts" />
+    <FlexContainer layout="row-reverse">
+        <Categories :posts="store.posts" />
+        <Posts type="personal" :posts="currentPosts" />
+    </FlexContainer>
     <Pagination :postsPerPage="state.postsPerPage" :postsLength="store.filteredPosts.length"
         @paginate="renderPagination($event)" />
-    <FooterX />
+    <Footer />
 </template>
 
 

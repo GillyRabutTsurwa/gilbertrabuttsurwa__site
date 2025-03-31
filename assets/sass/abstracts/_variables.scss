@@ -1,7 +1,11 @@
 // COLORS
-$colour-primary: #104f55;
+// $colour-primary: #104f55;
+$colour-primary: #101d2c;
+$colour-primary-transparent: #101d2cdb;
 $steelblue: #1a2934;
 $midnight: #104f55;
+
+$colour-secondary: #c69963;
 
 $text-grey: #3f4954;
 $text-grey-light: #686666da;
@@ -14,18 +18,45 @@ $colour-blanc: #fff;
 $colour-noir: #000;
 $colour-gris-supersombre: #333;
 
-$colour-gradient-shenandoah-uni: to right, #002e62, #980630;
+$colour-gradient-shenandoah-uni:
+  to right,
+  #002e62,
+  #980630;
 
 $colour-gradient-css: #3c99dc, #66d3fa;
 $colour-gradient-sass: #cd6799, #e293b9;
-$colour-gradient-javascript: to bottom right, #f0db4f 25%, #323330;
-$colour-gradient-vue: 315deg, #42d392 25%, #647eff;
-$colour-gradient-svelte: to top right, #ff3e00 25%, #e3e7f7;
-$colour-gradient-tailwind: 315deg, #42d392 25%, #647eff;
-$colour-gradient-react: to top left, #61dbfb, #333;
-$colour-gradient-typescript: to top right, #235a97 25%, #e3e7f7;
-$colour-gradient-bootstrap: 315deg, #3806ad 25%, #553c7b;
-$colour-gradient-webpack: 315deg, #1d78c1 25%, #465e69;
+$colour-gradient-javascript:
+  to bottom right,
+  #f0db4f 25%,
+  #323330;
+$colour-gradient-vue:
+  315deg,
+  #42d392 25%,
+  #647eff;
+$colour-gradient-svelte:
+  to top right,
+  #ff3e00 25%,
+  #e3e7f7;
+$colour-gradient-tailwind:
+  315deg,
+  #42d392 25%,
+  #647eff;
+$colour-gradient-react:
+  to top left,
+  #61dbfb,
+  #333;
+$colour-gradient-typescript:
+  to top right,
+  #235a97 25%,
+  #e3e7f7;
+$colour-gradient-bootstrap:
+  315deg,
+  #3806ad 25%,
+  #553c7b;
+$colour-gradient-webpack:
+  315deg,
+  #1d78c1 25%,
+  #465e69;
 // END COLORS
 
 $primaryFontStack: "League Spartan", sans-serif;

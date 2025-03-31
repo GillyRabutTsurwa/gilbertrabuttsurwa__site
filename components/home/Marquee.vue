@@ -3,11 +3,11 @@
 </script>
 
 <template>
-    <section>
+    <section class="marquee-container">
         <h2>What I Use</h2>
         <h3>Front-End</h3>
         <ClientOnly>
-            <Vue3Marquee :duration="30">
+            <Vue3Marquee :duration="90" pauseOnHover>
                 <i class="devicon-tailwindcss-plain"></i>
                 <i class="devicon-sass-plain"></i>
                 <i class="devicon-javascript-plain"></i>
@@ -22,7 +22,7 @@
                 <i class="devicon-jest-plain"></i>
             </Vue3Marquee>
             <h3>Back-End</h3>
-            <Vue3Marquee :duration="30">
+            <Vue3Marquee :duration="90" direction="reverse" pauseOnHover>
                 <i class="devicon-nodejs-plain"></i>
                 <i class="devicon-express-original"></i>
                 <i class="devicon-mongodb-plain"></i>
@@ -33,7 +33,7 @@
                 <i class="devicon-supabase-plain"></i>
             </Vue3Marquee>
             <h3>Other</h3>
-            <Vue3Marquee>
+            <Vue3Marquee :duration="90" pauseOnHover>
                 <i class="devicon-git-plain"></i>
                 <i class="devicon-github-plain"></i>
                 <i class="devicon-towergit-plain"></i>
@@ -54,15 +54,18 @@
 
 
 <style lang="scss" scoped>
-section {
+.marquee-container {
     width: 100%;
+    height: 100dvh;
     overflow: hidden;
+    background-color: $colour-secondary;
+    padding: 7rem 0;
 }
 
 :is(h2, h3) {
-    margin: 2rem 0;
+    // margin: 2rem 0;
     text-align: center;
-    color: $steelblue;
+    color: $colour-primary;
 }
 
 h2 {
@@ -75,12 +78,13 @@ h3 {
 
 i {
     font-size: 15rem;
-    color: $steelblue;
+    color: $colour-primary;
 }
 
 .vue3-marquee {
     max-width: 100%;
     overflow: hidden;
+    margin-block: 3rem;
 
     // NOTE: pas necessaire de nester qq'chose tant simple
     &:nth-of-type(2) .marquee i {
