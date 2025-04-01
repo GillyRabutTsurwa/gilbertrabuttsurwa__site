@@ -19,30 +19,15 @@ const isLoggedIn: Ref<boolean> = ref(false);
 
 <template>
   <nav class="navigation">
-    <LogoX />
+    <slot name="logo"></slot>
     <ul class="navigation__list">
-      <li class="navigation__list--item">
-        <NuxtLink to="/">Home</NuxtLink>
-      </li>
-      <li class="navigation__list--item">
-        <NuxtLink to="/blog">Blogs</NuxtLink>
-      </li>
-      <li class="navigation__list--item">
-        <NuxtLink to="/blog/authours/gilbert-rabut-tsurwa">About Me</NuxtLink>
-      </li>
-      <DevOnly>
-        <li class="navigation__list--item">
-          <NuxtLink to="/blog/uncensored">Uncensored Posts</NuxtLink>
-        </li>
-      </DevOnly>
-      <li class="navigation__list--item">
-        <NuxtLink to="/shop" target="_blank" rel="noreferrer noopener">Shop</NuxtLink>
-      </li>
+      <slot name="links"></slot>
       <!-- <li class="navigation__list--item">
         <NuxtLink to="/contact">Contact Me</NuxtLink>
       </li> -->
     </ul>
     <ul class="navigation__list">
+      <slot name="account"></slot>
       <!-- account username -->
 
       <!-- <li v-if="user?.role === 'authenticated'" class="navigation__list--item">
@@ -58,14 +43,14 @@ const isLoggedIn: Ref<boolean> = ref(false);
   </nav>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .navigation {
   @extend %flex-basic;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 10vh;
-  padding: 0 1.75rem;
+  //@todo - enquêter pourquoi ça ne marche pas sans "!important"
+  padding: 1.5rem 4rem !important;
   background-color: $colour-primary;
   margin-bottom: 2.5rem;
 
@@ -99,9 +84,9 @@ const isLoggedIn: Ref<boolean> = ref(false);
     font-size: 1.6rem;
 
     &--item {
-      margin-right: 3.25rem;
-
+      
       a {
+        margin-right: 3.25rem;
 
         &,
         &:link,
@@ -135,7 +120,7 @@ const isLoggedIn: Ref<boolean> = ref(false);
         &:link,
         &:visited {
           text-decoration: none;
-          color: $whitish;
+          color: $colour-secondary;
         }
       }
     }

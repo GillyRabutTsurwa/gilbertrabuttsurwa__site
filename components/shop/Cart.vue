@@ -91,13 +91,13 @@ watch(
     <h2>Your cart</h2>
     <div class="cart-content">
       <CartItem v-for="(currentProduct, index) in productsInCartUI" :key="index" :cartItemProp="currentProduct" />
-      <h5 v-if="productsInCartUI.length === 0" style="text-align:center;">Your Cart is Empty</h5>
+      <h5 v-if="!productsInCartUI.length" style="text-align:center;">Your Cart is Empty</h5>
     </div>
     <div class="cart-footer">
       <h3>Your total : $ <span class="cart-total">{{ (sum / 100).toFixed(2) }}</span></h3>
       <div class="buttons">
-        <Button @click="clearCart" text="Clear Cart" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
-        <Button @click="stripeCheckout" text="Checkout" colourPrimary="#104f55" colourSecondary="#f0f0f0" />
+        <Button @click="clearCart" text="Clear Cart" colourPrimary="#101d2c" colourSecondary="#c69963" />
+        <Button @click="stripeCheckout" text="Checkout" colourPrimary="#101d2c" colourSecondary="#c69963" />
       </div>
     </div>
   </div>
@@ -122,19 +122,21 @@ watch(
   transform: translateX(30vw);
   transition: transform 0.5s ease;
 
+  &.show {
+    transform: translateX(0vw);
+  }
+
   @include breakpoint(767) {
     width: 100vw;
     transform: translateX(100vw);
   }
 
-  &.show {
-    transform: translateX(0vw);
-  }
 }
 
 .close-cart {
   font-size: 1.7rem;
   cursor: pointer;
+  color: $colour-primary;
 }
 
 .cart h2 {

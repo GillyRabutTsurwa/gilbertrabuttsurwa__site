@@ -71,11 +71,11 @@ const addItemToCart = () => {
   transform: translateX(101%);
   /*POURQUOI 101%?*/
   cursor: pointer;
-  color: $whitish;
+  color: $colour-secondary;
 }
 
 .bag-btn:hover {
-  background-color: $whitish;
+  background-color: $colour-secondary;
   color: $colour-primary;
 }
 
@@ -94,7 +94,7 @@ const addItemToCart = () => {
 .product h4 {
   margin-top: 0.7rem;
   letter-spacing: 0.1rem;
-  color: var(--primaryColor);
+  color: $colour-primary;
   text-align: center;
 }
 </style>

@@ -1,29 +1,29 @@
 <template>
-  <div class="navigation">
-    <input type="checkbox" name="navigo" class="navigation__checkbox" id="navi-toggle">
-    <label for="navi-toggle" class="navigation__button">
-      <span class="navigation__icon">&nbsp;</span>
+  <div class="home-navigation">
+    <input type="checkbox" name="navigo" class="home-navigation__checkbox" id="navi-toggle">
+    <label for="navi-toggle" class="home-navigation__button">
+      <span class="home-navigation__icon">&nbsp;</span>
     </label>
-    <div class="navigation__background">&nbsp;</div>
-    <nav class="navigation__nav">
-      <ul class="navigation__list">
-        <li class="navigation__item">
-          <NuxtLink to="/blog" class="navigation__link">Blog</NuxtLink>
+    <div class="home-navigation__background">&nbsp;</div>
+    <nav class="home-navigation__nav">
+      <ul class="home-navigation__list">
+        <li class="home-navigation__item">
+          <NuxtLink to="/blog" class="home-navigation__link">Blog</NuxtLink>
         </li>
-        <li class="navigation__item">
-          <NuxtLink to="/projects" class="navigation__link">Projects</NuxtLink>
+        <li class="home-navigation__item">
+          <NuxtLink to="/projects" class="home-navigation__link">Projects</NuxtLink>
         </li>
-        <li class="navigation__item">
-          <NuxtLink to="/shop" class="navigation__link">Shop</NuxtLink>
+        <li class="home-navigation__item">
+          <NuxtLink to="/shop" class="home-navigation__link">Shop</NuxtLink>
         </li>
-        <li class="navigation__item">
-          <NuxtLink to="https://github.com/GillyRabutTsurwa" class="navigation__link">Github</NuxtLink>
+        <li class="home-navigation__item">
+          <NuxtLink to="https://github.com/GillyRabutTsurwa" class="home-navigation__link">Github</NuxtLink>
         </li>
-        <li class="navigation__item">
-          <NuxtLink to="https://instagram.com/rabuttsurwa96" class="navigation__link">Instagram</NuxtLink>
+        <li class="home-navigation__item">
+          <NuxtLink to="https://instagram.com/rabuttsurwa96" class="home-navigation__link">Instagram</NuxtLink>
         </li>
-        <li class="navigation__item">
-          <NuxtLink to="https://linkedin.com/in/gilberttsurwa" class="navigation__link">LinkedIn</NuxtLink>
+        <li class="home-navigation__item">
+          <NuxtLink to="https://linkedin.com/in/gilberttsurwa" class="home-navigation__link">LinkedIn</NuxtLink>
         </li>
       </ul>
     </nav>
@@ -32,7 +32,7 @@
 
 
 <style lang="scss" scoped>
-.navigation {
+.home-navigation {
   z-index: 100000;
 
   &__checkbox {
