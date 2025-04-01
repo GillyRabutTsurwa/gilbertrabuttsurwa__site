@@ -40,7 +40,8 @@ const favourites = allProjects.filter((currentProject) => currentProject.isFavou
   .gallery__list {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24rem, 48rem));
+    // grid-template-columns: repeat(auto-fit, minmax(24rem, 48rem));
+    grid-template-columns: repeat(auto-fit, minmax(25vw, 1fr));
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
