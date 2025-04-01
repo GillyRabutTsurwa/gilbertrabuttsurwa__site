@@ -1,32 +1,25 @@
 <script setup lang="ts">
+import type { CSSProperties } from 'vue';
+
 interface Props {
-    layout: string;
+    layout: "row" | "row-reverse" | "column" | "column-reverse";
+    // @todo - adjuster les types pour ces propriétés ci-dessous
     contentJustify: string;
     itemsAlign: string;
 }
 
-interface Flex {
-    display: string;
-    flexDirection: string;
-    justifyContent: string;
-    alignItems: string;
-}
-
 const props = defineProps<Props>();
-const flexStyles: ComputedRef<Flex> = computed(() => {
+const flexStyles: ComputedRef<CSSProperties> = computed(() => {
     return {
         display: "flex",
-        flexDirection: props.layout || "row",
+        flexDirection: props.layout,
         justifyContent: props.contentJustify || "center",
         alignItems: props.itemsAlign || "center",
     }
 });
 </script>
 <template>
-    <div class="flex-component-container" :style="flexStyles">
+    <div :style="flexStyles">
         <slot></slot>
     </div>
 </template>
-
-
-<style lang="scss" scoped></style>

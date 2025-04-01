@@ -1,4 +1,6 @@
-<script setup>
+<script setup lang="ts">
+import type { CSSProperties } from 'vue';
+
 const props = defineProps({
   text: {
     type: String,
@@ -26,9 +28,8 @@ const props = defineProps({
   },
 });
 
-const isHovered = ref(false)
-
-const btnStyles = computed(() => {
+const isHovered: Ref<boolean> = ref(false)
+const btnStyles: ComputedRef<CSSProperties> = computed(() => {
   return {
     backgroundColor: isHovered.value ? props.colourSecondary : props.colourPrimary,
     color: isHovered.value ? props.colourPrimary : props.colourSecondary,
@@ -56,12 +57,5 @@ const btnStyles = computed(() => {
   // border: 2px solid transparent;
   transition: transform 0.5s ease;
   font-family: inherit;
-
-  //NOTE: ça, je vais faire avec css et pas Javascript. pour mes besoins
-  // dans ce cas-ci, je veux que la couleur du contour ne change pas
-  &:hover,
-  &:active {
-    // border: 2px solid $colour-primary;
-  }
 }
 </style>

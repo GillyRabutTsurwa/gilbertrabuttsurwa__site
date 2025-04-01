@@ -1,29 +1,20 @@
-<script setup>
+<script setup lang="ts">
+import type { ConcreteComponent } from 'vue';
+
 const FrontEnd = resolveComponent("FrontEnd");
 const BackEnd = resolveComponent("BackEnd");
 // NOTE: using shallow ref as recommended by Vue to avoid performance issues upon using ref with a dynamic component value
 const currentComponent = shallowRef(FrontEnd);
-const showFrontend = () => {
-    currentComponent.value = FrontEnd;
-    console.log("frontend");
-};
-const showBackend = () => {
-    currentComponent.value = BackEnd;
-    console.log("backend");
-};
-
-// const props = defineProps({ blok: Object }); //NOTE: j'utilise pas pour le moment
-// console.log(props.blok);
-// console.log(props.blok.component);
+const changeComponent = (composant: string | ConcreteComponent) => currentComponent.value = composant;
 </script>
 
 <template>
     <section class="skills landing">
         <h2 class="skills__main-title">Select Projects</h2>
-        <div class="skills__buttons">
-            <button @click="showFrontend" class="header__button skills__buttons--button">Front-End</button>
-            <button @click="showBackend" class="header__button skills__buttons--button">Back-End</button>
-        </div>
+        <FlexContainer layout="row" contentJustify="center" itemsAlign="flex-start" class="skills__buttons">
+            <Button @click="changeComponent(FrontEnd)" text="Frontend" colourPrimary="#c69963" colourSecondary="#101d2c" class="skills__buttons--button"/>
+            <Button @click="changeComponent(BackEnd)" text="Backend" colourPrimary="#c69963" colourSecondary="#101d2c" class="skills__buttons--button"/>
+        </FlexContainer>
         <component :is="currentComponent"></component>
         <Button isLink isExternal path="/projects/" text="All Projects" colourPrimary="#101d2c"
           colourSecondary="#c69963" class="all-projects" />
@@ -34,12 +25,7 @@ const showBackend = () => {
 .skills {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    // grid-template-rows: repeat(2, min-content) repeat(2, 55vh);
-    // grid-template-rows: repeat(2, min-content) 80vh;
     grid-template-rows: repeat(2, min-content) 1fr;
-    // height: 100vh;
-    // min-height: 100vh;
-    // margin: 0 3rem;
     background-color: $colour-primary;
     gap: 4rem;
     padding: 6rem 0;
@@ -62,34 +48,11 @@ const showBackend = () => {
         grid-column: 1 / -1;
         grid-row: 2 / 3;
         justify-self: center;
-        display: flex;
-        align-items: flex-start;
 
         &--button {
             margin-top: 0;
             margin-right: 2.5rem;
         }
-    }
-}
-
-//@todo - refactor and move this
-.header__button {
-    display: inline-block;
-    border: 2px solid $colour-secondary;
-    border-radius: 1rem;
-    font-size: 1.5rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: $colour-primary;
-    padding: 1.5rem 3rem;
-    margin-top: 3rem;
-    background-color: $colour-secondary;
-    cursor: pointer;
-    z-index: 10000;
-
-    &:hover {
-        background-color: $colour-primary;
-        color: $colour-secondary;
     }
 }
 
