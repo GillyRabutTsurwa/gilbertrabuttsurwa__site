@@ -54,8 +54,8 @@ const btnStyles: ComputedRef<CSSProperties> = computed(() => {
   @include button-config(1.5rem, 2.2rem, 0.5rem);
   font-size: 1.75rem;
   text-decoration: none;
-  // border: 2px solid transparent;
-  transition: transform 0.5s ease;
+  border: 2px solid transparent;
+  transition: all 0.5s ease;
   font-family: inherit;
 }
 </style>

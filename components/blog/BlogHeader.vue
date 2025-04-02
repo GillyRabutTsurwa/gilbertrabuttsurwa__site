@@ -26,7 +26,7 @@ setTimeout(() => {
         <h2 class="title">{{ randomPost.title }}</h2>
         <p class="text">{{ randomPost.excerpt }}</p>
         <Button isLink :path="`/blog/personal/${randomPost.slug.current}`" colourPrimary="#101d2c"
-          colourSecondary="#c69963" />
+          colourSecondary="#e6b376" />
       </div>
     </div>
     <figure class="header__post--img">

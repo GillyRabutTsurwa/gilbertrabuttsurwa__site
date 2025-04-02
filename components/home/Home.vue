@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import type { Home } from "~/interfaces/home";
-import { home } from "~/queries";
+import type { Post } from "~/interfaces/post";
 
-//@todo: on essaie à nouveau
-const query: string = home;
-const { data: content } = await useSanityQuery<Home>(query);
+import { home, posts } from "~/queries";
+
+const homeQuery: string = home;
+const postQuery: string = posts("personal");
+
+const { data: content } = await useSanityQuery<Home>(homeQuery);
+const { data: blogs } = await useSanityQuery<Post[]>(postQuery);
 </script>
 
 <template>
@@ -13,7 +17,7 @@ const { data: content } = await useSanityQuery<Home>(query);
         <Header :content />
         <Marquee />
         <Showcase />
-        <Certifications />
+        <Certifications :blogs />
         <Form />
         <Footer />
     </section>

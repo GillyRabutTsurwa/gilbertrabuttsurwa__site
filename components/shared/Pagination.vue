@@ -29,7 +29,7 @@ onMounted(() => {
   //@todo: Refactor this Code
   pagination.value.addEventListener("mouseover", (e) => {
     if (e.target.tagName === "BUTTON") {
-      e.target.style.backgroundColor = "#c69963";
+      e.target.style.backgroundColor = "#e6b376";
       e.target.style.color = "#101d2c";
     }
   });
@@ -37,7 +37,7 @@ onMounted(() => {
   pagination.value.addEventListener("mouseout", (e) => {
     if (e.target.tagName === "BUTTON") {
       e.target.style.backgroundColor = "#101d2c";
-      e.target.style.color = "#c69963";
+      e.target.style.color = "#e6b376";
     }
   });
 });

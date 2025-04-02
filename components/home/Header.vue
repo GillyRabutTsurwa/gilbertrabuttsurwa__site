@@ -36,9 +36,9 @@ const randomPhoto = computed(() => {
             <SanityImage :asset-id="randomPhoto.url" auto="format" class="autoportrait-img" />
         </figure>
         <FlexContainer layout="row" contentJustify="start" itemsAlign="start" class="flex-container-custom">
-            <Button to="/blog" isLink text="Read Blogs" colourPrimary="#c69963" colourSecondary="#101d2c"
+            <Button to="/blog" isLink text="Read Blogs" colourPrimary="#e6b376" colourSecondary="#101d2c"
                 class="btn-test" />
-            <Button to="/projects" isLink isExternal text="View Projects" colourPrimary="#c69963"
+            <Button to="/projects" isLink isExternal text="View Projects" colourPrimary="#e6b376"
                 colourSecondary="#101d2c" class="btn-test" />
         </FlexContainer>
     </header>

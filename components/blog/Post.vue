@@ -36,7 +36,7 @@ const serializers = {
     </figure>
 
     <div class="blog-content">
-      <Button isLink path="/blog/personal" text="All Posts" colourPrimary="#101d2c" colourSecondary="#c69963" />
+      <Button isLink path="/blog/personal" text="All Posts" colourPrimary="#101d2c" colourSecondary="#e6b376" />
       <h1 class="blog-content__title">{{ props.post.title }}</h1>
       <h3 class="blog-content__author">
         <span>By: </span>
@@ -58,7 +58,7 @@ const serializers = {
         <p>{{ props.post.excerpt }}</p>
         <SanityContent :blocks="props.post.body" :serializers="serializers" />
       </div>
-      <Button isLink path="/blog/personal" text="All Posts" colourPrimary="#101d2c" colourSecondary="#c69963" />
+      <Button isLink path="/blog/personal" text="All Posts" colourPrimary="#101d2c" colourSecondary="#e6b376" />
     </div>
   </article>
 </template>

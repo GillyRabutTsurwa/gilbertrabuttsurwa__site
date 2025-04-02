@@ -96,8 +96,8 @@ watch(
     <div class="cart-footer">
       <h3>Your total : $ <span class="cart-total">{{ (sum / 100).toFixed(2) }}</span></h3>
       <div class="buttons">
-        <Button @click="clearCart" text="Clear Cart" colourPrimary="#101d2c" colourSecondary="#c69963" />
-        <Button @click="stripeCheckout" text="Checkout" colourPrimary="#101d2c" colourSecondary="#c69963" />
+        <Button @click="clearCart" text="Clear Cart" colourPrimary="#101d2c" colourSecondary="#e6b376" />
+        <Button @click="stripeCheckout" text="Checkout" colourPrimary="#101d2c" colourSecondary="#e6b376" />
       </div>
     </div>
   </div>

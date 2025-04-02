@@ -44,6 +44,7 @@ export interface Post {
     _updatedAt: Date;
     _type: string;
     author: author;
+    postGenre: string;
     excerpt: string;
     body: Array<PortableTextBlock>;
     categories: Array<string>;

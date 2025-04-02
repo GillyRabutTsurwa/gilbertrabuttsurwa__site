@@ -1,6 +1,19 @@
 <script setup lang="ts">
+import type { Post } from '~/interfaces/post';
+
+
+const { formatDate } = useFormatDate();
+
+const props = defineProps({
+  blogs: {
+    type: Array as PropType<Post[] | null>,
+    required: true
+  }
+});
+console.log(props.blogs);
+
 const hoveredIndex = ref<number | null>(null)
-const logos = ref<string[]>(["storybook", "react", "vitest", "ansible", "mysql", "docker"]);
+const logos = ref<string[]>(["storybook", "react", "archlinux", "ansible", "mysql", "docker"]);
 
 const handleMouseover: (argument: MouseEvent) => void = (e: MouseEvent) => {
   const listElement = e.target?.closest("li");
@@ -17,62 +30,54 @@ const handleMouseLeave = () => hoveredIndex.value = null;
 const capitalise: (argument: string) => string = (word: string): string => {
   return `${word.charAt(0).toUpperCase()}${word.substring(1)}`
 }
-
-watch(() => hoveredIndex, (newValue, oldValue) => {
-  console.log(`Old value was ${oldValue.value}`);
-  console.log(`New value is ${newValue.value}`);
-})
 </script>
 
 <template>
   <section class="credentials landing">
-    <h2 class="credentials__main-title">Credentials</h2>
-    <div class="credentials__content">
-      <div class="credentials__left">
-        <h3 class="credentials__left--title">Select Certifications</h3>
-
-        <ul class="credentials__list courses">
-          <li class="credentials__list--item">
-            <p><strong>Course:</strong> Web Development Bootcamp</p>
-            <p>Instructor: Colt Steele</p>
-          </li>
-
-          <li class="credentials__list--item">
-            <p><strong>Course:</strong> Build Responsive Real World Websites with HTML5 & CSS3</p>
-            <p>Instructor: Jonas Schmedtmann</p>
-          </li>
-
-          <li class="credentials__list--item">
-            <p><strong>Course:</strong> Advanced CSS & Sass: Flexbox, Grids, Animations & More</p>
-            <p>Instructor: Jonas Schmedtmann</p>
-          </li>
-
-          <li class="credentials__list--item">
-            <p><strong>Course:</strong> The Complete Javascript Course 2020: Build Real Projects</p>
-            <p>Instructor: Jonas Schmedtmann</p>
-          </li>
-          <li class="credentials__list--item">
-            <p><strong>Course:</strong> Vue - The Complete Guide (incl. Router & Composition API)</p>
-            <p>Instructor: Max Schwarzmüller</p>
-          </li>
-        </ul>
-      </div>
-
-      <div class="credentials__right">
-        <h3 class="credentials__right--title">
-          Currently Learning
-          <span class="dot dot-one">.</span>
-          <span class="dot dot-two">.</span>
-          <span class="dot dot-three">.</span>
-        </h3>
-        <ul @mouseover="handleMouseover($event)" @mouseleave="handleMouseLeave" class="credentials__list learning">
-          <li v-for="(currentLogo, index) in logos" :key="index" :list-index="index" class="credentials__list--item">
-            <i :class="[`devicon-${currentLogo}-plain`, `${hoveredIndex === index ? 'colored' : ''}`]" />
-            <span>{{ currentLogo === "mysql" ? "MySQL" : capitalise(currentLogo) }}</span>
-          </li>
-        </ul>
-      </div>
+    <h2 class="credentials__main-title">My Blogs</h2>
+    <ul class="credentials__list blogs">
+      <li v-for="currentBlog in props.blogs" :key="currentBlog._id" class="credentials__list--item">
+        <NuxtLink :to="`/blog/${currentBlog.postGenre}/${currentBlog.slug.current}`" target="_blank" class="blog">
+          <h2 class="blog__title">{{ currentBlog.title }}</h2>
+          <p>{{ formatDate(currentBlog.publishedAt) }}</p>
+          <p>
+            <span>Genre:</span>
+            <span>&nbsp;</span>
+            <span>{{ capitalise(currentBlog.postGenre) }}</span>
+          </p>
+          <p>
+            <span>Categories:</span>
+            <span>&nbsp;</span>
+            <span v-for="(currentCategory, index) in currentBlog.categories" :key="index">
+              {{ currentCategory }}
+            </span>
+          </p>
+        </NuxtLink>
+      </li>
+    </ul>
+    <h2 class="credentials__main-title">
+      <span>Learning</span>
+      <span class="dot dot-one">.</span>
+      <span class="dot dot-two">.</span>
+      <span class="dot dot-three">.</span>
+    </h2>
+    <div style="text-align: center; margin-bottom: 4rem;">
+      <ul @mouseover="handleMouseover($event)" @mouseleave="handleMouseLeave" class="credentials__list learning">
+        <li v-for="(currentLogo, index) in logos" :key="index" :list-index="index" class="credentials__list--item">
+          <i :class="[`devicon-${currentLogo}-plain`, `${hoveredIndex === index ? 'colored' : ''}`]" />
+          <span>&nbsp;</span>
+          <span>{{ currentLogo === "mysql" ? "MySQL" : capitalise(currentLogo) }}</span>
+        </li>
+      </ul>
     </div>
+    <h2 class="credentials__main-title">
+      <span>Spotify Player Coming Soon</span>
+      <span>&nbsp;</span>
+      <i class="fab fa-spotify"></i>
+      <!-- <span class="dot dot-one">.</span>
+      <span class="dot dot-two">.</span>
+      <span class="dot dot-three">.</span> -->
+    </h2>
   </section>
 </template>
 
@@ -91,8 +96,7 @@ watch(() => hoveredIndex, (newValue, oldValue) => {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-pack: distribute;
-    justify-content: space-around;
+    flex-direction: column;
 
     @include breakpoint(1023) {
       flex-direction: column-reverse;
@@ -101,37 +105,19 @@ watch(() => hoveredIndex, (newValue, oldValue) => {
 
   &__main-title {
     text-align: center;
-    font-size: 3rem;
+    font-size: 5rem;
     margin-bottom: 3rem;
   }
 
-  &__left--title,
-  &__right--title {
-    font-size: 2rem;
-    margin-bottom: 2.5rem;
 
-    @include breakpoint(1023) {
-      font-size: 3rem;
-      text-align: center;
-    }
-  }
-
-  &__left {
-
-    // &--title {
-    //   font-size: 2rem;
-    //   margin-bottom: 2.5rem;
-    @include breakpoint(1023) {
-      margin-top: 3rem;
-    }
-
-    // }
-  }
 
   // NOTE: moved code below to LearningList.svelte
   &__list {
     list-style-type: none;
     font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     // @include breakpoint(1023) {
     //   display: flex;
@@ -143,8 +129,34 @@ watch(() => hoveredIndex, (newValue, oldValue) => {
       margin-bottom: 5rem;
     }
 
-    &.courses {
-      list-style-type: disc;
+    &.blogs {
+      margin-inline: 6rem;
+
+    //NOTE: je pourrais aussi le mettre dans &--item {}, mais à cause du nom, j'ai décidé de le mettre ici
+      .blog {
+        display: inline-block;
+        padding: 2rem;
+        outline: 2px solid $colour-primary;
+        text-decoration: none;
+        text-align: center;
+        transition: all 0.5s ease;
+        
+        &:link,
+        &:visited {
+          background-color: $colour-primary;
+          color: $colour-secondary;
+        }
+
+        &:hover,
+        &:active {
+          background-color: $colour-secondary;
+          color: $colour-primary;
+        }
+
+        &__title {
+          font-size: 4.5rem;
+        }
+      }
 
       @include breakpoint(1023) {
         margin-left: 3rem;
@@ -153,7 +165,6 @@ watch(() => hoveredIndex, (newValue, oldValue) => {
 
     &.learning {
       display: flex;
-      flex-direction: column;
       justify-content: space-around;
       height: 100%;
 
@@ -168,25 +179,10 @@ watch(() => hoveredIndex, (newValue, oldValue) => {
 
       li {
         margin-bottom: 0;
+        font-size: 5rem;
 
         @include breakpoint(767) {
           margin-bottom: 1.5rem;
-        }
-      }
-    }
-  }
-
-  &__right {
-    li {
-      display: flex;
-      align-items: center;
-
-      i {
-        font-size: 5rem;
-        margin-right: 2rem;
-
-        @include breakpoint(1023) {
-          margin-right: 0.25rem;
         }
       }
     }

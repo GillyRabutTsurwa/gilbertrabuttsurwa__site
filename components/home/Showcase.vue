@@ -12,12 +12,12 @@ const changeComponent = (composant: string | ConcreteComponent) => currentCompon
     <section class="skills landing">
         <h2 class="skills__main-title">Select Projects</h2>
         <FlexContainer layout="row" contentJustify="center" itemsAlign="flex-start" class="skills__buttons">
-            <Button @click="changeComponent(FrontEnd)" text="Frontend" colourPrimary="#c69963" colourSecondary="#101d2c" class="skills__buttons--button"/>
-            <Button @click="changeComponent(BackEnd)" text="Backend" colourPrimary="#c69963" colourSecondary="#101d2c" class="skills__buttons--button"/>
+            <Button @click="changeComponent(FrontEnd)" text="Frontend" colourPrimary="#e6b376" colourSecondary="#101d2c" class="skills__buttons--button"/>
+            <Button @click="changeComponent(BackEnd)" text="Backend" colourPrimary="#e6b376" colourSecondary="#101d2c" class="skills__buttons--button"/>
         </FlexContainer>
         <component :is="currentComponent"></component>
         <Button isLink isExternal path="/projects/" text="All Projects" colourPrimary="#101d2c"
-          colourSecondary="#c69963" class="all-projects" />
+          colourSecondary="#e6b376" class="all-projects" />
     </section>
 </template>
 
