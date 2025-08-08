@@ -4,8 +4,8 @@ import type { CSSProperties } from 'vue';
 interface Props {
     layout: "row" | "row-reverse" | "column" | "column-reverse";
     // @todo - adjuster les types pour ces propriétés ci-dessous
-    contentJustify: string;
-    itemsAlign: string;
+    contentJustify?: string;
+    itemsAlign?: string;
 }
 
 const props = defineProps<Props>();

@@ -103,7 +103,6 @@ onMounted(() => {
     if (process.client) {
         // import the leaflet library
         import("leaflet").then((L) => {
-            console.log(L);
             // then use the library object in the function that is responsible for rendering the map. this should work
             createMap(L);
         });

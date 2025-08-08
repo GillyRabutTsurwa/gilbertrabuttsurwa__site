@@ -11,8 +11,6 @@ const hovered: Ref<boolean> = ref(false);
 
 // TESTING:
 const props = defineProps({ blok: Object });
-console.log(props.blok);
-console.log(props.blok.portraits);
 
 const { pixels, toggleElementOnResize } = useBreakpoints();
 const show = ref(null);
@@ -25,9 +23,7 @@ onMounted(() => {
 
     const renderElements = () => {
         const body = document.querySelector("body");
-        console.log(body.clientWidth)
         show.value = pixels.value < body.clientWidth ? true : false;
-        console.log(show.value);
     }
 
     if (process.client) {
@@ -42,8 +38,6 @@ onMounted(() => {
 });
 
 watch(() => hovered.value, (newValue, oldValue) => {
-    console.log("Old Value is: " + oldValue);
-    console.log("New value is: " + newValue);
     currentComponent.value = hovered.value ? SiteIcon : Devicon;
 })
 </script>

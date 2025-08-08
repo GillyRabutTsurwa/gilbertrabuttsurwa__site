@@ -7,19 +7,13 @@ export const useBreakpoints = () => {
         const mediaQueryList = window.matchMedia(`(${maxOrMinWidth}: ${breakpointInPx}px)`);
 
         if (mediaQueryList.matches) {
-            console.log(`Window is ${maxOrMinWidth === "max-width" ? "max" : "min"} ${breakpointInPx}px`);
             showElement.value = true;
         } else {
-            console.log(`Window is ${maxOrMinWidth === "max-width" ? "over" : "under"} ${breakpointInPx}px`);
             showElement.value = false;
         }
 
         pixels.value = breakpointInPx;
     };
 
-    return {
-        showElement: showElement,
-        pixels: pixels,
-        toggleElementOnResize: toggleElementOnResize,
-    };
+    return { showElement: showElement, pixels: pixels, toggleElementOnResize: toggleElementOnResize };
 };

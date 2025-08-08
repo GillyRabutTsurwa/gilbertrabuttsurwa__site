@@ -26,13 +26,9 @@ const currentPosts = computed(() => {
     return store.filteredPosts.slice(indexOfFirstPost.value, indexOfLastPost.value);
 });
 
-onUpdated(() => {
-    console.log(currentPosts.value);
-})
 
 function renderPagination(eventPayload) {
     state.currentPage = eventPayload;
-    console.log(eventPayload);
 }
 </script>
 <template>

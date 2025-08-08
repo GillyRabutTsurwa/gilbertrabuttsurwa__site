@@ -38,7 +38,6 @@ onMounted(() => {
   // https://nuxtjs.org/docs/concepts/server-side-rendering/
   if (process.client) {
     import("leaflet").then((library) => {
-      console.log(library);
       createMap(library);
     })
   }

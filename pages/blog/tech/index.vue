@@ -62,7 +62,6 @@ function getSnippet(blockContent) {
 
 function renderPagination(eventPayload: number) {
   state.currentPage = eventPayload;
-  console.log(eventPayload);
 }
 
 // CODE TO RUN ON COMPONENT CREATION
@@ -75,7 +74,6 @@ onMounted(() => {
   if (process.client) {
     toggleElementOnResize(767);
     const mediaQueryList = window.matchMedia("(max-width: 1023px)");
-    console.log(mediaQueryList);
     flexDir.value = mediaQueryList.matches ? "column" : "row";
   }
 });

@@ -3,7 +3,6 @@ import Post from "@/models/posts";
 
 export default defineEventHandler(async (event: H3Event) => {
     const body = await readBody(event); //NOTE: data coming from client side
-    console.log("POSTS SETTINGS", body);
 
     body.forEach(async (currentPost: any) => {
         //NOTE: on cherche si le poste que l'on retrouve du client existe déjà dans la base de données en observant les IDs

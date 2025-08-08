@@ -21,7 +21,6 @@ const code = ref(null); //this will be parsed code
 onMounted(() => {
     hljs.highlightAll();
 })
-console.log(props);
 </script>
 
 <template>

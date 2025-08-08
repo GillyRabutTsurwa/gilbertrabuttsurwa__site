@@ -6,7 +6,6 @@ const container: Ref<HTMLDivElement | null> = ref(null); //NOTE: template ref fo
 const config = useRuntimeConfig();
 const clientURL = config.public.client_url;
 
-console.log(clientURL);
 
 const formLogin = reactive({
     username: "",
@@ -22,7 +21,6 @@ const formRegister = reactive({
 
 const logState = (e: Event) => {
     const input = e.target as HTMLInputElement;
-    console.log(input.checked);
     formRegister.isSubscribed = input.checked;
 }
 
@@ -34,10 +32,8 @@ const registerUser = async () => {
 
     if (error) {
         alert("Something Went Wrong");
-        console.log(error);
         return;
     }
-    console.log(user);
     alert("Access the e-mail we just sent you to verify your compte")
 
     const { data } = await useFetch("/api/user", {
@@ -64,7 +60,6 @@ const loginUser = async () => {
     if (error) {
         alert("problem loggin in user");
     }
-    console.log(user);
     await navigateTo("/blog/uncensored");
 }
 
@@ -76,7 +71,7 @@ const signInWithOAuth = async (providerName: string): Promise<void> => {
             redirectTo: `${clientURL}/blog/uncensored`
         }
     });
-    if (error) console.log(error);
+    if (error) console.error(error);
 }
 
 
@@ -124,7 +119,7 @@ const removeRightPanel = () => container.value.classList.remove("right-panel-act
                     <Icon @click="signInWithOAuth('google')" name="google" :pxSize="42" />
                     <Icon @click="signInWithOAuth('github')" name="github" :pxSize="42" />
                     <DevOnly>
-                        <Icon @click="console.log('facebook login')" name="facebook" :pxSize="42" />
+                        <Icon @click="alert('facebook login')" name="facebook" :pxSize="42" />
                     </DevOnly>
                 </div>
             </div>
@@ -150,7 +145,7 @@ const removeRightPanel = () => container.value.classList.remove("right-panel-act
                     <Icon @click="signInWithOAuth('google')" name="google" :pxSize="42" />
                     <Icon @click="signInWithOAuth('github')" name="github" :pxSize="42" />
                     <DevOnly>
-                        <Icon @click="console.log('facebook login')" name="facebook" :pxSize="42" />
+                        <Icon @click="alert('facebook login')" name="facebook" :pxSize="42" />
                     </DevOnly>
                 </div>
                 <div class="back-2-blogs" style="transform: translateY(25rem);">

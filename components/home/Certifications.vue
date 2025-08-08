@@ -10,7 +10,6 @@ const props = defineProps({
     required: true
   }
 });
-console.log(props.blogs);
 
 const hoveredIndex = ref<number | null>(null)
 const logos = ref<string[]>(["storybook", "react", "archlinux", "ansible", "mysql", "docker"]);
@@ -20,9 +19,7 @@ const handleMouseover: (argument: MouseEvent) => void = (e: MouseEvent) => {
   if (listElement) {
     const listIndex = parseInt(listElement.getAttribute("list-index")); // this doesn't give us a number outright. i need to parseInt()
     hoveredIndex.value = listIndex;
-    console.log(hoveredIndex.value)
   }
-  console.log("Souris Enter")
 }
 
 const handleMouseLeave = () => hoveredIndex.value = null;

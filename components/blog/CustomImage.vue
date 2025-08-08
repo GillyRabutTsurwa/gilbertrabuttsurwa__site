@@ -4,8 +4,6 @@ import { SanityImage } from '#components';
 const props = defineProps({
     asset: Object
 });
-
-console.log(props.asset)
 </script>
 
 <template function>

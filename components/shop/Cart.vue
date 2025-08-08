@@ -39,7 +39,6 @@ const sum = computed(() => {
 
 cartStore.$subscribe((_, state) => {
   // NOTE: not using the mutation parametre so using _, as the order and placements of the function's arguments matters
-  console.log(state.cartStatus);
 
   isCartOpen.value = state.cartStatus;
 });
@@ -48,7 +47,6 @@ cartStore.$subscribe((_, state) => {
 
 const clearCart = () => {
   if (productsStore.productsInCart !== 0) productsStore.$patch({ productsInCart: [] });
-  console.log("Touts les articles dans la carte supprimés");
 };
 
 // @todo: Come up with ANOTHER a more imaginative greeting
@@ -57,7 +55,6 @@ const clearCart = () => {
 // labels: enhancement, help wanted, testing
 
 // NOTE: this is code straight from stores/products.js but copying it just to get it to work
-console.log(import.meta.env.DEV);
 
 const stripeCheckout = async () => {
   if (cartItems.value.length === 0) return; //NOTE: si le panier est vide, don't make a post request to the server
@@ -67,19 +64,10 @@ const stripeCheckout = async () => {
       items: cartItems.value,
     },
   });
-  // console.log(data.value.url);
   await navigateTo(data.value.url, {
     external: true, //NOTE: on en a besoin pour pouvoir naviguer à un url externe
   }); // equivalent effect as window.location = url
 };
-
-watch(
-  () => cartItems.value,
-  (newValue, oldValue) => {
-    console.log(oldValue);
-    console.log(newValue);
-  }
-);
 </script>
 
 <template>

@@ -5,11 +5,9 @@ const BackEnd = resolveComponent("BackEnd");
 const currentComponent = shallowRef(FrontEnd);
 const showFrontend = () => {
   currentComponent.value = Frontend;
-  console.log("frontend");
 };
 const showBackend = () => {
   currentComponent.value = Backend;
-  console.log("backend");
 };
 </script>
 

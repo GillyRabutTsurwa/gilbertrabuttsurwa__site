@@ -20,14 +20,10 @@ const populatePosts = () => {
   store.filteredPosts = props.posts;
 }
 
-console.log(store.posts);
-
 const categories: string[][] = store.posts.map((currentPost: Post) => currentPost.categories);
 const categoriesList: ComputedRef<string[]> = computed(() => {
   return [...new Set(categories.flat())].filter((currentValue) => currentValue !== undefined);
 });
-
-console.log(categories);
 
 function getNumOfPostsByCategory(category: string): number {
   return store.posts.filter((currentPost: Post) => currentPost.categories.includes(category)).length;

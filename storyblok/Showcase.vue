@@ -5,16 +5,12 @@ const BackEnd = resolveComponent("BackEnd");
 const currentComponent = shallowRef(FrontEnd);
 const showFrontend = () => {
   currentComponent.value = FrontEnd;
-  console.log("frontend");
 };
 const showBackend = () => {
   currentComponent.value = BackEnd;
-  console.log("backend");
 };
 
 const props = defineProps({ blok: Object }); //NOTE: j'utilise pas pour le moment
-console.log(props.blok);
-console.log(props.blok.component);
 </script>
 
 <template>

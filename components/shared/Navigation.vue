@@ -4,7 +4,6 @@ const isLoggedIn: Ref<boolean> = ref(false);
 // const user = useSupabaseUser();
 // const route = useRoute();
 // const router = useRouter();
-// console.log(user);
 
 // const signOut = async () => {
 //   try {
@@ -12,7 +11,6 @@ const isLoggedIn: Ref<boolean> = ref(false);
 //     if (error) throw new Error(error.message);
 //     if (route.path === "/blog/uncensored") router.push("/login");
 //   } catch (error) {
-//     console.log(error);
 //   }
 // }
 </script>

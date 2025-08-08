@@ -6,10 +6,8 @@
 //     const mediaQueryList = window.matchMedia(`(${maxOrMinWidth}: ${breakpointInPx}px)`);
 
 //     if (mediaQueryList.matches) {
-//         console.log(`Window is ${maxOrMinWidth === "max-width" ? "max" : "min"} ${breakpointInPx}px`);
 //         showElement.set(true);
 //     } else {
-//         console.log(`Window is ${maxOrMinWidth === "max-width" ? "over" : "under"} ${breakpointInPx}px`);
 //         showElement.set(false);
 //     }
 // };

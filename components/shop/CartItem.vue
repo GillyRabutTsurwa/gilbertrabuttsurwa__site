@@ -20,7 +20,6 @@ function incrementItem() {
 }
 
 function decrementItem() {
-  console.log("decrementItem function executed");
   /**
    * NOTE:
    * thanks to this stackoverflow link:

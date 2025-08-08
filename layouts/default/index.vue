@@ -8,11 +8,8 @@ const show = ref(null);
 onMounted(() => {
     if (process.client) {
         toggleElementOnResize(767);
-        console.log(pixels.value);
         const body = document.querySelector("body");
-        console.log(body.clientWidth)
         show.value = pixels.value < body.clientWidth ? true : false;
-        console.log(show.value);
     }
 });
 </script>

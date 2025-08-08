@@ -17,7 +17,6 @@ const query = groq`*[_type == "post" && postGenre == "tech" && slug.current == "
   author->
 }`;
 
-console.log(await useSanityQuery(query));
 const { data, pending, error } = await useSanityQuery(query);
 state.post = data.value[0];
 </script>

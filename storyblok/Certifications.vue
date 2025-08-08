@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const props = defineProps({ blok: Object });
-console.log(props.blok);
 
 const hoveredIndex = ref<number | null>(null)
 const logos = ref<string[]>(["storybook", "react", "java", "mysql", "linux", "bash"]);
@@ -10,9 +9,7 @@ const handleMouseover: (argument: MouseEvent) => void = (e: MouseEvent) => {
   if (listElement) {
     const listIndex = parseInt(listElement.getAttribute("list-index")); // this doesn't give us a number outright. i need to parseInt()
     hoveredIndex.value = listIndex;
-    console.log(hoveredIndex.value)
   }
-  console.log("Souris Enter")
 }
 
 const handleMouseLeave = () => hoveredIndex.value = null;
@@ -22,8 +19,6 @@ const capitalise: (argument: string) => string = (word: string): string => {
 }
 
 watch(() => hoveredIndex, (newValue, oldValue) => {
-  console.log(`Old value was ${oldValue.value}`);
-  console.log(`New value is ${newValue.value}`);
 })
 </script>
 

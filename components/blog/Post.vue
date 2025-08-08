@@ -8,7 +8,6 @@ const props = defineProps({
 });
 
 const { formatDate } = useFormatDate();
-console.log(props.post);
 
 /** NOTE:
  * you can also import the component manually, but with this is cleaner Nuxt solution

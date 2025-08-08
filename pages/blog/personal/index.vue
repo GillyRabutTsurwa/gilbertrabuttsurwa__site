@@ -38,7 +38,6 @@ const currentPosts = computed(() => {
 // FUNCTIONS
 function renderPagination(eventPayload: number) {
     state.currentPage = eventPayload;
-    console.log(eventPayload);
 }
 
 async function sendPostsToServer() {
@@ -46,7 +45,6 @@ async function sendPostsToServer() {
         method: "POST",
         body: blogs.value
     });
-    console.log("Posts", allPosts.value); //Not really doing anything with this
 }
 
 // CODE TO RUN ON COMPONENT CREATION
@@ -58,14 +56,10 @@ sendPostsToServer();
 onMounted(() => {
     if (process.client) {
         const mediaQueryList = window.matchMedia("(max-width: 1023px)");
-        console.log(mediaQueryList);
         flexDir.value = mediaQueryList.matches ? "column" : "row";
 
     }
 });
-onUpdated(() => {
-    console.log(currentPosts.value);
-})
 </script>
 
 <template>

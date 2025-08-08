@@ -12,7 +12,6 @@ const props = defineProps<Props>();
 
 const addItemToCart = () => {
   store.$patch((state) => {
-    console.log(props.product);
     state.productsInCart = [props.product, ...state.productsInCart];
   });
 };

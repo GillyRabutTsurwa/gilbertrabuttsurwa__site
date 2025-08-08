@@ -9,7 +9,6 @@ const props = defineProps({
         required: false
     }
 });
-console.log(props.column);
 const text = computed(() => {
     return renderRichText(props.column.text);
 });

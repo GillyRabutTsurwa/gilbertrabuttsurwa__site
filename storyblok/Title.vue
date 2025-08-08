@@ -4,6 +4,4 @@
    
 <script setup>
 const props = defineProps({ blok: Object });
-console.log(props.blok);
-
 </script>

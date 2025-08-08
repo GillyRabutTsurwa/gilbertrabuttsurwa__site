@@ -11,7 +11,6 @@ const props = defineProps({
     }
 });
 
-console.log(props.posts);
 
 const { formatDate } = useFormatDate();
 const getSnippet = (text: string, limit: number = 300) => text.slice(0, limit) + "...";

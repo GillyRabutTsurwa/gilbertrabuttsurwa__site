@@ -18,9 +18,7 @@ onMounted(() => {
 
     const renderElements = () => {
         const body = document.querySelector("body");
-        console.log(body.clientWidth)
         show.value = pixels.value < body.clientWidth ? true : false;
-        console.log(show.value);
     }
 
     if (process.client) {
