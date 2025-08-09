@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-interface IPost {
+export interface IPost {
     _id: string;
     title: string;
     _type: string;
