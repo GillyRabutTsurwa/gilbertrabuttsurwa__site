@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { StateTree, Store } from "pinia";
-import type { Post } from '~/interfaces/post';
+import type { PostInt } from '~/interfaces/post';
 import { usePostsStore } from '@/stores/posts';
 
 const store: Store<"posts", StateTree> = usePostsStore();
@@ -20,17 +20,17 @@ const populatePosts = () => {
   store.filteredPosts = props.posts;
 }
 
-const categories: string[][] = store.posts.map((currentPost: Post) => currentPost.categories);
+const categories: string[][] = store.posts.map((currentPost: PostInt) => currentPost.categories);
 const categoriesList: ComputedRef<string[]> = computed(() => {
   return [...new Set(categories.flat())].filter((currentValue) => currentValue !== undefined);
 });
 
 function getNumOfPostsByCategory(category: string): number {
-  return store.posts.filter((currentPost: Post) => currentPost.categories.includes(category)).length;
+  return store.posts.filter((currentPost: PostInt) => currentPost.categories.includes(category)).length;
 }
 
 watch(() => state.currentPosts, (newValue: Array<string>, _) => {
-  store.filteredPosts = store.posts.filter((currentPost: Post) => {
+  store.filteredPosts = store.posts.filter((currentPost: PostInt) => {
     return currentPost.categories.some((currentCategory: string) => {
       return [...newValue].includes(currentCategory);
     });

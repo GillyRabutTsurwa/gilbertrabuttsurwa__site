@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Home } from "~/interfaces/home";
-import type { Post } from "~/interfaces/post";
+import type { PostInt } from "~/interfaces/post";
 
 import { home, posts } from "~/queries";
 
@@ -8,7 +8,7 @@ const homeQuery: string = home;
 const postQuery: string = posts("personal");
 
 const { data: content } = await useSanityQuery<Home>(homeQuery);
-const { data: blogs } = await useSanityQuery<Post[]>(postQuery);
+const { data: blogs } = await useSanityQuery<PostInt[]>(postQuery);
 </script>
 
 <template>

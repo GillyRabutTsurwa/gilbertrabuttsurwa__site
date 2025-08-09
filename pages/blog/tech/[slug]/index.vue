@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { Post } from "~/interfaces/post";
+import type { PostInt } from "~/interfaces/post";
 
 interface myPost {
-  post: Post
+  post: PostInt
 }
 
 const route = useRoute();

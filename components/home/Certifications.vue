@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { Post } from '~/interfaces/post';
+import type { PostInt } from '~/interfaces/post';
 
 
 const { formatDate } = useFormatDate();
 
 const props = defineProps({
   blogs: {
-    type: Array as PropType<Post[] | null>,
+    type: Array as PropType<PostInt[] | null>,
     required: true
   }
 });

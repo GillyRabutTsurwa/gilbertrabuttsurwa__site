@@ -8,6 +8,10 @@ interface IPost {
     _updatedAt: string;
     publishedAt: string;
     author: { _ref: string };
+    postGenre: string;
+    excerpt: string;
+    mainImage: Object;
+    thumbnail: Object;
     body: Array<object>;
     categories: Array<string>;
     slug: { current: string; _type: string };
@@ -24,6 +28,10 @@ const PostSchema: Schema = new mongoose.Schema<IPost>(
         _updatedAt: { type: String, required: false },
         publishedAt: { type: String, required: false },
         author: { type: Object },
+        excerpt: { type: String, required: false },
+        mainImage: { type: Object, required: true },
+        thumbnail: { type: Object, required: true },
+        postGenre: { type: String, required: true },
         body: { type: [Object] },
         categories: { type: [String] },
         slug: { type: Object },

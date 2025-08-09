@@ -1,3 +1,4 @@
+// @todo: Supprimer ce fichier
 import { createClient } from "@sanity/client";
 
 const config = useRuntimeConfig();

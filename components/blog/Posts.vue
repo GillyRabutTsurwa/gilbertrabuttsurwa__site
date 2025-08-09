@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { Post } from "~/interfaces/post";
+import type { PostInt } from "~/interfaces/post";
 const props = defineProps({
     type: {
         type: String,
         required: false
     },
     posts: {
-        type: Array<Post>,
+        type: Array<PostInt>,
         required: true
     }
 });

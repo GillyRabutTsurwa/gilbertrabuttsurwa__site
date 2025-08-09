@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { posts } from "~/queries";
-import type { Post } from "~/interfaces/post";
+import type { PostInt } from "~/interfaces/post";
 import type { StateTree, Store } from "pinia";
 import { usePostsStore } from '@/stores/posts';
 
@@ -19,7 +19,7 @@ const state: Page = reactive({
 
 // COMPOSABLES
 const store: Store<"posts", StateTree> = usePostsStore();
-const { data: blogs } = await useSanityQuery<Post>(query);
+const { data: blogs } = await useFetch("/api/blogs/personal") || await useSanityQuery<PostInt>(query);
 
 
 // COMPUTED VALUES
@@ -35,16 +35,22 @@ const currentPosts = computed(() => {
     return store.filteredPosts.slice(indexOfFirstPost.value, indexOfLastPost.value);
 });
 
+
 // FUNCTIONS
 function renderPagination(eventPayload: number) {
     state.currentPage = eventPayload;
 }
 
-const { data: allPosts } = await useFetch("/api/blogs/personal");
+
+console.log(blogs.value);
+
 
 // CODE TO RUN ON COMPONENT CREATION
 store.posts = blogs.value;
 store.filteredPosts = blogs.value;
+
+// allPosts.value?.forEach
+
 
 // LIFECYCLE HOOKS
 onMounted(() => {

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { posts } from '~/queries';
-import type { Post } from '~/interfaces/post';
+import type { PostInt } from '~/interfaces/post';
 const query = posts("personal");
-const { data, pending, error } = await useSanityQuery<Post>(query);
+const { data, pending, error } = await useSanityQuery<PostInt>(query);
 
-const randomPost: ComputedRef<Post> = computed(() => {
+const randomPost: ComputedRef<PostInt> = computed(() => {
   return data.value[Math.floor(Math.random() * (data.value.length))];
 });
 

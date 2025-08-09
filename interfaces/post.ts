@@ -4,27 +4,9 @@ type colour = {
     _type: string;
     alpha: number;
     hex: HexColor;
-    hsl: {
-        _type: string;
-        a: number;
-        h: number;
-        l: number;
-        s: number;
-    };
-    hsv: {
-        _type: string;
-        a: number;
-        h: number;
-        s: number;
-        v: number;
-    };
-    rgb: {
-        _type: string;
-        r: number;
-        g: number;
-        b: number;
-        a: number;
-    };
+    hsl: { _type: string; a: number; h: number; l: number; s: number };
+    hsv: { _type: string; a: number; h: number; s: number; v: number };
+    rgb: { _type: string; r: number; g: number; b: number; a: number };
 };
 
 type author = {
@@ -38,7 +20,7 @@ type author = {
     image: ImageAsset;
 };
 
-export interface Post {
+export interface PostInt {
     _id: string;
     _createdAt: string;
     _updatedAt: Date;
