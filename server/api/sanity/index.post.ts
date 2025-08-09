@@ -6,5 +6,9 @@ const config = useRuntimeConfig();
 
 export default defineEventHandler(async (event: H3Event) => {
     const body = await readBody(event);
-    console.log("Sanity webhook reçu:", body);
+    const headers = await getRequestHeaders(event);
+    console.log("Sanity webhook reçu:");
+    console.log(headers);
+    console.log("======================================");
+    console.log(body);
 });
