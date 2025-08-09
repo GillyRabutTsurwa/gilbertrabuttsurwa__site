@@ -40,24 +40,17 @@ function renderPagination(eventPayload: number) {
     state.currentPage = eventPayload;
 }
 
-async function sendPostsToServer() {
-    const { data: allPosts } = await useFetch("/api/blogs/personal", {
-        method: "POST",
-        body: blogs.value
-    });
-}
+const { data: allPosts } = await useFetch("/api/blogs/personal");
 
 // CODE TO RUN ON COMPONENT CREATION
 store.posts = blogs.value;
 store.filteredPosts = blogs.value;
-sendPostsToServer();
 
 // LIFECYCLE HOOKS
 onMounted(() => {
     if (process.client) {
         const mediaQueryList = window.matchMedia("(max-width: 1023px)");
         flexDir.value = mediaQueryList.matches ? "column" : "row";
-
     }
 });
 </script>
