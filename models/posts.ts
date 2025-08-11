@@ -21,7 +21,7 @@ export interface IPost {
 
 const PostSchema: Schema = new mongoose.Schema<IPost>(
     {
-        _id: { type: String, required: true, unique: true },
+        _id: { type: String },
         title: { type: String, required: true },
         _type: { type: String, required: false },
         _createdAt: { type: String, required: false },
