@@ -1,4 +1,28 @@
+# Changelog
 
+## <small>1.4.4 (2025-08-11)</small>
+
+* fix: Button Components Not Rendering Properly + Code Refactoring ([7664e58](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/7664e58))
+* fix: MongoDB/Mongoose Custom ID Warning ([1c63622](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/1c63622))
+* Adding File To Test Sanity Webhook ([625cf0a](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/625cf0a))
+* Adding Sanity Plugin Dev Workflow To .gitignore ([fb68937](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/fb68937))
+* Changing Todo Comments Prefix of Project ([6360567](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/6360567))
+* Cleaning Git Workspace Before Updates ([5d814c9](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/5d814c9))
+* Forgot To Add Header Data To Webhook ([4c54a13](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/4c54a13))
+* Further Testing of Action ([04930c4](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/04930c4))
+* Going To Bed. Over & Out ([673754e](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/673754e))
+* Let's Try This Again ([1822aa9](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/1822aa9))
+* Lots of MongoDB Stuff ([5817023](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/5817023))
+* MongoDB/Mongoose Development ([03cbedf](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/03cbedf))
+* More Refinement of Sanity Webhook ([d802c87](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/d802c87))
+* Polished Certifications (To Be Named Profile) Component ([a4c0b48](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/a4c0b48))
+* Refined Sanity Webhook ([b0066af](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/b0066af))
+* Removed console.log() Lines From Project ([61726f6](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/61726f6))
+* Testing Action Again By Removing Previously Made Todo ([d1ec9ae](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/d1ec9ae))
+* Testing todotoissues Action. Test #1 ([965fcfe](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/965fcfe)), closes [#1](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/issues/1)
+* Tweaking Width of FrontEnd Component Elements ([a4403b8](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/a4403b8))
+* Updated Shop Site + Made Navigation Component Accept Children For Dynamic Content ([6a3d324](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/6a3d324))
+* Website Overhaul & Redesign (& Code Refactoring) ([fd80f6b](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/commit/fd80f6b))
 
 ## [1.4.3](https://github.com/GillyRabutTsurwa/gilbertrabuttsurwa__site/compare/v1.4.2...v1.4.3) (2025-02-03)
 
