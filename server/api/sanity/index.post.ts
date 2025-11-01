@@ -1,5 +1,5 @@
 import type { H3Event } from "h3";
-import Post, { type IPost } from "~/models/posts";
+import Post, { type IPost } from "~~/models/posts";
 
 const createPost = async (post: IPost) => {
     await Post.create({

@@ -1,5 +1,5 @@
 import type { H3Event } from "h3";
-import User from "@/models/users";
+import User from "~~/models/users";
 
 export default defineEventHandler(async (event: H3Event) => {
     const body = await readBody(event); // this will give us the data coming from the client to the server (form data)

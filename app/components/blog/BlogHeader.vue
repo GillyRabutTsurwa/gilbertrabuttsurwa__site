@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { posts } from '~/queries';
-import type { PostInt } from '~/interfaces/post';
+import { posts } from '~~/queries';
+import type { PostInt } from '~~/interfaces/post';
 const query = posts("personal");
 const { data, pending, error } = await useSanityQuery<PostInt>(query);
 

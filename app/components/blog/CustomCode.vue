@@ -1,7 +1,7 @@
 <script setup>
 import hljs from "highlight.js";
 // import "../node_modules/highlight.js/styles/night-owl.css";
-import "@/node_modules/highlight.js/styles/base16/atelier-seaside.css";
+import "~~/node_modules/highlight.js/styles/base16/atelier-seaside.css";
 
 
 const props = defineProps({

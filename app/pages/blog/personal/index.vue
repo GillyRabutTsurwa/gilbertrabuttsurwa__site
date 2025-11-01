@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { posts } from "~/queries";
-import type { PostInt } from "~/interfaces/post";
+import { posts } from "~~/queries";
+import type { PostInt } from "~~/interfaces/post";
 import type { StateTree, Store } from "pinia";
 import { usePostsStore } from '@/stores/posts';
 
@@ -19,7 +19,9 @@ const state: Page = reactive({
 
 // COMPOSABLES
 const store: Store<"posts", StateTree> = usePostsStore();
-const { data: blogs } = await useFetch("/api/blogs/personal") || await useSanityQuery<PostInt>(query);
+// const { data: blogs } = await useFetch("/api/blogs/personal") || await useSanityQuery<PostInt>(query);
+const { data: blogs } = await useSanityQuery<PostInt>(query);
+
 
 
 // COMPUTED VALUES

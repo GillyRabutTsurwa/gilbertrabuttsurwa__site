@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { PostInt } from "~/interfaces/post";
-import { post } from "~/queries";
+import type { PostInt } from "~~/interfaces/post";
+import { post } from "~~/queries";
 
 const route = useRoute();
 const url = route.params.slug;

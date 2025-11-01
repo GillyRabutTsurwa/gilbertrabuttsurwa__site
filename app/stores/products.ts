@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import type { Product } from "~/interfaces/product";
+import type { Product } from "~~/interfaces/product";
 
 interface State {
     products: Array<Product>;

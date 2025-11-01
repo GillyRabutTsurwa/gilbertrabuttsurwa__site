@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { Home } from "~/interfaces/home";
-import type { PostInt } from "~/interfaces/post";
+import type { Home } from "~~/interfaces/home";
+import type { PostInt } from "~~/interfaces/home";
 
-import { home, posts } from "~/queries";
+import { home, posts } from "~~/queries";
 
 const homeQuery: string = home;
 const postQuery: string = posts("personal");

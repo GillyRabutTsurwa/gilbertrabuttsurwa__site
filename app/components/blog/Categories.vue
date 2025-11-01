@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { StateTree, Store } from "pinia";
-import type { PostInt } from '~/interfaces/post';
+import type { PostInt } from '~~/interfaces/post';
 import { usePostsStore } from '@/stores/posts';
 
 const store: Store<"posts", StateTree> = usePostsStore();

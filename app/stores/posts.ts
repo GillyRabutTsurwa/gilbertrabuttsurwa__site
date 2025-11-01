@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
-import type { PostInt } from "~/interfaces/post";
-import { posts } from "~/queries";
+import type { PostInt } from "~~/interfaces/post";
+import { posts } from "~~/queries";
 
 interface State {
     posts: Array<PostInt>;
