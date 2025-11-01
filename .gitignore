@@ -16,3 +16,4 @@ localhost-key.pem
 localhost.pem
 sanity.groq
 server/plugins/sanity.ts
+package-lock.json
