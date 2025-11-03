@@ -89,7 +89,7 @@ onMounted(() => {
         </template>
     </Navigation>
     <BlogHeader />
-    <FlexContainer layout="row-reverse" class="testooo">
+    <FlexContainer layout="row-reverse">
         <Categories :posts="store.posts" />
         <Posts type="personal" :posts="currentPosts" />
     </FlexContainer>
