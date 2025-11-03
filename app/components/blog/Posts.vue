@@ -52,14 +52,14 @@ const getSnippet = (text: string, limit: number = 300) => text.slice(0, limit) +
 <style lang="scss" scoped>
 // ===================== Personal Blog Styles ==========================
 .blogs-personal {
-    margin: 3rem 0;
-    padding: 0 5rem 5rem 5rem;
-
+    flex: 1 0 75%;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(12, 5vw);
     -moz-gap: 7rem;
     gap: 2rem;
+    margin: 3rem 0;
+    padding: 0 5rem 5rem 5rem;
 
     @include breakpoint(1023) {
         grid-template-columns: 1fr;
@@ -70,8 +70,6 @@ const getSnippet = (text: string, limit: number = 300) => text.slice(0, limit) +
     }
 
     @include breakpoint(767) {
-        // grid-template-columns: unset;
-        // grid-auto-rows: unset;
         display: flex;
         flex-basis: 50rem;
         overflow-x: auto;
@@ -98,7 +96,6 @@ const getSnippet = (text: string, limit: number = 300) => text.slice(0, limit) +
             opacity: 1;
         }
 
-        // TESTING:
         &:nth-child(8n + 1) {
             grid-column: 1 / 3;
             grid-row: 1 / 5;
@@ -138,17 +135,10 @@ const getSnippet = (text: string, limit: number = 300) => text.slice(0, limit) +
             grid-column: 1 / 6;
             grid-row: 10 / 13;
 
-            //NOTE: rendre le texte plus large dans le boite plus large vers le dessous
             p {
                 font-size: 2.5rem !important;
             }
         }
-
-        // @include breakpoint(480) {
-        //   grid-template-rows: 20rem repeat(4, -webkit-min-content);
-        //   grid-template-rows: 20rem repeat(4, min-content);
-        // }
-
 
         &--picture {
             width: 100%;
@@ -177,7 +167,6 @@ const getSnippet = (text: string, limit: number = 300) => text.slice(0, limit) +
             transition: opacity 0.5s ease-in;
             padding: 1.5rem 3rem;
             color: $whitish;
-
             opacity: 0;
 
             .title {

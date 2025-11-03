@@ -57,6 +57,7 @@ watch(() => state.currentPosts, (newValue: Array<string>, _) => {
 
 <style lang="scss" scoped>
 .category {
+  flex: 0 0 25%;
   align-self: start;
   display: flex;
   flex-direction: column;

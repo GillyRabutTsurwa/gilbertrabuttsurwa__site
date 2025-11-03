@@ -89,7 +89,7 @@ onMounted(() => {
         </template>
     </Navigation>
     <BlogHeader />
-    <FlexContainer layout="row-reverse">
+    <FlexContainer layout="row-reverse" class="testooo">
         <Categories :posts="store.posts" />
         <Posts type="personal" :posts="currentPosts" />
     </FlexContainer>
@@ -112,7 +112,6 @@ onMounted(() => {
         margin-bottom: 4rem;
     }
 }
-
 
 .body-tings {
     display: flex;

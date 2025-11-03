@@ -1,5 +1,4 @@
 <template>
-  <Preview />
   <div class="container">
     <div v-for="(currentImage, index) in images" :key="currentImage.id" :class="myClasses[index]">
       <figure :class="`${myClasses[index]}__img`">

@@ -3,48 +3,18 @@ export default defineNuxtConfig({
     devtools: {
         enabled: false,
     },
-
-    devServer: {
-        host: "0.0.0.0",
-    },
-
     modules: ["@nuxtjs/sanity", "@nuxtjs/google-fonts", "@pinia/nuxt"],
-
-    //NOTE: for sanity config via @nuxt/sanityjs docs
     sanity: {
         projectId: process.env.SANITY_PROJECT_ID,
         dataset: process.env.SANITY_ENV_PROD,
         apiVersion: process.env.SANITY_API_VERSION,
-        // useCdn: false,
         visualEditing: {
             studioUrl: process.env.SANITY_STUDIO_URL || "http://localhost:3333",
             token: process.env.SANITY_API_TOKEN,
+            mode: "live-visual-editing",
             stega: true,
         },
     },
-
-    // supabase: {
-    //     url: process.env.SUPABASE_URL,
-    //     key: process.env.SUPABASE_KEY,
-    //     redirectOptions: {
-    //         login: "/login",
-    //         callback: "/blog/uncensored",
-    //         exclude: [
-    //             "/",
-    //             "/api/**/*",
-    //             "/blog",
-    //             "/blog/personal",
-    //             "/blog/personal/*",
-    //             "/blog/tech",
-    //             "/blog/tech/*",
-    //             "/projects",
-    //             "/shop",
-    //             "/contact",
-    //             "/blog/authours/*",
-    //         ],
-    //     },
-    // },
-
     runtimeConfig: {
         public: {
             client_url: process.env.CLIENT_URL,
@@ -72,7 +42,6 @@ export default defineNuxtConfig({
             uri: process.env.MONGODB_URI,
         },
     },
-
     app: {
         head: {
             meta: [
@@ -128,13 +97,12 @@ export default defineNuxtConfig({
             ],
         },
     },
-
     //NOTE: properly setup sass thanks to this: https://www.therdnotes.com/use-scss-with-nuxt-3
     vite: {
         css: {
             preprocessorOptions: {
                 scss: {
-                    api: "modern",
+                    api: "modern", // investigate this
                     additionalData: `
                   @use "@/assets/sass/abstracts/_extends.scss" as *; 
                   @use "@/assets/sass/abstracts/_functions.scss" as *;
@@ -149,9 +117,7 @@ export default defineNuxtConfig({
             },
         },
     },
-
     css: ["@/assets/sass/main.scss"],
-
     components: [
         {
             path: "~/components",
@@ -182,7 +148,6 @@ export default defineNuxtConfig({
             pathPrefix: false,
         },
     ],
-
     googleFonts: {
         display: "swap",
         preconnect: true,
@@ -197,6 +162,5 @@ export default defineNuxtConfig({
             "Kulim+Park": true,
         },
     },
-
     compatibilityDate: "2024-07-18",
 });
